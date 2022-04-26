@@ -29,11 +29,13 @@ namespace primeiro_projeto
             decimal numeroDecimal = 2.5m;
             string numeroEmString = "7";
             double numeroDouble = 3.7
-            decimal deInteiroParaDecimal = Convert.ToDecimal(numeroInteiro);
+            decimal deInteiroParaDecimal = numeroInteiro;
+            decimal deInteiroParaDecimal = (int)numeroInteiro;
             int deDecimalParaInteiro = Convert.ToInt32(numeroDecimal);
             int deStringParaInteiro = Convert.ToInt32(numeroEmString);
             decimal deStringParaDecimal = Convert.ToDecimal(numeroEmString);
             decimal deDoubleParaDecimal = Convert.ToDecimal(numeroDouble);            
+            decimal deDoubleParaDecimal = (decimal)numeroDouble;            
             Console.WriteLine(deInteiroParaDecimal);
             Console.WriteLine(deDecimalParaInteiro);
             Console.WriteLine(deStringParaInteiro);
