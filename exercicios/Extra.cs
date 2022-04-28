@@ -7,6 +7,8 @@ namespace primeiro_projeto
         static void Main(string[] args)
         {
             var resultado = media >= 7 ? "Aprovado" : "Reprovado";
+			
+			Console.Clear();
         }
     }
 }
