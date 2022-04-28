@@ -97,27 +97,23 @@ namespace primeiro_projeto
             Console.WriteLine(String.Format("d) Percentual de pessoas com salário até R$100,00: {0:0.00}%.", contagemMenorCem/contagem*100));
         
             // ex 5
-            Console.Write("Digite um número: ");
+            Console.WriteLine("Digite um número: ");
             int numeroAsteriscos = Convert.ToInt32(Console.ReadLine());
             if(numeroAsteriscos < 5){
                 Console.WriteLine("Número inválido. Tente novamente.");
                 return;
             }
 
-            for(int i = 0; i <= numeroAsteriscos-1; i++){
-                Console.Write(" ");
-            }
-
-            Console.WriteLine("*");   
             for(int i = 1; i <= numeroAsteriscos-1; i++) {
                 for(int j = numeroAsteriscos-1; j >= i; j--){
                     Console.Write(" ");
                 }
-                for(int k = 1; k <= i; k++){
+                Console.Write("*");
+                for(int k = 1; k <= i-1; k++){
                     Console.Write("*");
                     Console.Write("*");
                 }
-                Console.WriteLine("*");                    
+                Console.WriteLine("");                    
             }
         }
     }
