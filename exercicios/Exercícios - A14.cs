@@ -110,8 +110,7 @@ namespace primeiro_projeto
                 }
                 Console.Write("*");
                 for(int k = 1; k <= i-1; k++){
-                    Console.Write("*");
-                    Console.Write("*");
+                    Console.Write("**");
                 }
                 Console.WriteLine("");                    
             }
