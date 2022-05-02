@@ -26,3 +26,5 @@ ctrl + k + u -> para descomentar um código
 [21:09] Prof. Anna Laura: 🎬conteúdos Mais uma dica de atalhos, dessa vez do @Gabriel Henrique Almeida Ludwig. 
 
 ALT + SHIFT + F -> Use para identar o código 
+
+Console.CursorLeft
