@@ -28,3 +28,10 @@ ctrl + k + u -> para descomentar um código
 ALT + SHIFT + F -> Use para identar o código 
 
 Console.CursorLeft
+
+internalConsole - > “integratedTerminal”.
+
+int[] x; // pode armazenar valores inteiros
+string[] s; // pode armazenar valores em texto
+double[] d; // pode armazenar valores numéricos com virgula
+Student[] stud1; // pode armazenar objetos de classes
