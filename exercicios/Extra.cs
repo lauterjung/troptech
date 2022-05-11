@@ -51,3 +51,43 @@ int[,,] array3D = new int[,,] { { { 1, 2, 3 }, { 4, 5, 6 } },
 // The same array with dimensions specified.
 int[,,] array3Da = new int[2, 2, 3] { { { 1, 2, 3 }, { 4, 5, 6 } },
                                        { { 7, 8, 9 }, { 10, 11, 12 } } };
+
+1. Referência:
+using System.Collections.Generic;
+
+2. Declaração:
+LinkedList<string> listaVinculada;
+
+3. Instanciação:
+listaVinculada = new LinkedList<string>();
+
+listaVinculada.AddFirst("Primeiro Item");
+listaVinculada.AddLast("Último item");
+listaVinculada.AddAfter(primeiroItem, "Segundo item");
+listaVinculada.AddBefore(ultimoItem, "Penúltimo item");
+
+LinkedListNode<string> primeiroItem = listaVinculada.First;
+LinkedListNode<string> ultimoItem = listaVinculada.Last;
+LinkedListNode<string> penultimoItem = listaVinculada.Find("Penultimo item");
+
+• Acessando seu valor:
+primeiroItem.Value;
+ultimoItem.Value;
+penultimoItem.Value;
+
+for (var node = listaVinculada.First; node != null; node = node.Next)
+{
+Console.WriteLine(node.Value);
+}
+
+x.Find
+        // Indicate 'fox' node.
+        current = sentence.Find("fox");
+        IndicateNode(current, "Test 7: Indicate the 'fox' node:");
+
+        // Add 'quick' and 'brown' before 'fox':
+        sentence.AddBefore(current, "quick");
+        sentence.AddBefore(current, "brown");
+        IndicateNode(current, "Test 8: Add 'quick' and 'brown' before 'fox':");
+		
+		
