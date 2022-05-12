@@ -90,4 +90,33 @@ x.Find
         sentence.AddBefore(current, "brown");
         IndicateNode(current, "Test 8: Add 'quick' and 'brown' before 'fox':");
 		
+Stack pilha = new Stack();
+pilha.Push(1);
+pilha.Push("Thiago");
+pilha.Push('T');
+pilha.Push(1.2);
+pilha.Push(true);
+pilha.Pop();
+pilha.Peek();
+pilha.Clone();
+pilha.Clear();
+foreach (var elemento in coleção)
+
+Queue fila = new Queue();
+fila.Enqueue(1);
+
+fila.Enqueue ("Thiago");
+fila.Enqueue ('T');
+fila.Enqueue (1.2);
+fila.Enqueue (fase);
+
+fila.Dequeue();
+fila.Peek();
+fila.Clone();
+fila.Clear();
 		
+new DateTime (ano, mês, dia, hora, minuto, segundo)
+CultureInfo idioma = new CultureInfo("pt-BR")
+Console.WriteLine(data.ToString()); yyyy MM dd hh HH mm ss
+String.Format
+Short e LongTimeFormat?
