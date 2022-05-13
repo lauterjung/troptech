@@ -120,3 +120,7 @@ CultureInfo idioma = new CultureInfo("pt-BR")
 Console.WriteLine(data.ToString()); yyyy MM dd hh HH mm ss
 String.Format
 Short e LongTimeFormat?
+Datetime é o tipo
+TimeSpan
+
+Convert.ToDateTime("2022-05-05")
