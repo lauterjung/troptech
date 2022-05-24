@@ -124,3 +124,5 @@ Datetime é o tipo
 TimeSpan
 
 Convert.ToDateTime("2022-05-05")
+
+string.IsEmpty() // orwhitespc
