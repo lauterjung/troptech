@@ -126,3 +126,15 @@ TimeSpan
 Convert.ToDateTime("2022-05-05")
 
 string.IsEmpty() // orwhitespc
+
+método
+public [static] void Method(){}
+public static int Soma(params int[] values)
+{
+	sum = 0;
+	foreach(value in values)
+	{
+		sum += value;
+	}	
+	return(sum);
+}
