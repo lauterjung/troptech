@@ -6,7 +6,7 @@ Curso de programação com ementa full stack em C#, com carga horária de 600 h.
 -Aula 10: Entrada e saída de dados  
 -Aula 11: Variáveis, constantes, tipos de dados e conversões  
 -Aula 12: Operadores lógicos, aritméticos e relacionais  
--Aula 13: Estruturas de decisão
+-Aula 13: Estruturas de decisão  
 -Aula 14: Estruturas de repetição 1  
 -Aula 15: Estruturas de repetição 2  
 -Aula 16: Projeto 1  
@@ -24,4 +24,13 @@ Curso de programação com ementa full stack em C#, com carga horária de 600 h.
 -Projeto 2: Jogo da Velha  
 
 # Módulo 2  
--WIP
+-Aula 1: Classes, campos e construtores  
+-Aula 2: Propriedades e modificadores de acesso  
+-Aula 3: Métodos e sobrecarga  
+-Aula 4: Revisão das aulas 1, 2 e 3: Construíndo uma Pilha  
+-Aula 5: Projeto 1  
+-Aula 6: Structs (Estruturas)  
+
+-Projeto 1: Construíndo uma Fila  
+
+
