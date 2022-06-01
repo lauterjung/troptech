@@ -29,7 +29,8 @@ Curso de programação com ementa full stack em C#, com carga horária de 600 h.
 -Aula 3: Métodos e sobrecarga  
 -Aula 4: Revisão das aulas 1, 2 e 3: Construíndo uma Pilha  
 -Aula 5: Structs (Estruturas)  
--Aula 6: 
+-Aula 6: Programação Orientada à Objetos  
+-Aula 7: 
 
 -Projeto 1: Construíndo uma Fila  
 

@@ -138,3 +138,10 @@ public static int Soma(params int[] values)
 	}	
 	return(sum);
 }
+
+
+public override ToString (obj)
+
+{
+return string formatada
+}
