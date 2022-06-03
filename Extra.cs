@@ -145,3 +145,9 @@ public override ToString (obj)
 {
 return string formatada
 }
+
+virtual // customização opcional, necessita constar na base
+public // sem customização opcional, está na base
+abstract // customização necessária, não está na base
+
+KeyValuePair<string, bool>

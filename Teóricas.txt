@@ -1,0 +1,24 @@
+1 - Cite pelo menos dois métodos que todo objeto herda no C#. Isto feito,
+escolha um deles para descrever seu comportamento padrão e um cenário
+que ele pode ser útil.
+ToString: converte um objeto em string.
+Equals: compara dois objetos. Pode ser útil para comparar apenas o nome ao invés do objeto inteiro ao se dar override.
+
+2 - Atribua verdadeiro (V) ou falso (F) para cada uma das afirmações
+abaixo:
+(F) - No C# é possível herança múltipla (C herda de A e B ao mesmo tempo),
+mas não é possível ter herança multinível (C herda de B, porém B herda de
+A, portanto C herda indiretamente de A).
+(V) - No C# não é possível herança múltipla (C herda de A e B ao mesmo
+tempo), mas é possível ter herança multinível (C herda de B, porém B herda
+de A, portanto C herda indiretamente de A).
+(V) - No C# é não é possível herdar de um tipo primitivo, pois por definição
+structs são tipos selados.
+(V) - As diferenças entre um método virtual e abstrato são:
+? Método abstrato deve ser obrigatoriamente sobrescrito nas classes
+derivadas;
+? Método virtual pode ser opcionalmente sobrescrito, portanto, possui
+uma implementação padrão.
+
+3 - Por que não é possível aplicar herança em classes estáticas?
+Porque ela não pode ser instanciada.
