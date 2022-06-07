@@ -151,3 +151,57 @@ public // sem customização opcional, está na base
 abstract // customização necessária, não está na base
 
 KeyValuePair<string, bool>
+
+
+//polimorfismo - sobrecarga
+public static Number operator + (Number a, Number b)
+{return (a._value + b._value)}
+
+public static int operator + (int a, int b)
+{return (a + b)}
+
+public static bool operator true (Number a)
+{return a._value != 0;}
+public static bool operator true (Number a)
+{return a._value == 0;}
+
+public static explicit operator string(Number number)
+{return Number._value.ToString();}
+
+public static implicit operator string(Number number)
+{return Number._value.ToString();}
+
+// polimorfismo - paramétrico: classes ou tipos genéricos
+
+typeof(x)
+object.GetType()
+
+// método genérico
+static bool Is<T>(int value)
+{return value.GetType() == typeof(T);}
+
+static bool Is<T>(Object value)
+{return value.GetType() == typeof(T);}
+Is<int>(x)
+
+// classe genérica
+class Converter <T>
+{
+static bool Is(Object value)
+{return value.GetType() == typeof(T);}
+}
+Converter<int>.Is(x)
+
+// Polimorfismo de inclusão
+class OperationFactory
+{
+	public static Operation Create (string @operator, decimal n1, decimal n2)
+	=> @operator switch
+	{
+		"+" => new Addition(n1, n2),
+		"-" => new Subtraction(n1, n2),
+		"*" => new Multiplication(n1, n2),
+		"/" => new Division(n1, n2),
+		_ => throw new ArgumentException("Operacao nao suportada");
+	};
+}
