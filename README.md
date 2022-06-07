@@ -33,7 +33,7 @@ Curso de programação com ementa full stack em C#, com carga horária de 600 h.
 -Aula 7: OoP: Encapsulamento  
 -Aula 8: OoP: Herança  
 -Aula 9: Revisão OoP  
--Aula 10: OoP: Polimorfismo  
+-Aula 10: OoP: Polimorfismo e Abstração  
 -Aula 11:  
 
 -Projeto 1: Construíndo uma Fila  
