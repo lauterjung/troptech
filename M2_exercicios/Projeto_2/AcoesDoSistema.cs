@@ -31,10 +31,10 @@ namespace MiguelBusarelloLauterjungM2P2
                     AcoesCliente.CadastrarCliente();
                     break;
                 case "2":
-                    AcoesCliente.ExibirClientes(false); // pesquisa = false
+                    AcoesCliente.ExibirClientes(isPesquisa: false); // pesquisa = false
                     break;
                 case "3":
-                    AcoesCliente.ExibirClientes(true); // pesquisa = true
+                    AcoesCliente.ExibirClientes(isPesquisa: true); // pesquisa = true
                     break;
                 case "4":
                     AcoesCliente.RemoverCliente();

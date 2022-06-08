@@ -205,3 +205,5 @@ class OperationFactory
 		_ => throw new ArgumentException("Operacao nao suportada");
 	};
 }
+
+readonly // sem set
