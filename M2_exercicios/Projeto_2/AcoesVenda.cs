@@ -42,7 +42,7 @@ namespace MiguelBusarelloLauterjungM2P2
             System.Console.Write("Digite o valor total da venda: ");
             decimal valorTotal = Convert.ToDecimal(Console.ReadLine());
 
-            Venda venda = new Venda(cliente);
+            Venda venda = new Venda(cliente, descricao, valorTotal);
             listaVendas.Add(venda);
             System.Console.WriteLine("Venda cadastrada com sucesso!");
         }
