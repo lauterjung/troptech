@@ -207,3 +207,15 @@ class OperationFactory
 }
 
 readonly // sem set
+
+como mostrar parâmetro na passagem do método? :
+
+Object test = null;
+List<string> list = new List<string>() {"a", "b"}
+
+public class NewException : SystemException
+{
+	public NewException(string message) : base (message)
+	{
+	}
+}
