@@ -219,3 +219,42 @@ public class NewException : SystemException
 	{
 	}
 }
+
+dotnet new sln
+dotnet new sln --name Nome
+dotnet new sln --output Nome
+dotnet sln list
+dotnet sln [arq sln] add [projeto]
+dotnet sln [arq sln] remove [projeto]
+dotnet add [projeto atual] reference [projeto a ser referenciado]
+	using solution.class
+	
+dotnet new --list
+dotnet new classlib -o NomeSolucao.Classes -f net6.0
+
+DADO {ator = usuário}
+QUANDO {ação}
+E {parâmetros}
+ENTÃO {resultado esperado}
+
+Add_SingleNumber_ReturnsSameNumber()
+Naming your tests
+The name of your test should consist of three parts:
+    The name of the method being tested.
+    The scenario under which it's being tested.
+    The expected behavior when the scenario is invoked.
+
+Arranging your tests
+Arrange, Act, Assert is a common pattern when unit testing. As the name implies, it consists of three main actions:
+    Arrange your objects, creating and setting them up as necessary.
+    Act on an object.
+    Assert that something is as expected.
+
+dotnet test
+
+https://docs.microsoft.com/en-us/dotnet/api/nunit.framework.assert?view=xamarin-ios-sdk-12
+
+var ex = Assert.Throws<Exception>(() => new Quadrado(-4));
+Assert.That(ex.Message, Is.EqualTo("Mensagem"));
+
+.NET Core Test Explorer

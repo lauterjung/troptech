@@ -44,7 +44,9 @@ Revisão
 -Aula 14: Validações e Controle de Fluxo 1   
 -Aula 15: Validações e Controle de Fluxo 2  
 -Aula 16: Criando Soluções e Projetos  
--Aula 17:   
+-Aula 17: Introdução a testes automatizados  
+-Aula 18: Testes Unitários com NUnit  
+-Aula 19:   
 
 -Projeto 1: Construíndo uma Fila  
 -Projeto 2: Controle de loja  

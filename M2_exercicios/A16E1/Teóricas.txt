@@ -1,0 +1,19 @@
+1. Descreva os comandos abaixo:
+dotnet new --list: 
+lista todos os possíveis tipos de projetos possíveis de serem criados.
+dotnet new console -o ConsoleApp:
+cria um app de console dentro de uma pasta chamada ConsoleApp.
+dotnet new sln: 
+cria uma nova solução dentro da pasta atual, com o nome da pasta.
+dotnet new classlib -o Classes: 
+cria um projeto de biblioteca de classes dentro de uma pasta chamada Classes.
+dotnet new sln --output ControlePonto: 
+Cria uma nova solução dentro de uma pasta chamada ControlePonto.
+dotnet sln list:
+Lista todos os projetos associados à solução.
+
+2. Qual é o comando para adicionar uma referencia de um projeto ao outro?
+R: dotnet add [projeto atual] reference [projeto a ser referenciado]
+
+3. Qual é o comando para vincular os projetos à solução?
+R: dotnet sln [arq sln] add [projeto]
