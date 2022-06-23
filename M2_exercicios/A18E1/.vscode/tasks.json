@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/InterfacesExerc1.csproj",
+                "${workspaceFolder}/InterfacesExerc1/InterfacesExerc1.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/InterfacesExerc1.csproj",
+                "${workspaceFolder}/InterfacesExerc1/InterfacesExerc1.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/InterfacesExerc1.csproj"
+                "${workspaceFolder}/InterfacesExerc1/InterfacesExerc1.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

@@ -1,5 +1,5 @@
 # troptech
-Curso de programação com ementa full stack em C#, com carga horária de 600 h.  
+Curso de programação com ementa full stack em C#, com carga horária de 600 h (em andamento, 150 h / 600 h).  
 Cada aula consiste em um vídeo teórico com 1 h de duração e mais 2 h de resolução de exercícios com mentoria.  
 A cada 7 ou 15 dias é proposto um projeto para a resolução individual valendo nota sobre o conteúdo acumulado.  
 Estou postando a minha resolução de todos os exercícios e projetos nesse repositório.  
