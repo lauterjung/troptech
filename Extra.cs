@@ -258,3 +258,5 @@ var ex = Assert.Throws<Exception>(() => new Quadrado(-4));
 Assert.That(ex.Message, Is.EqualTo("Mensagem"));
 
 .NET Core Test Explorer
+
+"dotnet-test-explorer.testProjectPath": "**/*Tests.@(csproj|vbproj|fsproj)"

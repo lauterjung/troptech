@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoqueExercicio.Library", "EstoqueExercicio.Library\EstoqueExercicio.Library.csproj", "{AA061A80-7059-4EEA-8C52-724AA5CC462F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoqueExercicio.Tests", "EstoqueExercicio.Tests\EstoqueExercicio.Tests.csproj", "{E9569217-52B2-41E2-B2DB-EC3DC8AF3ADA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA061A80-7059-4EEA-8C52-724AA5CC462F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA061A80-7059-4EEA-8C52-724AA5CC462F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA061A80-7059-4EEA-8C52-724AA5CC462F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA061A80-7059-4EEA-8C52-724AA5CC462F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9569217-52B2-41E2-B2DB-EC3DC8AF3ADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9569217-52B2-41E2-B2DB-EC3DC8AF3ADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9569217-52B2-41E2-B2DB-EC3DC8AF3ADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9569217-52B2-41E2-B2DB-EC3DC8AF3ADA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

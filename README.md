@@ -46,8 +46,10 @@ Revisão
 -Aula 16: Criando Soluções e Projetos  
 -Aula 17: Introdução a testes automatizados  
 -Aula 18: Testes Unitários com NUnit  
--Aula 19:   
+-Aula 19: Praticando testes unitários  
+-Aula 20:   
 
 -Projeto 1: Construíndo uma Fila  
 -Projeto 2: Controle de loja  
 -Projeto 3: Sistema de e-mails dúvida-resposta  
+-Projeto 4: Testes unitários
