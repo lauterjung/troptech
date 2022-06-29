@@ -18,37 +18,38 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Aula 19: Estruturas de dados - Vetores 2  
 -Aula 20: Estruturas de dados - Vetores 3  
 -Aula 21: Estruturas de dados - Matrizes  
--Aula 22: Estruturas de dados - Linked List  
--Aula 23: Estruturas de dados - Filas e Pilhas  
+-Aula 22: Estruturas de dados - Linked list  
+-Aula 23: Estruturas de dados - Filas e pilhas  
 -Aula 24: Tipos e funções de data e horário  
 -Aula 25: Projeto 2  
 
 -Projeto 1: Login e calculadora de console  
--Projeto 2: Jogo da Velha  
+-Projeto 2: Jogo da velha  
 
 # Módulo 2  
 -Aula 1: Classes, campos e construtores  
 -Aula 2: Propriedades e modificadores de acesso  
 -Aula 3: Métodos e sobrecarga  
--Aula 4: Revisão das aulas 1, 2 e 3: Construíndo uma Pilha  
+-Aula 4: Revisão das aulas 1, 2 e 3: Construíndo uma pilha  
 -Aula 5: Structs (Estruturas)  
--Aula 6: Programação Orientada à Objetos  
--Aula 7: OoP: Encapsulamento  
--Aula 8: OoP: Herança  
--Aula 9: Revisão OoP  
--Aula 10: OoP: Polimorfismo e Abstração  
--Aula 11: OoP: Pilares  
--Aula 12: OoP: Interfaces  
+-Aula 6: Programação orientada à objetos  
+-Aula 7: OOP: Encapsulamento  
+-Aula 8: OOP: Herança  
+-Aula 9: Revisão OOP  
+-Aula 10: OOP: Polimorfismo e abstração  
+-Aula 11: OOP: Pilares  
+-Aula 12: OOP: Interfaces  
 Revisão  
 -Aula 13: Diagramas  
--Aula 14: Validações e Controle de Fluxo 1   
--Aula 15: Validações e Controle de Fluxo 2  
--Aula 16: Criando Soluções e Projetos  
+-Aula 14: Validações e controle de fluxo 1   
+-Aula 15: Validações e controle de fluxo 2  
+-Aula 16: Criando soluções e projetos  
 -Aula 17: Introdução a testes automatizados  
--Aula 18: Testes Unitários com NUnit  
+-Aula 18: Testes unitários com NUnit  
 -Aula 19: Praticando testes unitários  
 -Aula 20: Test Driven Development - TDD  
--Aula 21:   
+-Aula 21: Pair programming  
+-Aula 22:   
 
 -Projeto 1: Construíndo uma Fila  
 -Projeto 2: Controle de loja  

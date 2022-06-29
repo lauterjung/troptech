@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleEstoque", "ControleEstoque\ControleEstoque.csproj", "{B116C84F-6964-4F52-9651-F10FF5BDAC69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleDeEstoque.Console", "ControleEstoque.Console\ControleDeEstoque.Console.csproj", "{8FFC168A-3BB8-4BC4-A23A-F936A656D899}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleEstoque.Tests", "ControleEstoque.Tests\ControleEstoque.Tests.csproj", "{2B50B9C8-1244-41A1-B66A-98150FE2F2D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B116C84F-6964-4F52-9651-F10FF5BDAC69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B116C84F-6964-4F52-9651-F10FF5BDAC69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B116C84F-6964-4F52-9651-F10FF5BDAC69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B116C84F-6964-4F52-9651-F10FF5BDAC69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FFC168A-3BB8-4BC4-A23A-F936A656D899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FFC168A-3BB8-4BC4-A23A-F936A656D899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FFC168A-3BB8-4BC4-A23A-F936A656D899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FFC168A-3BB8-4BC4-A23A-F936A656D899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B50B9C8-1244-41A1-B66A-98150FE2F2D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B50B9C8-1244-41A1-B66A-98150FE2F2D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B50B9C8-1244-41A1-B66A-98150FE2F2D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B50B9C8-1244-41A1-B66A-98150FE2F2D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

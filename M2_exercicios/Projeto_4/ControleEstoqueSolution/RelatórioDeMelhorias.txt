@@ -1,0 +1,13 @@
+﻿1) O construtor de estoque passando lista de produtos pré-cadastrados não os registra com o método DefineId(). Sugestão: usar o método DefineId() em todos os elementos da lista.
+
+2) Os métodos de estoque requerem um número de ID de produto para rodarem.
+Sugestão: talvez possibilitar uma sobrecarga com o nome do produto.Registrar entrada e saída poderia buscar por nome além de ID (ver também próxima sugestão).
+
+3) Só é possível registrar o ID do produto usando o método Estoque.CadastrarProdutoNoEstoque(). Isso gera dependências nos testes.
+Sugestão: permitir que o ID seja definido em outros momentos (ver também sugestões acima).
+
+4) O ID é uma propriedade estática, o que gera problemas nos testes.
+Sugestão: passar o contador para Estoque e iniciá-lo no construtor. Deixar de ser estático.
+
+5) O método Estoque.RegistrarSaidaDeProduto() permite deduzir quantidades maiores do que o estoque atual.
+Sugestão: gerar exceção quando isso ocorrer.
