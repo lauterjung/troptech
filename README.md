@@ -49,7 +49,8 @@ Revisão
 -Aula 19: Praticando testes unitários  
 -Aula 20: Test Driven Development - TDD  
 -Aula 21: Pair programming  
--Aula 22:   
+-Aula 22: Lição de revisão - Projeto fábrica de robôs (3 dias)  
+-Aula 23:   
 
 -Projeto 1: Construíndo uma Fila  
 -Projeto 2: Controle de loja  
