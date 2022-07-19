@@ -50,7 +50,11 @@ Revisão
 -Aula 20: Test Driven Development - TDD  
 -Aula 21: Pair programming  
 -Aula 22: Lição de revisão - Projeto fábrica de robôs (3 dias)  
--Aula 23:   
+-Aula 23: Lição de revisão - Projeto fábrica de robôs (continuação)  
+-Aula 24: Lição de revisão - Gestão hospitalar (5 dias)  
+-Aula 25: Lição de revisão - Gestão hospitalar (continuação)  
+-Aula 26: Introdução à banco de dados  
+-Aula 27:   
 
 -Projeto 1: Construíndo uma Fila  
 -Projeto 2: Controle de loja  

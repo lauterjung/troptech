@@ -260,3 +260,5 @@ Assert.That(ex.Message, Is.EqualTo("Mensagem"));
 .NET Core Test Explorer
 
 "dotnet-test-explorer.testProjectPath": "**/*Tests.@(csproj|vbproj|fsproj)"
+
+localhost\SQLEXPRESS
