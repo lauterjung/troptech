@@ -39,7 +39,7 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Aula 10: OOP: Polimorfismo e abstração  
 -Aula 11: OOP: Pilares  
 -Aula 12: OOP: Interfaces  
-Revisão  
+-Aula Revisão  
 -Aula 13: Diagramas  
 -Aula 14: Validações e controle de fluxo 1   
 -Aula 15: Validações e controle de fluxo 2  
@@ -54,7 +54,9 @@ Revisão
 -Aula 24: Lição de revisão - Gestão hospitalar (5 dias)  
 -Aula 25: Lição de revisão - Gestão hospitalar (continuação)  
 -Aula 26: Introdução à banco de dados  
--Aula 27:   
+-Aula 27: Banco de dados - Tabelas  
+-Aula 28: Banco de dados - Colunas  
+-Aula 29:   
 
 -Projeto 1: Construíndo uma Fila  
 -Projeto 2: Controle de loja  

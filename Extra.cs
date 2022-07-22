@@ -262,3 +262,81 @@ Assert.That(ex.Message, Is.EqualTo("Mensagem"));
 "dotnet-test-explorer.testProjectPath": "**/*Tests.@(csproj|vbproj|fsproj)"
 
 localhost\SQLEXPRESS
+
+CREATE DATABASE NOME;
+DROP TABLE NOME;
+
+CREATE TABLE CARRO (
+PLACA VARCHAR(10) NOT NULL,
+ANOFABRICAO INT NOT NULL,
+MODELO VARCHAR(100),
+VALORPEGADIO FLOAT NOT NULL,
+TEMPODEUSO INT NOT NULL,
+QTDADEPASSAGEIROS INT NULL
+);
+
+
+SELECT * FROM CARRO;
+
+CREATE TABLE CAMINHAO (
+PLACA VARCHAR(10) NOT NULL,
+ANOFABRICACAO INT NOT NULL,
+MODELO VARCHAR(100) NULL,
+VALORPEGADIO FLOAT NOT NULL,
+TEMPODEUSO INT NOT NULL,
+PESOTOTAL FLOAT NOT NULL,
+VALORCARGA MONEY NOT NULL
+);
+
+SELECT * FROM CAMINHAO;
+
+CREATE TABLE PAGAMENTO (
+MES INT NOT NULL,
+SALARIO DECIMAL NOT NULL
+);
+
+
+Criar tabela e colunas:
+
+	CREATE TABLE Produtos
+	(
+		NOME NVARCHAR(50) NULL,
+		VALOR FLOAT NULL,
+		VALIDADE DATETIME NULL
+	);
+
+
+Adcionar nova coluna:
+
+	ALTER TABLE Produtos ADD
+		QUANTIDADE int NULL
+
+Alterando nome de uma coluna:
+
+	EXEC sp_rename 'Produtos.VALOR', 'PRECO', 'COLUMN';
+
+Alterando possibilidade de inserir nulo:
+
+	ALTER TABLE Produtos ALTER COLUMN
+		VALIDADE DATETIME NOT NULL;
+
+	ALTER TABLE Produtos ALTER COLUMN
+		PRECO INT NULL;
+
+
+Alterando o Tipo de uma coluna:
+
+	ALTER TABLE Produtos ALTER COLUMN 
+		PRECO DECIMAL (5, 2);
+
+	ALTER TABLE Produtos ALTER COLUMN 
+		NOME VARCHAR(50);
+
+Excluindo uma coluna:
+
+	ALTER TABLE Produtos DROP COLUMN VALIDADE;
+
+Documentações:
+
+https://docs.microsoft.com/pt-br/dotnet/framework/data/adonet/sql-server-data-type-mappings
+https://docs.microsoft.com/pt-br/sql/relational-databases/tables/create-tables-database-engine?view=sql-server-ver16
