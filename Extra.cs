@@ -340,3 +340,30 @@ Documentações:
 
 https://docs.microsoft.com/pt-br/dotnet/framework/data/adonet/sql-server-data-type-mappings
 https://docs.microsoft.com/pt-br/sql/relational-databases/tables/create-tables-database-engine?view=sql-server-ver16
+
+INSERT INTO Produtos
+(Nome, Valor, Quantidade)
+VALUES
+(‘Televisão’, 1500, 100)
+
+INSERT INTO Produtos
+VALUES (‘Televisão’, 1500, 100)
+
+INSERT INTO Produtos
+VALUES (‘Televisão’, 1500, null)
+
+SELECT
+Nome,
+Valor,
+Quantidade
+FROM Produtos
+
+SELECT * FROM Produtos
+
+UPDATE Produtos SET Nome = ‘SmartTV’ WHERE Nome =
+‘Televisão’
+
+DELETE FROM Produtos
+WHERE Nome = ‘SmartTV’
+
+AS = alias
