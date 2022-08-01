@@ -412,3 +412,53 @@ CONSTRAINT FK_PRODUTO FOREIGN KEY (PRODUTOID) REFERENCES PRODUTO (ID)
 );
 
 
+SELECT L.ID, L.NOME, F.ID, F.TITULO
+FROM FILME F INNER JOIN  LOCATORIO L ON (L.ID = F.LOCATORIOID)
+
+SELECT L.ID, L.NOME, F.ID, F.LOCATORIOID, F.TITULO
+FROM FILME F LEFT JOIN  LOCATORIO L ON (L.ID = F.LOCATORIOID)
+
+SELECT L.ID, L.NOME, F.ID, F.LOCATORIOID, F.TITULO
+FROM FILME F RIGHT JOIN  LOCATORIO L ON (L.ID = F.LOCATORIOID)
+
+SELECT L.ID, L.NOME, F.ID, F.LOCATORIOID, F.TITULO
+FROM FILME F FULL JOIN  LOCATORIO L ON (L.ID = F.LOCATORIOID)
+
+
+SELECT * FROM Professores
+
+SELECT AVG(ValorHora) AS MediaValorHora FROM Professores;
+SELECT COUNT(ProfessorAutor) AS NumeroProfessores FROM Professores;
+SELECT MAX(CargaHoraria) AS MaiorCargaHoraria FROM Professores;
+SELECT MIN(CargaHoraria) AS MenorCargaHoraria FROM Professores;
+SELECT SUM(ValorHora) AS TotalValorHora FROM Professores;
+
+SELECT GETDATE() AS DataAtual;
+SELECT DAY(DataNascimento) AS DiaDoMes FROM Professores;
+SELECT DAY(GETDATE()) AS DiaDeHoje;
+SELECT ISDATE(DataNascimento) AS EhUmaData FROM Professores;
+SELECT ISDATE(Endereco) AS EhUmaData FROM Professores;
+SELECT MONTH(DataNascimento) as Mes FROM Professores;
+SELECT YEAR(DataNascimento) as Ano FROM Professores;
+SELECT DATEADD(YEAR, 1, DataNascimento) as AnoAdicionado FROM Professores;
+SELECT DATEADD(MONTH, 2, DataNascimento) as MesAdicionado FROM Professores;
+SELECT DATEADD(DAY, 10, DataNascimento) as DiaAdicionado FROM Professores;
+
+SELECT SUBSTRING(Endereco, 1, 3) AS TextoExtraido FROM Professores;
+SELECT REPLACE(Endereco, 'Rua', 'R.') AS EnderecoAlterado FROM Professores;
+SELECT LOWER(NomeCompleto) as NomeMinusculo FROM Professores;
+SELECT UPPER(NomeCompleto) as NomeMaiusculo FROM Professores;
+SELECT CONCAT(NomeCompleto, ', ', Endereco) AS NomeEEndereco FROM Professores;
+
+SELECT @@SERVERNAME;
+SELECT @@SERVICENAME;
+SELECT @@VERSION;
+SELECT @@LANGUAGE;
+
+SELECT NomeCompleto, DataNascimento, CargaHoraria, COALESCE(Endereco, 'Não informado') AS Endereco FROM Professores;
+SELECT NEWID();
+SELECT CAST(ValorHora AS INT) AS ValorConvertido FROM Professores;
+
+SELECT TOP(2) * FROM Professores;
+
+UPDATE Professores SET Endereco = REPLACE(Endereco, 'Rua', 'R.')

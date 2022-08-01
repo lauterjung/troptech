@@ -57,10 +57,14 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Aula 27: Banco de dados - Tabelas  
 -Aula 28: Banco de dados - Colunas  
 -Aula 29: Manipulando dados SQL  
--Aula 30:   
+-Aula 30: Chaves SQL  
+-Aula 31: Álgebra relacional em SQL  
+-Aula 32: Funções úteis SQL Server  
+-Aula 33:   
 
 -Projeto 1: Construíndo uma Fila  
 -Projeto 2: Controle de loja  
 -Projeto 3: Sistema de e-mails dúvida-resposta  
 -Projeto 4: Testes unitários  
 -Projeto 5: Introdução à banco de dados  
+-Projeto 6: Banco de dados  
