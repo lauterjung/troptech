@@ -32,7 +32,7 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Aula 3: Métodos e sobrecarga  
 -Aula 4: Revisão das aulas 1, 2 e 3: Construíndo uma pilha  
 -Aula 5: Structs (Estruturas)  
--Aula 6: Programação orientada à objetos  
+-Aula 6: Programação orientada à objetos (OOP)  
 -Aula 7: OOP: Encapsulamento  
 -Aula 8: OOP: Herança  
 -Aula 9: Revisão OOP  
@@ -60,7 +60,9 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Aula 30: Chaves SQL  
 -Aula 31: Álgebra relacional em SQL  
 -Aula 32: Funções úteis SQL Server  
--Aula 33:   
+-Aula 33: Índices  
+-Aula 34: Revisão banco de dados (3 dias)  
+-Aula 35:   
 
 -Projeto 1: Construíndo uma Fila  
 -Projeto 2: Controle de loja  
