@@ -70,3 +70,4 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Projeto 4: Testes unitários  
 -Projeto 5: Introdução à banco de dados  
 -Projeto 6: Banco de dados  
+-Projeto 7: Banco de dados 2  
