@@ -62,7 +62,9 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Aula 32: Funções úteis SQL Server  
 -Aula 33: Índices  
 -Aula 34: Revisão banco de dados (3 dias)  
--Aula 35:   
+-Aula 35: Integração C# e banco de dados  
+-Aula 36: Consultando dados  
+-Aula 37:   
 
 -Projeto 1: Construíndo uma Fila  
 -Projeto 2: Controle de loja  

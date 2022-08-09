@@ -499,3 +499,30 @@ DROP INDEX ix_DATANASCIMENTO_cpf ON CLIENTE;
 ALTER INDEX IXU_NOME ON CLIENTE REBUILD;
 
 ALTER INDEX IXU_NOME ON CLIENTE REORGANIZE;
+
+dotnet add package System.Data.SqlClient
+
+server=INSTANCIA_BANCO;database=NOME_BANCO;user id=USUARIO;word=SENHA;
+Ou
+Data Source=INSTANCIA_BANCO;initial catalog=NOME_BANCO;uid=USUARIO;pwd= SENHA;
+
+string connectionString = "server=.\SQLexpress;initial catalog=NOME_BANCO;integrated security=true";
+SqlConnection conection = new SqlConnection(connectionString);
+
+SqlConnection conection = new SqlConnection();
+connection.ConnectionString = connectionString;
+
+connection.Open();
+connection.Close();
+
+INTO?
+SqlCommand command = new SqlCommand("INSERT ALUNO VALUES(25548, 'LUIZ SUAREZ', 36)", connection);
+command.ExecuteNonQuery();
+
+SqlCommand command = new SqlCommand();
+command.Connection(connection);
+command.CommandText = @"INSERT ALUNO VALUES(25548, 'LUIZ SUAREZ', 36)";
+connection.ExecuteNonQuery();
+
+
+
