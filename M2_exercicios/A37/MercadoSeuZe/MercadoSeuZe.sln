@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MercadoSeuZe.ConsoleApp", "MercadoSeuZe.ConsoleApp\MercadoSeuZe.ConsoleApp.csproj", "{7A2412E3-19AE-4A88-8E71-AABEF3B06E42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MercadoSeuZe.DAO", "MercadoSeuZe.DAO\MercadoSeuZe.DAO.csproj", "{8F8EA9C4-53B8-4D06-A72D-8918C9BB5CFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MercadoSeuZeDAO", "MercadoSeuZeDAO\MercadoSeuZeDAO.csproj", "{592B8C2E-39A3-4CE4-B9F4-34C58D7E2AFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A2412E3-19AE-4A88-8E71-AABEF3B06E42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A2412E3-19AE-4A88-8E71-AABEF3B06E42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A2412E3-19AE-4A88-8E71-AABEF3B06E42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A2412E3-19AE-4A88-8E71-AABEF3B06E42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F8EA9C4-53B8-4D06-A72D-8918C9BB5CFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F8EA9C4-53B8-4D06-A72D-8918C9BB5CFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F8EA9C4-53B8-4D06-A72D-8918C9BB5CFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F8EA9C4-53B8-4D06-A72D-8918C9BB5CFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{592B8C2E-39A3-4CE4-B9F4-34C58D7E2AFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{592B8C2E-39A3-4CE4-B9F4-34C58D7E2AFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{592B8C2E-39A3-4CE4-B9F4-34C58D7E2AFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{592B8C2E-39A3-4CE4-B9F4-34C58D7E2AFA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

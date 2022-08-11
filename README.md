@@ -64,7 +64,9 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Aula 34: Revisão banco de dados (3 dias)  
 -Aula 35: Integração C# e banco de dados  
 -Aula 36: Consultando dados  
--Aula 37:   
+-Aula 37: Parâmetros  
+-Aula 38: CRUD com C# e SQLServer  
+-Aula 39:   
 
 -Projeto 1: Construíndo uma Fila  
 -Projeto 2: Controle de loja  
@@ -73,3 +75,4 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Projeto 5: Introdução à banco de dados  
 -Projeto 6: Banco de dados  
 -Projeto 7: Banco de dados 2  
+-Projeto 8:   
