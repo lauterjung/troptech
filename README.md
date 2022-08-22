@@ -65,8 +65,10 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Aula 35: Integração C# e banco de dados  
 -Aula 36: Consultando dados  
 -Aula 37: Parâmetros  
--Aula 38: Data Access Object (DAO)  
--Aula 39:   
+-Aula 38: Data Access Object (DAO) 1  
+-Aula 39: Data Access Object (DAO) 2  
+-Aula 40: Data Access Object (DAO) 3 - Início Projeto 9   
+-Aula 41:    
 
 -Projeto 1: Construíndo uma Fila  
 -Projeto 2: Controle de loja  
@@ -76,4 +78,5 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Projeto 6: Banco de dados  
 -Projeto 7: Banco de dados 2  
 -Projeto 8: CRUD com C# e SQLServer    
--Projeto 9:     
+-Projeto 9: Integração C# e SQLServer  
+-Projeto 10:   
