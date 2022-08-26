@@ -68,7 +68,11 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Aula 38: Data Access Object (DAO) 1  
 -Aula 39: Data Access Object (DAO) 2  
 -Aula 40: Data Access Object (DAO) 3 - Início Projeto 9   
--Aula 41:    
+-Aula Revisão  
+-Aula 41: Padrão de projeto: Arquitetura em camadas  
+-Aula 42: Padrão de projeto: Repository  
+-Aula 43: Padrão de projeto: Aula prática  
+-Aula 44:   
 
 -Projeto 1: Construíndo uma Fila  
 -Projeto 2: Controle de loja  
@@ -78,5 +82,6 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Projeto 6: Banco de dados  
 -Projeto 7: Banco de dados 2  
 -Projeto 8: CRUD com C# e SQLServer    
--Projeto 9: Integração C# e SQLServer  
--Projeto 10:   
+-Projeto 9: Gerenciamento de mercado (Integração C# e SQLServer)  
+-Projeto 10: Gerenciamento de conta de luz (Padrão de projeto: Camadas e repository)  
+-Projeto 11:   

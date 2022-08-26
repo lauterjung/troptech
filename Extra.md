@@ -487,3 +487,10 @@ using (SqlConnection connection = new SqlConnection(_connectionString))
 		command.ExecuteNonQuery();
 	}
 }
+
+Sln
+> Sln.ConsoleApp (Console App) (conhece todos)
+> Sln.Domain (Class Lib) (não conhece ninguém)
+> Sln.Infra.Data (Class Lib) (conhece domain)
+
+
