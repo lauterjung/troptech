@@ -72,8 +72,8 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Aula 41: Padrão de projeto: Arquitetura em camadas  
 -Aula 42: Padrão de projeto: Repository  
 -Aula 43: Padrão de projeto: Aula prática  
--Aula 44:   
-
+-Aula Revisão  
+  
 -Projeto 1: Construíndo uma Fila  
 -Projeto 2: Controle de loja  
 -Projeto 3: Sistema de e-mails dúvida-resposta  

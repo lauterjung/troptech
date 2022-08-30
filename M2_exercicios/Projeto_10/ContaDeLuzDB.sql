@@ -1,0 +1,40 @@
+USE master
+GO
+
+DROP DATABASE IF EXISTS CONTADELUZDB;
+GO
+
+CREATE DATABASE CONTADELUZDB;
+GO
+
+USE CONTADELUZDB
+GO
+
+CREATE TABLE Contas
+(
+    numero_leitura BIGINT NOT NULL,
+    data_leitura DATE NOT NULL,
+    kw_gasto DECIMAL(38,4) NOT NULL,
+    valor_a_pagar DECIMAL(38,2) NOT NULL,
+    media_consumo DECIMAL(38,4) NOT NULL,
+    data_pagamento DATE NULL,
+    CONSTRAINT PK_numero_leitura PRIMARY KEY (numero_leitura),
+);
+
+INSERT INTO Contas
+VALUES
+    (1, '2022-01-01', 80.23, 21.66, 80.23, '2022-01-10'),
+    (2, '2022-02-01', 119.45, 32.2515, 99.8400, '2022-02-10'),
+    (3, '2022-03-01', 79.22, 21.3894, 92.9667, '2022-03-10'),
+    (4, '2022-04-01', 133.33, 35.9991, 103.0575, '2022-04-10'),
+    (5, '2022-05-01', 101.08, 27.2916, 102.6620, '2022-05-10'),
+    (6, '2022-06-01', 112, 30.24, 104.2183, '2022-06-10'),
+    (7, '2022-07-01', 111.15, 30.0105, 105.2086, '2022-07-10'),
+    (8, '2022-08-01', 107.24, 28.9548, 105.4625, '2022-08-10'),
+    (9, '2022-09-01', 95.33, 25.7391, 104.3367, NULL);
+
+SELECT *
+FROM Contas;
+
+SELECT * FROM Contas
+WHERE MONTH(data_leitura) = 6 AND YEAR(data_leitura) = 2022;
