@@ -177,6 +177,25 @@ namespace AgenciaBancaria.ConsoleApp
             throw new InexistingAccountType();
         }
 
+        // public static bool StringToAccountTypes(string accountTypeStr, out AccountTypes accountType)
+        // {
+        //     accountType = 0;
+
+        //     int number;
+        //     bool isNumeric = int.TryParse(accountTypeStr, out number);
+        //     if (isNumeric == true && !Enum.IsDefined(typeof(AccountTypes), number))
+        //     {
+        //         return false;
+        //     }
+
+        //     if (Enum.TryParse(accountTypeStr.ToLower(), out accountType))
+        //     {
+        //         return true;
+        //     }
+
+        //     return false;
+        // }
+
         public static BusinessBaskets? StringToBusinessBaskets(string businessBasketStr)
         {
             BusinessBaskets businessBasket;
