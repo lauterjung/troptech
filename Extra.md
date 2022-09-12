@@ -3,6 +3,7 @@ cd
 dotnet new console -n SalaReunioes.ConsoleApp -f net5.0 
 dotnet new classlib -n SalaReunioes.Domain -f net5.0 
 dotnet new classlib -n SalaReunioes.Infra.Data -f net5.0
+dotnet new webapi -n FigurinhasCopa.WebApi -f net5.0
 
 dotnet sln add .\SalaReunioes.ConsoleApp\ 
 dotnet sln add .\SalaReunioes.Domain\ 
@@ -25,6 +26,11 @@ namespace primeiro_projeto { class Program { static void Main(string[] args) { v
 }
 
 }
+
+
+
+
+
 Console
 
 cls // utilize para limpar o console dotnet new console // utilizar para criar um novo projeto na última versão do .net instalada na sua máquina dotnet new console --framework net5.0 // utilize para criar um novo projeto na versão 5.0 quando existir uma versão mais nova instalada na máquina cd {caminho de uma pasta} // utilize para ir para alguma pasta no cmd code // utilize para abrir o code na pasta que está o cmd dotnet run // utilize para rodar o projeto

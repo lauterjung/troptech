@@ -75,7 +75,9 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Aula 44: Padrões de projeto: Aula prática 2  
 -Aula 45: Revisão: Padrões de projeto  
 -Aula 46: Introdução à APIs  
--Aula 47:   
+-Aula 47: API: Conceitos  
+-Aula 48: API REST  
+-Aula 49:   
   
 -Projeto 1: Construíndo uma Fila  
 -Projeto 2: Controle de loja  
@@ -87,4 +89,5 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Projeto 8: CRUD com C# e SQLServer    
 -Projeto 9: Gerenciamento de mercado (Integração C# e SQLServer)  
 -Projeto 10: Gerenciamento de conta de luz (Padrões de projeto: Camadas e repository)  
--Projeto 11:   
+-Projeto 11: API de rede social  
+-Projeto 12:   
