@@ -3,7 +3,7 @@ cd
 dotnet new console -n SalaReunioes.ConsoleApp -f net5.0 
 dotnet new classlib -n SalaReunioes.Domain -f net5.0 
 dotnet new classlib -n SalaReunioes.Infra.Data -f net5.0
-dotnet new webapi -n FigurinhasCopa.WebApi -f net5.0
+dotnet new webapi -n Netflix.WebApi -f net5.0
 
 dotnet sln add .\SalaReunioes.ConsoleApp\ 
 dotnet sln add .\SalaReunioes.Domain\ 
@@ -261,3 +261,10 @@ Sln
 
     Sln.ConsoleApp (Console App) (conhece todos) Sln.Domain (Class Lib) (não conhece ninguém) Sln.Infra.Data (Class Lib) (conhece domain)
 
+public IActionResult Get()
+return Ok(); // 200
+return NoContent(); // 204
+return BadRequest(); // 400
+
+
+ActionResult<T>
