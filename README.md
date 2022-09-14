@@ -77,7 +77,9 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Aula 46: Introdução à APIs  
 -Aula 47: API: Conceitos  
 -Aula 48: API REST  
--Aula 49:   
+-Aula 49: ASP.NET Web API parte 1  
+-Aula 50: ASP.NET Web API parte 2  
+-Aula 51:  
   
 -Projeto 1: Construíndo uma Fila  
 -Projeto 2: Controle de loja  

@@ -1,4 +1,6 @@
-﻿dotnet new sln -o SalaReunioes
+﻿dotnet watch
+
+dotnet new sln -o SalaReunioes
 cd
 dotnet new console -n SalaReunioes.ConsoleApp -f net5.0 
 dotnet new classlib -n SalaReunioes.Domain -f net5.0 
