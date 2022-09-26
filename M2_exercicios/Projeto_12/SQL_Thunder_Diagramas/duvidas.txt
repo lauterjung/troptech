@@ -1,0 +1,9 @@
+Dúvidas que surgiram ao longo do projeto:
+
+1. Uma passagem possui passagens e cliente (+ endereço). Para pegar os dados do banco de dados para um objeto, devo fazer uma querry na tabela Viagens com vários joins ou usar os outros DAOs para pegar as informações de passagens e cliente (+ endereço)?
+
+2. É possível ter uma struct com algum elemento nullable (ex. complemento opcional no endereço)?
+
+3. Como configurar o .NET Core Test Explorer? Aqui ficou bugado, só reconhecendo 1 arquivo *Test.cs por vez.
+
+4. Na ViagemRepository.cs, na hora de remarcar a viagem, tenho que atualizar (vincular) as passagens de ida e de volta. Como fazer para o bloco ser executado por completo no banco de dados (atualizar tanto ida como volta de uma única vez, sem falhar pela metade)?

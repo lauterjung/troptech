@@ -1,0 +1,88 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "ControleEstoque/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/ControleEstoque.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ControleEstoque.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ControleEstoque/1.0.0": {
+      "type": "project",
+      "path": "../ControleEstoque/ControleEstoque.csproj",
+      "msbuildProject": "../ControleEstoque/ControleEstoque.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "ControleEstoque >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Miguel\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "d:\\Dropbox\\Dropbox\\program\\git\\troptech\\M2_exercicios\\A20E3\\ControleEstoqueSolution\\ControleDeEstoque.Console\\ControleDeEstoque.Console.csproj",
+      "projectName": "ControleDeEstoque.Console",
+      "projectPath": "d:\\Dropbox\\Dropbox\\program\\git\\troptech\\M2_exercicios\\A20E3\\ControleEstoqueSolution\\ControleDeEstoque.Console\\ControleDeEstoque.Console.csproj",
+      "packagesPath": "C:\\Users\\Miguel\\.nuget\\packages\\",
+      "outputPath": "d:\\Dropbox\\Dropbox\\program\\git\\troptech\\M2_exercicios\\A20E3\\ControleEstoqueSolution\\ControleDeEstoque.Console\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Miguel\\AppData\\Roaming\\NuGet\\NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {
+            "d:\\Dropbox\\Dropbox\\program\\git\\troptech\\M2_exercicios\\A20E3\\ControleEstoqueSolution\\ControleEstoque\\ControleEstoque.csproj": {
+              "projectPath": "d:\\Dropbox\\Dropbox\\program\\git\\troptech\\M2_exercicios\\A20E3\\ControleEstoqueSolution\\ControleEstoque\\ControleEstoque.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

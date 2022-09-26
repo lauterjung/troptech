@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using ControleEstoque;
 using ControleEstoque.Excecoes;
 using NUnit.Framework;
+using ControleEstoque;
 
 namespace ControleEstoque.Tests
 {

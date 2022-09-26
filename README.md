@@ -79,7 +79,7 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Aula 48: API REST  
 -Aula 49: ASP.NET Web API parte 1  
 -Aula 50: ASP.NET Web API parte 2  
--Aula 51:  
+-Aula 51: Revisão back-end  
   
 -Projeto 1: Construíndo uma Fila  
 -Projeto 2: Controle de loja  
@@ -92,4 +92,7 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Projeto 9: Gerenciamento de mercado (Integração C# e SQLServer)  
 -Projeto 10: Gerenciamento de conta de luz (Padrões de projeto: Camadas e repository)  
 -Projeto 11: API de rede social  
--Projeto 12:   
+-Projeto 12: Sistema de viagens (banco de dados + integração + API)  
+
+# Modulo 3  
+-Aula 1: 

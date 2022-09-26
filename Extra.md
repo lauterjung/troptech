@@ -5,14 +5,19 @@ cd
 dotnet new console -n SalaReunioes.ConsoleApp -f net5.0 
 dotnet new classlib -n SalaReunioes.Domain -f net5.0 
 dotnet new classlib -n SalaReunioes.Infra.Data -f net5.0
-dotnet new webapi -n Netflix.WebApi -f net5.0
+dotnet new webapi -n SalaReunioes.WebApi -f net5.0
 
 dotnet sln add .\SalaReunioes.ConsoleApp\ 
 dotnet sln add .\SalaReunioes.Domain\ 
 dotnet sln add .\SalaReunioes.Infra.Data\ 
+dotnet sln add .\SalaReunioes.WebApi\
 dotnet add .\SalaReunioes.ConsoleApp\ reference .\SalaReunioes.Domain\ 
 dotnet add .\SalaReunioes.ConsoleApp\ reference .\SalaReunioes.Infra.Data\ 
 dotnet add .\SalaReunioes.Infra.Data\ reference .\SalaReunioes.Domain\ 
+dotnet add .\SalaReunioes.WebApi\ reference .\SalaReunioes.Domain\ 
+dotnet add .\SalaReunioes.WebApi\ reference .\SalaReunioes.Infra.Data\ 
+
+
 cd 
 dotnet add package System.Data.SqlClient
 
