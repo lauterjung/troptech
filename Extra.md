@@ -1,4 +1,5 @@
-﻿dotnet watch
+﻿
+dotnet watch
 
 dotnet new sln -o SalaReunioes
 cd
@@ -275,3 +276,29 @@ return BadRequest(); // 400
 
 
 ActionResult<T>
+
+
+git config --global alias.logg "log --pretty=format:'%C(auto)%h %Cblue%an%Creset%C(auto)%d %s' --graph --all --topo-order"
+
+
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<title> Document </title>
+</head>
+
+<body>
+
+</body>
+</html>
+
+<!DOCTYPE>  	Defines the document type
+<html> 	Defines an HTML document
+<head> 	Contains metadata/information for the document
+<title> 	Defines a title for the document
+<body> 	Defines the document's body
+<h1> to <h6> 	Defines HTML headings
+<p> 	Defines a paragraph
+<br> 	Inserts a single line break
+<hr> 	Defines a thematic change in the content
+<!--...--> 	Defines a comment
