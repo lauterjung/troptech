@@ -95,4 +95,6 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Projeto 12: Sistema de viagens (banco de dados + integração + API)  
 
 # Modulo 3  
--Aula 1: 
+-Aula 1: Fundamentos da WEB - Introdução  
+-Aula 2: Fundamentos da WEB - Textual  
+-Aula 3:   

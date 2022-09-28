@@ -302,3 +302,9 @@ git config --global alias.logg "log --pretty=format:'%C(auto)%h %Cblue%an%Creset
 <br> 	Inserts a single line break
 <hr> 	Defines a thematic change in the content
 <!--...--> 	Defines a comment
+
+<ul>
+<ol>
+<li>
+<a href="link">hyperlink</a>
+<div id="a">
