@@ -1,4 +1,72 @@
-﻿
+﻿tem como hostear?
+	codepen
+	tecblitz
+
+.flex-container{
+	display: flex;
+	flex-direction: row | row-reverse | column | column-reverse
+	flex-wrap: nowrap | wrap | wrap-reverse
+	justify-content: flex-start | flex-end  | center | space-between | space-around | space-evenly
+	align-items: stretch | flex-start | flex-end | center | baseline
+	align-content: flex-start | flex-end | center | space-between | space-around | stretch
+}
+
+.flex-item{
+	display: flex;
+	flex-direction
+	flex-grow: <number>;
+	align-self: auto | flex-start | flex-end | center | baseline | stretch;
+}
+
+
+.style {
+	font-size:
+	font-size
+	font-family
+	background-color
+	color
+	text-align: center, left, right, inherit, justify.
+	margin-top
+	
+	bg
+	background:background-color, background-image, background-repeat background-attachment, background-position
+	background-color: color-rgb, color-hex, color-name, transparent
+	background-image: url, none
+	background-repeat: repeat, repeat-x, repeat-y, no-repeat
+	background-attachment: scroll, fixed
+	background-position: top left, top center, top right, center left, center center, center right, bottom left, bottom center, bottom, right, x-% y-%, x-pos y-pos
+
+	txt
+	color: color
+	direction: ltr, rtl
+	letter-spacing: normal, length
+	text-align: left, right, center, justify
+	text-decoration: none, underline, overline, line-through, blink
+	text-indent: length, %
+	text-shadow: none, color, length
+	text-transform: none, capitalize, uppercase, lowercase
+	unicode-bidi: normal, embed, bidi-override
+	white-space: normal, pre, nowrap
+	word-spacing: normal, length
+	
+	font
+	font: font-style, font-variant, font-weight, font-size/line-height, font-family, caption, icon, menu, message-box, small-caption, status-bar
+	font-family: family-name, generic-family, font-size: xx-small, x-small, small, medium, large, x-large, xx-large, smaller, larger, length, %
+	font-size-adjust: none, number
+	font-stretch: normal, wider, narrower, ultra-condensed, extra-condensed, condensed, semi-condensed, semi-expanded, expanded, extra-expanded, ultra-expanded
+	font-style: normal, italic, oblique
+	font-variant: normal, small-caps
+	font-weight: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
+
+
+
+
+
+}
+
+
+https://github.com/engenheiracoelho/CSS_tools
+
 dotnet watch
 
 dotnet new sln -o SalaReunioes
@@ -308,3 +376,6 @@ git config --global alias.logg "log --pretty=format:'%C(auto)%h %Cblue%an%Creset
 <li>
 <a href="link">hyperlink</a>
 <div id="a">
+
+<
+<input type="text"/>

@@ -99,6 +99,13 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Aula 2: Fundamentos da WEB (HTML) - Textual  
 -Aula 3: Fundamentos da WEB (HTML) - Tabelas  
 -Aula 4: Fundamentos da WEB (HTML) - Formulários  
--Aula 5:   
+-Aula 5: Seletores CSS  
+-Aula 6: Flexbox (CSS)  
+-Aula 7: Grid layout (CSS)  
+-Aula 8: Início Projeto 2  
+-Aula 9: JavaScript (JS) Básico - Introdução  
+-Aula 10:   
   
--Projeto 1: Construíndo uma Fila  
+-Projeto 1: Controle de estoque (HTML)  
+-Projeto 2: Site de gerenciamento de notas (HTML + CSS)  
+-Projeto 3:   

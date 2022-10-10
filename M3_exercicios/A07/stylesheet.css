@@ -1,0 +1,67 @@
+html {
+    padding: 0px;
+    margin: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+body {
+    font-family: "Courier New";
+    background-color: rgb(38, 38, 38);
+    color: white;
+    margin: 0;
+}
+
+h2 {
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.20fr 0.80fr 40px;
+    grid-template-areas:
+        'header header'
+        'avisos eventos'
+        'footer footer';
+    gap: 10px 20px;
+}
+
+.header {
+    grid-area: header;
+    text-align: center;
+    color: white;
+    background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(83, 86, 235, 1) 75%, rgba(253, 45, 245, 1) 100%);
+    padding: 15px;
+    font-size: 1.2em;
+}
+
+.avisos {
+    grid-area: avisos;
+    padding: 10px;
+}
+
+.eventos {
+    grid-area: eventos;
+    padding: 10px;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: black;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 16px;
+}
+
+
+.itens {
+    text-align: left;
+    background-color: rgb(255, 255, 255, 0.05);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    justify-content: space-around;
+}

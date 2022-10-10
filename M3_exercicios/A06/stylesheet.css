@@ -1,0 +1,41 @@
+html {
+    padding: 0px;
+    margin: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+body {
+    font-family: "Courier New";
+    background-color: rgb(38, 38, 38);
+    color: white;
+}
+
+.header {
+    text-align: center;
+    color: white;
+    background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(83, 86, 235, 1) 75%, rgba(253, 45, 245, 1) 100%);
+    padding: 15px;
+    font-size: 1.2em;
+}
+
+.flex-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.column {
+    padding: 10px;
+    text-align: center;
+    width: 50%;
+}
+
+.itens {
+    text-align: left;
+    background-color: rgb(255, 255, 255, 0.05);
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    justify-content: space-around;
+}
