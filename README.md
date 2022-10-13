@@ -104,7 +104,8 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Aula 7: Grid layout (CSS)  
 -Aula 8: Início Projeto 2  
 -Aula 9: JavaScript (JS) Básico - Introdução  
--Aula 10:   
+-Aula 10: JavaScript (JS) Básico - Operadores e condicionais  
+-Aula 11:   
   
 -Projeto 1: Controle de estoque (HTML)  
 -Projeto 2: Site de gerenciamento de notas (HTML + CSS)  
