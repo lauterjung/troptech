@@ -1,6 +1,12 @@
-﻿tem como hostear?
+﻿push
+pop
+splice(index, 1)
+for (i = 0; i < 5; i++)
+for (let index in array)
+for (let item of array)
+
+tem como hostear?
 	codepen
-	tecblitz
 
 .flex-container{
 	display: flex;
