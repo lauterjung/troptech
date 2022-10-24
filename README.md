@@ -112,9 +112,8 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Aula 15: JavaScript (JS) - Manipulando o DOM: Web Storage  
 -Aula 16:   
   
--Projeto 1: Controle de estoque (HTML)  
--Projeto 2: Site de gerenciamento de notas (HTML + CSS)  
--Projeto 3: Lista de compras (HTML + CSS + JS)   
+-[Projeto 1](https://lauterjung.github.io/html-navigation/): Controle de estoque (HTML)  
+-[Projeto 2](https://lauterjung.github.io/grade-table/): Site de gerenciamento de notas (HTML + CSS)  
+-[Projeto 3](https://lauterjung.github.io/shopping-list/): Lista de compras (HTML + CSS + JS)   
 -[Projeto 4](https://lauterjung.github.io/tic-tac-toe/): Jogo da velha no browser (HTML + CSS + JS)  
-
 -Projeto 5:   
