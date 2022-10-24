@@ -108,9 +108,12 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Aula 11: JavaScript (JS) Básico - Array e estruturas de repetição  
 -Aula 12: JavaScript (JS) Básico - Funções e intervalo de tempo  
 -Aula 13: JavaScript (JS) - Manipulando o DOM: Introdução e eventos  
--Aula 14:    
+-Aula 14: JavaScript (JS) - Manipulando o DOM: Event bubbling, criando e removendo elementos  
+-Aula 15: JavaScript (JS) - Manipulando o DOM: Web Storage  
+-Aula 16:   
   
 -Projeto 1: Controle de estoque (HTML)  
 -Projeto 2: Site de gerenciamento de notas (HTML + CSS)  
 -Projeto 3: Lista de compras (HTML + CSS + JS)   
--Projeto 4:    
+-Projeto 4: Jogo da velha no browser (HTML + CSS + JS)  
+-Projeto 5:   

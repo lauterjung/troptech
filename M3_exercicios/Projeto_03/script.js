@@ -125,3 +125,10 @@ function showProducts() {
     document.querySelector("#tableData").innerHTML = str;
     document.querySelector("#finalPrice").textContent = `Preço total: R$ ` + getFinalPrice().toFixed(2);
 };
+
+const node = document.getElementById("submitButton");
+node.addEventListener('keydown', function onEvent(event) {
+    if (event.key === "Enter") {
+        return false;
+    }
+});

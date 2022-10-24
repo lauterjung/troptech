@@ -1,4 +1,30 @@
-﻿push
+﻿window.localStorage.setItem("chave", valor);
+window.localStorage.removeItem("chave");
+window.localStorage.getItem("chave");
+window.sessionStorage.setItem("chave", valor);
+window.sessionStorage.removeItem("chave");
+window.sessionStorage.getItem("chave");
+
+element.attribute
+
+    Método document.createElement(element) : Cria um elemento HTML 
+    Método document.removeChild(element) : Remove um elemento HTML 
+    Método document.appendChild(element) : Adiciona um elemento HTML 
+    Método document.replaceChild(new, old) : Substitui um elemento HTML 
+    Médoto document.write(text) : Escreve no fluxo de saída HTML 
+	
+    document.createElement()
+    document.createTextNode()
+    appendChild()
+    insertBefore()
+    removeChild()
+	
+element.tagName
+linha.querySelector('td:last-child')
+div.className = 'imagem';
+
+
+push
 pop
 splice(index, 1)
 for (i = 0; i < 5; i++)
