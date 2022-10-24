@@ -1,4 +1,6 @@
-const intervalTime = 1;
+const intervalTime = 1000;
+
+var running = false;
 
 var hour = 0;
 var minute = 0;
@@ -7,13 +9,17 @@ var second = 0;
 var intervalID = null;
 
 function intervalManager(flag, animate, intervalTime) {
-    if(flag)
-      intervalID =  setInterval(animate, intervalTime);
-    else
-      clearInterval(intervalID);
- }
+    if (flag) {
+        running = true;
+        intervalID = setInterval(animate, intervalTime);
+    }
+    else {
+        running = false;
+        clearInterval(intervalID);
+    }
+}
 
-function runChronometer(){
+function runChronometer() {
     second += 1;
 
     if (second === 60) {
@@ -32,6 +38,9 @@ function runChronometer(){
 };
 
 function startChronometer() {
+    if (running) {
+        return;
+    }
     intervalManager(true, runChronometer, intervalTime);
 }
 

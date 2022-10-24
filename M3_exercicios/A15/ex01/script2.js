@@ -29,7 +29,7 @@ function loadTable() {
 }
 
 function changePage() {
-    document.location.href = "formulario-clientes.html";
+    document.location.href = "index.html";
 }
 
 window.addEventListener("load", () => {

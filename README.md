@@ -106,11 +106,12 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Aula 9: JavaScript (JS) Básico - Introdução  
 -Aula 10: JavaScript (JS) Básico - Operadores e condicionais  
 -Aula 11: JavaScript (JS) Básico - Array e estruturas de repetição  
--Aula 12: JavaScript (JS) Básico - Funções e intervalo de tempo  
+-[Aula 12](https://lauterjung.github.io/local-storage-chronometer): JavaScript (JS) Básico - Funções e intervalo de tempo  
 -Aula 13: JavaScript (JS) - Manipulando o DOM: Introdução e eventos  
 -Aula 14: JavaScript (JS) - Manipulando o DOM: Event bubbling, criando e removendo elementos  
--Aula 15: JavaScript (JS) - Manipulando o DOM: Web Storage  
--Aula 16:   
+-[Aula 15](https://lauterjung.github.io/local-storage-registration): JavaScript (JS) - Manipulando o DOM: Web Storage  
+-Aula 16: Revisão  
+-Aula 17:   
   
 -[Projeto 1](https://lauterjung.github.io/html-navigation/): Controle de estoque (HTML)  
 -[Projeto 2](https://lauterjung.github.io/grade-table/): Site de gerenciamento de notas (HTML + CSS)  

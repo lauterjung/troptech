@@ -5,6 +5,10 @@ window.sessionStorage.setItem("chave", valor);
 window.sessionStorage.removeItem("chave");
 window.sessionStorage.getItem("chave");
 
+JSON.stringify(object);
+JSON.parse(string);
+
+
 element.attribute
 
     Método document.createElement(element) : Cria um elemento HTML 
