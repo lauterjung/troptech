@@ -1,0 +1,32 @@
+/* Geral */
+:root {
+    --gradient-1: linear-gradient(263deg, #14db27, #818dc7);
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+}
+
+/* Header */
+.header-color {
+    background: var(--gradient-1);
+}
+
+.header-font {
+    font-weight: bold;
+}
+
+/* Tabela */
+td {
+    padding: 8px 1px 8px 1px !important;
+}
+
+.border-1 {
+    border: 2px solid;
+    padding: 1rem;
+    border-image: var(--gradient-1) 1;
+}
+
+.caption-top {
+    color: black ;
+}

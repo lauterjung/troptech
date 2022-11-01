@@ -1,4 +1,17 @@
-﻿window.localStorage.setItem("chave", valor);
+﻿ng serve
+
+export class AppComponent implements OnInit {
+  public title: string = 'hello-world';
+
+  public ngOnInit(): void {
+    //
+  }
+}
+
+<p>{{title}}</p>
+<button (click)="functionI()"> </button>
+
+window.localStorage.setItem("chave", valor);
 window.localStorage.removeItem("chave");
 window.localStorage.getItem("chave");
 window.sessionStorage.setItem("chave", valor);

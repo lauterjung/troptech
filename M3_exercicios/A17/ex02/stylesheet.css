@@ -1,0 +1,47 @@
+/* Geral */
+:root {
+    --gradient-1: linear-gradient(263deg, #14db27, #818dc7);
+    --cell-size: 10px;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Header */
+.header-color {
+    background: var(--gradient-1);
+}
+
+.header-font {
+    font-weight: bold;
+}
+
+.semaforo {
+    display: grid;
+    padding: 5px;
+    width: 90px;
+    height: 10%;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    grid-template-columns: auto;
+    background-color: black;
+    border-radius: 10%;
+    margin-bottom: 10px;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    margin: 4px;
+    background-color: rgb(65, 65, 65);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
