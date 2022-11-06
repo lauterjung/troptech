@@ -1,4 +1,46 @@
-﻿ng serve
+﻿ng g c evento
+
+ng add @angular/material
+import { MatToolbarModule } from '@angular/material/toolbar';
+
+Property binding (pai -> filho)
+<app-evento [evento] = "dado"></app-evento> // selector
+component-evento.ts
+export class EventoComponent {
+	@Input() public evento?: IEvento;
+}
+
+Event binding (filho -> pai)
+<app-evento [evento] = "dado" (onInscricao)="mostrarAlerta($event)"></app-evento> // selector
+component-evento.ts
+export class EventoComponent {
+	@Output() public onInscricao: EventEmitter<string> = new EventEmitter<string>();
+	
+	public inscrever(): void {
+		this.onInscricao.emit(this.evento.nome);
+	}
+}
+
+public ngOnChanges(changes; SimpleChanges): void {
+	console.log(`${changes["evento"].currentValue.nome);
+}
+
+
+<p *ngIf="boolean">Mostrando</p>
+
+<div [ngswitch]="case">
+	<p *ngSwitchCase="1">One</p>
+	<p *ngSwitchCase="2">Two</p>
+	<p *ngSwitchDefault>?</p>
+</div>
+
+<tbody>
+	<tr *ngFor="let object of objects">
+		<td>{{object.property}}</td>
+	</tr>
+</tbody>
+
+ng serve
 
 export class AppComponent implements OnInit {
   public title: string = 'hello-world';

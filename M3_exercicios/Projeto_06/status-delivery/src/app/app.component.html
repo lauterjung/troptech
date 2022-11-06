@@ -1,0 +1,9 @@
+<mat-toolbar>
+    <span>Delivery</span>
+</mat-toolbar>
+<div class="screen">
+    <div class="header">
+        <h1>Pedido: {{input === "4" ? "Finalizado" : "Aberto"}}</h1>
+    </div>
+    <app-timeline (onUpdate)="handleChildOnChange($event)"></app-timeline>
+</div>

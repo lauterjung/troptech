@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-auto pb-4">
+            <h2>Status da entrega</h2>
+        </div>
+    </div>
+    <div class="row justify-content-around">
+        <div [ngClass]="input === '1' ? 'col-auto circle-colored' : 'col-auto circle'">
+            1
+        </div>
+        <div [ngClass]="input === '2' ? 'col-auto circle-colored' : 'col-auto circle'">
+            2
+        </div>
+        <div [ngClass]="input === '3' ? 'col-auto circle-colored' : 'col-auto circle'">
+            3
+        </div>
+        <div [ngClass]="input === '4' ? 'col-auto circle-colored' : 'col-auto circle'">
+            4
+        </div>
+    </div>
+    <div class="row justify-content-start timeline-list">
+        <div class="col-auto" (update)="updateComponent()">
+            <ol>
+                <ul [ngClass]="input === '1' ? 'bold-text' : ''">1 - Pedido recebido</ul>
+                <ul [ngClass]="input === '2' ? 'bold-text' : ''">2 - Em preparação</ul>
+                <ul [ngClass]="input === '3' ? 'bold-text' : ''">3 - Pronto</ul>
+                <ul [ngClass]="input === '4' ? 'bold-text' : ''">4 - Entrega</ul>
+            </ol>
+        </div>
+    </div>
+</div>
+<app-actions (onChange)="handleChildOnChange($event)"></app-actions>

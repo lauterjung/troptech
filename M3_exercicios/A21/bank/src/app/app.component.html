@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Número da conta</th>
+      <th>Saldo</th>
+      <th>Visibilidade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let conta of contas">
+      <td>{{ conta.nome }}</td>
+      <td>{{ conta.numeroConta }}</td>
+      <td>{{ conta.isHidden? "R$ **.**,**" : ("R$ " + conta.saldo.toFixed(2)) }}</td>
+      <td><button (click)="showhide(conta)">Mostrar/esconder</button></td>
+    </tr>
+  </tbody>
+</table>
