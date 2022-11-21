@@ -1,4 +1,61 @@
-﻿ng g c evento
+﻿npm install --save-dev @iconify/ember
+
+of(this.tickets)
+    .pipe(take(1))
+    .subscribe({
+      next: (value: Ticket[]) => {
+        this.tickets = value;
+      },
+      error: (err: any) => {
+        // window.alert();
+        console.log("Deu erro");
+      }
+    })
+
+providers: [...Service],
+bootstrap: ...
+
+@Injectable()
+export class ClienteService {
+    private api: string = 'http://localhost:5247';
+
+    constructor(private httpClient: HttpClient) { }
+
+    public salvarCliente(novoCliente: ICliente): Observable<boolean> {
+        return this.httpClient.post<boolean>(`${this.api}/cliente`, novoCliente);
+    }
+
+    public obterClientes(): Observable<ICliente[]> {
+        return this.httpClient.get<ICliente[]>(`${this.api}/cliente`);
+    }
+}
+
+
+<router-outlet></router-outlet>
+
+<a class="nav-link" routerLink="/contato/tabela"  routerLinkActive="active">Contatos Tabela</a>
+
+<some-element [ngClass]="'first second'">...</some-element>
+<some-element [ngClass]="['first', 'second']">...</some-element>
+<some-element [ngClass]="{'first': true, 'second': true, 'third': false}">...</some-element>
+<some-element [ngClass]="stringExp|arrayExp|objExp">...</some-element>
+<some-element [ngClass]="{'class1 class2 class3' : true}">...</some-element>
+
+type one
+    [class.my_class] = "step === 'step1'"
+type two
+    [ngClass]="{'my_class': step === 'step1'}"
+and multiple option:
+    [ngClass]="{'my_class': step === 'step1', 'my_class2' : step === 'step2' }"
+type three
+    [ngClass]="{1 : 'my_class1', 2 : 'my_class2', 3 : 'my_class4'}[step]"
+type four
+    [ngClass]="step == 'step1' ? 'my_class1' : 'my_class2'"
+
+
+FormsModel (importar no app.component)
+ReactiveFormsModel
+ng g c evento
 
 ng add @angular/material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -161,11 +218,11 @@ https://github.com/engenheiracoelho/CSS_tools
 dotnet watch
 
 dotnet new sln -o SalaReunioes
-cd
+cd	
 dotnet new console -n SalaReunioes.ConsoleApp -f net5.0 
 dotnet new classlib -n SalaReunioes.Domain -f net5.0 
 dotnet new classlib -n SalaReunioes.Infra.Data -f net5.0
-dotnet new webapi -n SalaReunioes.WebApi -f net5.0
+dotnet new webapi -n SalaReunioes.WebApi -f net6.0
 
 dotnet sln add .\SalaReunioes.ConsoleApp\ 
 dotnet sln add .\SalaReunioes.Domain\ 

@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Marcar viagem</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <div class="row">
+        <div class="col-12">
+          <form (ngSubmit)="submitFlight()" [formGroup]="form">
+            <div class="form-group">
+              <label class="form-label" for="clientCpf">CPF</label>
+              <input class="form-control" type="text" id="clientCpf" name="clientCpf" formControlName="clientCpf"
+                autocomplete="off" maxlength="11" />
+              <div class="alert alert-danger"
+                [hidden]="form.get('clientCpf')?.valid || form.get('clientCpf')?.pristine">
+                <span *ngIf="form.get('clientCpf')?.errors?.['minlength']">O CPF do cliente deve ter 11 dígitos!</span>
+                <span *ngIf="form.get('clientCpf')?.errors?.['required']">O CPF do cliente é obrigatório!</span>
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="form-label" for="originTicket">Passagem de ida</label>
+              <select class="form-select" id="originTicket" name="originTicket" formControlName="originTicket">
+                <option [ngValue]="null" [disabled]="false">Selecione a passagem de ida</option>
+                <option *ngFor="let ticket of tickets" [ngValue]="ticket">{{ticket}}</option>
+              </select>
+              <div class="alert alert-danger"
+              [hidden]="form.get('originTicket')?.valid || form.get('originTicket')?.pristine">
+              <span *ngIf="form.get('originTicket')?.errors?.['required']">A passagem de ida é obrigatória!</span>
+            </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="form-label" for="returnTicket">Passagem de volta (opcional)</label>
+              <select class="form-select" id="returnTicket" name="returnTicket" formControlName="returnTicket">
+                <option [ngValue]="null" [disabled]="false">Selecione a passagem de volta</option>
+                <option *ngFor="let ticket of tickets" [ngValue]="ticket">{{ticket}}</option>
+              </select>
+            </div>
+            <br>
+            <input type="submit" class="btn btn-success" value="Salvar" />
+            <!-- <input [disabled]="!form.valid" type="submit" class="btn btn-success" value="Salvar" /> -->
+          </form>
+        </div>
+      </div>
+    </div>

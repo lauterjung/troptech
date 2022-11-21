@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Formulário de Vendas</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <form [formGroup]="form">
+                <div class="form-group">
+                    <label class="form-label" for="salesId">Número da venda</label>
+                    <input
+                        [ngClass]="{'validInput': form.get('salesId')?.valid && !form.get('salesId')?.pristine, 'invalidInput' : !form.get('salesId')?.valid && !form.get('salesId')?.pristine}"
+                        class="form-control" type="number" id="salesId" name="salesId" formControlName="salesId"
+                        autocomplete="off" />
+                </div>
+                <div class="alert alert-danger" [hidden]="form.get('salesId')?.valid || form.get('salesId')?.pristine">
+                    <span>O número da venda é obrigatório!</span>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label class="form-label" for="price">Valor da venda</label>
+                    <input
+                        [ngClass]="{'validInput': form.get('price')?.valid && !form.get('price')?.pristine, 'invalidInput' : !form.get('price')?.valid && !form.get('price')?.pristine}"
+                        class="form-control" type="number" id="price" name="price" formControlName="price"
+                        autocomplete="off" />
+                    <div class="alert alert-danger" [hidden]="form.get('price')?.valid || form.get('price')?.pristine">
+                        <span *ngIf="form.get('price')?.errors?.['required']">O preço é obrigatório!</span>
+                        <span *ngIf="form.get('price')?.errors?.['min']">O preço deve ser maior ou igual
+                            a zero!</span>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label class="form-label" for="clientName">Nome do cliente</label>
+                    <input
+                        [ngClass]="{'validInput': form.get('clientName')?.valid && !form.get('clientName')?.pristine, 'invalidInput' : !form.get('clientName')?.valid && !form.get('clientName')?.pristine}"
+                        class="form-control" type="text" id="clientName" name="clientName" formControlName="clientName"
+                        autocomplete="off" />
+                    <div class="alert alert-danger"
+                        [hidden]="form.get('clientName')?.valid || form.get('clientName')?.pristine">
+                        <span>O nome do cliente é obrigatório!</span>
+                    </div>
+                </div>
+                <br>
+                <input [disabled]="!form.valid" type="submit" class="btn btn-success" value="Salvar" />
+            </form>
+        </div>
+    </div>
+</div>

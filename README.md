@@ -117,7 +117,13 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Aula 20: Introdução ao Angular  
 -Aula 21: Angular templates  
 -Aula 22: Angular componentes e bindings  
--Aula 23:   
+-Aula 23: Angular formulários  
+-Aula 24: Angular styles  
+-Aula 25: Angular router  
+-Aula 26: Integração front-end com back-end  
+-Aula 27: Revisão front-end 1  
+-Aula 28: Revisão front-end 2  
+-Aula 29: Revisão front-end 3  
   
 -[Projeto 1](https://lauterjung.github.io/html-navigation/): Controle de estoque (navegação HTML)  
 -[Projeto 2](https://lauterjung.github.io/grade-table/): Site de gerenciamento de notas (HTML + CSS)  
@@ -125,4 +131,6 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -[Projeto 4](https://lauterjung.github.io/tic-tac-toe/): Jogo da velha no browser (HTML + CSS + JS)  
 -[Projeto 5](https://lauterjung.github.io/bank-accounts/): Saques e depósitos de contas (HTML + CSS + TS)  
 -[Projeto 6](https://lauterjung.github.io/status-delivery/): Sistema de delivery (Angular)  
--Projeto 7:    
+
+# Projeto final  
+-Projeto Final:    

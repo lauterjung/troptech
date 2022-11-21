@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1>Formulário de Clientes</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <div class="row">
+          <div class="col-12">
+            <form (ngSubmit)="submitClient()" [formGroup]="form">
+              <div class="form-group">
+                <label class="form-label" for="name">Nome</label>
+                <input class="form-control" type="text" id="name" name="name" formControlName="name" autocomplete="off"/>
+                <div class="alert alert-danger" [hidden]="form.get('name')?.valid || form.get('name')?.pristine">
+                  <span *ngIf="form.get('name')?.errors?.['required']">O nome é obrigatório!</span>
+                </div>
+              </div>
+              <br>
+              <div class="form-group">
+                <label class="form-label" for="cpf">CPF</label>
+                <input class="form-control" type="text" id="cpf" name="cpf" formControlName="cpf" autocomplete="off" />
+                <div class="alert alert-danger" [hidden]="form.get('cpf')?.valid || form.get('cpf')?.pristine">
+                  <span *ngIf="form.get('cpf')?.errors?.['required']">O CPF é obrigatório!</span>
+                </div>
+              </div>
+              <br>
+              <div class="form-group">
+                <label class="form-label" for="email">Telefone</label>
+                <input class="form-control" type="text" id="phoneNumber" name="phoneNumber" formControlName="phoneNumber" autocomplete="off" />
+                <div class="alert alert-danger" [hidden]="form.get('phoneNumber')?.valid || form.get('phoneNumber')?.pristine">
+                  <span *ngIf="form.get('phoneNumber')?.errors?.['required']">O telefone é obrigatório!</span>
+                </div>
+              </div>
+              <br>
+              <input [disabled]="!form.valid" type="submit" class="btn btn-success"
+                value="Salvar" />
+            </form>
+          </div>
+        </div>
+      </div>

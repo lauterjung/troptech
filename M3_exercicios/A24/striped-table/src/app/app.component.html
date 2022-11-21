@@ -1,0 +1,26 @@
+<table class="table text-center">
+  <colgroup>
+    <col span="1" style="width: 10%">
+    <col span="1" style="width: 30%">
+    <col span="1" style="width: 30%">
+    <col span="1" style="width: 30%">
+</colgroup>
+<caption class="caption-top p-0 ps-1 pb-2"><strong>Tabela 1.</strong> Lista de produtos.
+</caption>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>First</th>
+      <th>Last</th>
+      <th>Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; let i=index" [ngClass]="(i % 2 === 0) ? 'striped' : ''">
+      <td>{{ i }}</td>
+      <td>{{ user.first }}</td>
+      <td>{{ user.last }}</td>
+      <td>{{ user.handle }}</td>
+    </tr>
+  </tbody>
+</table>
