@@ -1,0 +1,16 @@
+Ordem da validação dentro de um construtor
+criar uma pizza no front-end
+public vs private
+
+agrupar em um método validar público
+
+
+Data de validade
+
+
+
+Como representar enums nos diagramas?
+
+Banco de dados para pizzas? Entram na tabela produtos?
+
+

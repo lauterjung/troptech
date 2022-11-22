@@ -1,0 +1,83 @@
+O projeto se propõe a criar um sistema de pizzaria.
+O sistema de fidelidade não é de acúmulo de pontos, mas sim a cada 10 compras o cliente pode 
+
+
+preço borda varia com tamanho
+fidelityPoints ser a cada x pedidos
+
+consumo de ingredientes
+quantidade ingredientes diferente por pizza
+como criar uma pizza nova?
+
+
+Roadmap
+	Back-end
+		Domain
+		Tests
+		Infra.Data
+		SQL
+		WebApi
+		TestsApi
+	Front-end
+		
+	
+
+
+
+Regras de negócio nos construtores
+
+Pedido
+
+Cliente
+
+Pizza
+	Nº fatias
+	Nº sabores
+	Raio / Diâmetro
+	
+	Tamanho 
+		- Pequena
+		- Média
+		- Grande
+		- Gigante
+		//- Família
+	
+	Sabores
+		Ingredientes (enum)
+
+Bebidas
+
+
+Site
+	Cadastro
+	Login
+	Cardápio
+	Realizar pedido
+		Selecionar tamanho
+		Selecionar sabores
+		Remover ingredientes
+	Acompanhar pedido
+	
+	
+	
+taxa/preço de entrega
+	
+	
+Melhorias:
+Endereço
+Factory para pizza
+	
+dotnet new sln
+dotnet new classlib -n TropPizza.Domain -f net5.0 
+dotnet new classlib -n TropPizza.Infra.Data -f net5.0
+dotnet new webapi -n TropPizza.WebApi -f net5.0
+dotnet new nunit -n TropPizza.Tests -f net5.0
+
+dotnet sln add .\TropPizza.Domain\ 
+dotnet sln add .\TropPizza.Infra.Data\ 
+dotnet sln add .\TropPizza.WebApi\
+dotnet sln add .\TropPizza.Tests\
+dotnet add .\TropPizza.Tests\ reference .\TropPizza.Domain\ 
+dotnet add .\TropPizza.Infra.Data\ reference .\TropPizza.Domain\ 
+dotnet add .\TropPizza.WebApi\ reference .\TropPizza.Domain\ 
+dotnet add .\TropPizza.WebApi\ reference .\TropPizza.Infra.Data\ 
