@@ -5,7 +5,8 @@ namespace TropPizza.Domain.Features.Customers
 {
     public class Customer
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
+        public string Cpf { get; set; }
         public string FullName { get; set; }
         public DateTime BirthDate { get; set; }
         public string Address { get; set; }
@@ -15,14 +16,14 @@ namespace TropPizza.Domain.Features.Customers
             get { return CheckFidelityDiscount(); }
         }
 
-        public Customer(string id, string fullName, DateTime birthDate, string address)
+        public Customer(string cpf, string fullName, DateTime birthDate, string address)
         {
             if (CheckValidBirthDate(birthDate) == false)
             {
                 throw new InvalidDate();
             }
 
-            Id = id;
+            Cpf = cpf;
             FullName = fullName;
             BirthDate = birthDate;
             Address = address;
@@ -32,6 +33,11 @@ namespace TropPizza.Domain.Features.Customers
         public Customer()
         {
         }
+
+        // public double UseFidelityDiscount()
+        // {
+        //     throw new NotImplementedException();
+        // }
 
         private bool CheckFidelityDiscount()
         {

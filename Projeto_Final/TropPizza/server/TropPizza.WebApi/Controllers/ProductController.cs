@@ -1,27 +1,27 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
-using TropPizza.Domain.Features.Customers;
+using TropPizza.Domain.Features.Products;
 using TropPizza.Infra.Data.Repositories;
 
 namespace TropPizza.WebApi.Controllers
 {
     [ApiController]
-    [Route("api/customer")]
-    public class CustomerController : Controller
+    [Route("api/product")]
+    public class ProductController : Controller
     {
-        private ICustomerRepository _repository = new CustomerRepository();
+        private IProductRepository _repository = new ProductRepository();
 
-        public CustomerController()
+        public ProductController()
         {
-            _repository = new CustomerRepository();
+            _repository = new ProductRepository();
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Customer customer)
+        public IActionResult Post([FromBody] Product product)
         {
             try
             {
-                _repository.Create(customer);
+                _repository.Create(product);
                 return StatusCode(200);
             }
             catch (Exception e)
@@ -49,12 +49,12 @@ namespace TropPizza.WebApi.Controllers
         {
             try
             {
-                var searchedCustomer = _repository.ReadById(id);
-                if (searchedCustomer == null)
+                var searchedProduct = _repository.ReadById(id);
+                if (searchedProduct == null)
                 {
-                    return StatusCode(204, searchedCustomer);
+                    return StatusCode(204, searchedProduct);
                 }
-                return StatusCode(200, searchedCustomer);
+                return StatusCode(200, searchedProduct);
             }
             catch (Exception e)
             {
@@ -63,11 +63,11 @@ namespace TropPizza.WebApi.Controllers
         }
 
         [HttpPatch]
-        public IActionResult Patch([FromBody] Customer customer)
+        public IActionResult Patch([FromBody] Product product)
         {
             try
             {
-                _repository.Update(customer);
+                _repository.Update(product);
                 return StatusCode(200);
             }
             catch (Exception e)

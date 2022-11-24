@@ -1,6 +1,27 @@
-O projeto se propõe a criar um sistema de pizzaria.
-O sistema de fidelidade não é de acúmulo de pontos, mas sim a cada 10 compras o cliente pode 
+Validar!!!
+Domain.Tests!!!
+ShowProduct!!!!
 
+criando ordens
+
+!!!!
+try{
+if(validate)
+{
+	...create
+	statuscode
+}
+catch
+{
+}
+!!!!
+
+taxa de entrega pedido!!!
+
+O projeto se propõe a criar um sistema de pizzaria.
+O sistema de fidelidade do cliente é um pedido gratuito após 10 compras pelo site. 
+
+int ou float para id
 
 preço borda varia com tamanho
 fidelityPoints ser a cada x pedidos
@@ -21,7 +42,7 @@ Roadmap
 	Front-end
 		
 	
-
+Quantidade eu permiti ser zero.
 
 
 Regras de negócio nos construtores
@@ -81,3 +102,8 @@ dotnet add .\TropPizza.Tests\ reference .\TropPizza.Domain\
 dotnet add .\TropPizza.Infra.Data\ reference .\TropPizza.Domain\ 
 dotnet add .\TropPizza.WebApi\ reference .\TropPizza.Domain\ 
 dotnet add .\TropPizza.WebApi\ reference .\TropPizza.Infra.Data\ 
+
+
+Verificar
+	Correspondência Repository e Interface
+	Correspondência diagramas

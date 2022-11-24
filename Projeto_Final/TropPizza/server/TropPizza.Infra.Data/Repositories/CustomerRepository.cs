@@ -21,7 +21,7 @@ namespace TropPizza.Infra.Data.Repositories
             _customerDAO.Create(customer);
         }
 
-        public Customer ReadById(string id)
+        public Customer ReadById(int id)
         {
             Customer customer = _customerDAO.ReadById(id);
 
@@ -32,6 +32,18 @@ namespace TropPizza.Infra.Data.Repositories
 
             return customer;
         }
+
+        // public Customer ReadByCpf(string cpf)
+        // {
+        //     Customer customer = _customerDAO.ReadByCpf(cpf);
+
+        //     if (customer is null)
+        //     {
+        //         throw new NotFound();
+        //     }
+
+        //     return customer;
+        // }
 
         public List<Customer> ReadAll()
         {
@@ -57,8 +69,9 @@ namespace TropPizza.Infra.Data.Repositories
             _customerDAO.Update(customer);
         }
 
-        public void Delete(string id)
+        public void Delete(int id)
         {
+            // verificar se existem pedidos em aberto
             Customer searchedCustomer = _customerDAO.ReadById(id);
 
             if (searchedCustomer is null)

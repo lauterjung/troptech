@@ -10,7 +10,10 @@ namespace TropPizza.Domain.Features.Orders.Enums
         [Display(Name = "Em preparo")]
         Preparation = 1,
 
+        [Display(Name = "Saiu para entrega")]
+        Deliver = 2,
+
         [Display(Name = "Finalizado")]
-        Finished = 2,
+        Finished = 3,
     }
 }

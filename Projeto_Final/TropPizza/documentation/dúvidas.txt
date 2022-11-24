@@ -1,4 +1,12 @@
-Ordem da validação dentro de um construtor
+Unified Modeling Language
+Diagrama
+Features
+
+
+organização
+conteúdo diagrama
+id -> float
+
 criar uma pizza no front-end
 public vs private
 

@@ -19,7 +19,7 @@ namespace TropPizza.Infra.Data.DAO
                 {
                     command.Connection = connection;
                     string sql = @"INSERT INTO Customers VALUES 
-                                    (@client_id, @full_name, @birth_date, @client_address, @fidelity_points, @has_fidelity_discount);";
+                                    (@cpf, @full_name, @birth_date, @customer_address, @fidelity_points, @has_fidelity_discount);";
                     ObjectToSql(customer, command);
                     command.CommandText = sql;
                     command.ExecuteNonQuery();
@@ -27,7 +27,7 @@ namespace TropPizza.Infra.Data.DAO
             }
         }
 
-        public Customer ReadById(string id)
+        public Customer ReadById(int id)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -37,9 +37,9 @@ namespace TropPizza.Infra.Data.DAO
                 {
                     command.Connection = connection;
                     string sql = @"SELECT * FROM Customers
-                                    WHERE client_id = @client_id;";
+                                    WHERE customer_id = @customer_id;";
                     command.CommandText = sql;
-                    command.Parameters.AddWithValue("@client_id", id);
+                    command.Parameters.AddWithValue("@customer_id", id);
 
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
@@ -86,8 +86,8 @@ namespace TropPizza.Infra.Data.DAO
                 {
                     command.Connection = connection;
                     string sql = @"UPDATE Customers SET 
-                    client_id = @client_id, full_name = @full_name, birth_date = @birth_date, client_address = @client_address, fidelity_points = @fidelity_points, has_fidelity_discount = @has_fidelity_discount
-                    WHERE client_id = @client_id;";
+                    cpf = @cpf, full_name = @full_name, birth_date = @birth_date, customer_address = @customer_address, fidelity_points = @fidelity_points, has_fidelity_discount = @has_fidelity_discount
+                    WHERE customer_id = @customer_id;";
 
                     command.CommandText = sql;
                     ObjectToSql(customer, command);
@@ -106,9 +106,9 @@ namespace TropPizza.Infra.Data.DAO
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    string sql = @"DELETE FROM Customers WHERE client_id = @client_id;";
+                    string sql = @"DELETE FROM Customers WHERE customer_id = @customer_id;";
                     command.CommandText = sql;
-                    command.Parameters.AddWithValue("@client_id", customer.Id);
+                    command.Parameters.AddWithValue("@customer_id", customer.Id);
                     command.ExecuteNonQuery();
                 }
             }
@@ -118,10 +118,11 @@ namespace TropPizza.Infra.Data.DAO
         {
             Customer customer = new Customer();
 
-            customer.Id = reader["client_id"].ToString();
+            customer.Id = Convert.ToInt32(reader["customer_id"]);
+            customer.Cpf = reader["cpf"].ToString();
             customer.FullName = reader["full_name"].ToString();
             customer.BirthDate = Convert.ToDateTime(reader["birth_date"]);
-            customer.Address = reader["client_address"].ToString();
+            customer.Address = reader["customer_address"].ToString();
             customer.FidelityPoints = Convert.ToInt32(reader["fidelity_points"]);
 
             return customer;
@@ -129,10 +130,11 @@ namespace TropPizza.Infra.Data.DAO
 
         public void ObjectToSql(Customer customer, SqlCommand command)
         {
-            command.Parameters.AddWithValue("@client_id", customer.Id);
+            command.Parameters.AddWithValue("@customer_id", customer.Id);
+            command.Parameters.AddWithValue("@cpf", customer.Cpf);
             command.Parameters.AddWithValue("@full_name", customer.FullName);
             command.Parameters.AddWithValue("@birth_date", customer.BirthDate);
-            command.Parameters.AddWithValue("@client_address", customer.Address);
+            command.Parameters.AddWithValue("@customer_address", customer.Address);
             command.Parameters.AddWithValue("@fidelity_points", customer.FidelityPoints);
             command.Parameters.AddWithValue("@has_fidelity_discount", customer.HasFidelityDiscount);
         }

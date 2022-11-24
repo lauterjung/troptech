@@ -13,56 +13,52 @@ GO
 SET DATEFORMAT ymd;  
 GO
 
--- CREATE TABLE Enderecos
--- (
---     id_endereco INT IDENTITY(1, 1) NOT NULL,
---     cep VARCHAR(10) NOT NULL,
---     rua VARCHAR(100) NOT NULL,
---     bairro VARCHAR(50) NOT NULL,
---     numero INT NOT NULL,
---     complemento VARCHAR(100) NULL,
---     CONSTRAINT PK_id_endereco PRIMARY KEY (id_endereco)
--- );
-
 CREATE TABLE Customers
 (
-    client_id VARCHAR(11) NOT NULL,
+    customer_id INT IDENTITY(1, 1) NOT NULL,
+    cpf VARCHAR(11) NOT NULL UNIQUE,
     full_name VARCHAR(200) NOT NULL,
-    birth_date DATETIME2 NOT NULL,
-    client_address VARCHAR(500) NOT NULL,
+    birth_date DATE NOT NULL,
+    customer_address VARCHAR(500) NOT NULL,
     fidelity_points INT NOT NULL,
     has_fidelity_discount BIT NOT NULL,
-    CONSTRAINT PK_client_id PRIMARY KEY (client_id),
+    CONSTRAINT PK_customer_id PRIMARY KEY (customer_id),
 );
 
---------------------------------
-CREATE TABLE Ingredients
+CREATE TABLE Products
 (
-    ingredient_id INT IDENTITY(1, 1) NOT NULL,
-    ingredient_name VARCHAR(200) NOT NULL,
-    quantity DECIMAL(36, 2) NOT NULL,
-    quantity_unit VARCHAR(20) NOT NULL,
-    CONSTRAINT PK_ingredient_id PRIMARY KEY (ingredient_id)
+    product_id INT IDENTITY(1, 1) NOT NULL,
+    product_name VARCHAR(200) NOT NULL,
+    product_description VARCHAR(400) NOT NULL,
+    is_active BIT NOT NULL,
+    expiration_date DATE NOT NULL,
+    quantity INT NOT NULL,
+    unit_price DECIMAL(36,2) NOT NULL,
+    total_price DECIMAL(36,2) NOT NULL,
+    CONSTRAINT PK_product_id PRIMARY KEY (product_id),
 );
 
-CREATE TABLE Toppings
+
+CREATE TABLE Orders
 (
-    topping_id INT IDENTITY(1, 1) NOT NULL,
-    topping_name VARCHAR(200) NOT NULL,
-    topping_type VARCHAR(20) NOT NULL,
-    CONSTRAINT topping_id PRIMARY KEY (topping_id)
+    order_id INT IDENTITY(1, 1) NOT NULL,
+    order_status INT NOT NULL,
+    client_cpf INT NULL,
+    product_id INT NOT NULL,
+    order_date_time DATETIME2 NOT NULL,
+    total_price DECIMAL(36,2) NOT NULL,
+    CONSTRAINT PK_order_id PRIMARY KEY (order_id),
 );
 
-CREATE TABLE IngredientsToToppings
+CREATE TABLE ProductsToOrders
 (
-    topping_id INT NOT NULL,
-    ingredient_id INT NOT NULL,
-    used_quantity DECIMAL(36, 2) NOT NULL,
-    CONSTRAINT FK_Conversion_Ingredients FOREIGN KEY (ingredient_id) REFERENCES Ingredients (ingredient_id),
-    CONSTRAINT FK_Conversion_Toppings FOREIGN KEY (topping_id) REFERENCES Toppings (topping_id)
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    CONSTRAINT FK_ProductsToOrders_Orders FOREIGN KEY (order_id) REFERENCES Orders (order_id),
+    CONSTRAINT FK_ProductsToOrders_Products FOREIGN KEY (product_id) REFERENCES Products (product_id)
 )
 
------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
 INSERT INTO Customers
 VALUES
     ('00000000001', 'Miguel Sobrenome1', '1990-01-21', 'Endereço 1', 1, 0),
@@ -76,59 +72,89 @@ VALUES
     ('00000000009', 'Theo Sobrenome9', '1990-01-21', 'Endereço 9', 9, 0),
     ('00000000010', 'Valentina Sobrenome10', '1990-01-21', 'Endereço 10', 0, 0);
 
+INSERT INTO Products
+VALUES
+    ('Água s/ gás 500 ml', 'Água mineral Puris 500 ml sem gás', 1, '2025-01-01', 100, 3.50, 350),
+    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 100, 3.50, 350),
+    ('Refrigerante Laranjinha 500 ml', 'Refrigerante Água da Serra sabor Laranjinha 500 ml', 1, '2025-01-01', 100, 6.50, 650),
+    ('Refrigerante Guaraná 500 ml', 'Refrigerante Água da Serra sabor Guaraná 500 ml', 1, '2025-01-01', 100, 6.50, 650),
+    ('Refrigerante Cola 500 ml', 'Refrigerante Coca-Cola sabor Cola 500 ml', 1, '2025-01-01', 100, 8.50, 850),
+    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 100, 3.50, 350),
+    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 100, 3.50, 350),
+    ('Pizza Média - Marguerita', 'Pizza tamanho média sabor Marguerita', 1, '2023-12-31', 20, 40, 800),
+    ('Pizza Grande - Marguerita', 'Pizza tamanho grande sabor Marguerita', 1, '2023-12-31', 20, 60, 1200),
+    ('Pizza Gigante - Marguerita', 'Pizza tamanho grande sabor Marguerita', 1, '2023-12-31', 20, 80, 1600),
+    ('Pizza Média - Calabresa', 'Pizza tamanho média sabor Calabresa', 1, '2023-12-31', 20, 40, 800),
+    ('Pizza Grande - Calabresa', 'Pizza tamanho grande sabor Calabresa', 1, '2023-12-31', 20, 60, 1200),
+    ('Pizza Gigante - Calabresa', 'Pizza tamanho grande sabor Calabresa', 1, '2023-12-31', 20, 80, 1600);
+
 -----------------------------------------------------------------------------
-INSERT INTO Ingredients
-VALUES
-    ('Molho de tomate', 100, 'u'),
-    ('Queijo', 100, 'u'),
-    ('Orégano', 100, 'u'),
-    ('Calabresa', 100, 'u'),
-    ('Tomate', 100, 'u'),
-    ('Manjericão', 100, 'u');
 
-INSERT INTO Toppings
-VALUES
-    ('Marguerita', 'Tradicional'),
-    ('Calabresa', 'Tradicional');
 
-INSERT INTO IngredientsToToppings
-VALUES
-    (1, 1, 1),
-    (1, 2, 1),
-    (1, 3, 1),
-    (1, 5, 1),
-    (1, 6, 1),
-    (2, 1, 1),
-    (2, 2, 1),
-    (2, 3, 1),
-    (2, 4, 1);
-
--- CREATE TABLE Passagens
+-- CREATE TABLE Enderecos
 -- (
---     id_passagem INT IDENTITY(1, 1) NOT NULL,
---     origem VARCHAR(100) NOT NULL,
---     destino VARCHAR(100) NOT NULL,
---     valor DECIMAL(36, 2) NOT NULL,
---     data_hora_origem DATETIME2 NOT NULL,
---     data_hora_destino DATETIME2 NOT NULL,
---     passagem_vinculada BIT NOT NULL,
---     CONSTRAINT PK_id_passagem PRIMARY KEY (id_passagem),
+--     id_endereco INT IDENTITY(1, 1) NOT NULL,
+--     cep VARCHAR(10) NOT NULL,
+--     rua VARCHAR(100) NOT NULL,
+--     bairro VARCHAR(50) NOT NULL,
+--     numero INT NOT NULL,
+--     complemento VARCHAR(100) NULL,
+--     CONSTRAINT PK_id_endereco PRIMARY KEY (id_endereco)
+-- );
+--------------------------------
+-- CREATE TABLE Ingredients
+-- (
+--     ingredient_id INT IDENTITY(1, 1) NOT NULL,
+--     ingredient_name VARCHAR(200) NOT NULL,
+--     quantity DECIMAL(36, 2) NOT NULL,
+--     quantity_unit VARCHAR(20) NOT NULL,
+--     CONSTRAINT PK_ingredient_id PRIMARY KEY (ingredient_id)
 -- );
 
--- CREATE TABLE Viagens
+-- CREATE TABLE Toppings
 -- (
---     codigo VARCHAR(6) NOT NULL,
---     data_hora_compra DATETIME2 NOT NULL,
---     valor_total DECIMAL(36, 2) NOT NULL,
---     cpf VARCHAR(11) NOT NULL,
---     direcao INT NOT NULL,
---     id_passagem_ida INT NOT NULL,
---     id_passagem_volta INT NULL,
---     CONSTRAINT PK_codigo PRIMARY KEY (codigo),
---     CONSTRAINT FK_Viagens_Clientes FOREIGN KEY (cpf) REFERENCES Clientes (cpf),
---     CONSTRAINT FK_Viagens_Passagens_Ida FOREIGN KEY (id_passagem_ida) REFERENCES Passagens (id_passagem),
---     CONSTRAINT FK_Viagens_Passagens_Volta FOREIGN KEY (id_passagem_volta) REFERENCES Passagens (id_passagem)
+--     topping_id INT IDENTITY(1, 1) NOT NULL,
+--     topping_name VARCHAR(200) NOT NULL,
+--     topping_type VARCHAR(20) NOT NULL,
+--     CONSTRAINT topping_id PRIMARY KEY (topping_id)
 -- );
+
+-- CREATE TABLE IngredientsToToppings
+-- (
+--     topping_id INT NOT NULL,
+--     ingredient_id INT NOT NULL,
+--     used_quantity DECIMAL(36, 2) NOT NULL,
+--     CONSTRAINT FK_Conversion_Ingredients FOREIGN KEY (ingredient_id) REFERENCES Ingredients (ingredient_id),
+--     CONSTRAINT FK_Conversion_Toppings FOREIGN KEY (topping_id) REFERENCES Toppings (topping_id)
+-- )
+
+-----------------------------------------------------------------------------
+
+-- INSERT INTO Ingredients
+-- VALUES
+--     ('Molho de tomate', 100, 'u'),
+--     ('Queijo', 100, 'u'),
+--     ('Orégano', 100, 'u'),
+--     ('Calabresa', 100, 'u'),
+--     ('Tomate', 100, 'u'),
+--     ('Manjericão', 100, 'u');
+
+-- INSERT INTO Toppings
+-- VALUES
+--     ('Marguerita', 'Tradicional'),
+--     ('Calabresa', 'Tradicional');
+
+-- INSERT INTO IngredientsToToppings
+-- VALUES
+--     (1, 1, 1),
+--     (1, 2, 1),
+--     (1, 3, 1),
+--     (1, 5, 1),
+--     (1, 6, 1),
+--     (2, 1, 1),
+--     (2, 2, 1),
+--     (2, 3, 1),
+--     (2, 4, 1);
 
 -- INSERT INTO Enderecos
 -- VALUES
@@ -142,3 +168,12 @@ VALUES
 --     ('88015015', 'Rua J K L', 'Bairro J', 4, NULL),
 --     ('88016016', 'Rua M N O', 'Bairro M', 55, 'Apto. 4'),
 --     ('88016016', 'Rua M N O', 'Bairro M', 66, NULL);
+
+
+select *
+from Products
+
+SELECT *
+FROM Products
+WHERE product_name = 'Água s/ gás 500 ml' AND product_description = 'Água mineral Puris 500 ml sem gás' AND expiration_date = '2025-01-01'
+
