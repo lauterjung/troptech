@@ -13,21 +13,38 @@ GO
 SET DATEFORMAT ymd;  
 GO
 
+-----------------------------------------------------------------------------------------------------
+
 CREATE TABLE Customers
 (
-    customer_id INT IDENTITY(1, 1) NOT NULL,
+    customer_id BIGINT IDENTITY(1, 1) NOT NULL,
     cpf VARCHAR(11) NOT NULL UNIQUE,
     full_name VARCHAR(200) NOT NULL,
     birth_date DATE NOT NULL,
     customer_address VARCHAR(500) NOT NULL,
-    fidelity_points INT NOT NULL,
-    has_fidelity_discount BIT NOT NULL,
+    fidelity_points DECIMAL(36,2) NOT NULL,
+    -- has_fidelity_discount BIT NOT NULL,
     CONSTRAINT PK_customer_id PRIMARY KEY (customer_id),
 );
 
+INSERT INTO Customers
+VALUES
+    ('00000000001', 'Miguel Sobrenome1', '1990-01-21', 'Endereço 1', 1),
+    ('00000000002', 'Helena Sobrenome2', '1990-01-22', 'Endereço 2', 2),
+    ('00000000003', 'Arthur Sobrenome3', '1990-01-21', 'Endereço 3', 3),
+    ('00000000004', 'Alice Sobrenome4', '1990-01-21', 'Endereço 4', 4),
+    ('00000000005', 'Gael Sobrenome5', '1990-01-21', 'Endereço 5', 5),
+    ('00000000006', 'Laura Sobrenome6', '1990-01-21', 'Endereço 6', 6),
+    ('00000000007', 'Heitor Sobrenome7', '1990-01-21', 'Endereço 7', 7),
+    ('00000000008', 'Maria Alice Sobrenome8', '1990-01-21', 'Endereço 8', 8),
+    ('00000000009', 'Theo Sobrenome9', '1990-01-21', 'Endereço 9', 9),
+    ('00000000010', 'Valentina Sobrenome10', '1990-01-21', 'Endereço 10', 0);
+
+-----------------------------------------------------------------------------------------------------
+
 CREATE TABLE Products
 (
-    product_id INT IDENTITY(1, 1) NOT NULL,
+    product_id BIGINT IDENTITY(1, 1) NOT NULL,
     product_name VARCHAR(200) NOT NULL,
     product_description VARCHAR(400) NOT NULL,
     is_active BIT NOT NULL,
@@ -35,60 +52,87 @@ CREATE TABLE Products
     quantity INT NOT NULL,
     unit_price DECIMAL(36,2) NOT NULL,
     total_price DECIMAL(36,2) NOT NULL,
+    is_visible BIT NOT NULL,
     CONSTRAINT PK_product_id PRIMARY KEY (product_id),
 );
 
+INSERT INTO Products
+VALUES
+    ('Água s/ gás 500 ml', 'Água mineral Puris 500 ml sem gás', 1, '2025-01-01', 100, 3.50, 350, 1),
+    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 100, 3.50, 350, 1),
+    ('Refrigerante Laranjinha 500 ml', 'Refrigerante Água da Serra sabor Laranjinha 500 ml', 1, '2025-01-01', 100, 6.50, 650, 1),
+    ('Refrigerante Guaraná 500 ml', 'Refrigerante Água da Serra sabor Guaraná 500 ml', 1, '2025-01-01', 100, 6.50, 650, 1),
+    ('Refrigerante Cola 500 ml', 'Refrigerante Coca-Cola sabor Cola 500 ml', 1, '2025-01-01', 100, 8.50, 850, 1),
+    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 100, 3.50, 350, 1),
+    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 100, 3.50, 350, 1),
+    ('Pizza Média - Marguerita', 'Pizza tamanho média sabor Marguerita', 1, '2023-12-31', 20, 40, 800, 1),
+    ('Pizza Grande - Marguerita', 'Pizza tamanho grande sabor Marguerita', 1, '2023-12-31', 20, 60, 1200, 1),
+    ('Pizza Gigante - Marguerita', 'Pizza tamanho grande sabor Marguerita', 1, '2023-12-31', 20, 80, 1600, 1),
+    ('Pizza Média - Calabresa', 'Pizza tamanho média sabor Calabresa', 1, '2023-12-31', 20, 40, 800, 1),
+    ('Pizza Grande - Calabresa', 'Pizza tamanho grande sabor Calabresa', 1, '2023-12-31', 20, 60, 1200, 1),
+    ('Pizza Gigante - Calabresa', 'Pizza tamanho grande sabor Calabresa', 1, '2023-12-31', 20, 80, 1600, 1);
+
+-----------------------------------------------------------------------------------------------------
 
 CREATE TABLE Orders
 (
-    order_id INT IDENTITY(1, 1) NOT NULL,
+    order_id BIGINT IDENTITY(1, 1) NOT NULL,
     order_status INT NOT NULL,
     client_cpf INT NULL,
-    product_id INT NOT NULL,
     order_date_time DATETIME2 NOT NULL,
     total_price DECIMAL(36,2) NOT NULL,
     CONSTRAINT PK_order_id PRIMARY KEY (order_id),
 );
 
-CREATE TABLE ProductsToOrders
-(
-    order_id INT NOT NULL,
-    product_id INT NOT NULL,
-    CONSTRAINT FK_ProductsToOrders_Orders FOREIGN KEY (order_id) REFERENCES Orders (order_id),
-    CONSTRAINT FK_ProductsToOrders_Products FOREIGN KEY (product_id) REFERENCES Products (product_id)
-)
+INSERT INTO Orders
+VALUES
+    (3, NULL, '2023-11-21 14:00:00', 1111111),
+    (3, NULL, '2023-11-21 15:00:00', 1111111),
+    (3, 00000000001, '2023-11-21 16:00:00', 1111111),
+    (3, 00000000002, '2023-11-21 17:00:00', 1111111),
+    (3, 00000000003, '2023-11-21 18:00:00', 1111111),
+    (0, NULL, '2023-11-21 20:00:00', 1111111),
+    (0, NULL, '2023-11-21 19:00:00', 1111111),
+    (0, 00000000001, '2023-11-21 18:00:00', 1111111),
+    (1, 00000000002, '2023-11-21 17:00:00', 1111111),
+    (2, 00000000003, '2023-11-21 16:00:00', 1111111);
 
 -----------------------------------------------------------------------------------------------------
-INSERT INTO Customers
-VALUES
-    ('00000000001', 'Miguel Sobrenome1', '1990-01-21', 'Endereço 1', 1, 0),
-    ('00000000002', 'Helena Sobrenome2', '1990-01-22', 'Endereço 2', 2, 0),
-    ('00000000003', 'Arthur Sobrenome3', '1990-01-21', 'Endereço 3', 3, 0),
-    ('00000000004', 'Alice Sobrenome4', '1990-01-21', 'Endereço 4', 4, 0),
-    ('00000000005', 'Gael Sobrenome5', '1990-01-21', 'Endereço 5', 5, 0),
-    ('00000000006', 'Laura Sobrenome6', '1990-01-21', 'Endereço 6', 6, 0),
-    ('00000000007', 'Heitor Sobrenome7', '1990-01-21', 'Endereço 7', 7, 0),
-    ('00000000008', 'Maria Alice Sobrenome8', '1990-01-21', 'Endereço 8', 8, 0),
-    ('00000000009', 'Theo Sobrenome9', '1990-01-21', 'Endereço 9', 9, 0),
-    ('00000000010', 'Valentina Sobrenome10', '1990-01-21', 'Endereço 10', 0, 0);
 
-INSERT INTO Products
-VALUES
-    ('Água s/ gás 500 ml', 'Água mineral Puris 500 ml sem gás', 1, '2025-01-01', 100, 3.50, 350),
-    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 100, 3.50, 350),
-    ('Refrigerante Laranjinha 500 ml', 'Refrigerante Água da Serra sabor Laranjinha 500 ml', 1, '2025-01-01', 100, 6.50, 650),
-    ('Refrigerante Guaraná 500 ml', 'Refrigerante Água da Serra sabor Guaraná 500 ml', 1, '2025-01-01', 100, 6.50, 650),
-    ('Refrigerante Cola 500 ml', 'Refrigerante Coca-Cola sabor Cola 500 ml', 1, '2025-01-01', 100, 8.50, 850),
-    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 100, 3.50, 350),
-    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 100, 3.50, 350),
-    ('Pizza Média - Marguerita', 'Pizza tamanho média sabor Marguerita', 1, '2023-12-31', 20, 40, 800),
-    ('Pizza Grande - Marguerita', 'Pizza tamanho grande sabor Marguerita', 1, '2023-12-31', 20, 60, 1200),
-    ('Pizza Gigante - Marguerita', 'Pizza tamanho grande sabor Marguerita', 1, '2023-12-31', 20, 80, 1600),
-    ('Pizza Média - Calabresa', 'Pizza tamanho média sabor Calabresa', 1, '2023-12-31', 20, 40, 800),
-    ('Pizza Grande - Calabresa', 'Pizza tamanho grande sabor Calabresa', 1, '2023-12-31', 20, 60, 1200),
-    ('Pizza Gigante - Calabresa', 'Pizza tamanho grande sabor Calabresa', 1, '2023-12-31', 20, 80, 1600);
+CREATE TABLE OrderProducts
+(
+    order_id BIGINT NOT NULL,
+    product_id BIGINT NOT NULL,
+    quantity INT NOT NULL,
+    total_price DECIMAL(36,2) NOT NULL,
+    CONSTRAINT FK_OrderProducts_Orders FOREIGN KEY (order_id) REFERENCES Orders (order_id),
+    CONSTRAINT FK_OrderProducts_Products FOREIGN KEY (product_id) REFERENCES Products (product_id)
+)
 
------------------------------------------------------------------------------
+INSERT INTO OrderProducts
+VALUES
+-- pedido / produto / quantidade / preço
+    (1, 1, 2, 7),
+    (2, 1, 1, 3.5),
+    (2, 2, 1, 3.5),
+    (3, 1, 1, 3.5),
+    (3, 2, 1, 3.5),
+    (3, 8, 1, 40),
+    (4, 1, 2, 7),
+    (4, 2, 2, 7),
+    (4, 8, 2, 80),
+    (5, 1, 2, 7),
+    (6, 1, 2, 7),
+    (7, 1, 2, 7),
+    (8, 1, 2, 7),
+    (9, 1, 2, 7),
+    (10, 1, 2, 7);
+    
+-----------------------------------------------------------------------------------------------------
+
+
+-----------------------------------------------------------------------------------------------------
+
 
 
 -- CREATE TABLE Enderecos
@@ -169,6 +213,9 @@ VALUES
 --     ('88016016', 'Rua M N O', 'Bairro M', 55, 'Apto. 4'),
 --     ('88016016', 'Rua M N O', 'Bairro M', 66, NULL);
 
+
+select *
+from Customers
 
 select *
 from Products

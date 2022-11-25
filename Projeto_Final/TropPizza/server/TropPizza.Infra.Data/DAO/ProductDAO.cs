@@ -19,7 +19,7 @@ namespace TropPizza.Infra.Data.DAO
                 {
                     command.Connection = connection;
                     string sql = @"INSERT INTO Products VALUES 
-                                    (@product_name, @product_description, @is_active, @expiration_date, @quantity, @unit_price, @total_price);";
+                                    (@product_name, @product_description, @is_active, @expiration_date, @quantity, @unit_price, @total_price, @is_visible);";
                     ObjectToSql(product, command);
                     command.CommandText = sql;
                     command.ExecuteNonQuery();
@@ -27,7 +27,7 @@ namespace TropPizza.Infra.Data.DAO
             }
         }
 
-        public Product ReadById(int id)
+        public Product ReadById(Int64 id)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -113,7 +113,7 @@ namespace TropPizza.Infra.Data.DAO
                 {
                     command.Connection = connection;
                     string sql = @"UPDATE Products SET 
-                    product_name = @product_name, product_description = @product_description, is_active = @is_active, expiration_date = @expiration_date, quantity = @quantity, unit_price = @unit_price, total_price = @total_price
+                    product_name = @product_name, product_description = @product_description, is_active = @is_active, expiration_date = @expiration_date, quantity = @quantity, unit_price = @unit_price, total_price = @total_price, is_visible = @is_visible
                     WHERE product_id = @product_id;";
 
                     command.CommandText = sql;
@@ -125,7 +125,7 @@ namespace TropPizza.Infra.Data.DAO
             }
         }
 
-        public void Delete(Product product)
+        public void Delete(Int64 id)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -136,7 +136,7 @@ namespace TropPizza.Infra.Data.DAO
                     command.Connection = connection;
                     string sql = @"DELETE FROM Products WHERE product_id = @product_id;";
                     command.CommandText = sql;
-                    command.Parameters.AddWithValue("@product_id", product.Id);
+                    command.Parameters.AddWithValue("@product_id", id);
                     command.ExecuteNonQuery();
                 }
             }
@@ -146,13 +146,14 @@ namespace TropPizza.Infra.Data.DAO
         {
             Product product = new Product();
 
-            product.Id = Convert.ToInt32(reader["product_id"]);
+            product.Id = Convert.ToInt64(reader["product_id"]);
             product.Name = reader["product_name"].ToString();
             product.Description = reader["product_description"].ToString();
             product.IsActive = Convert.ToBoolean(reader["is_active"]);
             product.ExpirationDate = Convert.ToDateTime(reader["expiration_date"]);
             product.Quantity = Convert.ToInt32(reader["quantity"]);
             product.UnitPrice = Convert.ToDouble(reader["unit_price"]);
+            product.IsActive = Convert.ToBoolean(reader["is_visible"]);
 
             return product;
         }
@@ -166,6 +167,7 @@ namespace TropPizza.Infra.Data.DAO
             command.Parameters.AddWithValue("@quantity", product.Quantity);
             command.Parameters.AddWithValue("@unit_price", product.UnitPrice);
             command.Parameters.AddWithValue("@total_price", product.TotalPrice);
+            command.Parameters.AddWithValue("@is_visible", product.IsVisible);
         }
     }
 }

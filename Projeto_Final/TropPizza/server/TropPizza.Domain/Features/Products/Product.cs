@@ -1,10 +1,11 @@
 using System;
+using TropPizza.Domain.Exceptions.ProductExceptions;
 
 namespace TropPizza.Domain.Features.Products
 {
     public class Product
     {
-        public int Id { get; set; }
+        public Int64 Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public bool IsActive { get; set; }
@@ -15,25 +16,15 @@ namespace TropPizza.Domain.Features.Products
         {
             get { return CalculateTotalPrice(); }
         }
-
-        public Product(string name)
+        public bool IsVisible
         {
-            IsActive = true;
-            Name = name;
+            get { return CheckVisitility(); }
         }
 
         public Product()
         {
-        }
-
-        private bool CheckValidExpirationDate(DateTime expirationDate)
-        {
-            return expirationDate > DateTime.Now.Date ? true : false;
-        }
-
-        private bool CheckValidQuantity(int quantity)
-        {
-            return quantity >= 0 ? true : false;
+            IsActive = true;
+            Quantity = 0;
         }
 
         public double CalculateTotalPrice()
@@ -41,14 +32,71 @@ namespace TropPizza.Domain.Features.Products
             return Quantity * UnitPrice;
         }
 
-        // public void Activate()
-        // {
-        //     IsActive = true;
-        // }
+        public void AddToInvetory(int quantity)
+        {
+            Quantity += quantity;
+        }
 
-        // public void Deactivate()
-        // {
-        //     IsActive = false;
-        // }
+        public void RemoveFromInvetory(int quantity)
+        {
+            // validar quantidade?
+            Quantity -= quantity;
+        }
+
+        private bool CheckVisitility()
+        {
+            return (IsActive && Quantity > 0) ? true : false;
+        }
+
+        private bool CheckValidName()
+        {
+            return String.IsNullOrEmpty(Name) ? false : true;
+        }
+
+        private bool CheckValidDescription()
+        {
+            return Description.Length >= 3 ? true : false;
+        }
+
+        private bool CheckValidUnitPrice()
+        {
+            return UnitPrice > 0 ? true : false;
+        }
+
+        private bool CheckValidExpirationDate()
+        {
+            return ExpirationDate > DateTime.Now.Date ? true : false;
+        }
+
+        private bool CheckValidQuantity()
+        {
+            return Quantity >= 0 ? true : false;
+        }
+
+        public bool Validate()
+        {
+            if (CheckValidName() == false)
+            {
+                throw new InvalidName();
+            }
+            if (CheckValidDescription() == false)
+            {
+                throw new InvalidDescription();
+            }
+            if (CheckValidUnitPrice() == false)
+            {
+                throw new InvalidUnitPrice();
+            }
+            if (CheckValidExpirationDate() == false)
+            {
+                throw new InvalidExpirationDate();
+            }
+            if (CheckValidQuantity() == false)
+            {
+                throw new InvalidQuantity();
+            }
+
+            return true;
+        }
     }
 }

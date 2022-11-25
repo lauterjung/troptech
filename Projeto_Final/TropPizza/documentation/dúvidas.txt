@@ -1,11 +1,31 @@
+
+setup -> começar com produto válido?
+addfidelitypoints order ou customer
+
+teste para private methods
+calculate total price do pedido -> isolar o teste
+
+quando eu faço o pedido, eu tenho que verificar se está em estoque. se não tiver, disparar exceção.
+mas eu tenho um método no produto que é remove. Ele poderia reduzir abaixo de zero?
+
+onde mexer na tabela intermediária OrderProducts? Repo e DAO para isso?
+
+
+testar constructor?
+
+
 Unified Modeling Language
 Diagrama
 Features
 
+Feature no singular, mas fica com nome de classe
+mudar namespace só para domain? o que fazer?
+Deletar pedidos já finalizados quando excluir cliente?
+O que acontece quando eu mudar o CPF de um cliente no DB?
+
 
 organização
 conteúdo diagrama
-id -> float
 
 criar uma pizza no front-end
 public vs private

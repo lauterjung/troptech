@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TropPizza.Domain.Exceptions;
 using TropPizza.Domain.Features.Customers;
@@ -12,19 +13,20 @@ namespace TropPizza.Infra.Data.Repositories
         public void Create(Customer customer)
         {
             Customer searchedCustomer = _customerDAO.ReadById(customer.Id);
-
             if (searchedCustomer != null)
             {
                 throw new AlreadyExists();
             }
 
-            _customerDAO.Create(customer);
+            if (customer.Validate())
+            {
+                _customerDAO.Create(customer);
+            }
         }
 
-        public Customer ReadById(int id)
+        public Customer ReadById(Int64 id)
         {
             Customer customer = _customerDAO.ReadById(id);
-
             if (customer is null)
             {
                 throw new NotFound();
@@ -48,7 +50,6 @@ namespace TropPizza.Infra.Data.Repositories
         public List<Customer> ReadAll()
         {
             List<Customer> customersList = _customerDAO.ReadAll();
-
             if (customersList.Count == 0)
             {
                 throw new NotFound();
@@ -60,26 +61,27 @@ namespace TropPizza.Infra.Data.Repositories
         public void Update(Customer customer)
         {
             Customer searchedCustomer = _customerDAO.ReadById(customer.Id);
-
             if (searchedCustomer is null)
             {
                 throw new NotFound();
             }
             
-            _customerDAO.Update(customer);
+            if (customer.Validate())
+            {
+                _customerDAO.Update(customer);
+            }
         }
 
-        public void Delete(int id)
+        public void Delete(Int64 id)
         {
             // verificar se existem pedidos em aberto
             Customer searchedCustomer = _customerDAO.ReadById(id);
-
             if (searchedCustomer is null)
             {
                 throw new NotFound();
             }
 
-            _customerDAO.Delete(searchedCustomer);
+            _customerDAO.Delete(id);
         }
     }
 }

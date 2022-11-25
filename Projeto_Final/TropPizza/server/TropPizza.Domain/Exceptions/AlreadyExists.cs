@@ -6,7 +6,7 @@ namespace TropPizza.Domain.Exceptions
 [Serializable]
     public class AlreadyExists : Exception
     {
-        public AlreadyExists() : base ("Entidade já existente!")
+        public AlreadyExists() : base ("Já existente!")
         {
         }
 

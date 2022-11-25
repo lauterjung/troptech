@@ -13,19 +13,20 @@ namespace TropPizza.Infra.Data.Repositories
         public void Create(Product product)
         {
             Product searchedProduct = _productDAO.ReadUnique(product.Name, product.Description, product.ExpirationDate);
-
             if (searchedProduct != null)
             {
                 throw new AlreadyExists();
             }
 
-            _productDAO.Create(product);
+            if (product.Validate())
+            {
+                _productDAO.Create(product);
+            }
         }
 
-        public Product ReadById(int id)
+        public Product ReadById(Int64 id)
         {
             Product product = _productDAO.ReadById(id);
-
             if (product is null)
             {
                 throw new NotFound();
@@ -37,7 +38,6 @@ namespace TropPizza.Infra.Data.Repositories
         public Product ReadUnique(string name, string description, DateTime expirationDate)
         {
             Product product = _productDAO.ReadUnique(name, description, expirationDate);
-
             if (product is null)
             {
                 throw new NotFound();
@@ -49,7 +49,6 @@ namespace TropPizza.Infra.Data.Repositories
         public List<Product> ReadAll()
         {
             List<Product> ProductsList = _productDAO.ReadAll();
-
             if (ProductsList.Count == 0)
             {
                 throw new NotFound();
@@ -61,25 +60,26 @@ namespace TropPizza.Infra.Data.Repositories
         public void Update(Product product)
         {
             Product searchedProduct = _productDAO.ReadById(product.Id);
-
             if (searchedProduct is null)
             {
                 throw new NotFound();
             }
-            
-            _productDAO.Update(product);
+
+            if (product.Validate())
+            {
+                _productDAO.Update(product);
+            }
         }
 
-        public void Delete(int id)
+        public void Delete(Int64 id)
         {
             Product searchedProduct = _productDAO.ReadById(id);
-
             if (searchedProduct is null)
             {
                 throw new NotFound();
             }
 
-            _productDAO.Delete(searchedProduct);
+            _productDAO.Delete(id);
         }
     }
 }

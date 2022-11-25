@@ -19,7 +19,7 @@ namespace TropPizza.Infra.Data.DAO
                 {
                     command.Connection = connection;
                     string sql = @"INSERT INTO Customers VALUES 
-                                    (@cpf, @full_name, @birth_date, @customer_address, @fidelity_points, @has_fidelity_discount);";
+                                    (@cpf, @full_name, @birth_date, @customer_address, @fidelity_points);";
                     ObjectToSql(customer, command);
                     command.CommandText = sql;
                     command.ExecuteNonQuery();
@@ -27,7 +27,7 @@ namespace TropPizza.Infra.Data.DAO
             }
         }
 
-        public Customer ReadById(int id)
+        public Customer ReadById(Int64 id)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -86,7 +86,7 @@ namespace TropPizza.Infra.Data.DAO
                 {
                     command.Connection = connection;
                     string sql = @"UPDATE Customers SET 
-                    cpf = @cpf, full_name = @full_name, birth_date = @birth_date, customer_address = @customer_address, fidelity_points = @fidelity_points, has_fidelity_discount = @has_fidelity_discount
+                    cpf = @cpf, full_name = @full_name, birth_date = @birth_date, customer_address = @customer_address, fidelity_points = @fidelity_points
                     WHERE customer_id = @customer_id;";
 
                     command.CommandText = sql;
@@ -97,7 +97,7 @@ namespace TropPizza.Infra.Data.DAO
             }
         }
 
-        public void Delete(Customer customer)
+        public void Delete(Int64 id)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -108,7 +108,7 @@ namespace TropPizza.Infra.Data.DAO
                     command.Connection = connection;
                     string sql = @"DELETE FROM Customers WHERE customer_id = @customer_id;";
                     command.CommandText = sql;
-                    command.Parameters.AddWithValue("@customer_id", customer.Id);
+                    command.Parameters.AddWithValue("@customer_id", id);
                     command.ExecuteNonQuery();
                 }
             }
@@ -118,12 +118,12 @@ namespace TropPizza.Infra.Data.DAO
         {
             Customer customer = new Customer();
 
-            customer.Id = Convert.ToInt32(reader["customer_id"]);
+            customer.Id = Convert.ToInt64(reader["customer_id"]);
             customer.Cpf = reader["cpf"].ToString();
             customer.FullName = reader["full_name"].ToString();
             customer.BirthDate = Convert.ToDateTime(reader["birth_date"]);
             customer.Address = reader["customer_address"].ToString();
-            customer.FidelityPoints = Convert.ToInt32(reader["fidelity_points"]);
+            customer.FidelityPoints = Convert.ToDouble(reader["fidelity_points"]);
 
             return customer;
         }
@@ -136,7 +136,7 @@ namespace TropPizza.Infra.Data.DAO
             command.Parameters.AddWithValue("@birth_date", customer.BirthDate);
             command.Parameters.AddWithValue("@customer_address", customer.Address);
             command.Parameters.AddWithValue("@fidelity_points", customer.FidelityPoints);
-            command.Parameters.AddWithValue("@has_fidelity_discount", customer.HasFidelityDiscount);
+            // command.Parameters.AddWithValue("@has_fidelity_discount", customer.HasFidelityDiscount);
         }
     }
 }

@@ -1,52 +1,68 @@
 ﻿using System;
-using TropPizza.Domain.Exceptions;
+using System.Linq;
+using TropPizza.Domain.Exceptions.CustomerExceptions;
+using TropPizza.Domain.Features.Orders;
 
 namespace TropPizza.Domain.Features.Customers
 {
     public class Customer
     {
-        public int Id { get; set; }
+        public Int64 Id { get; set; }
         public string Cpf { get; set; }
         public string FullName { get; set; }
         public DateTime BirthDate { get; set; }
         public string Address { get; set; }
         public double FidelityPoints { get; set; }
-        public bool HasFidelityDiscount
-        {
-            get { return CheckFidelityDiscount(); }
-        }
-
-        public Customer(string cpf, string fullName, DateTime birthDate, string address)
-        {
-            if (CheckValidBirthDate(birthDate) == false)
-            {
-                throw new InvalidDate();
-            }
-
-            Cpf = cpf;
-            FullName = fullName;
-            BirthDate = birthDate;
-            Address = address;
-            FidelityPoints = 0;
-        }
 
         public Customer()
         {
         }
 
-        // public double UseFidelityDiscount()
-        // {
-        //     throw new NotImplementedException();
-        // }
-
-        private bool CheckFidelityDiscount()
+        public double ApplyFidelityPoints(Order order) 
         {
-            return FidelityPoints >= 10 ? true : false;
+            throw new NotImplementedException();
         }
 
-        private bool CheckValidBirthDate(DateTime birthDate)
+        private bool CheckValidCpf()
         {
-            return birthDate <= DateTime.Now.Date ? true : false;
+            return (Cpf.All(char.IsDigit) && Cpf.Length == 11) ? true : false;
+        }
+
+        private bool CheckValidFullName()
+        {
+            return FullName.Length >= 3 ? true : false;
+        }
+
+        private bool CheckValidAddress()
+        {
+            return String.IsNullOrEmpty(Address) ? false : true;
+        }
+
+        private bool CheckValidBirthDate()
+        {
+            return BirthDate <= DateTime.Now.Date ? true : false;
+        }
+
+        public bool Validate()
+        {
+            if (CheckValidCpf() == false)
+            {
+                throw new InvalidCpf();
+            }
+            if (CheckValidFullName() == false)
+            {
+                throw new InvalidFullName();
+            }
+            if (CheckValidAddress() == false)
+            {
+                throw new InvalidAddress();
+            }
+            if (CheckValidBirthDate() == false)
+            {
+                throw new InvalidBirthDate();
+            }
+
+            return true;
         }
     }
 }
