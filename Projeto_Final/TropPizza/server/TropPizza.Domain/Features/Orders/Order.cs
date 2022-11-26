@@ -12,24 +12,15 @@ namespace TropPizza.Domain.Features.Orders
         public Int64 Id { get; set; }
         public OrderStatus Status { get; set; }
 #nullable enable
-        public string? CustomerCpf { get; set; } // ?
         public Customer? Customer { get; set; } // ?
         public List<Product> Products { get; set; }
         public DateTime OrderDateTime { get; set; }
-
         public double TotalPrice
         {
             get { return CalculateTotalPrice(); }
         }
-#nullable disable
-        // public Order(Customer customer, List<Product> products)
-        // {
-        //     Customer = customer;
-        //     Products = products;
-        //     Status = OrderStatus.Pending;
-        //     OrderDateTime = DateTime.Now;
-        // }
 
+#nullable disable
         public Order()
         {
             Products = new List<Product>();
@@ -41,7 +32,7 @@ namespace TropPizza.Domain.Features.Orders
 
             foreach (Product product in Products)
             {
-                totalPrice += product.TotalPrice;
+                totalPrice += product.Quantity * product.UnitPrice;
             };
 
             return totalPrice;
@@ -76,13 +67,6 @@ namespace TropPizza.Domain.Features.Orders
         // {
         //     throw new NotImplementedException();
         // }
-
-        // public double UseFidelityDiscount()
-        // {
-        //     throw new NotImplementedException();
-        // }
-
-        // Um pedido finalizado não pode ser excluído ou ter seus status alterado;
 
     }
 }

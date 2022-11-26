@@ -4,7 +4,8 @@ Cada aula consiste em um vídeo teórico com 1 h de duração e mais 2 h de reso
 A cada 7 ou 15 dias é proposto um projeto para a resolução individual valendo nota sobre o conteúdo acumulado.  
 Estou postando a minha resolução de todos os exercícios e projetos nesse repositório.  
   
-# Módulo 1  
+# Módulo 1
+## Aulas
 -Aula 1 até 9: Conceitos básicos usando Scratch  
 -Aula 10: Entrada e saída de dados  
 -Aula 11: Variáveis, constantes, tipos de dados e conversões  
@@ -23,10 +24,12 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Aula 24: Tipos e funções de data e horário  
 -Aula 25: Projeto 2  
 
+## Projetos
 -Projeto 1: Login e calculadora de console  
 -Projeto 2: Jogo da velha  
 
-# Módulo 2  
+# Módulo 2
+## Aulas
 -Aula 1: Classes, campos e construtores  
 -Aula 2: Propriedades e modificadores de acesso  
 -Aula 3: Métodos e sobrecarga  
@@ -81,6 +84,7 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Aula 50: ASP.NET Web API parte 2  
 -Aula 51: Revisão back-end  
   
+## Projetos
 -Projeto 1: Construíndo uma Fila  
 -Projeto 2: Controle de loja  
 -Projeto 3: Sistema de e-mails dúvida-resposta  
@@ -94,7 +98,8 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Projeto 11: API de rede social  
 -Projeto 12: Sistema de viagens (banco de dados + integração + API)  
 
-# Modulo 3  
+# Modulo 3
+## Aulas
 -Aula 1: Fundamentos da WEB (HTML) - Introdução  
 -Aula 2: Fundamentos da WEB (HTML) - Textual  
 -Aula 3: Fundamentos da WEB (HTML) - Tabelas  
@@ -125,6 +130,7 @@ Estou postando a minha resolução de todos os exercícios e projetos nesse repo
 -Aula 28: Revisão front-end 2  
 -Aula 29: Revisão front-end 3  
   
+## Projetos
 -[Projeto 1](https://lauterjung.github.io/html-navigation/): Controle de estoque (navegação HTML)  
 -[Projeto 2](https://lauterjung.github.io/grade-table/): Site de gerenciamento de notas (HTML + CSS)  
 -[Projeto 3](https://lauterjung.github.io/shopping-list/): Lista de compras (HTML + CSS + JS)   

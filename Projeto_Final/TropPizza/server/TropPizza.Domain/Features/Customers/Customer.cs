@@ -18,7 +18,7 @@ namespace TropPizza.Domain.Features.Customers
         {
         }
 
-        public double ApplyFidelityPoints(Order order) 
+        public double ApplyFidelityPoints(double price) 
         {
             throw new NotImplementedException();
         }

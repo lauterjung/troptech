@@ -1,0 +1,66 @@
+Documentação
+[ ] Readme
+[x] Diagramas
+
+Banco de dados
+[x] Criação de tabelas
+	[x] Cliente
+	[x] Produtos
+	[ ] Pedidos
+	[x] Produtos do pedido
+[x] Inserção de dados para testes
+[ ] Melhorar dados iniciais
+	[ ] Cliente
+	[ ] Produtos
+	[ ] Pedidos
+	[ ] Produtos do pedido
+
+Back-end
+[ ] Domain
+	[ ]
+[ ] Infra.Data
+[ ] WebApi
+		[x] Cliente
+		[x] Produtos
+		[ ] Pedidos
+[ ] Tests
+	[ ] Unitários
+		[ ] Construtores
+		[x] Cliente
+		[x] Produtos
+		[ ] Pedidos
+	[ ] Thunder Client API
+		[x] Cliente
+		[x] Produtos
+		[ ] Pedidos
+
+Front-end
+[ ] Home-page (esqueleto do site)
+	Logo + NavBar
+	whereami
+	SPA
+	Rodapé
+[ ] Clientes
+	[ ] Cadastrar
+	[ ] Editar
+[ ] Produtos
+	[ ] Cadastrar
+	[ ] Editar
+[ ] Pedidos
+	[ ] Cadastrar
+	[ ] Editar
+	[ ] Atualizar
+	[ ] Acompanhar
+
+Outro
+[ ] Image path para os produtos (Nullable)
+	image_path VARCHAR(255) NOT NULL
+	~/images/image1.jpg
+[ ] Status do pedido (enum) para BD
+[ ] Verificar status codes da API
+[ ] ON DELETE RESTRICT / ON UPDATE CASCADE / ...
+[ ] Duas classes de produto (estoque e carrinho)
+
+Verificações finais
+[ ] Correspondência Repository e Interface
+[ ] Correspondência diagramas

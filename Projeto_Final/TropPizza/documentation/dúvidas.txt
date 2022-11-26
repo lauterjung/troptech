@@ -1,14 +1,33 @@
+onde mexer na tabela intermediária OrderProducts? Repo e DAO para isso?
+gerenciar / ativar / excluir / estoque pode ser na mesma tela?
 
+● Ao excluir um cliente, verifique se ele está vinculado a algum pedido, caso esteja, exclua
+os pedidos vinculados ao cliente antes de excluí-lo;
+● Um pedido finalizado não pode ser excluído ou ter seus status alterado;
+
+representação order
+client?
+arrayList<product>
+
+pizzas
+
+addfidelitypoints (customer) customer
+construtores são testados? sim
 setup -> começar com produto válido?
-addfidelitypoints order ou customer
 
 teste para private methods
+
 calculate total price do pedido -> isolar o teste
 
 quando eu faço o pedido, eu tenho que verificar se está em estoque. se não tiver, disparar exceção.
 mas eu tenho um método no produto que é remove. Ele poderia reduzir abaixo de zero?
 
-onde mexer na tabela intermediária OrderProducts? Repo e DAO para isso?
+
+2x produtos
+
+
+
+
 
 
 testar constructor?

@@ -77,7 +77,7 @@ namespace TropPizza.Domain.Tests
             int quantityToRemove = 1;
 
             // act
-            _product.AddToInvetory(quantityToRemove);
+            _product.RemoveFromInvetory(quantityToRemove);
 
             // assert
             Assert.AreEqual(0, _product.Quantity);

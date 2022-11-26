@@ -39,7 +39,7 @@ namespace TropPizza.Domain.Features.Products
 
         public void RemoveFromInvetory(int quantity)
         {
-            // validar quantidade?
+            // if... throw exception
             Quantity -= quantity;
         }
 

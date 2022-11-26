@@ -12,9 +12,7 @@ GO
 
 SET DATEFORMAT ymd;  
 GO
-
 -----------------------------------------------------------------------------------------------------
-
 CREATE TABLE Customers
 (
     customer_id BIGINT IDENTITY(1, 1) NOT NULL,
@@ -23,7 +21,6 @@ CREATE TABLE Customers
     birth_date DATE NOT NULL,
     customer_address VARCHAR(500) NOT NULL,
     fidelity_points DECIMAL(36,2) NOT NULL,
-    -- has_fidelity_discount BIT NOT NULL,
     CONSTRAINT PK_customer_id PRIMARY KEY (customer_id),
 );
 
@@ -39,9 +36,7 @@ VALUES
     ('00000000008', 'Maria Alice Sobrenome8', '1990-01-21', 'Endereço 8', 8),
     ('00000000009', 'Theo Sobrenome9', '1990-01-21', 'Endereço 9', 9),
     ('00000000010', 'Valentina Sobrenome10', '1990-01-21', 'Endereço 10', 0);
-
 -----------------------------------------------------------------------------------------------------
-
 CREATE TABLE Products
 (
     product_id BIGINT IDENTITY(1, 1) NOT NULL,
@@ -53,35 +48,50 @@ CREATE TABLE Products
     unit_price DECIMAL(36,2) NOT NULL,
     total_price DECIMAL(36,2) NOT NULL,
     is_visible BIT NOT NULL,
+    image_location VARCHAR(255) NULL,
     CONSTRAINT PK_product_id PRIMARY KEY (product_id),
 );
 
 INSERT INTO Products
 VALUES
-    ('Água s/ gás 500 ml', 'Água mineral Puris 500 ml sem gás', 1, '2025-01-01', 100, 3.50, 350, 1),
-    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 100, 3.50, 350, 1),
-    ('Refrigerante Laranjinha 500 ml', 'Refrigerante Água da Serra sabor Laranjinha 500 ml', 1, '2025-01-01', 100, 6.50, 650, 1),
-    ('Refrigerante Guaraná 500 ml', 'Refrigerante Água da Serra sabor Guaraná 500 ml', 1, '2025-01-01', 100, 6.50, 650, 1),
-    ('Refrigerante Cola 500 ml', 'Refrigerante Coca-Cola sabor Cola 500 ml', 1, '2025-01-01', 100, 8.50, 850, 1),
-    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 100, 3.50, 350, 1),
-    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 100, 3.50, 350, 1),
-    ('Pizza Média - Marguerita', 'Pizza tamanho média sabor Marguerita', 1, '2023-12-31', 20, 40, 800, 1),
-    ('Pizza Grande - Marguerita', 'Pizza tamanho grande sabor Marguerita', 1, '2023-12-31', 20, 60, 1200, 1),
-    ('Pizza Gigante - Marguerita', 'Pizza tamanho grande sabor Marguerita', 1, '2023-12-31', 20, 80, 1600, 1),
-    ('Pizza Média - Calabresa', 'Pizza tamanho média sabor Calabresa', 1, '2023-12-31', 20, 40, 800, 1),
-    ('Pizza Grande - Calabresa', 'Pizza tamanho grande sabor Calabresa', 1, '2023-12-31', 20, 60, 1200, 1),
-    ('Pizza Gigante - Calabresa', 'Pizza tamanho grande sabor Calabresa', 1, '2023-12-31', 20, 80, 1600, 1);
-
+    ('Água s/ gás 500 ml', 'Água mineral Puris 500 ml sem gás', 1, '2025-01-01', 100, 3.50, 350, 1, NULL),
+    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 100, 3.50, 350, 1, NULL),
+    ('Refrigerante Laranjinha 500 ml', 'Refrigerante Água da Serra sabor Laranjinha 500 ml', 1, '2025-01-01', 100, 6.50, 650, 1, NULL),
+    ('Refrigerante Guaraná 500 ml', 'Refrigerante Água da Serra sabor Guaraná 500 ml', 1, '2025-01-01', 100, 6.50, 650, 1, NULL),
+    ('Refrigerante Cola 500 ml', 'Refrigerante Coca-Cola sabor Cola 500 ml', 1, '2025-01-01', 100, 8.50, 850, 1, NULL),
+    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 100, 3.50, 350, 1, NULL),
+    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 100, 3.50, 350, 1, NULL),
+    ('Pizza Média - Marguerita', 'Pizza tamanho média sabor Marguerita', 1, '2023-12-31', 20, 40, 800, 1, NULL),
+    ('Pizza Grande - Marguerita', 'Pizza tamanho grande sabor Marguerita', 1, '2023-12-31', 20, 60, 1200, 1, NULL),
+    ('Pizza Gigante - Marguerita', 'Pizza tamanho grande sabor Marguerita', 1, '2023-12-31', 20, 80, 1600, 1, NULL),
+    ('Pizza Média - Calabresa', 'Pizza tamanho média sabor Calabresa', 1, '2023-12-31', 20, 40, 800, 1, NULL),
+    ('Pizza Grande - Calabresa', 'Pizza tamanho grande sabor Calabresa', 1, '2023-12-31', 20, 60, 1200, 1, NULL),
+    ('Pizza Gigante - Calabresa', 'Pizza tamanho grande sabor Calabresa', 1, '2023-12-31', 20, 80, 1600, 1, NULL);
 -----------------------------------------------------------------------------------------------------
+CREATE TABLE OrderStatus
+(
+    order_status_id SMALLINT IDENTITY(0, 1) NOT NULL,
+    order_status_name VARCHAR(20) NOT NULL,
+    CONSTRAINT PK_order_status_id PRIMARY KEY (order_status_id),
+);
 
+INSERT INTO OrderStatus
+VALUES
+    (0, 'Pendente'),
+    (1, 'Em preparo'),
+    (2, 'Delivery'),
+    (3, 'Finalizado');
+-----------------------------------------------------------------------------------------------------
 CREATE TABLE Orders
 (
     order_id BIGINT IDENTITY(1, 1) NOT NULL,
-    order_status INT NOT NULL,
-    client_cpf INT NULL,
+    order_status_id SMALLINT NOT NULL,
+    customer_cpf VARCHAR(11) NULL, -- [0..1]
     order_date_time DATETIME2 NOT NULL,
     total_price DECIMAL(36,2) NOT NULL,
     CONSTRAINT PK_order_id PRIMARY KEY (order_id),
+    CONSTRAINT FK_orders_customer FOREIGN KEY (customer_cpf) REFERENCES Customers (cpf),
+    CONSTRAINT FK_orders_orderstatus FOREIGN KEY (order_status_id) REFERENCES OrderStatus (order_status_id),
 );
 
 INSERT INTO Orders
@@ -96,9 +106,7 @@ VALUES
     (0, 00000000001, '2023-11-21 18:00:00', 1111111),
     (1, 00000000002, '2023-11-21 17:00:00', 1111111),
     (2, 00000000003, '2023-11-21 16:00:00', 1111111);
-
 -----------------------------------------------------------------------------------------------------
-
 CREATE TABLE OrderProducts
 (
     order_id BIGINT NOT NULL,
@@ -127,93 +135,7 @@ VALUES
     (8, 1, 2, 7),
     (9, 1, 2, 7),
     (10, 1, 2, 7);
-    
 -----------------------------------------------------------------------------------------------------
-
-
------------------------------------------------------------------------------------------------------
-
-
-
--- CREATE TABLE Enderecos
--- (
---     id_endereco INT IDENTITY(1, 1) NOT NULL,
---     cep VARCHAR(10) NOT NULL,
---     rua VARCHAR(100) NOT NULL,
---     bairro VARCHAR(50) NOT NULL,
---     numero INT NOT NULL,
---     complemento VARCHAR(100) NULL,
---     CONSTRAINT PK_id_endereco PRIMARY KEY (id_endereco)
--- );
---------------------------------
--- CREATE TABLE Ingredients
--- (
---     ingredient_id INT IDENTITY(1, 1) NOT NULL,
---     ingredient_name VARCHAR(200) NOT NULL,
---     quantity DECIMAL(36, 2) NOT NULL,
---     quantity_unit VARCHAR(20) NOT NULL,
---     CONSTRAINT PK_ingredient_id PRIMARY KEY (ingredient_id)
--- );
-
--- CREATE TABLE Toppings
--- (
---     topping_id INT IDENTITY(1, 1) NOT NULL,
---     topping_name VARCHAR(200) NOT NULL,
---     topping_type VARCHAR(20) NOT NULL,
---     CONSTRAINT topping_id PRIMARY KEY (topping_id)
--- );
-
--- CREATE TABLE IngredientsToToppings
--- (
---     topping_id INT NOT NULL,
---     ingredient_id INT NOT NULL,
---     used_quantity DECIMAL(36, 2) NOT NULL,
---     CONSTRAINT FK_Conversion_Ingredients FOREIGN KEY (ingredient_id) REFERENCES Ingredients (ingredient_id),
---     CONSTRAINT FK_Conversion_Toppings FOREIGN KEY (topping_id) REFERENCES Toppings (topping_id)
--- )
-
------------------------------------------------------------------------------
-
--- INSERT INTO Ingredients
--- VALUES
---     ('Molho de tomate', 100, 'u'),
---     ('Queijo', 100, 'u'),
---     ('Orégano', 100, 'u'),
---     ('Calabresa', 100, 'u'),
---     ('Tomate', 100, 'u'),
---     ('Manjericão', 100, 'u');
-
--- INSERT INTO Toppings
--- VALUES
---     ('Marguerita', 'Tradicional'),
---     ('Calabresa', 'Tradicional');
-
--- INSERT INTO IngredientsToToppings
--- VALUES
---     (1, 1, 1),
---     (1, 2, 1),
---     (1, 3, 1),
---     (1, 5, 1),
---     (1, 6, 1),
---     (2, 1, 1),
---     (2, 2, 1),
---     (2, 3, 1),
---     (2, 4, 1);
-
--- INSERT INTO Enderecos
--- VALUES
---     ('88012012', 'Rua A B C', 'Bairro A', 1, 'Apto. 1'),
---     ('88012012', 'Rua A B C', 'Bairro A', 2, NULL),
---     ('88013013', 'Rua D E F', 'Bairro D', 200, 'Bloco B'),
---     ('88013013', 'Rua D E F', 'Bairro D', 400, NULL),
---     ('88014014', 'Rua G H I', 'Bairro G', 100, 'Apto. 2'),
---     ('88014014', 'Rua G H I', 'Bairro G', 107, NULL),
---     ('88015015', 'Rua J K L', 'Bairro J', 2, 'Apto. 3'),
---     ('88015015', 'Rua J K L', 'Bairro J', 4, NULL),
---     ('88016016', 'Rua M N O', 'Bairro M', 55, 'Apto. 4'),
---     ('88016016', 'Rua M N O', 'Bairro M', 66, NULL);
-
-
 select *
 from Customers
 
