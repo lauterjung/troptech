@@ -1,1 +1,22 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/" routerLinkActive="active">Home</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" routerLink="/customer/new" routerLinkActive="active">Novo Cliente</a>
+          <a class="nav-link" routerLink="/customer/manage" routerLinkActive="active">Editar Clientes</a>
+          <a class="nav-link" routerLink="/product/new" routerLinkActive="active">Novo Produto</a>
+          <a class="nav-link" routerLink="/product/manage" routerLinkActive="active">Editar Produtos</a>
+          <a class="nav-link" routerLink="/order/new" routerLinkActive="active">Novo Pedido</a>
+          <a class="nav-link" routerLink="/order/cart" routerLinkActive="active">Carrinho</a>
+          <a class="nav-link" routerLink="/order/manage" routerLinkActive="active">Editar Pedidos</a>
+          <a class="nav-link" routerLink="/order/change-status" routerLinkActive="active">Alterar Status do Pedido</a>
+          <a class="nav-link" routerLink="/order/track" routerLinkActive="active">Acompanhar Pedido</a>
+        </div>
+      </div>
+    </div>
+  </nav>
 <router-outlet></router-outlet>

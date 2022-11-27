@@ -12,7 +12,7 @@ namespace TropPizza.Infra.Data.Repositories
 
         public void Create(Customer customer)
         {
-            Customer searchedCustomer = _customerDAO.ReadById(customer.Id);
+            Customer searchedCustomer = _customerDAO.ReadByCpf(customer.Cpf);
             if (searchedCustomer != null)
             {
                 throw new AlreadyExists();
@@ -35,17 +35,16 @@ namespace TropPizza.Infra.Data.Repositories
             return customer;
         }
 
-        // public Customer ReadByCpf(string cpf)
-        // {
-        //     Customer customer = _customerDAO.ReadByCpf(cpf);
+        public Customer ReadByCpf(string cpf)
+        {
+            Customer customer = _customerDAO.ReadByCpf(cpf);
+            if (customer is null)
+            {
+                throw new NotFound();
+            }
 
-        //     if (customer is null)
-        //     {
-        //         throw new NotFound();
-        //     }
-
-        //     return customer;
-        // }
+            return customer;
+        }
 
         public List<Customer> ReadAll()
         {
@@ -60,12 +59,18 @@ namespace TropPizza.Infra.Data.Repositories
 
         public void Update(Customer customer)
         {
+            // Customer existingCustomer = _customerDAO.ReadByCpf(customer.Cpf);
+            // if (existingCustomer != null)
+            // {
+            //     throw new AlreadyExists();
+            // }
+
             Customer searchedCustomer = _customerDAO.ReadById(customer.Id);
             if (searchedCustomer is null)
             {
                 throw new NotFound();
             }
-            
+
             if (customer.Validate())
             {
                 _customerDAO.Update(customer);
@@ -82,6 +87,18 @@ namespace TropPizza.Infra.Data.Repositories
             }
 
             _customerDAO.Delete(id);
+        }
+
+        public void ApplyFidelityPoints(string cpf, double totalPrice)
+        {
+            Customer searchedCustomer = _customerDAO.ReadByCpf(cpf);
+            if (searchedCustomer is null)
+            {
+                throw new NotFound();
+            }
+
+            searchedCustomer.ApplyFidelityPoints(totalPrice);
+            _customerDAO.Update(searchedCustomer);
         }
     }
 }

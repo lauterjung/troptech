@@ -2,75 +2,82 @@ using System;
 using System.Collections.Generic;
 using TropPizza.Domain.Exceptions;
 using TropPizza.Domain.Features.Orders;
+using TropPizza.Domain.Features.Products;
 using TropPizza.Infra.Data.DAO;
 
 namespace TropPizza.Infra.Data.Repositories
 {
     public class OrderRepository : IOrderRepository
     {
+        private CustomerRepository _customerRepository = new CustomerRepository();
+        private OrderProductsRepository _orderProductsRepository = new OrderProductsRepository();
         private OrderDAO _orderDAO = new OrderDAO();
 
         public void Create(Order order)
         {
-            Order searchedOrder = _orderDAO.ReadById(order.Id);
-            if (searchedOrder != null)
-            {
-                throw new AlreadyExists();
-            }
+            // Order searchedOrder = _orderDAO.ReadById(order.Id); // get order ID!
+            // if (searchedOrder != null)
+            // {
+            //     throw new AlreadyExists();
+            // }
 
             if (order.Validate())
             {
-                _orderDAO.Create(Order);
+                if (!String.IsNullOrEmpty(order.CustomerCpf))
+                {
+                    _customerRepository.ApplyFidelityPoints(order.CustomerCpf, order.TotalPrice);
+                }
+
+                _orderDAO.Create(order);
+                Int64 lastKey = _orderDAO.GetLastKey();
+                _orderProductsRepository.Create(order, lastKey);
+                _orderProductsRepository.RemoveFromInventory(order.Products); // de quem é essa responsabilidade?
             }
         }
 
         public Order ReadById(Int64 id)
         {
             Order order = _orderDAO.ReadById(id);
-            if (Order is null)
+            if (order is null)
             {
                 throw new NotFound();
             }
 
-            return Order;
+            order.Products = _orderProductsRepository.ReadById(id);
+            return order;
         }
 
         public List<Order> ReadAll()
         {
-            List<Order> OrdersList = _orderDAO.ReadAll();
+            List<Order> ordersList = _orderDAO.ReadAll();
 
-            if (OrdersList.Count == 0)
+            if (ordersList.Count == 0)
             {
                 throw new NotFound();
             }
 
-            return OrdersList;
-        }
-
-        public void Update(Order order)
-        {
-            Order searchedOrder = _orderDAO.ReadById(order.Id);
-            if (searchedOrder is null)
+            foreach (Order order in ordersList)
             {
-                throw new NotFound();
+                order.Products = _orderProductsRepository.ReadById(order.Id);
             }
-            
-            if (order.Validate())
-            {
-                _orderDAO.Update(Order);
-            }
+            return ordersList;
         }
 
         public void Delete(Int64 id)
         {
-            // verificar se existem pedidos em aberto
             Order searchedOrder = _orderDAO.ReadById(id);
-
             if (searchedOrder is null)
             {
                 throw new NotFound();
             }
 
+            // if (order.CustomerCpf)
+            // {
+            //     _customerRepository.RemoveFidelityPoints(order.CustomerCpf, order.TotalPrice);
+            // }
+
+            // _orderProductsRepository.AddToInventory(order.Products); // de quem é essa 
+            _orderProductsRepository.Delete(id);
             _orderDAO.Delete(id);
         }
     }

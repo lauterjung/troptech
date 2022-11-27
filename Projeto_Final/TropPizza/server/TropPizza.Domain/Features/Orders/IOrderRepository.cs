@@ -8,7 +8,6 @@ namespace TropPizza.Domain.Features.Orders
         public void Create(Order order);
         public Order ReadById(Int64 id);
         public List<Order> ReadAll();
-        public void Update(Order order);
         public void Delete(Int64 id);
     }
 }

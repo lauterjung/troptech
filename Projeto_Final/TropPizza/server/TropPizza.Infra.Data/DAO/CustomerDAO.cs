@@ -52,6 +52,31 @@ namespace TropPizza.Infra.Data.DAO
             return null;
         }
 
+        public Customer ReadByCpf(string cpf)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    string sql = @"SELECT * FROM Customers
+                                    WHERE cpf = @cpf;";
+                    command.CommandText = sql;
+                    command.Parameters.AddWithValue("@cpf", cpf);
+
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Customer customer = SqlToObject(reader);
+                        return customer;
+                    }
+                }
+            }
+            return null;
+        }
+
         public List<Customer> ReadAll()
         {
             List<Customer> customersList = new List<Customer>();
@@ -136,7 +161,6 @@ namespace TropPizza.Infra.Data.DAO
             command.Parameters.AddWithValue("@birth_date", customer.BirthDate);
             command.Parameters.AddWithValue("@customer_address", customer.Address);
             command.Parameters.AddWithValue("@fidelity_points", customer.FidelityPoints);
-            // command.Parameters.AddWithValue("@has_fidelity_discount", customer.HasFidelityDiscount);
         }
     }
 }

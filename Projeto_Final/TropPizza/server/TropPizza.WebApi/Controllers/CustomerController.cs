@@ -9,7 +9,7 @@ namespace TropPizza.WebApi.Controllers
     [Route("api/customer")]
     public class CustomerController : Controller
     {
-        private ICustomerRepository _repository = new CustomerRepository();
+        private ICustomerRepository _repository;
 
         public CustomerController()
         {
@@ -50,6 +50,25 @@ namespace TropPizza.WebApi.Controllers
             try
             {
                 var searchedCustomer = _repository.ReadById(id);
+                if (searchedCustomer == null)
+                {
+                    return StatusCode(204, searchedCustomer);
+                }
+                return StatusCode(200, searchedCustomer);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("cpf/{cpf}")]
+        public IActionResult GetByCpf(string cpf)
+        {
+            try
+            {
+                var searchedCustomer = _repository.ReadByCpf(cpf);
                 if (searchedCustomer == null)
                 {
                     return StatusCode(204, searchedCustomer);

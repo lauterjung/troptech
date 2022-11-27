@@ -19,7 +19,7 @@ namespace TropPizza.Infra.Data.DAO
                 {
                     command.Connection = connection;
                     string sql = @"INSERT INTO Products VALUES 
-                                    (@product_name, @product_description, @is_active, @expiration_date, @quantity, @unit_price, @total_price, @is_visible);";
+                                    (@product_name, @product_description, @is_active, @expiration_date, @quantity, @unit_price, @total_price, @is_visible, @image_path);";
                     ObjectToSql(product, command);
                     command.CommandText = sql;
                     command.ExecuteNonQuery();
@@ -113,7 +113,7 @@ namespace TropPizza.Infra.Data.DAO
                 {
                     command.Connection = connection;
                     string sql = @"UPDATE Products SET 
-                    product_name = @product_name, product_description = @product_description, is_active = @is_active, expiration_date = @expiration_date, quantity = @quantity, unit_price = @unit_price, total_price = @total_price, is_visible = @is_visible
+                    product_name = @product_name, product_description = @product_description, is_active = @is_active, expiration_date = @expiration_date, quantity = @quantity, unit_price = @unit_price, total_price = @total_price, is_visible = @is_visible, image_path= @image_path
                     WHERE product_id = @product_id;";
 
                     command.CommandText = sql;
@@ -154,6 +154,7 @@ namespace TropPizza.Infra.Data.DAO
             product.Quantity = Convert.ToInt32(reader["quantity"]);
             product.UnitPrice = Convert.ToDouble(reader["unit_price"]);
             product.IsActive = Convert.ToBoolean(reader["is_visible"]);
+            product.ImagePath = reader["image_path"] as string;
 
             return product;
         }
@@ -168,6 +169,7 @@ namespace TropPizza.Infra.Data.DAO
             command.Parameters.AddWithValue("@unit_price", product.UnitPrice);
             command.Parameters.AddWithValue("@total_price", product.TotalPrice);
             command.Parameters.AddWithValue("@is_visible", product.IsVisible);
+            command.Parameters.AddWithValue("@image_path", (product.ImagePath != null) ? product.ImagePath : DBNull.Value);
         }
     }
 }

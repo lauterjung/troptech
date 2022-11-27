@@ -17,6 +17,19 @@ namespace TropPizza.Domain.Tests
         }
 
         [Test]
+        public void Constructor()
+        {
+            // arrange
+
+            // act
+            Product product = new Product();
+
+            // assert
+            Assert.True(product.IsActive);
+            Assert.AreEqual(0, product.Quantity);
+        }
+
+        [Test]
         public void CalculateTotalPrice_ZeroQuantity_ReturnsZero()
         {
             // arrange
@@ -56,31 +69,46 @@ namespace TropPizza.Domain.Tests
         }
 
         [Test]
-        public void AddToInvetory_Add1From0_Returns1()
+        public void AddToInventory_Add1From0_Returns1()
         {
             // arrange
             _product.Quantity = 0;
             int quantityToAdd = 1;
 
             // act
-            _product.AddToInvetory(quantityToAdd);
+            _product.AddToInventory(quantityToAdd);
 
             // assert
             Assert.AreEqual(1, _product.Quantity);
         }
 
         [Test]
-        public void RemoveFromInvetory_Remove1From1_Returns0()
+        public void RemoveFromInventory_Remove1From1_Returns0()
         {
             // arrange
             _product.Quantity = 1;
             int quantityToRemove = 1;
 
             // act
-            _product.RemoveFromInvetory(quantityToRemove);
+            _product.RemoveFromInventory(quantityToRemove);
 
             // assert
             Assert.AreEqual(0, _product.Quantity);
+        }
+
+        [Test]
+        public void RemoveFromInventory_Remove1From0_ThrowsException()
+        {
+            // arrange
+            _product.Quantity = 0;
+            int quantityToRemove = 1;
+
+
+            // act
+            InsufficientQuantity ex = Assert.Throws<InsufficientQuantity>(() => _product.RemoveFromInventory(quantityToRemove));
+
+            // assert
+            Assert.That(ex.Message, Is.EqualTo("O produto não possui a quantidade desejada em estoque!"));
         }
 
         [Test]

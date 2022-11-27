@@ -1,0 +1,1 @@
+O readme real está uma pasta acima (../README.md).

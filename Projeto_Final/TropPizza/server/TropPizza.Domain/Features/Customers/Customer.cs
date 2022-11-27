@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using TropPizza.Domain.Exceptions.CustomerExceptions;
-using TropPizza.Domain.Features.Orders;
+
 
 namespace TropPizza.Domain.Features.Customers
 {
@@ -16,11 +16,12 @@ namespace TropPizza.Domain.Features.Customers
 
         public Customer()
         {
+            FidelityPoints = 0;
         }
 
-        public double ApplyFidelityPoints(double price) 
+        public void ApplyFidelityPoints(double totalPrice)
         {
-            throw new NotImplementedException();
+            FidelityPoints += 2 * totalPrice;
         }
 
         private bool CheckValidCpf()

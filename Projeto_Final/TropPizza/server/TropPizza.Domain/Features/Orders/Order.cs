@@ -12,7 +12,8 @@ namespace TropPizza.Domain.Features.Orders
         public Int64 Id { get; set; }
         public OrderStatus Status { get; set; }
 #nullable enable
-        public Customer? Customer { get; set; } // ?
+        public string? CustomerCpf { get; set; } // ?
+        // public Customer? Customer { get; set; } // ?
         public List<Product> Products { get; set; }
         public DateTime OrderDateTime { get; set; }
         public double TotalPrice
@@ -24,6 +25,7 @@ namespace TropPizza.Domain.Features.Orders
         public Order()
         {
             Products = new List<Product>();
+            Status = OrderStatus.Pending;
         }
 
         public double CalculateTotalPrice()
@@ -32,7 +34,7 @@ namespace TropPizza.Domain.Features.Orders
 
             foreach (Product product in Products)
             {
-                totalPrice += product.Quantity * product.UnitPrice;
+                totalPrice += product.TotalPrice;
             };
 
             return totalPrice;

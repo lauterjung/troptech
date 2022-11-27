@@ -1,0 +1,42 @@
+homepage é um componente?
+
+onde mexer na tabela intermediária OrderProducts? Repo e DAO para isso? ou direto no Order?
+_orderProductsRepository.RemoveFromInventory(order.Products); // de quem é essa responsabilidade?
+
+excluir pedidos com fidelityPoints
+
+● Ao excluir um cliente, verifique se ele está vinculado a algum pedido, caso esteja, exclua
+os pedidos vinculados ao cliente antes de excluí-lo;
+● Um pedido finalizado não pode ser excluído ou ter seus status alterado;
+Deletar pedidos já finalizados quando excluir cliente?
+
+gerenciar / ativar / excluir / estoque pode ser na mesma tela?
+
+representação order
+client?
+arrayList<product>
+
+
+2x produtos
+
+
+Feature no singular, mas fica com nome de classe
+mudar namespace só para domain? o que fazer?
+
+O que acontece quando eu mudar o CPF de um cliente no DB?
+
+
+Se não usar 2x classes produtos (estoque e carrinho), dá nisso>
+    "products": [
+      {
+        "id": 1,
+        "name": "Água s/ gás 500 ml",
+        "description": null,
+        "isActive": true,
+        "expirationDate": "0001-01-01T00:00:00",
+        "quantity": 2,
+        "unitPrice": 3.5,
+        "imagePath": null,
+        "totalPrice": 7,
+        "isVisible": true
+      }

@@ -12,6 +12,8 @@ namespace TropPizza.Domain.Features.Products
         public DateTime ExpirationDate { get; set; }
         public int Quantity { get; set; }
         public double UnitPrice { get; set; }
+        #nullable enable
+        public string? ImagePath { get; set; }
         public double TotalPrice
         {
             get { return CalculateTotalPrice(); }
@@ -32,14 +34,18 @@ namespace TropPizza.Domain.Features.Products
             return Quantity * UnitPrice;
         }
 
-        public void AddToInvetory(int quantity)
+        public void AddToInventory(int quantity)
         {
             Quantity += quantity;
         }
 
-        public void RemoveFromInvetory(int quantity)
+        public void RemoveFromInventory(int quantity)
         {
-            // if... throw exception
+            if (quantity > Quantity) 
+            {
+                throw new InsufficientQuantity();
+            }
+
             Quantity -= quantity;
         }
 

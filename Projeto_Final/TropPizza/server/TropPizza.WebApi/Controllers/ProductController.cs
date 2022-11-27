@@ -9,7 +9,7 @@ namespace TropPizza.WebApi.Controllers
     [Route("api/product")]
     public class ProductController : Controller
     {
-        private IProductRepository _repository = new ProductRepository();
+        private IProductRepository _repository;
 
         public ProductController()
         {

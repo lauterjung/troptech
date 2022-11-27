@@ -48,19 +48,19 @@ CREATE TABLE Products
     unit_price DECIMAL(36,2) NOT NULL,
     total_price DECIMAL(36,2) NOT NULL,
     is_visible BIT NOT NULL,
-    image_location VARCHAR(255) NULL,
+    image_path VARCHAR(255) NULL,
     CONSTRAINT PK_product_id PRIMARY KEY (product_id),
 );
 
 INSERT INTO Products
 VALUES
-    ('Água s/ gás 500 ml', 'Água mineral Puris 500 ml sem gás', 1, '2025-01-01', 100, 3.50, 350, 1, NULL),
-    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 100, 3.50, 350, 1, NULL),
-    ('Refrigerante Laranjinha 500 ml', 'Refrigerante Água da Serra sabor Laranjinha 500 ml', 1, '2025-01-01', 100, 6.50, 650, 1, NULL),
-    ('Refrigerante Guaraná 500 ml', 'Refrigerante Água da Serra sabor Guaraná 500 ml', 1, '2025-01-01', 100, 6.50, 650, 1, NULL),
-    ('Refrigerante Cola 500 ml', 'Refrigerante Coca-Cola sabor Cola 500 ml', 1, '2025-01-01', 100, 8.50, 850, 1, NULL),
-    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 100, 3.50, 350, 1, NULL),
-    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 100, 3.50, 350, 1, NULL),
+    ('Água s/ gás 500 ml', 'Água mineral Puris 500 ml sem gás', 1, '2025-01-01', 10000, 3.50, 350, 1, NULL),
+    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 10000, 3.50, 350, 1, NULL),
+    ('Refrigerante Laranjinha 500 ml', 'Refrigerante Água da Serra sabor Laranjinha 500 ml', 1, '2025-01-01', 10000, 6.50, 650, 1, NULL),
+    ('Refrigerante Guaraná 500 ml', 'Refrigerante Água da Serra sabor Guaraná 500 ml', 1, '2025-01-01', 10000, 6.50, 650, 1, NULL),
+    ('Refrigerante Cola 500 ml', 'Refrigerante Coca-Cola sabor Cola 500 ml', 1, '2025-01-01', 10000, 8.50, 850, 1, NULL),
+    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 10000, 3.50, 350, 1, NULL),
+    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 10000, 3.50, 350, 1, NULL),
     ('Pizza Média - Marguerita', 'Pizza tamanho média sabor Marguerita', 1, '2023-12-31', 20, 40, 800, 1, NULL),
     ('Pizza Grande - Marguerita', 'Pizza tamanho grande sabor Marguerita', 1, '2023-12-31', 20, 60, 1200, 1, NULL),
     ('Pizza Gigante - Marguerita', 'Pizza tamanho grande sabor Marguerita', 1, '2023-12-31', 20, 80, 1600, 1, NULL),
@@ -77,35 +77,34 @@ CREATE TABLE OrderStatus
 
 INSERT INTO OrderStatus
 VALUES
-    (0, 'Pendente'),
-    (1, 'Em preparo'),
-    (2, 'Delivery'),
-    (3, 'Finalizado');
+    ('Pendente'),
+    ('Em preparo'),
+    ('Delivery'),
+    ('Finalizado');
 -----------------------------------------------------------------------------------------------------
 CREATE TABLE Orders
 (
     order_id BIGINT IDENTITY(1, 1) NOT NULL,
     order_status_id SMALLINT NOT NULL,
-    customer_cpf VARCHAR(11) NULL, -- [0..1]
+    customer_cpf VARCHAR(11) NULL,
     order_date_time DATETIME2 NOT NULL,
-    total_price DECIMAL(36,2) NOT NULL,
     CONSTRAINT PK_order_id PRIMARY KEY (order_id),
-    CONSTRAINT FK_orders_customer FOREIGN KEY (customer_cpf) REFERENCES Customers (cpf),
+    -- CONSTRAINT FK_orders_customer FOREIGN KEY (customer_cpf) REFERENCES Customers (cpf),
     CONSTRAINT FK_orders_orderstatus FOREIGN KEY (order_status_id) REFERENCES OrderStatus (order_status_id),
 );
 
 INSERT INTO Orders
 VALUES
-    (3, NULL, '2023-11-21 14:00:00', 1111111),
-    (3, NULL, '2023-11-21 15:00:00', 1111111),
-    (3, 00000000001, '2023-11-21 16:00:00', 1111111),
-    (3, 00000000002, '2023-11-21 17:00:00', 1111111),
-    (3, 00000000003, '2023-11-21 18:00:00', 1111111),
-    (0, NULL, '2023-11-21 20:00:00', 1111111),
-    (0, NULL, '2023-11-21 19:00:00', 1111111),
-    (0, 00000000001, '2023-11-21 18:00:00', 1111111),
-    (1, 00000000002, '2023-11-21 17:00:00', 1111111),
-    (2, 00000000003, '2023-11-21 16:00:00', 1111111);
+    (3, NULL, '2023-11-21 14:00:00'),
+    (3, NULL, '2023-11-21 15:00:00'),
+    (3, '00000000001', '2023-11-21 16:00:00'),
+    (3, '00000000002', '2023-11-21 17:00:00'),
+    (3, '00000000003', '2023-11-21 18:00:00'),
+    (0, NULL, '2023-11-21 20:00:00'),
+    (0, NULL, '2023-11-21 19:00:00'),
+    (0, '00000000001', '2023-11-21 18:00:00'),
+    (1, '00000000002', '2023-11-21 17:00:00'),
+    (2, '00000000003', '2023-11-21 16:00:00');
 -----------------------------------------------------------------------------------------------------
 CREATE TABLE OrderProducts
 (
@@ -146,3 +145,8 @@ SELECT *
 FROM Products
 WHERE product_name = 'Água s/ gás 500 ml' AND product_description = 'Água mineral Puris 500 ml sem gás' AND expiration_date = '2025-01-01'
 
+SELECT p.product_id, p.product_name, p.unit_price, op.quantity, op.total_price
+                    FROM OrderProducts op
+                    JOIN Orders o ON(op.order_id = o.order_id)
+                    JOIN Products p ON(op.product_id = p.product_id)
+                        WHERE op.order_id = 3

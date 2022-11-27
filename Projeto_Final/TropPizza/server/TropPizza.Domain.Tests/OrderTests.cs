@@ -19,6 +19,33 @@ namespace TropPizza.Domain.Tests
         }
 
         [Test]
+        public void Constructor()
+        {
+            // arrange
+ 
+            // act
+            Order order = new Order();
+
+            // assert
+            CollectionAssert.IsEmpty(order.Products);
+            Assert.AreEqual(OrderStatus.Pending, order.Status);
+        }
+
+        [Test]
+        public void CalculateTotalPrice_NoProducts_Returns0()
+        {
+            // arrange
+            _order.Products = new List<Product>();
+
+            // act
+            double result = _order.CalculateTotalPrice();
+
+            // assert
+            Assert.AreEqual(0, result);
+            Assert.AreEqual(0, _order.TotalPrice);
+        }
+
+        [Test]
         public void CalculateTotalPrice_OneProduct_Quantity2Price1d5_Returns3()
         {
             // arrange

@@ -1,66 +1,57 @@
-Documentação
-[ ] Readme
-[x] Diagramas
+[x] Documentação
+	[x] Readme
+	[x] Diagramas
 
-Banco de dados
-[x] Criação de tabelas
-	[x] Cliente
-	[x] Produtos
-	[ ] Pedidos
-	[x] Produtos do pedido
-[x] Inserção de dados para testes
-[ ] Melhorar dados iniciais
-	[ ] Cliente
-	[ ] Produtos
-	[ ] Pedidos
-	[ ] Produtos do pedido
+[x] Banco de dados
+	[x] Criação de tabelas
+	[x] Inserção de dados para testes
 
-Back-end
-[ ] Domain
-	[ ]
-[ ] Infra.Data
-[ ] WebApi
-		[x] Cliente
-		[x] Produtos
+[x] Back-end
+	[x] Domain
+	[x] Infra.Data
+	[x] WebApi
+	[x] Unit tests
+	[x] Thunder Client API tests
+
+[ ] Front-end
+	[x] Criar projeto
+	[x] Criar componentes
+	[x] Routing
+	[x] Services
+	[x] Conexão com o front-end
+	[ ] Classes
+		[ ] Cliente
+		[ ] Produto
+		[ ] Pedido
+	[ ] NavBar
+	[x] FavIcon
+	[ ] Páginas
+		[ ] Home-page (esqueleto do site)
+		[ ] Clientes
+			[ ] Cadastrar
+			[ ] Editar
+		[ ] Produtos
+			[ ] Cadastrar
+			[ ] Editar
 		[ ] Pedidos
-[ ] Tests
-	[ ] Unitários
-		[ ] Construtores
-		[x] Cliente
-		[x] Produtos
-		[ ] Pedidos
-	[ ] Thunder Client API
-		[x] Cliente
-		[x] Produtos
-		[ ] Pedidos
+			[ ] Cadastrar
+			[ ] Editar
+			[ ] Atualizar
+			[ ] Acompanhar
 
-Front-end
-[ ] Home-page (esqueleto do site)
-	Logo + NavBar
-	whereami
-	SPA
-	Rodapé
-[ ] Clientes
-	[ ] Cadastrar
-	[ ] Editar
-[ ] Produtos
-	[ ] Cadastrar
-	[ ] Editar
-[ ] Pedidos
-	[ ] Cadastrar
-	[ ] Editar
-	[ ] Atualizar
-	[ ] Acompanhar
-
-Outro
-[ ] Image path para os produtos (Nullable)
-	image_path VARCHAR(255) NOT NULL
-	~/images/image1.jpg
-[ ] Status do pedido (enum) para BD
-[ ] Verificar status codes da API
-[ ] ON DELETE RESTRICT / ON UPDATE CASCADE / ...
-[ ] Duas classes de produto (estoque e carrinho)
-
-Verificações finais
-[ ] Correspondência Repository e Interface
-[ ] Correspondência diagramas
+[ ] Outro
+	[ ] Verificar status codes da API
+	[ ] ON DELETE RESTRICT / ON UPDATE CASCADE / ...
+	[ ] Duas classes de produto (estoque e carrinho)
+	[ ] Melhorar dados iniciais do banco de dados
+	[ ] fazer Order update (DAO e repo)?
+	[ ] orderDAO pegar cliente inteiro?
+	[ ] ApplyFidelityPoints -> UpdateFidelityPoints
+	[ ] Remover fidelity points
+	[ ] TS -> Class para Interface
+	
+[ ] Verificações finais
+	[ ] Rever todas as regras de negócio
+	[ ] Re-rodar testes
+	[ ] Correspondência IRepository e Repository
+	[ ] Correspondência diagramas

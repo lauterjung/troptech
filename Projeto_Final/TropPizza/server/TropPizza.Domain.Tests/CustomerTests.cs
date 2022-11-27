@@ -16,6 +16,31 @@ namespace TropPizza.Domain.Tests
         }
 
         [Test]
+        public void Constructor()
+        {
+            // arrange
+
+            // act
+            Customer customer = new Customer();
+
+            // assert
+            Assert.AreEqual(0, customer.FidelityPoints);
+        }
+
+        [Test]
+        public void ApplyFidelityPoints_TotalPrice1_Adds2()
+        {
+            // arrange
+            double totalPrice = 1;
+
+            // act
+            _customer.ApplyFidelityPoints(totalPrice);
+
+            // assert
+            Assert.AreEqual(2, _customer.FidelityPoints);
+        }
+
+        [Test]
         public void Validate_AllValid_ReturnsTrue()
         {
             // arrange
