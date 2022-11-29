@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TropPizza.Domain.Exceptions;
 using TropPizza.Domain.Features.Customers;
+using TropPizza.Domain.Features.Orders;
 using TropPizza.Infra.Data.DAO;
 
 namespace TropPizza.Infra.Data.Repositories
@@ -9,6 +10,8 @@ namespace TropPizza.Infra.Data.Repositories
     public class CustomerRepository : ICustomerRepository
     {
         private CustomerDAO _customerDAO = new CustomerDAO();
+        private OrderDAO _orderDAO = new OrderDAO();
+        private OrderProductsDAO _orderProductsDAO = new OrderProductsDAO();
 
         public void Create(Customer customer)
         {
@@ -35,16 +38,16 @@ namespace TropPizza.Infra.Data.Repositories
             return customer;
         }
 
-        public Customer ReadByCpf(string cpf)
-        {
-            Customer customer = _customerDAO.ReadByCpf(cpf);
-            if (customer is null)
-            {
-                throw new NotFound();
-            }
+        // public Customer ReadByCpf(string cpf)
+        // {
+        //     Customer customer = _customerDAO.ReadByCpf(cpf);
+        //     if (customer is null)
+        //     {
+        //         throw new NotFound();
+        //     }
 
-            return customer;
-        }
+        //     return customer;
+        // }
 
         public List<Customer> ReadAll()
         {
@@ -59,12 +62,6 @@ namespace TropPizza.Infra.Data.Repositories
 
         public void Update(Customer customer)
         {
-            // Customer existingCustomer = _customerDAO.ReadByCpf(customer.Cpf);
-            // if (existingCustomer != null)
-            // {
-            //     throw new AlreadyExists();
-            // }
-
             Customer searchedCustomer = _customerDAO.ReadById(customer.Id);
             if (searchedCustomer is null)
             {
@@ -79,19 +76,28 @@ namespace TropPizza.Infra.Data.Repositories
 
         public void Delete(Int64 id)
         {
-            // verificar se existem pedidos em aberto
             Customer searchedCustomer = _customerDAO.ReadById(id);
             if (searchedCustomer is null)
             {
                 throw new NotFound();
             }
 
+            List<Order> unfinishedOrders = _orderDAO.ReadUnfinishedOrders(id);
+            if (unfinishedOrders.Count > 0)
+            {
+                foreach (Order order in unfinishedOrders)
+                {
+                    _orderProductsDAO.Delete(order.Id);
+                    _orderDAO.Delete(order.Id);
+                }
+            }
+
             _customerDAO.Delete(id);
         }
 
-        public void ApplyFidelityPoints(string cpf, double totalPrice)
+        public void ApplyFidelityPoints(Int64 id, double totalPrice)
         {
-            Customer searchedCustomer = _customerDAO.ReadByCpf(cpf);
+            Customer searchedCustomer = _customerDAO.ReadById(id);
             if (searchedCustomer is null)
             {
                 throw new NotFound();

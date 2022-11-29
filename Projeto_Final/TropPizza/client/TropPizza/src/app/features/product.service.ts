@@ -27,7 +27,7 @@ export class ProductService {
         return this.httpClient.patch<boolean>(`${this.api}`, product);
     }
 
-    public deleteProduct(id: string): Observable<Product> {
+    public deleteProduct(id: string): Observable<boolean> {
         return this.httpClient.delete<boolean>(`${this.api}/` + id);
     }
 }

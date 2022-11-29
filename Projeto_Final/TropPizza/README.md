@@ -25,7 +25,8 @@ Neste sistema, será possível gerenciar clientes, produtos e pedidos.
 
 - Gerenciamento de pedidos:  
 \- Realizar novo pedido  
-\- Editar pedido  
+\- Itens do carrinho  
+\- Editar pedidos  
 \- Atualizar status do pedido  
 \- Acompanhar pedido  
 ----

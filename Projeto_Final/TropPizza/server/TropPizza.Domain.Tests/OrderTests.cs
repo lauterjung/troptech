@@ -85,6 +85,58 @@ namespace TropPizza.Domain.Tests
         }
 
         [Test]
+        public void CanBeDeleted_FinishedOrderStatus_ThrowsException()
+        {
+            // arrange
+            _order.Status = (OrderStatus)3;
+
+            // act
+            InvalidDeletion ex = Assert.Throws<InvalidDeletion>(() => _order.CanBeDeleted());
+
+            // assert
+            Assert.That(ex.Message, Is.EqualTo("Não é possível deletar pedidos finalizados!"));
+        }
+
+        [Test]
+        public void CanBeDeleted_PendingOrderStatus_ReturnsTrue()
+        {
+            // arrange
+            _order.Status = (OrderStatus)0;
+
+            // act
+            bool result = _order.CanBeDeleted();
+
+            // assert
+            Assert.True(result);
+        }
+
+        [Test]
+        public void CanBeDeleted_PreparationOrderStatus_ReturnsTrue()
+        {
+            // arrange
+            _order.Status = (OrderStatus)1;
+
+            // act
+            bool result = _order.CanBeDeleted();
+
+            // assert
+            Assert.True(result);
+        }
+
+        [Test]
+        public void CanBeDeleted_DeliveryOrderStatus_ReturnsTrue()
+        {
+            // arrange
+            _order.Status = (OrderStatus)2;
+
+            // act
+            bool result = _order.CanBeDeleted();
+
+            // assert
+            Assert.True(result);
+        }
+
+        [Test]
         public void Validate_AllValid_ReturnsTrue()
         {
             // arrange

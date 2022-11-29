@@ -19,9 +19,9 @@ export class CustomerService {
         return this.httpClient.get<Customer>(`${this.api}/` + id);
     }
 
-    public getCustomerByCpf(cpf: string): Observable<Customer> {
-        return this.httpClient.get<Customer>(`${this.api}/cpf/` + cpf);
-    }
+    // public getCustomerByCpf(cpf: string): Observable<Customer> {
+    //     return this.httpClient.get<Customer>(`${this.api}/cpf/` + cpf);
+    // }
 
     public getAllCustomers(): Observable<Customer[]> {
         return this.httpClient.get<Customer[]>(`${this.api}`);
@@ -31,7 +31,7 @@ export class CustomerService {
         return this.httpClient.patch<boolean>(`${this.api}`, customer);
     }
 
-    public deleteCustomer(id: string): Observable<Customer> {
+    public deleteCustomer(id: string): Observable<boolean> {
         return this.httpClient.delete<boolean>(`${this.api}/` + id);
     }
 }

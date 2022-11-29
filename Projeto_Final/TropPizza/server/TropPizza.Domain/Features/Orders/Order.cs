@@ -12,8 +12,7 @@ namespace TropPizza.Domain.Features.Orders
         public Int64 Id { get; set; }
         public OrderStatus Status { get; set; }
 #nullable enable
-        public string? CustomerCpf { get; set; } // ?
-        // public Customer? Customer { get; set; } // ?
+        public Customer? OrderCustomer { get; set; }
         public List<Product> Products { get; set; }
         public DateTime OrderDateTime { get; set; }
         public double TotalPrice
@@ -40,6 +39,16 @@ namespace TropPizza.Domain.Features.Orders
             return totalPrice;
         }
 
+        public bool CanBeDeleted()
+        {
+            if (Status == OrderStatus.Finished)
+            {
+                throw new InvalidDeletion();
+            }
+
+            return true;
+        }
+
         private bool CheckValidStatus()
         {
             return Enum.IsDefined(typeof(OrderStatus), Status) ? true : false;
@@ -63,12 +72,5 @@ namespace TropPizza.Domain.Features.Orders
 
             return true;
         }
-
-        // public bool • A quantidade deve ser menor ou igual a quantidade de estoque;
-        // • Ao realizar pedido a baixa na quantidade de estoque deve ser feita;
-        // {
-        //     throw new NotImplementedException();
-        // }
-
     }
 }

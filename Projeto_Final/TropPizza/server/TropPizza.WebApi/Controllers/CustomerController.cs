@@ -62,24 +62,24 @@ namespace TropPizza.WebApi.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("cpf/{cpf}")]
-        public IActionResult GetByCpf(string cpf)
-        {
-            try
-            {
-                var searchedCustomer = _repository.ReadByCpf(cpf);
-                if (searchedCustomer == null)
-                {
-                    return StatusCode(204, searchedCustomer);
-                }
-                return StatusCode(200, searchedCustomer);
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
-        }
+        // [HttpGet]
+        // [Route("cpf/{cpf}")]
+        // public IActionResult GetByCpf(string cpf)
+        // {
+        //     try
+        //     {
+        //         var searchedCustomer = _repository.ReadByCpf(cpf);
+        //         if (searchedCustomer == null)
+        //         {
+        //             return StatusCode(204, searchedCustomer);
+        //         }
+        //         return StatusCode(200, searchedCustomer);
+        //     }
+        //     catch (Exception e)
+        //     {
+        //         return BadRequest(e.Message);
+        //     }
+        // }
 
         [HttpPatch]
         public IActionResult Patch([FromBody] Customer customer)

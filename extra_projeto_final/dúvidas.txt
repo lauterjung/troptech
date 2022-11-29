@@ -1,29 +1,49 @@
-homepage é um componente?
+no cadastrar, o que ficaria melhor, usar [(ngModel)] ou algo que pegue os valores do forms?
 
-onde mexer na tabela intermediária OrderProducts? Repo e DAO para isso? ou direto no Order?
-_orderProductsRepository.RemoveFromInventory(order.Products); // de quem é essa responsabilidade?
+mostrar tela
+mostrar componentes completos
+routing entre editar
 
+editar datas /data do edit client/product
+
+homepage routing
+
+estou trabalhando com classes, cosntrutores no ts são usados?
+
+
+
+@input / output
+
+
+
+
+respondidas:
+pop-up> div em css com posição fixa? tens algum material
+
+Deletar pedidos já finalizados quando excluir cliente?
+só pedidos em aberto
 excluir pedidos com fidelityPoints
 
-● Ao excluir um cliente, verifique se ele está vinculado a algum pedido, caso esteja, exclua
-os pedidos vinculados ao cliente antes de excluí-lo;
-● Um pedido finalizado não pode ser excluído ou ter seus status alterado;
-Deletar pedidos já finalizados quando excluir cliente?
 
-gerenciar / ativar / excluir / estoque pode ser na mesma tela?
 
-representação order
-client?
-arrayList<product>
 
 
 2x produtos
 
+guilherme
+	Feature no singular, mas fica com nome de classe
+	mudar namespace só para domain? o que fazer?
 
-Feature no singular, mas fica com nome de classe
-mudar namespace só para domain? o que fazer?
+	ativar router active em navbar dropdown
+	
+	editar data de validade
+	
+	no cadastrar, posso usar [(ngModel)]?
+	
+	estou trabalhando com classes, cosntrutores no ts são usados?
+/guilherme
 
-O que acontece quando eu mudar o CPF de um cliente no DB?
+
 
 
 Se não usar 2x classes produtos (estoque e carrinho), dá nisso>

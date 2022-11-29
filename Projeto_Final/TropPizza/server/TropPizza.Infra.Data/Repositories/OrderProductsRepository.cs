@@ -20,15 +20,15 @@ namespace TropPizza.Infra.Data.Repositories
             }
         }
 
-        public void RemoveFromInventory(List<Product> products)
-        {
-            foreach (Product product in products)
-            {
-                Product stockProduct = _productRepository.ReadById(product.Id);
-                stockProduct.RemoveFromInventory(product.Quantity);
-                _productRepository.Update(stockProduct);
-            }
-        }
+        // public void RemoveFromInventory(List<Product> products)
+        // {
+        //     foreach (Product product in products)
+        //     {
+        //         Product stockProduct = _productRepository.ReadById(product.Id);
+        //         stockProduct.RemoveFromInventory(product.Quantity);
+        //         _productRepository.Update(stockProduct);
+        //     }
+        // }
 
         public List<Product> ReadById(Int64 id)
         {
@@ -36,6 +36,7 @@ namespace TropPizza.Infra.Data.Repositories
             return products;
         }
 
+        // faz nada além de chamar o DAO
         public void Delete(Int64 id)
         {
             _orderProductsDAO.Delete(id);

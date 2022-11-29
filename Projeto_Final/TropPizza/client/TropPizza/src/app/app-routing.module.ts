@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CustomerEditComponent } from './features/customer/customer-edit/customer-edit.component';
 import { CustomerFormsComponent } from './features/customer/customer-forms/customer-forms.component';
 import { CustomerManagerComponent } from './features/customer/customer-manager/customer-manager.component';
 import { OrderManagerComponent } from './features/order/order-manager/order-manager.component';
@@ -7,6 +8,7 @@ import { OrderProductsComponent } from './features/order/order-products/order-pr
 import { OrderShoppingCartComponent } from './features/order/order-shopping-cart/order-shopping-cart.component';
 import { OrderStatusComponent } from './features/order/order-status/order-status.component';
 import { OrderTrackerComponent } from './features/order/order-tracker/order-tracker.component';
+import { ProductEditComponent } from './features/product/product-edit/product-edit.component';
 import { ProductFormsComponent } from './features/product/product-forms/product-forms.component';
 import { ProductManagerComponent } from './features/product/product-manager/product-manager.component';
 
@@ -22,6 +24,10 @@ const routes: Routes = [
         path: 'manage',
         component: CustomerManagerComponent,
       },
+      {
+        path: 'edit',
+        component: CustomerEditComponent,
+      },
     ]
   },
   {
@@ -34,6 +40,10 @@ const routes: Routes = [
       {
         path: 'manage',
         component: ProductManagerComponent,
+      },
+      {
+        path: 'edit',
+        component: ProductEditComponent,
       },
     ]
   },

@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+
+html, body {
+    overflow: auto;
+}
+
+body {
+    padding-top: 65px;
+    height: 100vh;
+    /* width: 100vw; */
+}
+
+.page-lock {
+    width: 100%;
+    min-height: 100% !important;
+    top: 0px;
+    position: absolute;
+    background-color: rgba(22, 22, 22, 0.5);
+}
+
+.delete-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    background-color: rgba(255, 255, 255, 01);
+}
+
+.popup-message {
+    line-height: 3em;
+}

@@ -86,10 +86,10 @@ CREATE TABLE Orders
 (
     order_id BIGINT IDENTITY(1, 1) NOT NULL,
     order_status_id SMALLINT NOT NULL,
-    customer_cpf VARCHAR(11) NULL,
+    customer_id BIGINT NULL,
     order_date_time DATETIME2 NOT NULL,
     CONSTRAINT PK_order_id PRIMARY KEY (order_id),
-    -- CONSTRAINT FK_orders_customer FOREIGN KEY (customer_cpf) REFERENCES Customers (cpf),
+    CONSTRAINT FK_orders_customer FOREIGN KEY (customer_id) REFERENCES Customers (customer_id) ON DELETE SET NULL,
     CONSTRAINT FK_orders_orderstatus FOREIGN KEY (order_status_id) REFERENCES OrderStatus (order_status_id),
 );
 
@@ -118,7 +118,7 @@ CREATE TABLE OrderProducts
 
 INSERT INTO OrderProducts
 VALUES
--- pedido / produto / quantidade / preço
+    -- pedido / produto / quantidade / preço
     (1, 1, 2, 7),
     (2, 1, 1, 3.5),
     (2, 2, 1, 3.5),
@@ -135,18 +135,31 @@ VALUES
     (9, 1, 2, 7),
     (10, 1, 2, 7);
 -----------------------------------------------------------------------------------------------------
-select *
-from Customers
+-- select *
+-- from Customers
 
-select *
-from Products
+-- select *
+-- from Products
+
+-- SELECT *
+-- FROM Products
+-- WHERE product_name = 'Água s/ gás 500 ml' AND product_description = 'Água mineral Puris 500 ml sem gás' AND expiration_date = '2025-01-01'
+
+-- SELECT p.product_id, p.product_name, p.unit_price, op.quantity, op.total_price
+--                     FROM OrderProducts op
+--                     JOIN Orders o ON(op.order_id = o.order_id)
+--                     JOIN Products p ON(op.product_id = p.product_id)
+--                         WHERE op.order_id = 3
+
+SELECT o.order_status_id, o.customer_id, o.order_date_time, c.cpf
+FROM Orders o
+    LEFT JOIN Customers c ON (o.customer_id = c.customer_id)
+
+SELECT o.order_status_id, o.customer_id, o.order_date_time, c.cpf
+FROM Orders o
+    LEFT JOIN Customers c ON (o.customer_id = c.customer_id)
+WHERE o.order_status_id <> 3;
 
 SELECT *
-FROM Products
-WHERE product_name = 'Água s/ gás 500 ml' AND product_description = 'Água mineral Puris 500 ml sem gás' AND expiration_date = '2025-01-01'
-
-SELECT p.product_id, p.product_name, p.unit_price, op.quantity, op.total_price
-                    FROM OrderProducts op
-                    JOIN Orders o ON(op.order_id = o.order_id)
-                    JOIN Products p ON(op.product_id = p.product_id)
-                        WHERE op.order_id = 3
+FROM Customers
+WHERE customer_id = 1;

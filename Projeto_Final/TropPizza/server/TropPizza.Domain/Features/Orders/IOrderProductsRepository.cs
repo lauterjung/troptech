@@ -7,7 +7,6 @@ namespace TropPizza.Domain.Features.Orders
     public interface IOrderProductsRepository
     {
         public void Create(Order order, Int64 lastKey);
-        public void RemoveFromInventory(List<Product> products);
         public Order ReadById(Int64 id);
         public void Delete(Int64 id);
     }

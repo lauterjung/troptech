@@ -1,3 +1,35 @@
+﻿	buton voltar dos edits
+passar parametro pro ang routing
+homepage routing
+
+propriedade hasImage
+
+testar cuidadosamente as novas alterações dos pedidos
+	fidelity points
+	quantidade em estoque
+
+editar clientes/produtos
+	passar por input/output
+	
+cards para os produtos para carrinho
+
+track order
+
+
+
+clock, compass, geo, mailbox, pin, scooter, send, stop lights, signpost spli, person-circle
+
+buscar nos produtos
+
+
+validação para data no forms
+imagepath
+onsubmit
+header/whereami
+footer
+
+patch dando erro
+
 [x] Documentação
 	[x] Readme
 	[x] Diagramas
@@ -9,6 +41,7 @@
 [x] Back-end
 	[x] Domain
 	[x] Infra.Data
+		[ ] Ativar/Desativar Produtos
 	[x] WebApi
 	[x] Unit tests
 	[x] Thunder Client API tests
@@ -41,17 +74,24 @@
 
 [ ] Outro
 	[ ] Verificar status codes da API
-	[ ] ON DELETE RESTRICT / ON UPDATE CASCADE / ...
 	[ ] Duas classes de produto (estoque e carrinho)
 	[ ] Melhorar dados iniciais do banco de dados
 	[ ] fazer Order update (DAO e repo)?
-	[ ] orderDAO pegar cliente inteiro?
-	[ ] ApplyFidelityPoints -> UpdateFidelityPoints
-	[ ] Remover fidelity points
 	[ ] TS -> Class para Interface
+	[ ] imagepath / imagename
+	[ ] imagem não encontrada
+	[ ] add remove items on hold mouse
+	[ ] popup como componente (depois)
+	[ ] mock para repository
+	[ ] melhorar testes do thunder
 	
 [ ] Verificações finais
+	[ ] Rever imports não utilizados
+	[ ] Rever código comentado
 	[ ] Rever todas as regras de negócio
 	[ ] Re-rodar testes
 	[ ] Correspondência IRepository e Repository
 	[ ] Correspondência diagramas
+
+
+                          <input id="hasImageCheckbox" type="checkbox" (click)="changeHasImage()" [value]="(productToEdit.imagePath !== '')">

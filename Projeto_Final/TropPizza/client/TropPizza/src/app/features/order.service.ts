@@ -23,7 +23,7 @@ export class OrderService {
         return this.httpClient.get<Order[]>(`${this.api}`);
     }
 
-    public deleteOrder(id: string): Observable<Order> {
+    public deleteOrder(id: string): Observable<boolean> {
         return this.httpClient.delete<boolean>(`${this.api}/` + id);
     }
 }

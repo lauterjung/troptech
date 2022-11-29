@@ -16,6 +16,8 @@ import { OrderShoppingCartComponent } from './features/order/order-shopping-cart
 import { ProductService } from './features/product.service';
 import { CustomerService } from './features/customer.service';
 import { OrderService } from './features/order.service';
+import { ProductEditComponent } from './features/product/product-edit/product-edit.component';
+import { CustomerEditComponent } from './features/customer/customer-edit/customer-edit.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { OrderService } from './features/order.service';
     OrderStatusComponent,
     OrderManagerComponent,
     OrderProductsComponent,
-    OrderShoppingCartComponent
+    OrderShoppingCartComponent,
+    ProductEditComponent,
+    CustomerEditComponent
   ],
   imports: [
     BrowserModule,
