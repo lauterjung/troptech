@@ -1,23 +1,31 @@
-﻿	buton voltar dos edits
+﻿ALUGUEL!
+
+data
+navbar
+botão + e - do produto, atualizar direto
+
+homepage
+
+!!! inserir com erro de bd
+
+
+
+
+update order para trocar status (e produtos?)
+order get last key para acompanhar pedido
+
+
+
+search id ou nome / nome ou cpf ou id
+
 passar parametro pro ang routing
 homepage routing
 
 propriedade hasImage
 
-testar cuidadosamente as novas alterações dos pedidos
-	fidelity points
-	quantidade em estoque
-
-editar clientes/produtos
-	passar por input/output
-	
 cards para os produtos para carrinho
 
 track order
-
-
-
-clock, compass, geo, mailbox, pin, scooter, send, stop lights, signpost spli, person-circle
 
 buscar nos produtos
 
@@ -47,25 +55,16 @@ patch dando erro
 	[x] Thunder Client API tests
 
 [ ] Front-end
-	[x] Criar projeto
-	[x] Criar componentes
 	[x] Routing
 	[x] Services
-	[x] Conexão com o front-end
-	[ ] Classes
-		[ ] Cliente
-		[ ] Produto
-		[ ] Pedido
+	[x] Conexão com o back-end
+	[x] Class Model
 	[ ] NavBar
 	[x] FavIcon
-	[ ] Páginas
+	[ ] Componentes
 		[ ] Home-page (esqueleto do site)
-		[ ] Clientes
-			[ ] Cadastrar
-			[ ] Editar
-		[ ] Produtos
-			[ ] Cadastrar
-			[ ] Editar
+		[x] Clientes
+		[x] Produtos
 		[ ] Pedidos
 			[ ] Cadastrar
 			[ ] Editar
@@ -84,6 +83,10 @@ patch dando erro
 	[ ] popup como componente (depois)
 	[ ] mock para repository
 	[ ] melhorar testes do thunder
+	[ ] possui imagem do produto indo para a direita/movendo a tela
+	[ ] placeholders para cadastrar
+	[ ] searchbar nos dashboards
+	[ ] navbar com scroll começando embaixo
 	
 [ ] Verificações finais
 	[ ] Rever imports não utilizados
@@ -93,5 +96,5 @@ patch dando erro
 	[ ] Correspondência IRepository e Repository
 	[ ] Correspondência diagramas
 
-
-                          <input id="hasImageCheckbox" type="checkbox" (click)="changeHasImage()" [value]="(productToEdit.imagePath !== '')">
+<input id="hasImageCheckbox" type="checkbox" (click)="changeHasImage()" ...
+ .dropdown-menu-large {    color: blue;    background-color: red;  }

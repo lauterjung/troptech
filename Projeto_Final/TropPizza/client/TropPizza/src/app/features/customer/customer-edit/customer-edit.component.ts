@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs';
 import { CustomerService } from '../../customer.service';
 import { Customer } from '../customer.model';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-customer-edit',
@@ -14,9 +15,9 @@ export class CustomerEditComponent implements OnInit {
 
   public form!: FormGroup;
   public customerToEdit: Customer = {} as Customer;
-  public id: number = 1;
+  public id: number = 0;
 
-  constructor(private service: CustomerService, private router: Router) { }
+  constructor(private service: CustomerService, private router: Router, private route: ActivatedRoute) { }
 
   public ngOnInit(): void {
     this.form = new FormGroup({
@@ -26,10 +27,41 @@ export class CustomerEditComponent implements OnInit {
       address: new FormControl(null, [Validators.required]),
     });
 
-    this.service.getCustomerById(this.id.toString()).pipe(take(1))
+    this.route.params.subscribe(params => {
+      this.id = params['id'];
+    });
+
+    this.service.getCustomerById(this.id.toString())
+    .pipe(take(1))
       .subscribe((data: Customer) => {
         this.customerToEdit = data;
+        this.populateForm(); ////////
       });
+
+    // this.populateForm();
+  }
+
+  public populateForm(): void {
+    this.form.patchValue({
+      fullName: this.customerToEdit.fullName,
+      cpf: this.customerToEdit.cpf,
+      birthDate: formatDate(this.customerToEdit.birthDate, "yyyy-MM-dd", "en"),
+      address: this.customerToEdit.address,
+   });
+   console.log(this.customerToEdit.birthDate);
+  }
+
+  public formsToCustomer(): Customer {
+    let customer: Customer = {} as Customer;
+
+    customer.id = this.customerToEdit.id;
+    customer.fidelityPoints = this.customerToEdit.fidelityPoints;
+    customer.fullName = this.form.get("fullName")?.value;
+    customer.cpf = this.form.get("cpf")?.value;
+    customer.birthDate = this.form.get("birthDate")?.value;
+    customer.address = this.form.get("address")?.value;
+
+    return customer;
   }
 
   public submitCustomer(): void {
@@ -37,12 +69,18 @@ export class CustomerEditComponent implements OnInit {
       return;
     }
 
-    this.service.updateCustomer(this.customerToEdit)
-    .pipe(take(1))
-    .subscribe(
-      () => {
-        alert('Cliente editado com sucesso!')
-        this.router.navigate(['/customer/manage']);
-      });
+    let customer = this.formsToCustomer();
+
+    this.service.updateCustomer(customer)
+      .pipe(take(1))
+      .subscribe(
+        () => {
+          alert('Cliente editado com sucesso!')
+          this.router.navigate(['/customer/manage']);
+        });
+  }
+
+  public returnToManage() {
+    this.router.navigate(['/customer/manage'])
   }
 }

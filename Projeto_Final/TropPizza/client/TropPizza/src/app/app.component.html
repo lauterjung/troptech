@@ -5,33 +5,32 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
-            Clientes
+            <i class="bi bi-person-circle"></i> Clientes
           </a>
           <ul class="dropdown-menu">
-            <li><a class="nav-link" routerLink="/customer/new" routerLinkActive="active">Novo Cliente</a></li>
-            <li><a class="nav-link" routerLink="/customer/manage" routerLinkActive="active">Editar Clientes</a></li>
+            <li><a class="nav-link" routerLink="/customer/new" routerLinkActive="active"><i class="bi bi-plus-circle"></i> Novo Cliente</a></li>
+            <li><a class="nav-link" routerLink="/customer/manage" routerLinkActive="active"><i class="bi bi-pencil"></i> Editar Clientes</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
-            Produtos
+            <i class="bi bi-box-seam"></i> Produtos
           </a>
           <ul class="dropdown-menu">
-            <li><a class="nav-link" routerLink="/product/new" routerLinkActive="active">Novo Produto</a></li>
-            <li><a class="nav-link" routerLink="/product/manage" routerLinkActive="active">Editar Produtos</a></li>
+            <li><a class="nav-link" routerLink="/product/new" routerLinkActive="active"><i class="bi bi-plus-circle"></i> Novo Produto</a></li>
+            <li><a class="nav-link" routerLink="/product/manage" routerLinkActive="active"><i class="bi bi-pencil"></i> Editar Produtos</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
-            Pedidos
+            <i class="bi bi-journal-text"></i> Pedidos
           </a>
-          <ul class="dropdown-menu">
-            <li><a class="nav-link" routerLink="/order/new" routerLinkActive="active">Novo Pedido</a></li>
-            <li><a class="nav-link" routerLink="/order/cart" routerLinkActive="active">Carrinho</a></li>
-            <li><a class="nav-link" routerLink="/order/manage" routerLinkActive="active">Editar Pedidos</a></li>
-            <li><a class="nav-link" routerLink="/order/change-status" routerLinkActive="active">Alterar Status do
-                Pedido</a></li>
-            <li><a class="nav-link" routerLink="/order/track" routerLinkActive="active">Acompanhar Pedido</a></li>
+          <ul class="dropdown-menu dropdown-menu-large">
+            <li><a class="nav-link" routerLink="/order/new" routerLinkActive="active"><i class="bi bi-plus-circle"></i> Novo Pedido</a></li>
+            <li><a class="nav-link" routerLink="/order/manage" routerLinkActive="active"><i class="bi bi-pencil"></i> Editar Pedidos</a></li>
+            <li><a class="nav-link" routerLink="/order/cart" routerLinkActive="active"><i class="bi bi-cart2"></i> Carrinho</a></li>
+            <li><a class="nav-link test;" routerLink="/order/change-status" routerLinkActive="active"><i class="bi bi-clock"></i> Alterar Status do Pedido</a></li>
+            <li><a class="nav-link" routerLink="/order/track" routerLinkActive="active"><i class="bi bi-geo"></i> Acompanhar Pedido</a></li>
           </ul>
         </li>
       </ul>

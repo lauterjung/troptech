@@ -44,7 +44,7 @@
               <td>{{ product.id }}</td>
               <td><input type="checkbox" [checked]="product.isActive" (click)="changeIsActive(product.id)"></td>
               <td>{{ product.name }}</td>
-              <td>{{ product.expirationDate.toString().split('T')[0] }}</td>
+              <td>{{ product.expirationDate.toString().split('T')[0] | date:'dd/MM/yyy'}}</td>
               <td>{{ "R$ " + product.unitPrice.toFixed(2) }}</td>
               <!-- <td><input type="number" min="0" step="1" size="5" [value]="product.quantity" (change)="changeQuantity(product.id)"></td> -->
               <td>{{ product.quantity }}</td>
@@ -52,7 +52,7 @@
                   (click)="addQuantity(product.id)"><i class="bi bi-plus-lg"></i></button></td>
               <td><button type="button" class="btn btn-danger btn-sm" title="Remover"
                   (click)="removeQuantity(product.id)"><i class="bi bi-dash-lg"></i></button></td>
-              <td><button type="button" class="btn btn-primary btn-sm" title="Editar" (click)="editProduct(1)"><i
+              <td><button type="button" class="btn btn-primary btn-sm" title="Editar" (click)="editProduct(product.id)"><i
                     class="bi bi-pencil"></i></button></td>
               <td><button type="button" class="btn btn-dark btn-sm" title="Excluir"
                   (click)="showDeletePopUp(product.id)"><i class="bi bi-trash3"></i></button></td>

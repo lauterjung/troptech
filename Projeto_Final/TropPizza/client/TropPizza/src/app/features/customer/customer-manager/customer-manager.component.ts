@@ -27,7 +27,7 @@ export class CustomerManagerComponent implements OnInit {
 
   editCustomer(id: number)
   {
-    this.router.navigate(['/customer/edit']);
+    this.router.navigate(['/customer/edit', id]);
   }
 
   showDeletePopUp(id: number): void {

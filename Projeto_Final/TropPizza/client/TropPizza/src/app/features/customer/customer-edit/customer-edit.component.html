@@ -1,66 +1,69 @@
 <div class="container">
-    <div class="row justify-content-around">
-      <div class="col-10">
-        <div class="row text-center">
-          <h1>Editar Cliente</h1>
-        </div>
-  
-        <div class="row justify-content-around">
-          <div class="col-6">
-            <div class="row">
-              <div class="col-12">
-                <form (ngSubmit)="submitCustomer()" [formGroup]="form">
-                  <div class="form-group">
-                    <label class="form-label" for="fullName">Nome Completo</label>
-                    <input class="form-control" type="text" id="fullName" name="fullName" formControlName="fullName"
-                      autocomplete="off" placeholder="Nome Completo" [(ngModel)]="customerToEdit.fullName" />
-                    <div class="alert alert-danger"
-                      [hidden]="form.get('fullName')?.valid || form.get('fullName')?.pristine">
-                      <span *ngIf="form.get('fullName')?.errors?.['required']">O nome é obrigatório!</span>
-                      <span *ngIf="form.get('fullName')?.errors?.['minlength']">O nome deve conter pelo menos 3
-                        caracteres!</span>
-                    </div>
+  <div class="row justify-content-around">
+    <div class="col-10">
+      <div class="row text-center">
+        <h1>Editar Cliente</h1>
+      </div>
+
+      <div class="row justify-content-around">
+        <div class="col-6">
+          <div class="row">
+            <div class="col-12">
+              <form (ngSubmit)="submitCustomer()" [formGroup]="form">
+                <div class="form-group">
+                  <label class="form-label" for="fullName">Nome Completo</label>
+                  <input class="form-control" type="text" id="fullName" name="fullName" formControlName="fullName"
+                    autocomplete="off" placeholder="Nome Completo" />
+                  <div class="alert alert-danger"
+                    [hidden]="form.get('fullName')?.valid || form.get('fullName')?.pristine">
+                    <span *ngIf="form.get('fullName')?.errors?.['required']">O nome é obrigatório!</span>
+                    <span *ngIf="form.get('fullName')?.errors?.['minlength']">O nome deve conter pelo menos 3
+                      caracteres!</span>
                   </div>
-                  <br>
-                  <div class="form-group">
-                    <label class="form-label" for="cpf">CPF</label>
-                    <input class="form-control" maxlength=11 type="text" id="cpf" name="cpf" formControlName="cpf"
-                      autocomplete="off" placeholder="12345678901" [(ngModel)]="customerToEdit.cpf" />
-                    <div class="alert alert-danger" [hidden]="form.get('cpf')?.valid || form.get('cpf')?.pristine">
-                      <span *ngIf="form.get('cpf')?.errors?.['required']">O CPF é obrigatório!</span>
-                      <span *ngIf="form.get('cpf')?.errors?.['pattern']">O CPF deve conter 11 caracteres numéricos!</span>
-                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label class="form-label" for="cpf">CPF</label>
+                  <input class="form-control" maxlength=11 type="text" id="cpf" name="cpf" formControlName="cpf"
+                    autocomplete="off" placeholder="12345678901" />
+                  <div class="alert alert-danger" [hidden]="form.get('cpf')?.valid || form.get('cpf')?.pristine">
+                    <span *ngIf="form.get('cpf')?.errors?.['required']">O CPF é obrigatório!</span>
+                    <span *ngIf="form.get('cpf')?.errors?.['pattern']">O CPF deve conter 11 caracteres numéricos!</span>
                   </div>
-                  <br>
-                  <div class="form-group">
-                    <label class="form-label" for="birthDate">Data de nascimento</label>
-                    <input class="form-control" type="date" id="birthDate" name="birthDate" formControlName="birthDate"
-                      autocomplete="off" [(ngModel)]="customerToEdit.birthDate" />
-                    <div class="alert alert-danger"
-                      [hidden]="form.get('birthDate')?.valid || form.get('birthDate')?.pristine">
-                      <span *ngIf="form.get('birthDate')?.errors?.['required']">A data de nascimento é obrigatória!</span>
-                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label class="form-label" for="birthDate">Data de nascimento</label>
+                  <input class="form-control" type="date" id="birthDate" name="birthDate" formControlName="birthDate"
+                    autocomplete="off" />
+                  <div class="alert alert-danger"
+                    [hidden]="form.get('birthDate')?.valid || form.get('birthDate')?.pristine">
+                    <span *ngIf="form.get('birthDate')?.errors?.['required']">A data de nascimento é obrigatória!</span>
                   </div>
-                  <br>
-                  <div class="form-group">
-                    <label class="form-label" for="address">Endereço</label>
-                    <input class="form-control" type="text" id="address" name="address" formControlName="address"
-                      autocomplete="off" placeholder="Endereço" [(ngModel)]="customerToEdit.address" />
-                    <div class="alert alert-danger"
-                      [hidden]="form.get('address')?.valid || form.get('address')?.pristine">
-                      <span *ngIf="form.get('address')?.errors?.['required']">O endereço é obrigatório!</span>
-                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label class="form-label" for="address">Endereço</label>
+                  <input class="form-control" type="text" id="address" name="address" formControlName="address"
+                    autocomplete="off" placeholder="Endereço" />
+                  <div class="alert alert-danger"
+                    [hidden]="form.get('address')?.valid || form.get('address')?.pristine">
+                    <span *ngIf="form.get('address')?.errors?.['required']">O endereço é obrigatório!</span>
                   </div>
-                  <br>
-                  <div class="row justify-content-around">
-                    <div class="col text-center">
-                      <input [disabled]="!form.valid" type="submit" class="btn btn-lg btn-success" value="Salvar" />
-                    </div>
-  
+                </div>
+                <br>
+                <div class="row justify-content-evenly px-5 mx-5">
+                  <div class="col text-center">
+                    <button type="button" class="btn btn-lg btn-danger" value="Voltar" (click)="returnToManage()">Voltar</button>
                   </div>
-                </form>
-              </div>
+                  <div class="col text-center">
+                    <input [disabled]="!form.valid" type="submit" class="btn btn-lg btn-success" value="Salvar"/>
+                  </div>
+                </div>
+                <br>
+              </form>
             </div>
           </div>
         </div>
       </div>
+    </div>

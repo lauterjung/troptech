@@ -1,15 +1,27 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 
-
-html, body {
-    overflow: auto;
+html {
+    overflow: auto; 
+    /* isso faz a barra de scroll ficar embaixo da navbar */
 }
 
 body {
+    overflow: auto;
     padding-top: 65px;
     height: 100vh;
     /* width: 100vw; */
 }
+
+/* main {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    overflow-y: scroll;
+  } */
+
+/* html {
+    overflow-y: scroll;
+} */
 
 .page-lock {
     width: 100%;

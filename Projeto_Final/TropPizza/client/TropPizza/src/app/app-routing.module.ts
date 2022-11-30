@@ -13,6 +13,10 @@ import { ProductFormsComponent } from './features/product/product-forms/product-
 import { ProductManagerComponent } from './features/product/product-manager/product-manager.component';
 
 const routes: Routes = [
+  // {
+  //   path: '',
+  //   component: HomepageComponent,
+  // },
   {
     path: 'customer',
     children: [
@@ -25,7 +29,7 @@ const routes: Routes = [
         component: CustomerManagerComponent,
       },
       {
-        path: 'edit',
+        path: 'edit/:id',
         component: CustomerEditComponent,
       },
     ]
@@ -42,7 +46,7 @@ const routes: Routes = [
         component: ProductManagerComponent,
       },
       {
-        path: 'edit',
+        path: 'edit/:id',
         component: ProductEditComponent,
       },
     ]

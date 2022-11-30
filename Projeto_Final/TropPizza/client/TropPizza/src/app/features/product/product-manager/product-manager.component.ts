@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { take } from 'rxjs';
 import { ProductService } from '../../product.service';
 import { Product } from '../product.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-manager',
@@ -27,7 +27,7 @@ export class ProductManagerComponent implements OnInit {
 
   editProduct(id: number)
   {
-    this.router.navigate(['/product/edit']);
+    this.router.navigate(['/product/edit', id]);
   }
 
   showDeletePopUp(id: number): void {

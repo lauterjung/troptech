@@ -12,7 +12,7 @@ import { Customer } from '../customer.model';
 export class CustomerFormsComponent implements OnInit {
 
   public form!: FormGroup;
-
+  
   constructor(private service: CustomerService) { }
 
   public ngOnInit(): void {
@@ -30,7 +30,9 @@ export class CustomerFormsComponent implements OnInit {
     }
 
     let customer: Customer = this.formToCustomer();
-    this.service.saveCustomer(customer).pipe(take(1)).subscribe(
+    this.service.saveCustomer(customer)
+    .pipe(take(1))
+    .subscribe(
       () => {
         alert('Cliente salvo com sucesso!')
         this.form.reset();
@@ -39,7 +41,7 @@ export class CustomerFormsComponent implements OnInit {
 
   public formToCustomer(): Customer {
     let customer: Customer = {} as Customer;
-    customer.fullName = this.form.get("fullName")?.value;;
+    customer.fullName = this.form.get("fullName")?.value;
     customer.cpf = this.form.get("cpf")?.value;
     customer.birthDate = this.form.get("birthDate")?.value;
     customer.address = this.form.get("address")?.value;

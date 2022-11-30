@@ -18,6 +18,7 @@ import { CustomerService } from './features/customer.service';
 import { OrderService } from './features/order.service';
 import { ProductEditComponent } from './features/product/product-edit/product-edit.component';
 import { CustomerEditComponent } from './features/customer/customer-edit/customer-edit.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { CustomerEditComponent } from './features/customer/customer-edit/custome
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [CustomerService, ProductService, OrderService],
+  providers: [CustomerService, ProductService, OrderService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
