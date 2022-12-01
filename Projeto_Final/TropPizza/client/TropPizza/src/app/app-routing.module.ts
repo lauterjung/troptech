@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CustomerEditComponent } from './features/customer/customer-edit/customer-edit.component';
 import { CustomerFormsComponent } from './features/customer/customer-forms/customer-forms.component';
 import { CustomerManagerComponent } from './features/customer/customer-manager/customer-manager.component';
+import { HomeComponent } from './features/home/home.component';
 import { OrderManagerComponent } from './features/order/order-manager/order-manager.component';
 import { OrderProductsComponent } from './features/order/order-products/order-products.component';
 import { OrderShoppingCartComponent } from './features/order/order-shopping-cart/order-shopping-cart.component';
@@ -13,10 +14,10 @@ import { ProductFormsComponent } from './features/product/product-forms/product-
 import { ProductManagerComponent } from './features/product/product-manager/product-manager.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   component: HomepageComponent,
-  // },
+  {
+    path: '',
+    component: HomeComponent,
+  },
   {
     path: 'customer',
     children: [
@@ -72,6 +73,10 @@ const routes: Routes = [
       },
       {
         path: 'track',
+        component: OrderTrackerComponent,
+      },
+      {
+        path: 'success',
         component: OrderTrackerComponent,
       },
     ]

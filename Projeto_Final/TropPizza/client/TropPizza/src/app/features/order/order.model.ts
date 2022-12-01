@@ -10,15 +10,15 @@ enum OrderStatus {
 
 export class Order {
     public id: number;
-    public orderStatus: OrderStatus;
-    public customer?: Customer;
+    public status: OrderStatus;
+    public orderCustomer?: Customer;
     public products: Product[];
     public orderDateTime: Date;
 
-    constructor(id: number, orderStatus: OrderStatus, products: Product[], orderDateTime: Date, customer?: Customer) {
+    constructor(id: number, status: OrderStatus, products: Product[], orderDateTime: Date, orderCustomer?: Customer) {
         this.id = id;
-        this.orderStatus = orderStatus;
-        this.customer = customer;
+        this.status = status;
+        this.orderCustomer = orderCustomer;
         this.products = products;
         this.orderDateTime = orderDateTime;
     }

@@ -22,20 +22,21 @@ namespace TropPizza.Domain.Tests
         public void Constructor()
         {
             // arrange
- 
+
             // act
             Order order = new Order();
 
             // assert
-            CollectionAssert.IsEmpty(order.Products);
-            Assert.AreEqual(OrderStatus.Pending, order.Status);
+            CollectionAssert.IsEmpty(order.CartProducts);
+            Assert.AreEqual("Pendente", order.Status);
+            Assert.AreEqual(OrderStatus.Pending, order.StatusEnum);
         }
 
         [Test]
         public void CalculateTotalPrice_NoProducts_Returns0()
         {
             // arrange
-            _order.Products = new List<Product>();
+            _order.CartProducts = new List<CartProduct>();
 
             // act
             double result = _order.CalculateTotalPrice();
@@ -49,11 +50,11 @@ namespace TropPizza.Domain.Tests
         public void CalculateTotalPrice_OneProduct_Quantity2Price1d5_Returns3()
         {
             // arrange
-            Product product1 = new Product();
+            CartProduct product1 = new CartProduct();
             product1.Quantity = 2;
             product1.UnitPrice = 1.5;
 
-            _order.Products = new List<Product>() { product1 };
+            _order.CartProducts = new List<CartProduct>() { product1 };
 
             // act
             double result = _order.CalculateTotalPrice();
@@ -67,14 +68,14 @@ namespace TropPizza.Domain.Tests
         public void CalculateTotalPrice_TwoProducts_Quantity2Price1d5AndQuantity3Price2_Returns9()
         {
             // arrange
-            Product product1 = new Product();
+            CartProduct product1 = new CartProduct();
             product1.Quantity = 2;
             product1.UnitPrice = 1.5;
-            Product product2 = new Product();
+            CartProduct product2 = new CartProduct();
             product2.Quantity = 3;
             product2.UnitPrice = 2;
 
-            _order.Products = new List<Product>() { product1, product2 };
+            _order.CartProducts = new List<CartProduct>() { product1, product2 };
 
             // act
             double result = _order.CalculateTotalPrice();
@@ -85,10 +86,58 @@ namespace TropPizza.Domain.Tests
         }
 
         [Test]
+        public void Status_Enum0_CorrectString()
+        {
+            // arrange
+            _order.StatusEnum = (OrderStatus)0;
+            string result = "Pendente";
+            
+            // act
+            // assert
+            Assert.AreEqual(result, _order.Status);
+        }
+
+        [Test]
+        public void Status_Enum1_CorrectString()
+        {
+            // arrange
+            _order.StatusEnum = (OrderStatus)1;
+            string result = "Em preparo";
+
+            // act
+            // assert
+            Assert.AreEqual(result, _order.Status);
+        }
+
+        [Test]
+        public void Status_Enum2_CorrectString()
+        {
+            // arrange
+            _order.StatusEnum = (OrderStatus)2;
+            string result = "Saiu para entrega";
+
+            // act
+            // assert
+            Assert.AreEqual(result, _order.Status);
+        }
+
+        [Test]
+        public void Status_Enum3_CorrectString()
+        {
+            // arrange
+            _order.StatusEnum = (OrderStatus)3;
+            string result = "Finalizado";
+
+            // act
+            // assert
+            Assert.AreEqual(result, _order.Status);
+        }
+
+        [Test]
         public void CanBeDeleted_FinishedOrderStatus_ThrowsException()
         {
             // arrange
-            _order.Status = (OrderStatus)3;
+            _order.StatusEnum = (OrderStatus)3;
 
             // act
             InvalidDeletion ex = Assert.Throws<InvalidDeletion>(() => _order.CanBeDeleted());
@@ -101,7 +150,7 @@ namespace TropPizza.Domain.Tests
         public void CanBeDeleted_PendingOrderStatus_ReturnsTrue()
         {
             // arrange
-            _order.Status = (OrderStatus)0;
+            _order.StatusEnum = (OrderStatus)0;
 
             // act
             bool result = _order.CanBeDeleted();
@@ -114,7 +163,7 @@ namespace TropPizza.Domain.Tests
         public void CanBeDeleted_PreparationOrderStatus_ReturnsTrue()
         {
             // arrange
-            _order.Status = (OrderStatus)1;
+            _order.StatusEnum = (OrderStatus)1;
 
             // act
             bool result = _order.CanBeDeleted();
@@ -127,7 +176,7 @@ namespace TropPizza.Domain.Tests
         public void CanBeDeleted_DeliveryOrderStatus_ReturnsTrue()
         {
             // arrange
-            _order.Status = (OrderStatus)2;
+            _order.StatusEnum = (OrderStatus)2;
 
             // act
             bool result = _order.CanBeDeleted();
@@ -140,10 +189,10 @@ namespace TropPizza.Domain.Tests
         public void Validate_AllValid_ReturnsTrue()
         {
             // arrange
-            Product product = new Product();
+            CartProduct product = new CartProduct();
 
-            _order.Products = new List<Product>() { product };
-            _order.Status = (OrderStatus)0;
+            _order.CartProducts = new List<CartProduct>() { product };
+            _order.StatusEnum = (OrderStatus)0;
 
             // act
             bool result = _order.Validate();
@@ -156,10 +205,10 @@ namespace TropPizza.Domain.Tests
         public void Validate_InvalidStatus_ThrowsException()
         {
             // arrange
-            Product product = new Product();
+            CartProduct product = new CartProduct();
 
-            _order.Products = new List<Product>() { product };
-            _order.Status = (OrderStatus)99;
+            _order.CartProducts = new List<CartProduct>() { product };
+            _order.StatusEnum = (OrderStatus)99;
 
             // act
             InvalidStatus ex = Assert.Throws<InvalidStatus>(() => _order.Validate());
@@ -172,8 +221,8 @@ namespace TropPizza.Domain.Tests
         public void Validate_NoProducts_ThrowsException()
         {
             // arrange
-            _order.Products = new List<Product>();
-            _order.Status = (OrderStatus)0;
+            _order.CartProducts = new List<CartProduct>();
+            _order.StatusEnum = (OrderStatus)0;
 
             // act
             InvalidProducts ex = Assert.Throws<InvalidProducts>(() => _order.Validate());

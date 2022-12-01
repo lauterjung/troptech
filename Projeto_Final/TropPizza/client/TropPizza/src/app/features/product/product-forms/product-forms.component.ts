@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { take } from 'rxjs';
+import { CustomValidators } from 'src/app/validators/custom.validators';
 import { ProductService } from '../../product.service';
-import { Product } from '../product.model';
+import { InventoryProduct } from '../product.model';
 
 @Component({
   selector: 'app-product-forms',
@@ -12,7 +13,7 @@ import { Product } from '../product.model';
 export class ProductFormsComponent implements OnInit {
 
   public form!: FormGroup;
-  public hasImage: boolean = false;
+  public productHasImage: boolean = false;
 
   constructor(private service: ProductService) { }
 
@@ -20,9 +21,10 @@ export class ProductFormsComponent implements OnInit {
     this.form = new FormGroup({
       name: new FormControl(null, [Validators.required]),
       description: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-      expirationDate: new FormControl(null, [Validators.required]),
+      expirationDate: new FormControl(null, [Validators.required, CustomValidators.futureDate()]),
       unitPrice: new FormControl(null, [Validators.required, Validators.min(0.01)]),
-      imagePath: new FormControl(null),
+      hasImage: new FormControl(null), /////////
+      imageName: new FormControl(null),
     });
   }
 
@@ -31,26 +33,28 @@ export class ProductFormsComponent implements OnInit {
       return;
     }
 
-    let product: Product = this.formToProduct();
-    this.service.saveProduct(product).pipe(take(1)).subscribe(
+    let inventoryProduct: InventoryProduct = this.formToProduct();
+    this.service.saveProduct(inventoryProduct)
+    .pipe(take(1))
+    .subscribe(
       () => {
         alert('Produto salvo com sucesso!')
         this.form.reset();
       });
   }
 
-  public formToProduct(): Product {
-    let product: Product = {} as Product;
-    product.name = this.form.get("name")?.value;;
-    product.description = this.form.get("description")?.value;
-    product.expirationDate = this.form.get("expirationDate")?.value;
-    product.unitPrice = this.form.get("unitPrice")?.value;
-    product.imagePath = this.form.get("imagePath")?.value;
+  public formToProduct(): InventoryProduct {
+    let inventoryProduct: InventoryProduct = {} as InventoryProduct;
+    inventoryProduct.name = this.form.get("name")?.value;;
+    inventoryProduct.description = this.form.get("description")?.value;
+    inventoryProduct.expirationDate = this.form.get("expirationDate")?.value;
+    inventoryProduct.unitPrice = this.form.get("unitPrice")?.value;
+    inventoryProduct.imageName = this.form.get("imageName")?.value;
 
-    return product;
+    return inventoryProduct;
   }
 
   public changeHasImage(): void {
-    this.hasImage = !this.hasImage;
+    this.productHasImage = !this.productHasImage;
   }
 }

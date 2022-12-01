@@ -7,7 +7,7 @@ import { Order } from './order/order.model';
     providedIn: 'root'
 })
 export class OrderService {
-    private api: string = 'http://localhost:5000/api/Order';
+    private api: string = 'http://localhost:5000/api/order';
 
     constructor(private httpClient: HttpClient) { }
 
@@ -21,6 +21,10 @@ export class OrderService {
 
     public getAllOrders(): Observable<Order[]> {
         return this.httpClient.get<Order[]>(`${this.api}`);
+    }
+
+    public getLastKey(): Observable<number> {
+        return this.httpClient.get<number>(`${this.api}/key`);
     }
 
     public deleteOrder(id: string): Observable<boolean> {

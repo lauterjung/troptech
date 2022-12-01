@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs';
 import { ProductService } from '../../product.service';
-import { Product } from '../product.model';
+import { InventoryProduct } from '../product.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ProductManagerComponent implements OnInit {
 
-  public products: Product[] = [];
+  public products: InventoryProduct[] = [];
   public deletePopUpShowing: boolean = false;
   public productToDeleteIndex: string = "";
 
@@ -20,7 +20,7 @@ export class ProductManagerComponent implements OnInit {
   ngOnInit(): void {
     this.service.getAllProducts()
       .pipe(take(1))
-      .subscribe((data: Product[]) => {
+      .subscribe((data: InventoryProduct[]) => {
         this.products = data;
       });
   }
@@ -47,19 +47,19 @@ export class ProductManagerComponent implements OnInit {
   }
 
   changeIsActive(id: number): void {
-    let product: Product = this.products[id - 1];
+    let product: InventoryProduct = this.products[id - 1];
     product.isActive = !product.isActive;
     this.updateProduct(product);
   }
 
   addQuantity(id: number): void {
-    let product: Product = this.products[id - 1];
+    let product: InventoryProduct = this.products[id - 1];
     product.quantity += 1;
     this.updateProduct(product);
   }
 
   removeQuantity(id: number): void {
-    let product: Product = this.products[id - 1];
+    let product: InventoryProduct = this.products[id - 1];
     if (product.quantity === 0) {
       return;
     }
@@ -67,7 +67,7 @@ export class ProductManagerComponent implements OnInit {
     this.updateProduct(product);
   }
 
-  updateProduct(product: Product): void {
+  updateProduct(product: InventoryProduct): void {
     this.service.updateProduct(product).pipe(take(1)).subscribe(
       () => {
       });
@@ -80,11 +80,11 @@ export class ProductManagerComponent implements OnInit {
   }
 }
 
-  // getProductById(id: string): Product {
-  //   let product = {} as Product;
+  // getProductById(id: string): InventoryProduct {
+  //   let product = {} as InventoryProduct;
   //   this.service.getProduct(id)
   //     .pipe(take(1))
-  //     .subscribe((data: Product) => {
+  //     .subscribe((data: InventoryProduct) => {
   //       this.product1 = data;
   //     });
 
@@ -92,7 +92,7 @@ export class ProductManagerComponent implements OnInit {
   // }
 
   // changeQuantity(id: number): void {
-  //   let product: Product = this.products[id - 1];
+  //   let product: InventoryProduct = this.products[id - 1];
   //   product.quantity += 1;
   //   this.updateProduct(product);
   // }

@@ -5,6 +5,7 @@ import { take } from 'rxjs';
 import { CustomerService } from '../../customer.service';
 import { Customer } from '../customer.model';
 import { formatDate } from '@angular/common';
+import { CustomValidators } from 'src/app/validators/custom.validators';
 
 @Component({
   selector: 'app-customer-edit',
@@ -23,7 +24,7 @@ export class CustomerEditComponent implements OnInit {
     this.form = new FormGroup({
       fullName: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       cpf: new FormControl(null, [Validators.required, Validators.pattern("[0-9]{11}")]),
-      birthDate: new FormControl(null, [Validators.required]),
+      birthDate: new FormControl(null, [Validators.required, CustomValidators.pastDate()]),
       address: new FormControl(null, [Validators.required]),
     });
 

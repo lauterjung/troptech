@@ -1,43 +1,45 @@
-﻿ALUGUEL!
-
-data
-navbar
-botão + e - do produto, atualizar direto
-
-homepage
-
-!!! inserir com erro de bd
-
-
-
-
-update order para trocar status (e produtos?)
-order get last key para acompanhar pedido
-
-
-
-search id ou nome / nome ou cpf ou id
-
-passar parametro pro ang routing
-homepage routing
-
-propriedade hasImage
-
-cards para os produtos para carrinho
+﻿exportar thunder collection
+!!!!!!!!!! thunder isvisible
+testar patch no thunder
 
 track order
 
-buscar nos produtos
 
 
-validação para data no forms
+mostrar os produtos disponíveis (ativos/visíveis): query no bd ou pega todos e filtra?
+validação do cpf repetido no front
+	!!! inserir com erro de bd / produtos repetidos, ....
+fazer pedido
+ver carrinho
+cards para os produtos para carrinho, botão + e - do produto, atualizar direto
+
+homepage
+
+
+
+produto já existente não pode criar
+
+
+ida e volta do carrinho
+
 imagepath
-onsubmit
-header/whereami
 footer
 
-patch dando erro
+validação patch quando der erro
 
+mostrar os produtos disponíveis (ativos/visíveis): query no bd ou pega todos e filtra?
+
+
+testar
+         private string GetOrderStatusName()
+        {
+            return OrderStatus.Pending.GetDisplayName();
+        }
+
+        private bool CheckHasImage()
+        {
+            return !String.IsNullOrEmpty(ImageName) ? true : false;
+        }
 [x] Documentação
 	[x] Readme
 	[x] Diagramas
@@ -49,7 +51,6 @@ patch dando erro
 [x] Back-end
 	[x] Domain
 	[x] Infra.Data
-		[ ] Ativar/Desativar Produtos
 	[x] WebApi
 	[x] Unit tests
 	[x] Thunder Client API tests
@@ -59,42 +60,38 @@ patch dando erro
 	[x] Services
 	[x] Conexão com o back-end
 	[x] Class Model
-	[ ] NavBar
+	[x] NavBar
 	[x] FavIcon
 	[ ] Componentes
 		[ ] Home-page (esqueleto do site)
 		[x] Clientes
 		[x] Produtos
 		[ ] Pedidos
-			[ ] Cadastrar
-			[ ] Editar
-			[ ] Atualizar
-			[ ] Acompanhar
 
 [ ] Outro
-	[ ] Verificar status codes da API
-	[ ] Duas classes de produto (estoque e carrinho)
+	[ ] Order update não mexe no cliente e nos produtos
 	[ ] Melhorar dados iniciais do banco de dados
 	[ ] fazer Order update (DAO e repo)?
-	[ ] TS -> Class para Interface
 	[ ] imagepath / imagename
 	[ ] imagem não encontrada
-	[ ] add remove items on hold mouse
+	[ ] forms onsubmit, forms com bordinhas verde/vermelha
+	[ ] searchbar nos dashboards id ou nome / nome ou cpf ou id
+	[ ] fonte
+	[ ] navbar icon
+	[ ] renomear front -> product tá ambíguo
+	
+	zzzz
+	[ ] TS -> Class para Interface
 	[ ] popup como componente (depois)
-	[ ] mock para repository
-	[ ] melhorar testes do thunder
-	[ ] possui imagem do produto indo para a direita/movendo a tela
-	[ ] placeholders para cadastrar
-	[ ] searchbar nos dashboards
 	[ ] navbar com scroll começando embaixo
+	[ ] mock para repository ou melhorar testes do thunder
+	[ ] add remove items on hold mouse
 	
 [ ] Verificações finais
 	[ ] Rever imports não utilizados
 	[ ] Rever código comentado
 	[ ] Rever todas as regras de negócio
 	[ ] Re-rodar testes
-	[ ] Correspondência IRepository e Repository
 	[ ] Correspondência diagramas
+	[ ] verificar ctrl shift f throw not implemeneted
 
-<input id="hasImageCheckbox" type="checkbox" (click)="changeHasImage()" ...
- .dropdown-menu-large {    color: blue;    background-color: red;  }

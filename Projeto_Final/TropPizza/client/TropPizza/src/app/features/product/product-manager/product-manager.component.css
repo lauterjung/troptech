@@ -1,5 +1,6 @@
 th, td {
-    padding: 8px 1px 8px 1px !important;
+    padding: 5px 1px 5px 1px !important;
+    vertical-align: middle;
 }
 
 .justify-content-around{

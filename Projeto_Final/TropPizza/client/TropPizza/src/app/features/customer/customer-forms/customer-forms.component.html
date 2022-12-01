@@ -1,10 +1,9 @@
+<div class="row text-center">
+  <h1>Novo Cliente</h1>
+</div>
 <div class="container">
   <div class="row justify-content-around">
     <div class="col-10">
-      <div class="row text-center">
-        <h1>Novo Cliente</h1>
-      </div>
-
       <div class="row justify-content-around">
         <div class="col-6">
           <div class="row">
@@ -39,6 +38,8 @@
                   <div class="alert alert-danger"
                     [hidden]="form.get('birthDate')?.valid || form.get('birthDate')?.pristine">
                     <span *ngIf="form.get('birthDate')?.errors?.['required']">A data de nascimento é obrigatória!</span>
+                    <span *ngIf="form.get('birthDate')?.errors?.['pastDate']">A data de nascimento deve ser inferior ou
+                      igual ao dia de hoje!</span>
                   </div>
                 </div>
                 <br>

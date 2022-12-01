@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { take } from 'rxjs';
 import { ProductService } from '../../product.service';
-import { Product } from '../product.model';
+import { InventoryProduct } from '../product.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { formatDate } from '@angular/common';
+import { CustomValidators } from 'src/app/validators/custom.validators';
 
 @Component({
   selector: 'app-product-edit',
@@ -14,8 +15,7 @@ import { formatDate } from '@angular/common';
 export class ProductEditComponent implements OnInit {
 
   public form!: FormGroup;
-  public hasImage: boolean = false; ///////////
-  public productToEdit: Product = {} as Product;
+  public productToEdit: InventoryProduct = {} as InventoryProduct;
   public id: number = 0;
 
   constructor(private service: ProductService, private router: Router, private route: ActivatedRoute) { }
@@ -24,10 +24,11 @@ export class ProductEditComponent implements OnInit {
     this.form = new FormGroup({
       name: new FormControl(null, [Validators.required]),
       description: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-      expirationDate: new FormControl(null, [Validators.required]),
+      expirationDate: new FormControl(null, [Validators.required, CustomValidators.futureDate()]),
       unitPrice: new FormControl(null, [Validators.required, Validators.min(0.01)]),
       quantity: new FormControl(null, [Validators.required, Validators.min(0)]),
-      imagePath: new FormControl(null),
+      hasImage: new FormControl(null),
+      imageName: new FormControl(null),
     });
 
     this.route.params.subscribe(params => {
@@ -36,7 +37,7 @@ export class ProductEditComponent implements OnInit {
 
     this.service.getProduct(this.id.toString())
       .pipe(take(1))
-      .subscribe((data: Product) => {
+      .subscribe((data: InventoryProduct) => {
         this.productToEdit = data;
         this.populateForm(); ////////
       });
@@ -48,26 +49,27 @@ export class ProductEditComponent implements OnInit {
     this.form.patchValue({
       name: this.productToEdit.name,
       description: this.productToEdit.description,
-      expirationDate: formatDate(this.productToEdit.expirationDate, "yyyy-MM-dd", "en"),
+      expirationDate: formatDate(this.productToEdit.expirationDate!, "yyyy-MM-dd", "en"),
       unitPrice: this.productToEdit.unitPrice,
       quantity: this.productToEdit.quantity,
-      imagePath: this.productToEdit.imagePath,
+      hasImage: this.productToEdit.hasImage,
+      imageName: this.productToEdit.imageName,
     });
   }
 
-  public formsToProduct(): Product {
-    let product: Product = {} as Product;
+  public formsToProduct(): InventoryProduct {
+    let inventoryProduct: InventoryProduct = {} as InventoryProduct;
 
-    product.id = this.productToEdit.id;
-    product.isActive = this.productToEdit.isActive;
-    product.name = this.form.get("name")?.value;
-    product.description = this.form.get("description")?.value;
-    product.expirationDate = this.form.get("expirationDate")?.value;
-    product.unitPrice = this.form.get("unitPrice")?.value;
-    product.quantity = this.form.get("quantity")?.value;
-    product.imagePath = this.form.get("imagePath")?.value;
+    inventoryProduct.id = this.productToEdit.id;
+    inventoryProduct.isActive = this.productToEdit.isActive;
+    inventoryProduct.name = this.form.get("name")?.value;
+    inventoryProduct.description = this.form.get("description")?.value;
+    inventoryProduct.expirationDate = this.form.get("expirationDate")?.value;
+    inventoryProduct.unitPrice = this.form.get("unitPrice")?.value;
+    inventoryProduct.quantity = this.form.get("quantity")?.value;
+    inventoryProduct.imageName = this.form.get("imageName")?.value;
 
-    return product;
+    return inventoryProduct;
   }
 
   public submitProduct(): void {
@@ -75,17 +77,19 @@ export class ProductEditComponent implements OnInit {
       return;
     }
 
-    let product = this.formsToProduct();
-    this.service.updateProduct(product).pipe(take(1)).subscribe(
+    let inventoryProduct = this.formsToProduct();
+    this.service.updateProduct(inventoryProduct)
+    .pipe(take(1))
+    .subscribe(
       () => {
         alert('Produto editado com sucesso!')
         this.router.navigate(['/product/manage'])
       });
   }
 
-  public changeHasImage(): void {
-    this.hasImage = !this.hasImage;
-  }
+  // public changeHasImage(): void {
+  //   this.productToEdit.hasImage = !this.productToEdit.hasImage;
+  // }
 
   public returnToManage() {
     this.router.navigate(['/product/manage'])

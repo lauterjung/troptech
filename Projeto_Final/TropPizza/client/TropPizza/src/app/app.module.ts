@@ -19,6 +19,8 @@ import { OrderService } from './features/order.service';
 import { ProductEditComponent } from './features/product/product-edit/product-edit.component';
 import { CustomerEditComponent } from './features/customer/customer-edit/customer-edit.component';
 import { DatePipe } from '@angular/common';
+import { HomeComponent } from './features/home/home.component';
+import { OrderSuccessComponent } from './features/order/order-success/order-success.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { DatePipe } from '@angular/common';
     OrderProductsComponent,
     OrderShoppingCartComponent,
     ProductEditComponent,
-    CustomerEditComponent
+    CustomerEditComponent,
+    HomeComponent,
+    OrderSuccessComponent
   ],
   imports: [
     BrowserModule,

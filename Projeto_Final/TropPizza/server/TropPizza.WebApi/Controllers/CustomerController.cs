@@ -22,7 +22,7 @@ namespace TropPizza.WebApi.Controllers
             try
             {
                 _repository.Create(customer);
-                return StatusCode(200);
+                return StatusCode(201);
             }
             catch (Exception e)
             {

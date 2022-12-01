@@ -11,7 +11,7 @@ namespace TropPizza.Infra.Data.Repositories
     {
         private CustomerDAO _customerDAO = new CustomerDAO();
         private OrderDAO _orderDAO = new OrderDAO();
-        private OrderProductsDAO _orderProductsDAO = new OrderProductsDAO();
+        private CartProductsDAO _cartProductsDAO = new CartProductsDAO();
 
         public void Create(Customer customer)
         {
@@ -87,7 +87,7 @@ namespace TropPizza.Infra.Data.Repositories
             {
                 foreach (Order order in unfinishedOrders)
                 {
-                    _orderProductsDAO.Delete(order.Id);
+                    _cartProductsDAO.Delete(order.Id);
                     _orderDAO.Delete(order.Id);
                 }
             }

@@ -37,7 +37,7 @@ VALUES
     ('00000000009', 'Theo Sobrenome9', '1990-01-21', 'Endereço 9', 9),
     ('00000000010', 'Valentina Sobrenome10', '1990-01-21', 'Endereço 10', 0);
 -----------------------------------------------------------------------------------------------------
-CREATE TABLE Products
+CREATE TABLE InventoryProducts
 (
     product_id BIGINT IDENTITY(1, 1) NOT NULL,
     product_name VARCHAR(200) NOT NULL,
@@ -48,25 +48,26 @@ CREATE TABLE Products
     unit_price DECIMAL(36,2) NOT NULL,
     total_price DECIMAL(36,2) NOT NULL,
     is_visible BIT NOT NULL,
-    image_path VARCHAR(255) NULL,
+    image_name VARCHAR(255) NULL,
+    has_image BIT NOT NULL,
     CONSTRAINT PK_product_id PRIMARY KEY (product_id),
 );
 
-INSERT INTO Products
+INSERT INTO InventoryProducts
 VALUES
-    ('Água s/ gás 500 ml', 'Água mineral Puris 500 ml sem gás', 1, '2025-01-01', 10000, 3.50, 350, 1, NULL),
-    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 10000, 3.50, 350, 1, NULL),
-    ('Refrigerante Laranjinha 500 ml', 'Refrigerante Água da Serra sabor Laranjinha 500 ml', 1, '2025-01-01', 10000, 6.50, 650, 1, NULL),
-    ('Refrigerante Guaraná 500 ml', 'Refrigerante Água da Serra sabor Guaraná 500 ml', 1, '2025-01-01', 10000, 6.50, 650, 1, NULL),
-    ('Refrigerante Cola 500 ml', 'Refrigerante Coca-Cola sabor Cola 500 ml', 1, '2025-01-01', 10000, 8.50, 850, 1, NULL),
-    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 10000, 3.50, 350, 1, NULL),
-    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 10000, 3.50, 350, 1, NULL),
-    ('Pizza Média - Marguerita', 'Pizza tamanho média sabor Marguerita', 1, '2023-12-31', 20, 40, 800, 1, NULL),
-    ('Pizza Grande - Marguerita', 'Pizza tamanho grande sabor Marguerita', 1, '2023-12-31', 20, 60, 1200, 1, NULL),
-    ('Pizza Gigante - Marguerita', 'Pizza tamanho grande sabor Marguerita', 1, '2023-12-31', 20, 80, 1600, 1, NULL),
-    ('Pizza Média - Calabresa', 'Pizza tamanho média sabor Calabresa', 1, '2023-12-31', 20, 40, 800, 1, NULL),
-    ('Pizza Grande - Calabresa', 'Pizza tamanho grande sabor Calabresa', 1, '2023-12-31', 20, 60, 1200, 1, NULL),
-    ('Pizza Gigante - Calabresa', 'Pizza tamanho grande sabor Calabresa', 1, '2023-12-31', 20, 80, 1600, 1, NULL);
+    ('Água s/ gás 500 ml', 'Água mineral Puris 500 ml sem gás', 1, '2025-01-01', 10000, 3.50, 350, 1, NULL, 0),
+    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 10000, 3.50, 350, 1, NULL, 0),
+    ('Refrigerante Laranjinha 500 ml', 'Refrigerante Água da Serra sabor Laranjinha 500 ml', 1, '2025-01-01', 10000, 6.50, 650, 1, NULL, 0),
+    ('Refrigerante Guaraná 500 ml', 'Refrigerante Água da Serra sabor Guaraná 500 ml', 1, '2025-01-01', 10000, 6.50, 650, 1, NULL, 0),
+    ('Refrigerante Cola 500 ml', 'Refrigerante Coca-Cola sabor Cola 500 ml', 1, '2025-01-01', 10000, 8.50, 850, 1, NULL, 0),
+    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 10000, 3.50, 350, 1, NULL, 0),
+    ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2025-01-01', 10000, 3.50, 350, 1, NULL, 0),
+    ('Pizza Média - Marguerita', 'Pizza tamanho média sabor Marguerita', 1, '2023-12-31', 20, 40, 800, 1, NULL, 0),
+    ('Pizza Grande - Marguerita', 'Pizza tamanho grande sabor Marguerita', 1, '2023-12-31', 20, 60, 1200, 1, NULL, 0),
+    ('Pizza Gigante - Marguerita', 'Pizza tamanho grande sabor Marguerita', 1, '2023-12-31', 20, 80, 1600, 1, NULL, 0),
+    ('Pizza Média - Calabresa', 'Pizza tamanho média sabor Calabresa', 1, '2023-12-31', 20, 40, 800, 1, NULL, 0),
+    ('Pizza Grande - Calabresa', 'Pizza tamanho grande sabor Calabresa', 1, '2023-12-31', 20, 60, 1200, 1, NULL, 0),
+    ('Pizza Gigante - Calabresa', 'Pizza tamanho grande sabor Calabresa', 1, '2023-12-31', 20, 80, 1600, 1, NULL, 0);
 -----------------------------------------------------------------------------------------------------
 CREATE TABLE OrderStatus
 (
@@ -79,7 +80,7 @@ INSERT INTO OrderStatus
 VALUES
     ('Pendente'),
     ('Em preparo'),
-    ('Delivery'),
+    ('Saiu para entrega'),
     ('Finalizado');
 -----------------------------------------------------------------------------------------------------
 CREATE TABLE Orders
@@ -106,17 +107,17 @@ VALUES
     (1, '00000000002', '2023-11-21 17:00:00'),
     (2, '00000000003', '2023-11-21 16:00:00');
 -----------------------------------------------------------------------------------------------------
-CREATE TABLE OrderProducts
+CREATE TABLE CartProducts
 (
     order_id BIGINT NOT NULL,
     product_id BIGINT NOT NULL,
     quantity INT NOT NULL,
     total_price DECIMAL(36,2) NOT NULL,
-    CONSTRAINT FK_OrderProducts_Orders FOREIGN KEY (order_id) REFERENCES Orders (order_id),
-    CONSTRAINT FK_OrderProducts_Products FOREIGN KEY (product_id) REFERENCES Products (product_id)
+    CONSTRAINT FK_CartProducts_Orders FOREIGN KEY (order_id) REFERENCES Orders (order_id),
+    CONSTRAINT FK_CartProducts_Products FOREIGN KEY (product_id) REFERENCES InventoryProducts (product_id)
 )
 
-INSERT INTO OrderProducts
+INSERT INTO CartProducts
 VALUES
     -- pedido / produto / quantidade / preço
     (1, 1, 2, 7),
@@ -139,16 +140,16 @@ VALUES
 -- from Customers
 
 -- select *
--- from Products
+-- from InventoryProducts
 
 -- SELECT *
--- FROM Products
+-- FROM InventoryProducts
 -- WHERE product_name = 'Água s/ gás 500 ml' AND product_description = 'Água mineral Puris 500 ml sem gás' AND expiration_date = '2025-01-01'
 
 -- SELECT p.product_id, p.product_name, p.unit_price, op.quantity, op.total_price
 --                     FROM OrderProducts op
 --                     JOIN Orders o ON(op.order_id = o.order_id)
---                     JOIN Products p ON(op.product_id = p.product_id)
+--                     JOIN InventoryProducts p ON(op.product_id = p.product_id)
 --                         WHERE op.order_id = 3
 
 SELECT o.order_status_id, o.customer_id, o.order_date_time, c.cpf

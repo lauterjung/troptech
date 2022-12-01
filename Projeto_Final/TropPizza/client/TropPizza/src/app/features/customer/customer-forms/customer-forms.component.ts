@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { take } from 'rxjs';
+import { CustomValidators } from 'src/app/validators/custom.validators';
 import { CustomerService } from '../../customer.service';
 import { Customer } from '../customer.model';
 
@@ -19,7 +20,7 @@ export class CustomerFormsComponent implements OnInit {
     this.form = new FormGroup({
       fullName: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       cpf: new FormControl(null, [Validators.required, Validators.pattern("[0-9]{11}")]),
-      birthDate: new FormControl(null, [Validators.required]),
+      birthDate: new FormControl(null, [Validators.required, CustomValidators.pastDate()]),
       address: new FormControl(null, [Validators.required]),
     });
   }
@@ -36,7 +37,12 @@ export class CustomerFormsComponent implements OnInit {
       () => {
         alert('Cliente salvo com sucesso!')
         this.form.reset();
-      });
+      })
+    // .subscribe(
+    //   () => {
+    //     alert('Cliente salvo com sucesso!')
+    //     this.form.reset();
+    //   }, ...);
   }
 
   public formToCustomer(): Customer {

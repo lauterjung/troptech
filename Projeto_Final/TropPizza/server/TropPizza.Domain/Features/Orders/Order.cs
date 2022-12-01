@@ -4,17 +4,24 @@ using TropPizza.Domain.Features.Orders.Enums;
 using TropPizza.Domain.Features.Customers;
 using TropPizza.Domain.Features.Products;
 using TropPizza.Domain.Exceptions.OrderExceptions;
+using TropPizza.Domain.Extensions;
+
 
 namespace TropPizza.Domain.Features.Orders
 {
     public class Order
     {
         public Int64 Id { get; set; }
-        public OrderStatus Status { get; set; }
+        public OrderStatus StatusEnum { get; set; }
+
 #nullable enable
         public Customer? OrderCustomer { get; set; }
-        public List<Product> Products { get; set; }
+        public List<CartProduct> CartProducts { get; set; }
         public DateTime OrderDateTime { get; set; }
+        public string Status
+        {
+            get { return GetOrderStatusName(); }
+        }
         public double TotalPrice
         {
             get { return CalculateTotalPrice(); }
@@ -23,15 +30,15 @@ namespace TropPizza.Domain.Features.Orders
 #nullable disable
         public Order()
         {
-            Products = new List<Product>();
-            Status = OrderStatus.Pending;
+            CartProducts = new List<CartProduct>();
+            StatusEnum = OrderStatus.Pending;
         }
 
         public double CalculateTotalPrice()
         {
             double totalPrice = 0;
 
-            foreach (Product product in Products)
+            foreach (CartProduct product in CartProducts)
             {
                 totalPrice += product.TotalPrice;
             };
@@ -41,7 +48,7 @@ namespace TropPizza.Domain.Features.Orders
 
         public bool CanBeDeleted()
         {
-            if (Status == OrderStatus.Finished)
+            if (StatusEnum == OrderStatus.Finished)
             {
                 throw new InvalidDeletion();
             }
@@ -51,12 +58,17 @@ namespace TropPizza.Domain.Features.Orders
 
         private bool CheckValidStatus()
         {
-            return Enum.IsDefined(typeof(OrderStatus), Status) ? true : false;
+            return Enum.IsDefined(typeof(OrderStatus), StatusEnum) ? true : false;
+        }
+
+        private string GetOrderStatusName()
+        {
+            return StatusEnum.GetDisplayName();
         }
 
         private bool CheckValidProducts()
         {
-            return Products.Count > 0 ? true : false;
+            return CartProducts.Count > 0 ? true : false;
         }
 
         public bool Validate()

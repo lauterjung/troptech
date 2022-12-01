@@ -36,7 +36,7 @@ namespace TropPizza.Domain.Features.Customers
 
         private bool CheckValidAddress()
         {
-            return String.IsNullOrEmpty(Address) ? false : true;
+            return !String.IsNullOrEmpty(Address) ? true : false;
         }
 
         private bool CheckValidBirthDate()

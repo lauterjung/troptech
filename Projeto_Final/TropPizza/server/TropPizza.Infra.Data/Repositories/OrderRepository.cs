@@ -11,8 +11,8 @@ namespace TropPizza.Infra.Data.Repositories
     public class OrderRepository : IOrderRepository
     {
         private CustomerRepository _customerRepository = new CustomerRepository();
-        private ProductRepository _productRepository = new ProductRepository();
-        private OrderProductsRepository _orderProductsRepository = new OrderProductsRepository();
+        private InventoryProductRepository _inventoryProductRepository = new InventoryProductRepository();
+        private CartProductsRepository _cartProductsRepository = new CartProductsRepository();
         private OrderDAO _orderDAO = new OrderDAO();
 
         public void Create(Order order)
@@ -25,14 +25,14 @@ namespace TropPizza.Infra.Data.Repositories
                 }
 
                 _orderDAO.Create(order);
-                Int64 lastKey = _orderDAO.GetLastKey();
-                _orderProductsRepository.Create(order, lastKey);
+                Int64 lastKey = _orderDAO.ReadLastKey();
+                _cartProductsRepository.Create(order, lastKey);
 
-                foreach (Product product in order.Products)
+                foreach (CartProduct cartProduct in order.CartProducts)
                 {
-                    Product stockProduct = _productRepository.ReadById(product.Id);
-                    stockProduct.RemoveFromInventory(product.Quantity);
-                    _productRepository.Update(stockProduct);
+                    InventoryProduct inventoryProduct = _inventoryProductRepository.ReadById(cartProduct.Id);
+                    inventoryProduct.RemoveFromInventory(cartProduct.Quantity);
+                    _inventoryProductRepository.Update(inventoryProduct);
                 }
             }
         }
@@ -45,7 +45,7 @@ namespace TropPizza.Infra.Data.Repositories
                 throw new NotFound();
             }
 
-            order.Products = _orderProductsRepository.ReadById(id);
+            order.CartProducts = _cartProductsRepository.ReadById(id);
             return order;
         }
 
@@ -60,9 +60,28 @@ namespace TropPizza.Infra.Data.Repositories
 
             foreach (Order order in ordersList)
             {
-                order.Products = _orderProductsRepository.ReadById(order.Id);
+                order.CartProducts = _cartProductsRepository.ReadById(order.Id);
             }
             return ordersList;
+        }
+
+        public Int64 ReadLastKey()
+        {
+            return _orderDAO.ReadLastKey();
+        }
+
+        public void UpdateStatus(Order order)
+        {
+            Order searchedOrder = _orderDAO.ReadById(order.Id);
+            if (searchedOrder is null)
+            {
+                throw new NotFound();
+            }
+
+            if (order.Validate())
+            {
+                _orderDAO.UpdateStatus(searchedOrder);
+            }
         }
 
         public void Delete(Int64 id)
@@ -73,7 +92,7 @@ namespace TropPizza.Infra.Data.Repositories
                 throw new NotFound();
             }
 
-            searchedOrder.Products = _orderProductsRepository.ReadById(id);
+            searchedOrder.CartProducts = _cartProductsRepository.ReadById(id);
 
             if (searchedOrder.CanBeDeleted())
             {
@@ -82,20 +101,18 @@ namespace TropPizza.Infra.Data.Repositories
                     _customerRepository.ApplyFidelityPoints(searchedOrder.OrderCustomer.Id, -searchedOrder.TotalPrice);
                 }
 
-                if (searchedOrder.Status == OrderStatus.Pending)
+                if (searchedOrder.StatusEnum == OrderStatus.Pending)
                 {
-                    foreach (Product product in searchedOrder.Products)
+                    foreach (CartProduct cartProduct in searchedOrder.CartProducts)
                     {
-                        Product stockProduct = _productRepository.ReadById(product.Id);
-                        stockProduct.AddToInventory(product.Quantity);
-                        _productRepository.Update(stockProduct);
+                        InventoryProduct inventoryProduct = _inventoryProductRepository.ReadById(cartProduct.Id);
+                        inventoryProduct.AddToInventory(cartProduct.Quantity);
+                        _inventoryProductRepository.Update(inventoryProduct);
                     }
                 }
 
-                _orderProductsRepository.Delete(id);
+                _cartProductsRepository.Delete(id);
                 _orderDAO.Delete(id);
-            } else {
-                
             }
         }
     }

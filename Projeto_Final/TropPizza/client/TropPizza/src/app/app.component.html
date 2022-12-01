@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-lg bg-light">
+<nav class="navbar fixed-top navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="/" routerLinkActive="active">TropPizza</a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -8,8 +8,8 @@
             <i class="bi bi-person-circle"></i> Clientes
           </a>
           <ul class="dropdown-menu">
-            <li><a class="nav-link" routerLink="/customer/new" routerLinkActive="active"><i class="bi bi-plus-circle"></i> Novo Cliente</a></li>
-            <li><a class="nav-link" routerLink="/customer/manage" routerLinkActive="active"><i class="bi bi-pencil"></i> Editar Clientes</a></li>
+            <li><a class="nav-link black-text" routerLink="/customer/new" routerLinkActive="active"><i class="bi bi-plus-circle"></i> Novo Cliente</a></li>
+            <li><a class="nav-link black-text" routerLink="/customer/manage" routerLinkActive="active"><i class="bi bi-pencil"></i> Editar Clientes</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -17,8 +17,8 @@
             <i class="bi bi-box-seam"></i> Produtos
           </a>
           <ul class="dropdown-menu">
-            <li><a class="nav-link" routerLink="/product/new" routerLinkActive="active"><i class="bi bi-plus-circle"></i> Novo Produto</a></li>
-            <li><a class="nav-link" routerLink="/product/manage" routerLinkActive="active"><i class="bi bi-pencil"></i> Editar Produtos</a></li>
+            <li><a class="nav-link black-text" routerLink="/product/new" routerLinkActive="active"><i class="bi bi-plus-circle"></i> Novo Produto</a></li>
+            <li><a class="nav-link black-text" routerLink="/product/manage" routerLinkActive="active"><i class="bi bi-pencil"></i> Editar Produtos</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -26,15 +26,15 @@
             <i class="bi bi-journal-text"></i> Pedidos
           </a>
           <ul class="dropdown-menu dropdown-menu-large">
-            <li><a class="nav-link" routerLink="/order/new" routerLinkActive="active"><i class="bi bi-plus-circle"></i> Novo Pedido</a></li>
-            <li><a class="nav-link" routerLink="/order/manage" routerLinkActive="active"><i class="bi bi-pencil"></i> Editar Pedidos</a></li>
-            <li><a class="nav-link" routerLink="/order/cart" routerLinkActive="active"><i class="bi bi-cart2"></i> Carrinho</a></li>
-            <li><a class="nav-link test;" routerLink="/order/change-status" routerLinkActive="active"><i class="bi bi-clock"></i> Alterar Status do Pedido</a></li>
-            <li><a class="nav-link" routerLink="/order/track" routerLinkActive="active"><i class="bi bi-geo"></i> Acompanhar Pedido</a></li>
+            <li><a class="nav-link black-text" routerLink="/order/new" routerLinkActive="active"><i class="bi bi-plus-circle"></i> Novo Pedido</a></li>
+            <li><a class="nav-link black-text" routerLink="/order/manage" routerLinkActive="active"><i class="bi bi-pencil"></i> Editar Pedidos</a></li>
+            <li><a class="nav-link black-text" routerLink="/order/cart" routerLinkActive="active"><i class="bi bi-cart2"></i> Carrinho</a></li>
+            <!-- <li><a class="nav-link black-text" routerLink="/order/change-status" routerLinkActive="active"><i class="bi bi-clock"></i> Alterar Status do Pedido</a></li> -->
+            <li><a class="nav-link black-text" routerLink="/order/track" routerLinkActive="active"><i class="bi bi-pin-map"></i> Acompanhar Pedido</a></li>
           </ul>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-<router-outlet></router-outlet>
+<div class="background-image"><router-outlet></router-outlet></div>

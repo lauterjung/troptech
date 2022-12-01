@@ -22,7 +22,7 @@ namespace TropPizza.WebApi.Controllers
             try
             {
                 _repository.Create(order);
-                return StatusCode(200);
+                return StatusCode(201);
             }
             catch (Exception e)
             {
@@ -55,6 +55,35 @@ namespace TropPizza.WebApi.Controllers
                     return StatusCode(204, searchedOrder);
                 }
                 return StatusCode(200, searchedOrder);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("key")]
+        public IActionResult GetLastKey(int id)
+        {
+            try
+            {
+                Int64 lastKey = _repository.ReadLastKey();
+                return StatusCode(200, lastKey);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpPatch]
+        public IActionResult Patch([FromBody] Order order)
+        {
+            try
+            {
+                _repository.UpdateStatus(order);
+                return StatusCode(200);
             }
             catch (Exception e)
             {

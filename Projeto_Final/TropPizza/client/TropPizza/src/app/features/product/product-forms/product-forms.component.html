@@ -42,6 +42,8 @@
                                     [hidden]="form.get('expirationDate')?.valid || form.get('expirationDate')?.pristine">
                                     <span *ngIf="form.get('expirationDate')?.errors?.['required']">A data de validade é
                                         obrigatória!</span>
+                                    <span *ngIf="form.get('expirationDate')?.errors?.['futureDate']">A data de validade deve
+                                        ser igual ou superior ao dia de hoje!</span>
                                 </div>
                             </div>
                             <br>
@@ -54,17 +56,18 @@
                                     [hidden]="form.get('unitPrice')?.valid || form.get('unitPrice')?.pristine">
                                     <span *ngIf="form.get('unitPrice')?.errors?.['required']">O preço unitário é
                                         obrigatório!</span>
+                                    <span *ngIf="form.get('unitPrice')?.errors?.['min']">O preço deve ser maior que 0!</span>
                                 </div>
                             </div>
                             <br>
                             <label for="hasImageCheckbox" class="form-label">Possui imagem?&nbsp;&nbsp;</label>
-                            <input id="hasImageCheckbox" type="checkbox" (click)="changeHasImage()">
+                            <input id="hasImage" type="checkbox" name="hasImage" formControlName="hasImage" (click)="changeHasImage()">
                             <br>
-                            <div class="form-group" *ngIf="hasImage">
+                            <div class="form-group" *ngIf="productHasImage">
                                 <br>
-                                <label class="form-label" for="imagePath">Nome do arquivo da imagem + extensão</label>
-                                <input class="form-control" type="text" id="imagePath" name="imagePath"
-                                    formControlName="imagePath" autocomplete="off" placeholder="Imagem.png" />
+                                <label class="form-label" for="imageName">Nome do arquivo da imagem + extensão</label>
+                                <input class="form-control" type="text" id="imageName" name="imageName"
+                                    formControlName="imageName" autocomplete="off" placeholder="Imagem.png" />
                             </div>
                             <br>
                             <div class="row justify-content-around">

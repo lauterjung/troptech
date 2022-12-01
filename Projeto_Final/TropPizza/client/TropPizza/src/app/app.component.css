@@ -1,13 +1,29 @@
+.navbar {
+    background-color: rgb(200, 0, 0);
+}
+
+.navbar li a {
+    color: white ;
+}
+
+.navbar-brand {
+    color: white ;
+}
+
+.dropdown-menu {
+    background-color: rgb(255, 255, 255);
+}
+
 .dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0;
+    color: rgb(0, 0, 0) !important;
 }
 
 .dropdown-menu-large {
     min-width: 210px;
 }
 
-/* .navbar {
-    padding-top: 0px;
-    padding-bottom: 0px;
-} */
+.black-text {
+    color: black !important;
+}

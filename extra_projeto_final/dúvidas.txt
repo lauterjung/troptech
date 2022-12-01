@@ -1,8 +1,8 @@
-480 x 380
-produto carrinho
-@input/output
+enum no ts, pegar valor
+na entidade, ter algo a mais só com getter
 
-estou trabalhando com classes, cosntrutores no ts são usados?
+
+status e statusname
 
 
 ##############
@@ -11,23 +11,17 @@ estou trabalhando com classes, cosntrutores no ts são usados?
 2x produtos
 
 guilherme
-	homepage eu crio o componente da homepage? feature?
-	
-	mostrar os produtos disponíveis (ativos/visíveis): query no bd ou pega todos e filtra?
-	
-	validação do cpf repetido no front, validação de date no front
+
+	validação do cpf repetido no front
 	
 	edit (id) por url, carrinho (array) por service? @input/@output
 	
-
 ### 	
 	ativar router active em navbar dropdown
 
 	Feature no singular, mas fica com nome de classe
 	mudar namespace só para domain? o que fazer?
-		
-	estou trabalhando com classes, cosntrutores no ts são usados?
-			
+					
 /guilherme
 
 
