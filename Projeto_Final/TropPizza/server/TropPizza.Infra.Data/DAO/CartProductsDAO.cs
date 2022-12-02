@@ -84,10 +84,8 @@ namespace TropPizza.Infra.Data.DAO
             cartProduct.Name = reader["product_name"].ToString();
             cartProduct.Description = reader["product_description"].ToString();
             cartProduct.UnitPrice = Convert.ToDouble(reader["unit_price"]);
-
             cartProduct.Quantity = Convert.ToInt32(reader["quantity"]);
-            // cartProduct.TotalPrice = Convert.ToDouble(reader["total_price"]);
-
+            
             return cartProduct;
         }
     }

@@ -36,9 +36,9 @@
               <td>{{ order.orderCustomer ? order.orderCustomer.cpf : "-" }}</td>
               <td>{{ showOrderProducts(order) }}</td>
               <!-- <td>{{ showOrderToString(order) }}</td> -->
-              <td>{{ order.orderDateTime | date:'dd/MM/yyy - hh:mm' }}</td>
+              <td>{{ order.orderDateTime | date:'dd/MM/yyy - HH:mm' }}</td>
               <td>{{ order.status }}</td>
-              <td><button type="button" class="btn btn-warning btn-sm" title="Alterar status" (click)="showDeletePopUp(order.id)">
+              <td><button type="button" class="btn btn-warning btn-sm" title="Alterar status" (click)="showTrackOrderPopUp(order.id)">
                   <i class="bi bi-clock"></i></button></td>
               <td><button type="button" class="btn btn-info btn-sm" title="Acompanhar pedido"
                   (click)="trackOrder(order.id)">

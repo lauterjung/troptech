@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
+import { TrackDialogComponent } from '../../dialog/track-dialog/track-dialog.component';
 import { OrderService } from '../../order.service';
 // import { DialogDataExample } from '../dialog/dialog.component';
 import { Order } from '../order.model';
@@ -15,7 +17,7 @@ export class OrderManagerComponent implements OnInit {
   public deletePopUpShowing: boolean = false;
   public orderToDeleteIndex: string = "";
 
-  constructor(private service: OrderService, private router: Router) { }
+  constructor(private service: OrderService, private router: Router, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.service.getAllOrders()
@@ -31,10 +33,10 @@ export class OrderManagerComponent implements OnInit {
 
   showOrderProducts(order: Order): string {
     let message: string[] = [];
-    if(order.cartProducts.length <= 0) {
+    if (order.cartProducts.length <= 0) {
       return "";
     }
-    order.cartProducts.forEach(product => {      
+    order.cartProducts.forEach(product => {
       let item: string = product.quantity + "x " + product.name;
       message.push(item);
     });
@@ -52,8 +54,8 @@ export class OrderManagerComponent implements OnInit {
   }
 
   confirmDelete(): void {
-    this.closeDeletePopUp();
     this.deleteOrder(this.orderToDeleteIndex)
+    this.closeDeletePopUp();
     window.alert("Produto deletado com sucesso!")
     location.reload();
   }
@@ -66,7 +68,10 @@ export class OrderManagerComponent implements OnInit {
         });
   }
 
-  // abc(){
-  //   this.dialog.openDialog();
-  // }
+  showTrackOrderPopUp(id: number) {
+    this.dialog.open(TrackDialogComponent,
+    {
+      data: id,
+    });
+  }
 }

@@ -19,9 +19,9 @@ export class CustomerService {
         return this.httpClient.get<Customer>(`${this.api}/` + id);
     }
 
-    // public getCustomerByCpf(cpf: string): Observable<Customer> {
-    //     return this.httpClient.get<Customer>(`${this.api}/cpf/` + cpf);
-    // }
+    public getCustomerByCpf(cpf: string): Observable<Customer> {
+        return this.httpClient.get<Customer>(`${this.api}/cpf/` + cpf);
+    }
 
     public getAllCustomers(): Observable<Customer[]> {
         return this.httpClient.get<Customer[]>(`${this.api}`);

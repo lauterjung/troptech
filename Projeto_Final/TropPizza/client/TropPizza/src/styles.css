@@ -1,4 +1,5 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 html {
     overflow: auto; 
@@ -43,3 +44,5 @@ body {
 .popup-message {
     line-height: 3em;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

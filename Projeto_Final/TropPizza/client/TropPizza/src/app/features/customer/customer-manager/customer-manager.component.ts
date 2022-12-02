@@ -25,8 +25,7 @@ export class CustomerManagerComponent implements OnInit {
       });
   }
 
-  editCustomer(id: number)
-  {
+  editCustomer(id: number) {
     this.router.navigate(['/customer/edit', id]);
   }
 
@@ -41,9 +40,13 @@ export class CustomerManagerComponent implements OnInit {
   }
 
   confirmDelete(): void {
+    this.service.deleteCustomer(this.customerToDeleteIndex.toString())
+      .pipe(take(1))
+      .subscribe(
+        () => {
+        });
     this.closeDeletePopUp();
-    this.service.deleteCustomer(this.customerToDeleteIndex)
-    window.alert("Cliente deletado com sucesso!")
+    window.alert("Cliente deletado com sucesso!");
     location.reload();
   }
 }

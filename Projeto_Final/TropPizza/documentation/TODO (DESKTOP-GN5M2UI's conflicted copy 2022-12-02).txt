@@ -1,16 +1,13 @@
-﻿thunder testes
+﻿verificar total price do invproduct
+!!!!!!!!!! thunder isvisible
+testar patch no thunder
 
-criar outra tabela DB
+testar delete no front produtos e clientes
+						
+melhorar bd pedidos
 
+        // public Customer ReadByCpf(string cpf);
 
-refazer diagramas
-
-public nas funções ts
-
-validação de cpf
-mudar status
-
-api existingClient
 
 popup
 carrinho
@@ -18,22 +15,19 @@ carrinho
 	manter a array salva até fechar
 	ida e volta do carrinho
 	
+mudar status
+
+mapear as quantidades por map/dict/tupple...
+
 validação do cpf repetido no front
 	!!! inserir com erro de bd / produtos repetidos, ....
 	produto já existente não pode criar
 	
-
-
-mapear as quantidades por map/dict/tupple...
-
-pedido enviado redirecionar direto para acompanhar
-
 fazer pedido
 ver carrinho
 homepage
 	footer
 imagepath
-
 
 [x] Documentação
 	[x] Readme
@@ -63,22 +57,24 @@ imagepath
 			[x] Cadastrar
 			[x] Dashboard
 				[x] Editar
-				[-] Deletar
+				[x] Deletar
 		[x] Produtos
 			[x] Cadastrar
 			[x] Dashboard
 				[x] Ativar/Desativar
 				[x] Alterar quantidade
 				[x] Editar
-				[-] Deletar
+				[x] Deletar
 		[ ] Pedidos
 			[ ] Novo pedido
 			[x] Dashboard
 			[ ] Alterar status
-			[-] Deletar
+			[x] Deletar
 
 [ ] Outro
+	[ ] Order update não mexe no cliente e nos produtos
 	[ ] Melhorar dados iniciais do banco de dados
+	[ ] fazer Order update (DAO e repo)?
 	[ ] imagepath / imagename
 	[ ] imagem não encontrada
 	[ ] forms onsubmit, forms com bordinhas verde/vermelha
@@ -89,33 +85,23 @@ imagepath
 	[ ] melhorar a popup de excluir
 	[ ] ordenar tabela
 	tela inicial do tracker
-	validador cruzado do hasImage
 	
 	zzzz
-	[ ] mock para repository ou melhorar testes do thunder
+	[ ] TS -> Class para Interface
 	[ ] popup como componente (depois)
 	[ ] navbar com scroll começando embaixo
+	[ ] mock para repository ou melhorar testes do thunder
+	[ ] add remove items on hold mouse
 	[ ] propriedades readonly
-	[ ] fazer Order update (DAO e repo)?
-
+	[ ] [i-1] / index i
+	[ ] observação para pedido
+	
 [ ] Verificações finais
 	[ ] Rever imports não utilizados
 	[ ] Rever código comentado
+		[x] back-end // faz nada além de chamar o DAO
+		[ ] front-end
 	[ ] Rever todas as regras de negócio
 	[ ] Re-rodar testes
 	[ ] Correspondência diagramas
-
-Melhorias
-	Classe para interface no front-end
-	Separar comidas e bebidas
-	Tipos de pizza, escolher coberturas, controle de estoque cf. ingredientes, pro admin montar novas pizzas
-	
-Site
-	Cadastro
-	Login
-	Cardápio
-	Realizar pedido
-		Selecionar tamanho
-		Selecionar sabores
-		Remover ingredientes
-	Acompanhar pedido
+	[ ] npm install --save + deps

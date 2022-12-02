@@ -19,16 +19,6 @@ namespace TropPizza.Infra.Data.Repositories
             }
         }
 
-        // public void RemoveFromInventory(List<CartProduct> products)
-        // {
-        //     foreach (CartProduct product in products)
-        //     {
-        //         CartProduct stockProduct = _productRepository.ReadById(product.Id);
-        //         stockProduct.RemoveFromInventory(product.Quantity);
-        //         _productRepository.Update(stockProduct);
-        //     }
-        // }
-
         public List<CartProduct> ReadById(Int64 id)
         {
             List<CartProduct> cartProducts = _cartProductsDAO.ReadAll(id);

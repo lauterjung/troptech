@@ -40,8 +40,8 @@ export class ProductManagerComponent implements OnInit {
   }
 
   confirmDelete(): void {
-    this.closeDeletePopUp();
     this.deleteProduct(this.productToDeleteIndex)
+    this.closeDeletePopUp();
     window.alert("Produto deletado com sucesso!")
     location.reload();
   }

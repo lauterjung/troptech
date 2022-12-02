@@ -1,0 +1,19 @@
+---------2 produtos, carrinho e estoque
+o do carrinho tinha quantidade e valor total, pegava o nome do de inventorio por FK
+
+deletando um produto de estoque bloqueia pela FK
+sem FK deleta do produto
+
+como resolver? salvar todos os campos necessários para remover a dependência da FK e das buscas?
+
+------qualquer service para obj
+    this.service.getCustomerByCpf(customer.cpf)
+    .pipe(take(1))
+    .subscribe((data: Customer) => {
+      this.existingCustomer = data;
+      console.log(data);
+      console.log(this.existingCustomer);
+    });
+	
+	jogar dentro
+	

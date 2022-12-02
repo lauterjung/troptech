@@ -38,16 +38,16 @@ namespace TropPizza.Infra.Data.Repositories
             return customer;
         }
 
-        // public Customer ReadByCpf(string cpf)
-        // {
-        //     Customer customer = _customerDAO.ReadByCpf(cpf);
-        //     if (customer is null)
-        //     {
-        //         throw new NotFound();
-        //     }
+        public Customer ReadByCpf(string cpf)
+        {
+            Customer customer = _customerDAO.ReadByCpf(cpf);
+            if (customer is null)
+            {
+                throw new NotFound();
+            }
 
-        //     return customer;
-        // }
+            return customer;
+        }
 
         public List<Customer> ReadAll()
         {

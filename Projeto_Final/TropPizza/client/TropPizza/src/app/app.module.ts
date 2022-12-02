@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomerEditComponent } from './features/customer/customer-edit/customer-edit.component';
@@ -18,6 +17,14 @@ import { OrderShoppingCartComponent } from './features/order/order-shopping-cart
 import { OrderStatusComponent } from './features/order/order-status/order-status.component';
 import { OrderSuccessComponent } from './features/order/order-success/order-success.component';
 import { OrderTrackerComponent } from './features/order/order-tracker/order-tracker.component';
+import { MatDialogModule } from "@angular/material/dialog";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TrackDialogComponent } from './features/dialog/track-dialog/track-dialog.component';
+import { DeleteDialogComponent } from './features/dialog/delete-dialog/delete-dialog.component';
+import { CartService } from './features/cart.service';
+import { OrderService } from './features/order.service';
+import { ProductService } from './features/product.service';
+import { CustomerService } from './features/customer.service';
 
 @NgModule({
   declarations: [
@@ -34,15 +41,19 @@ import { OrderTrackerComponent } from './features/order/order-tracker/order-trac
     OrderShoppingCartComponent,
     OrderStatusComponent,
     OrderSuccessComponent,
-    OrderTrackerComponent
+    OrderTrackerComponent,
+    TrackDialogComponent,
+    DeleteDialogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [CartService, CustomerService, OrderService, ProductService],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

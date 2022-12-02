@@ -13,7 +13,8 @@ import { Customer } from '../customer.model';
 export class CustomerFormsComponent implements OnInit {
 
   public form!: FormGroup;
-  
+  public existingCustomer: Customer = {} as Customer;
+
   constructor(private service: CustomerService) { }
 
   public ngOnInit(): void {
@@ -26,23 +27,32 @@ export class CustomerFormsComponent implements OnInit {
   }
 
   public submitCustomer(): void {
+    // this.existingCustomer = {} as Customer;
+
     if (this.form.invalid) {
       return;
     }
 
     let customer: Customer = this.formToCustomer();
+
+    // this.setExistingCustomer(customer.cpf);
+    // window.alert("bbbb");
+
     this.service.saveCustomer(customer)
-    .pipe(take(1))
-    .subscribe(
-      () => {
-        alert('Cliente salvo com sucesso!')
-        this.form.reset();
-      })
-    // .subscribe(
-    //   () => {
-    //     alert('Cliente salvo com sucesso!')
-    //     this.form.reset();
-    //   }, ...);
+      .pipe(take(1))
+      .subscribe(
+        {
+          next: () => {
+            alert('Cliente salvo com sucesso!')
+            this.form.reset();
+          },
+          error: (erro: Response) => { // erro
+            if (erro.status == 400) { //erro.error.message
+              alert('Cliente já existente!')
+              return;
+            }
+          }
+        });
   }
 
   public formToCustomer(): Customer {
@@ -54,4 +64,20 @@ export class CustomerFormsComponent implements OnInit {
 
     return customer;
   }
+
+  // public setExistingCustomer(stringg: string) {
+  //   this.service.getCustomerByCpf(stringg)
+  //   .pipe(take(1))
+  //   .subscribe((data: Customer) => {
+
+  //      `function;'ao s[o o subscrube'`
+  //     this.existingCustomer = data;
+  //     if (this.existingCustomer.cpf)
+  //     {
+  //       console.log(this.existingCustomer.cpf);
+  //       window.alert("aaaaaaaaa");
+  //       return;
+  //     }
+  //   });
+  // }
 }
