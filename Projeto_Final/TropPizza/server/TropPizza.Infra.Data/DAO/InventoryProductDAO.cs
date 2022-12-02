@@ -19,7 +19,7 @@ namespace TropPizza.Infra.Data.DAO
                 {
                     command.Connection = connection;
                     string sql = @"INSERT INTO InventoryProducts VALUES 
-                                    (@product_name, @product_description, @is_active, @expiration_date, @quantity, @unit_price, @total_price, @is_visible, @image_name, @has_image);";
+                                    (@product_name, @product_description, @is_active, @expiration_date, @quantity, @unit_price, @is_visible, @image_name, @has_image);";
                     ObjectToSql(inventoryProduct, command);
                     command.CommandText = sql;
                     command.ExecuteNonQuery();
@@ -138,7 +138,7 @@ namespace TropPizza.Infra.Data.DAO
                 {
                     command.Connection = connection;
                     string sql = @"UPDATE InventoryProducts SET 
-                    product_name = @product_name, product_description = @product_description, is_active = @is_active, expiration_date = @expiration_date, quantity = @quantity, unit_price = @unit_price, total_price = @total_price, is_visible = @is_visible, image_name= @image_name, has_image=@has_image
+                    product_name = @product_name, product_description = @product_description, is_active = @is_active, expiration_date = @expiration_date, quantity = @quantity, unit_price = @unit_price, is_visible = @is_visible, image_name= @image_name, has_image=@has_image
                     WHERE product_id = @product_id;";
 
                     command.CommandText = sql;
@@ -192,7 +192,6 @@ namespace TropPizza.Infra.Data.DAO
             command.Parameters.AddWithValue("@expiration_date", inventoryProduct.ExpirationDate);
             command.Parameters.AddWithValue("@quantity", inventoryProduct.Quantity);
             command.Parameters.AddWithValue("@unit_price", inventoryProduct.UnitPrice);
-            command.Parameters.AddWithValue("@total_price", inventoryProduct.TotalPrice);
             command.Parameters.AddWithValue("@is_visible", inventoryProduct.IsVisible);
             command.Parameters.AddWithValue("@image_name", (inventoryProduct.ImageName != null) ? inventoryProduct.ImageName : DBNull.Value);
             command.Parameters.AddWithValue("@has_image", inventoryProduct.HasImage);

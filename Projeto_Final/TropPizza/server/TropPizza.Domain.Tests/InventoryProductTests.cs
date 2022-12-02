@@ -72,6 +72,39 @@ namespace TropPizza.Domain.Tests
         }
 
         [Test]
+        public void HasImage_EmptyImageName_ReturnsFalse()
+        {
+            // arrange
+            _inventoryProduct.ImageName = "";
+
+            // act
+            // assert
+            Assert.False(_inventoryProduct.HasImage);
+        }
+
+        [Test]
+        public void HasImage_NullImageName_ReturnsFalse()
+        {
+            // arrange
+            _inventoryProduct.ImageName = null;
+
+            // act
+            // assert
+            Assert.False(_inventoryProduct.HasImage);
+        }
+
+        [Test]
+        public void HasImage_ImageNameNotNullNotEmpty_ReturnsTrue()
+        {
+            // arrange
+            _inventoryProduct.ImageName = "A";
+
+            // act
+            // assert
+            Assert.True(_inventoryProduct.HasImage);
+        }
+
+        [Test]
         public void CheckVisibility_ActiveInventoryProductAndQuantityHigherThanZero_ReturnsTrue()
         {
             // arrange

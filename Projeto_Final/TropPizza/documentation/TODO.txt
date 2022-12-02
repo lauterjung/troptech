@@ -2,44 +2,32 @@
 !!!!!!!!!! thunder isvisible
 testar patch no thunder
 
-track order
+[i] x [id -1]!!! para produto buga
 
-
-
-mostrar os produtos disponíveis (ativos/visíveis): query no bd ou pega todos e filtra?
+popup
+carrinho
+	carrinho: zerar carrinho
+	manter a array salva até fechar
+	ida e volta do carrinho
+	
+	
 validação do cpf repetido no front
 	!!! inserir com erro de bd / produtos repetidos, ....
+	produto já existente não pode criar
+	
+mudar status
+
+mapear as quantidades por map/dict/tupple...
+
+
+	
 fazer pedido
 ver carrinho
-cards para os produtos para carrinho, botão + e - do produto, atualizar direto
-
 homepage
-
-
-
-produto já existente não pode criar
-
-
-ida e volta do carrinho
-
+	footer
 imagepath
-footer
-
-validação patch quando der erro
-
-mostrar os produtos disponíveis (ativos/visíveis): query no bd ou pega todos e filtra?
 
 
-testar
-         private string GetOrderStatusName()
-        {
-            return OrderStatus.Pending.GetDisplayName();
-        }
-
-        private bool CheckHasImage()
-        {
-            return !String.IsNullOrEmpty(ImageName) ? true : false;
-        }
 [x] Documentação
 	[x] Readme
 	[x] Diagramas
@@ -63,15 +51,27 @@ testar
 	[x] NavBar
 	[x] FavIcon
 	[ ] Componentes
-		[ ] Home-page (esqueleto do site)
+		[ ] Home-page
 		[x] Clientes
+			[x] Cadastrar
+			[x] Dashboard
+				[x] Editar
+				[-] Deletar
 		[x] Produtos
+			[x] Cadastrar
+			[x] Dashboard
+				[x] Ativar/Desativar
+				[x] Alterar quantidade
+				[x] Editar
+				[-] Deletar
 		[ ] Pedidos
+			[ ] Novo pedido
+			[x] Dashboard
+			[ ] Alterar status
+			[-] Deletar
 
 [ ] Outro
-	[ ] Order update não mexe no cliente e nos produtos
 	[ ] Melhorar dados iniciais do banco de dados
-	[ ] fazer Order update (DAO e repo)?
 	[ ] imagepath / imagename
 	[ ] imagem não encontrada
 	[ ] forms onsubmit, forms com bordinhas verde/vermelha
@@ -79,19 +79,35 @@ testar
 	[ ] fonte
 	[ ] navbar icon
 	[ ] renomear front -> product tá ambíguo
+	[ ] melhorar a popup de excluir
+	[ ] ordenar tabela
+	tela inicial do tracker
 	
 	zzzz
-	[ ] TS -> Class para Interface
+	[ ] mock para repository ou melhorar testes do thunder
 	[ ] popup como componente (depois)
 	[ ] navbar com scroll começando embaixo
-	[ ] mock para repository ou melhorar testes do thunder
-	[ ] add remove items on hold mouse
-	
+	[ ] propriedades readonly
+	[ ] fazer Order update (DAO e repo)?
+
 [ ] Verificações finais
 	[ ] Rever imports não utilizados
 	[ ] Rever código comentado
 	[ ] Rever todas as regras de negócio
 	[ ] Re-rodar testes
 	[ ] Correspondência diagramas
-	[ ] verificar ctrl shift f throw not implemeneted
 
+Melhorias
+	Classe para interface no front-end
+	Separar comidas e bebidas
+	Tipos de pizza, escolher coberturas, controle de estoque cf. ingredientes, pro admin montar novas pizzas
+	
+Site
+	Cadastro
+	Login
+	Cardápio
+	Realizar pedido
+		Selecionar tamanho
+		Selecionar sabores
+		Remover ingredientes
+	Acompanhar pedido

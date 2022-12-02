@@ -1,0 +1,45 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+html {
+    overflow: auto; 
+    /* isso faz a barra de scroll ficar embaixo da navbar */
+}
+
+body {
+    overflow: auto;
+    padding-top: 65px;
+    height: 100vh;
+    /* width: 100vw; */
+}
+
+/* main {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    overflow-y: scroll;
+  } */
+
+/* html {
+    overflow-y: scroll;
+} */
+
+.page-lock {
+    width: 100%;
+    min-height: 100% !important;
+    top: 0px;
+    position: absolute;
+    background-color: rgba(22, 22, 22, 0.5);
+}
+
+.delete-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    background-color: rgba(255, 255, 255, 01);
+}
+
+.popup-message {
+    line-height: 3em;
+}

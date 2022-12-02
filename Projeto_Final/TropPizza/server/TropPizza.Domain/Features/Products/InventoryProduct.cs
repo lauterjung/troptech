@@ -14,10 +14,6 @@ namespace TropPizza.Domain.Features.Products
         {
             get { return CheckHasImage(); }
         }
-        public double TotalPrice
-        {
-            get { return CalculateTotalPrice(); }
-        }
         public bool IsVisible
         {
             get { return CheckVisibility(); }
@@ -27,11 +23,6 @@ namespace TropPizza.Domain.Features.Products
         {
             IsActive = true;
             Quantity = 0;
-        }
-
-        public double CalculateTotalPrice()
-        {
-            return Quantity * UnitPrice;
         }
 
         public void AddToInventory(int quantity)
