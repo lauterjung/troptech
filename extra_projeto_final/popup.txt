@@ -1,0 +1,36 @@
+.page-lock {
+    width: 100%;
+    min-height: 100% !important;
+    top: 0px;
+    position: absolute;
+    background-color: rgba(22, 22, 22, 0.5);
+}
+
+.delete-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    background-color: rgba(255, 255, 255, 01);
+}
+
+.popup-message {
+    line-height: 3em;
+}
+
+
+<div *ngIf="deletePopUpShowing">
+  <div class="page-lock">
+    <div class="delete-popup popup-message text-center">
+
+      <span>Você realmente deseja deletar o cliente {{'"' + customers[+customerToDeleteIndex-1].fullName + '"'}}?</span>
+      <br>
+      <button class="btn btn-danger" (click)="confirmDelete()">Confirmar deleção</button>
+      <br>
+      <button class="btn btn-dark" (click)="closeDeletePopUp()">Não, me tire daqui!</button>
+      <br>
+      <p></p>
+    </div>
+  </div>
+</div>

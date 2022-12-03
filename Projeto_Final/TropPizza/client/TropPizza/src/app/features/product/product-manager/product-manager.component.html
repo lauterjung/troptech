@@ -69,18 +69,3 @@
     </div>
   </div>
 </div>
-
-<div *ngIf="deletePopUpShowing">
-  <div class="page-lock">
-    <div class="delete-popup popup-message text-center">
-
-      <span>Você realmente deseja deletar o produto {{'"' + products[+productToDeleteIndex-1].name + '"'}}?</span>
-      <br>
-      <button class="btn btn-danger" (click)="confirmDelete()">Confirmar deleção</button>
-      <br>
-      <button class="btn btn-dark" (click)="closeDeletePopUp()">Não, me tire daqui!</button>
-      <br>
-      <p></p>
-    </div>
-  </div>
-</div>

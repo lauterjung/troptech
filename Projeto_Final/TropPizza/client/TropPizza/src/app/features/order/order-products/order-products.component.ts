@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { take } from 'rxjs';
 import { CartService } from '../../cart.service';
+import { AlertDialogComponent } from '../../dialog/alert-dialog/alert-dialog.component';
 import { ProductService } from '../../product.service';
 import { CartProduct, InventoryProduct } from '../../product/product.model';
 
@@ -15,7 +17,7 @@ export class OrderProductsComponent implements OnInit {
   public cartProducts: CartProduct[] = [];
   public quantityToCart: number[] = [];
 
-  constructor(private service: ProductService, private cartService: CartService) { }
+  constructor(private service: ProductService, private cartService: CartService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.service.getVisibleProducts()
@@ -26,38 +28,39 @@ export class OrderProductsComponent implements OnInit {
       });
   }
 
-  public resetQuantityToCart(): void {
+  resetQuantityToCart(): void {
     for (let i = 0; i < this.inventoryProducts.length; i++) {
-      this.quantityToCart.push(0);   
+      this.quantityToCart.push(0);
     }
   }
 
-  public addQuantity(index: number): void {
-    this.quantityToCart[index] += 1;    
+  addQuantity(index: number): void {
+    this.quantityToCart[index] += 1;
   }
 
-  public removeQuantity(index: number): void {
-    if(this.quantityToCart[index] === 0) {
+  removeQuantity(index: number): void {
+    if (this.quantityToCart[index] === 0) {
       return;
     }
-    this.quantityToCart[index] -= 1;    
+    this.quantityToCart[index] -= 1;
   }
 
-  public validateAddToCart(index: number, quantity: number): boolean {    
-    if (quantity >= this.inventoryProducts[index].quantity) {
-      window.alert("Quantidade indisponível no estoque!");
+  validateAddToCart(index: number, quantity: number): boolean {
+    let quantityInStock: number = this.inventoryProducts[index].quantity;
+    if (quantity > quantityInStock) {
+      this.showMessage("Quantidade indisponível no estoque!\nQuantidade disponível: " + quantityInStock + "x");
       return false;
     }
 
     if (quantity <= 0) {
-      window.alert("A quantidade deve ser maior que zero!");
+      this.showMessage("A quantidade deve ser maior que zero!");
       return false;
     }
 
     return true;
   }
 
-  public addToCart(index: number, id: number, quantity: number, unitPrice: number): void {
+  addToCart(index: number, id: number, quantity: number, unitPrice: number): void {
     if (!this.validateAddToCart(index, quantity)) {
       return;
     }
@@ -73,8 +76,13 @@ export class OrderProductsComponent implements OnInit {
     this.cartProducts.push(cartProduct);
     console.log(this.cartProducts);
     this.cartService.saveIds(this.cartProducts);
-    window.alert("Produto adicionado com sucesso!");
+    this.showMessage("Produto adicionado com sucesso!");
   }
 
-  
+  showMessage(message: string) {
+    this.dialog.open(AlertDialogComponent,
+      {
+        data: message,
+      });
+  }
 }

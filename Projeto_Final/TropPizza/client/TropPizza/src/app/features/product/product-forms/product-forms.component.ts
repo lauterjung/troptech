@@ -17,7 +17,7 @@ export class ProductFormsComponent implements OnInit {
 
   constructor(private service: ProductService) { }
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     this.form = new FormGroup({
       name: new FormControl(null, [Validators.required]),
       description: new FormControl(null, [Validators.required, Validators.minLength(3)]),
@@ -28,7 +28,7 @@ export class ProductFormsComponent implements OnInit {
     });
   }
 
-  public submitProduct(): void {
+  submitProduct(): void {
     if (this.form.invalid) {
       return;
     }
@@ -43,7 +43,7 @@ export class ProductFormsComponent implements OnInit {
         });
   }
 
-  public formToProduct(): InventoryProduct {
+  formToProduct(): InventoryProduct {
     let inventoryProduct: InventoryProduct = {} as InventoryProduct;
     inventoryProduct.name = this.form.get("name")?.value;;
     inventoryProduct.description = this.form.get("description")?.value;
@@ -54,7 +54,7 @@ export class ProductFormsComponent implements OnInit {
     return inventoryProduct;
   }
 
-  public changeHasImage(): void {
+  changeHasImage(): void {
     this.productHasImage = !this.productHasImage;
   }
 }

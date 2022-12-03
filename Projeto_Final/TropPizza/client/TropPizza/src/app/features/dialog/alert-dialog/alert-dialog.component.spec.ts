@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TrackDialogComponent } from './track-dialog.component';
+import { AlertDialogComponent } from './alert-dialog.component';
 
-describe('TrackDialogComponent', () => {
-  let component: TrackDialogComponent;
-  let fixture: ComponentFixture<TrackDialogComponent>;
+describe('AlertDialogComponent', () => {
+  let component: AlertDialogComponent;
+  let fixture: ComponentFixture<AlertDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TrackDialogComponent ]
+      declarations: [ AlertDialogComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TrackDialogComponent);
+    fixture = TestBed.createComponent(AlertDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,13 +1,16 @@
 ﻿thunder testes
 
+fidelity points não pode ser menor que zero
+
+popup
+
 criar outra tabela DB
-
-
 refazer diagramas
 
-public nas funções ts
-
-validação de cpf
+validação do cpf repetido no front
+	!!! inserir com erro de bd / produtos repetidos, ....
+	produto já existente não pode criar
+	
 mudar status
 
 api existingClient
@@ -18,13 +21,7 @@ carrinho
 	manter a array salva até fechar
 	ida e volta do carrinho
 	
-validação do cpf repetido no front
-	!!! inserir com erro de bd / produtos repetidos, ....
-	produto já existente não pode criar
-	
 
-
-mapear as quantidades por map/dict/tupple...
 
 pedido enviado redirecionar direto para acompanhar
 
@@ -79,14 +76,12 @@ imagepath
 
 [ ] Outro
 	[ ] Melhorar dados iniciais do banco de dados
-	[ ] imagepath / imagename
 	[ ] imagem não encontrada
 	[ ] forms onsubmit, forms com bordinhas verde/vermelha
 	[ ] searchbar nos dashboards id ou nome / nome ou cpf ou id
 	[ ] fonte
 	[ ] navbar icon
 	[ ] renomear front -> product tá ambíguo
-	[ ] melhorar a popup de excluir
 	[ ] ordenar tabela
 	tela inicial do tracker
 	validador cruzado do hasImage

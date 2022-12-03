@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
-import { TrackDialogComponent } from '../../dialog/track-dialog/track-dialog.component';
 import { OrderService } from '../../order.service';
-// import { DialogDataExample } from '../dialog/dialog.component';
+import { OrderDialogDeleteComponent } from '../order-dialog-delete/order-dialog-delete.component';
 import { Order } from '../order.model';
 
 @Component({
@@ -43,35 +42,17 @@ export class OrderManagerComponent implements OnInit {
     return message.join(", ");
   }
 
-  showDeletePopUp(id: number): void {
-    this.deletePopUpShowing = true;
-    this.orderToDeleteIndex = id.toString();
-  }
-
-  closeDeletePopUp(): void {
-    this.deletePopUpShowing = false;
-    this.orderToDeleteIndex = "";
-  }
-
-  confirmDelete(): void {
-    this.deleteOrder(this.orderToDeleteIndex)
-    this.closeDeletePopUp();
-    window.alert("Produto deletado com sucesso!")
-    location.reload();
-  }
-
-  deleteOrder(id: string): void {
-    this.service.deleteOrder(id)
-      .pipe(take(1))
-      .subscribe(
-        () => {
-        });
-  }
-
-  showTrackOrderPopUp(id: number) {
-    this.dialog.open(TrackDialogComponent,
+  showDeleteDialog(id: number) {
+    this.dialog.open(OrderDialogDeleteComponent,
     {
       data: id,
     });
+  }
+
+  showUpdateStatusDialog(id: number) {
+    // this.dialog.open(OrderDialogDeleteComponent,
+    // {
+    //   data: id,
+    // });
   }
 }

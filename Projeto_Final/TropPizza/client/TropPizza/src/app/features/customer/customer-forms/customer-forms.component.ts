@@ -17,7 +17,7 @@ export class CustomerFormsComponent implements OnInit {
 
   constructor(private service: CustomerService) { }
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     this.form = new FormGroup({
       fullName: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       cpf: new FormControl(null, [Validators.required, Validators.pattern("[0-9]{11}")]),
@@ -26,7 +26,7 @@ export class CustomerFormsComponent implements OnInit {
     });
   }
 
-  public submitCustomer(): void {
+  submitCustomer(): void {
     // this.existingCustomer = {} as Customer;
 
     if (this.form.invalid) {
@@ -55,7 +55,7 @@ export class CustomerFormsComponent implements OnInit {
         });
   }
 
-  public formToCustomer(): Customer {
+  formToCustomer(): Customer {
     let customer: Customer = {} as Customer;
     customer.fullName = this.form.get("fullName")?.value;
     customer.cpf = this.form.get("cpf")?.value;
@@ -65,7 +65,7 @@ export class CustomerFormsComponent implements OnInit {
     return customer;
   }
 
-  // public setExistingCustomer(stringg: string) {
+  // setExistingCustomer(stringg: string) {
   //   this.service.getCustomerByCpf(stringg)
   //   .pipe(take(1))
   //   .subscribe((data: Customer) => {

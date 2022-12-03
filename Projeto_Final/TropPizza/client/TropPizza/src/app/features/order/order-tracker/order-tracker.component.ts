@@ -17,7 +17,7 @@ export class OrderTrackerComponent implements OnInit {
 
   constructor(private service: OrderService, private router: Router, private route: ActivatedRoute) { }
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
 
     this.route.params.subscribe(params => {
       this.id = params['id'];
@@ -30,7 +30,7 @@ export class OrderTrackerComponent implements OnInit {
       });
   }
 
-  public returnToManager() {
+  returnToManager() {
     this.router.navigate(['/order/manage'])
   }
 }

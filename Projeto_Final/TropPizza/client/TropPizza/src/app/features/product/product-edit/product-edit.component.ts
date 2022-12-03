@@ -20,7 +20,7 @@ export class ProductEditComponent implements OnInit {
 
   constructor(private service: ProductService, private router: Router, private route: ActivatedRoute) { }
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     this.form = new FormGroup({
       name: new FormControl(null, [Validators.required]),
       description: new FormControl(null, [Validators.required, Validators.minLength(3)]),
@@ -45,7 +45,7 @@ export class ProductEditComponent implements OnInit {
     // this.populateForm();
   }
 
-  public populateForm(): void {
+  populateForm(): void {
     this.form.patchValue({
       name: this.productToEdit.name,
       description: this.productToEdit.description,
@@ -57,7 +57,7 @@ export class ProductEditComponent implements OnInit {
     });
   }
 
-  public formsToProduct(): InventoryProduct {
+  formsToProduct(): InventoryProduct {
     let inventoryProduct: InventoryProduct = {} as InventoryProduct;
 
     inventoryProduct.id = this.productToEdit.id;
@@ -72,7 +72,7 @@ export class ProductEditComponent implements OnInit {
     return inventoryProduct;
   }
 
-  public submitProduct(): void {
+  submitProduct(): void {
     if (this.form.invalid) {
       return;
     }
@@ -87,11 +87,11 @@ export class ProductEditComponent implements OnInit {
         });
   }
 
-  // public changeHasImage(): void {
+  // changeHasImage(): void {
   //   this.productToEdit.hasImage = !this.productToEdit.hasImage;
   // }
 
-  public returnToManager() {
+  returnToManager() {
     this.router.navigate(['/product/manage'])
   }
 }

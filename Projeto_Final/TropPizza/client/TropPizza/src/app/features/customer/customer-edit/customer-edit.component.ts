@@ -20,7 +20,7 @@ export class CustomerEditComponent implements OnInit {
 
   constructor(private service: CustomerService, private router: Router, private route: ActivatedRoute) { }
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     this.form = new FormGroup({
       fullName: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       cpf: new FormControl(null, [Validators.required, Validators.pattern("[0-9]{11}")]),
@@ -42,7 +42,7 @@ export class CustomerEditComponent implements OnInit {
     // this.populateForm();
   }
 
-  public populateForm(): void {
+  populateForm(): void {
     this.form.patchValue({
       fullName: this.customerToEdit.fullName,
       cpf: this.customerToEdit.cpf,
@@ -51,7 +51,7 @@ export class CustomerEditComponent implements OnInit {
     });
   }
 
-  public formsToCustomer(): Customer {
+  formsToCustomer(): Customer {
     let customer: Customer = {} as Customer;
 
     customer.id = this.customerToEdit.id;
@@ -64,7 +64,7 @@ export class CustomerEditComponent implements OnInit {
     return customer;
   }
 
-  public submitCustomer(): void {
+  submitCustomer(): void {
     if (this.form.invalid) {
       return;
     }
@@ -80,7 +80,7 @@ export class CustomerEditComponent implements OnInit {
         });
   }
 
-  public returnToManager() {
+  returnToManager() {
     this.router.navigate(['/customer/manage'])
   }
 }

@@ -19,12 +19,14 @@ import { OrderSuccessComponent } from './features/order/order-success/order-succ
 import { OrderTrackerComponent } from './features/order/order-tracker/order-tracker.component';
 import { MatDialogModule } from "@angular/material/dialog";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TrackDialogComponent } from './features/dialog/track-dialog/track-dialog.component';
-import { DeleteDialogComponent } from './features/dialog/delete-dialog/delete-dialog.component';
 import { CartService } from './features/cart.service';
 import { OrderService } from './features/order.service';
 import { ProductService } from './features/product.service';
 import { CustomerService } from './features/customer.service';
+import { OrderDialogUpdateStatusComponent } from './features/order/order-dialog-update-status/order-dialog-update-status.component';
+import { CustomerDialogDeleteComponent } from './features/customer/customer-dialog-delete/customer-dialog-delete.component';
+import { ProductDialogDeleteComponent } from './features/product/product-dialog-delete/product-dialog-delete.component';
+import { AlertDialogComponent } from './features/dialog/alert-dialog/alert-dialog.component';
 
 @NgModule({
   declarations: [
@@ -42,8 +44,10 @@ import { CustomerService } from './features/customer.service';
     OrderStatusComponent,
     OrderSuccessComponent,
     OrderTrackerComponent,
-    TrackDialogComponent,
-    DeleteDialogComponent,
+    OrderDialogUpdateStatusComponent,
+    CustomerDialogDeleteComponent,
+    ProductDialogDeleteComponent,
+    AlertDialogComponent,
   ],
   imports: [
     BrowserModule,
