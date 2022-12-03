@@ -56,9 +56,9 @@ INSERT INTO InventoryProducts
 VALUES
     ('Água s/ gás 500 ml', 'Água mineral Puris 500 ml sem gás', 1, '2023-06-01', 100, 4.00, 1, 'agua.jpg', 0),
     ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2023-06-01', 100, 4.00, 1, 'agua.jpg', 0),
-    ('Refrigerante Laranjinha 2 l', 'Refrigerante Fanta sabor Laranjinha 2 l', 1, '2023-06-01', 100, 12.00, 1, 'fanta.jpg', 0),
-    ('Refrigerante Guaraná 2 l', 'Refrigerante Antarctica sabor Guaraná 2 l', 1, '2023-06-01', 100, 12.00, 1, 'guarana.jpg', 0),
-    ('Refrigerante Cola 2 l', 'Refrigerante Coca-Cola sabor Cola 2 l', 1, '2023-06-01', 100, 12.50, 1, 'coca.jpg', 0),
+    ('Refrigerante Laranjinha 2 L', 'Refrigerante Fanta sabor Laranjinha 2 L', 1, '2023-06-01', 100, 12.00, 1, 'fanta.jpg', 0),
+    ('Refrigerante Guaraná 2 L', 'Refrigerante Antarctica sabor Guaraná 2 L', 1, '2023-06-01', 100, 12.00, 1, 'guarana.jpg', 0),
+    ('Refrigerante Cola 2 L', 'Refrigerante Coca-Cola sabor Cola 2 L', 1, '2023-06-01', 100, 12.50, 1, 'coca.jpg', 0),
     ('Pizza - Azeitona', 'Pizza grande 12 fatias sabor Azeitona', 1, '2025-01-01', 20, 70, 1, 'azeitona.png', 0),
     ('Pizza - Bacon', 'Pizza grande 12 fatias sabor Bacon', 1, '2025-01-01', 20, 70, 1, 'bacon.png', 0),
     ('Pizza - Calabresa', 'Pizza grande 12 fatias sabor Calabresa', 1, '2025-01-01', 20, 70, 1, 'calabresa.png', 0),
@@ -88,7 +88,7 @@ VALUES
     ('Pendente'),
     ('Em preparo'),
     ('Saiu para entrega'),
-    ('Finalizado');
+    ('Entregue');
 -----------------------------------------------------------------------------------------------------
 CREATE TABLE Orders
 (
@@ -108,11 +108,11 @@ VALUES
     (3, '00000000001', '2023-11-21 21:15:00'),
     (3, '00000000002', '2023-11-22 20:12:00'),
     (3, '00000000003', '2023-11-22 21:22:00'),
-    (0, NULL, '2023-11-22 22:37:00'),
-    (0, NULL, '2023-11-23 19:17:00'),
-    (0, '00000000001', '2023-11-23 19:25:00'),
+    (3, NULL, '2023-11-22 22:37:00'),
+    (2, NULL, '2023-11-23 19:17:00'),
+    (2, '00000000001', '2023-11-23 19:25:00'),
     (1, '00000000002', '2023-11-23 20:03:00'),
-    (2, '00000000003', '2023-11-23 22:14:00');
+    (0, '00000000003', '2023-11-23 22:14:00');
 -----------------------------------------------------------------------------------------------------
 CREATE TABLE CartProducts
 (
@@ -179,3 +179,12 @@ VALUES
 -- SELECT *
 -- FROM Customers
 -- WHERE customer_id = 1;
+
+
+
+-- UPDATE Orders SET 
+-- order_status_id = 2
+-- WHERE order_id = 1
+
+SELECT *
+FROM Orders

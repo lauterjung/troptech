@@ -1,7 +1,10 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { take } from 'rxjs';
 import { CustomValidators } from 'src/app/validators/custom.validators';
+import { AlertDialogComponent } from '../../dialog/alert-dialog/alert-dialog.component';
 import { ProductService } from '../../product.service';
 import { InventoryProduct } from '../product.model';
 
@@ -15,7 +18,7 @@ export class ProductFormsComponent implements OnInit {
   public form!: FormGroup;
   public productHasImage: boolean = false;
 
-  constructor(private service: ProductService) { }
+  constructor(private service: ProductService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -37,11 +40,18 @@ export class ProductFormsComponent implements OnInit {
     this.service.saveProduct(inventoryProduct)
       .pipe(take(1))
       .subscribe(
-        () => {
-          alert('Produto salvo com sucesso!')
-          this.form.reset();
+        {
+          next: () => {
+            this.showMessage('Produto salvo com sucesso!', false)
+            this.form.reset();
+          },
+          error: (error: HttpErrorResponse) => {
+            if (error.status == 400) {
+              this.showMessage(error.error, false)
+            }
+          }
         });
-  }
+    }
 
   formToProduct(): InventoryProduct {
     let inventoryProduct: InventoryProduct = {} as InventoryProduct;
@@ -56,5 +66,12 @@ export class ProductFormsComponent implements OnInit {
 
   changeHasImage(): void {
     this.productHasImage = !this.productHasImage;
+  }
+
+  showMessage(message: string, reloadPage: boolean) {
+    this.dialog.open(AlertDialogComponent,
+      {
+        data: { message, reloadPage }
+      });
   }
 }

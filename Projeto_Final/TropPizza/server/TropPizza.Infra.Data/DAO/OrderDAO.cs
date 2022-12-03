@@ -120,12 +120,13 @@ namespace TropPizza.Infra.Data.DAO
                 {
                     command.Connection = connection;
                     string sql = @"UPDATE Orders SET 
-                    order_status_id = @order_status_id, 
-                    WHERE o.order_id = @order_id;";
+                    order_status_id = @order_status_id
+                    WHERE order_id = @order_id;";
 
                     command.CommandText = sql;
                     ObjectToSql(order, command);
 
+                    command.Parameters.AddWithValue("@order_id", order.Id);
                     command.ExecuteNonQuery();
                 }
             }
@@ -191,7 +192,7 @@ namespace TropPizza.Infra.Data.DAO
 
         public void ObjectToSql(Order order, SqlCommand command)
         {
-            command.Parameters.AddWithValue("@order_status_id", (Int16)order.StatusEnum);
+            command.Parameters.AddWithValue("@order_status_id", order.StatusEnum);
             command.Parameters.AddWithValue("@customer_id", (order.OrderCustomer != null) ? order.OrderCustomer.Id : DBNull.Value);
             command.Parameters.AddWithValue("@order_date_time", order.OrderDateTime);
         }

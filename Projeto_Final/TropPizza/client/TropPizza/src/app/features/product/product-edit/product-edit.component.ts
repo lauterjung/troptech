@@ -6,6 +6,8 @@ import { InventoryProduct } from '../product.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { formatDate } from '@angular/common';
 import { CustomValidators } from 'src/app/validators/custom.validators';
+import { AlertDialogComponent } from '../../dialog/alert-dialog/alert-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-product-edit',
@@ -18,7 +20,7 @@ export class ProductEditComponent implements OnInit {
   public productToEdit: InventoryProduct = {} as InventoryProduct;
   public id: number = 0;
 
-  constructor(private service: ProductService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private service: ProductService, private router: Router, private route: ActivatedRoute, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -39,10 +41,8 @@ export class ProductEditComponent implements OnInit {
       .pipe(take(1))
       .subscribe((data: InventoryProduct) => {
         this.productToEdit = data;
-        this.populateForm(); ////////
+        this.populateForm();
       });
-
-    // this.populateForm();
   }
 
   populateForm(): void {
@@ -82,16 +82,18 @@ export class ProductEditComponent implements OnInit {
       .pipe(take(1))
       .subscribe(
         () => {
-          alert('Produto editado com sucesso!')
-          this.router.navigate(['/product/manage'])
+          this.showMessage('Produto editado com sucesso!', '/customer/manage');
         });
   }
 
-  // changeHasImage(): void {
-  //   this.productToEdit.hasImage = !this.productToEdit.hasImage;
-  // }
-
   returnToManager() {
     this.router.navigate(['/product/manage'])
+  }
+  
+  showMessage(message: string, navigationString: string) {
+    this.dialog.open(AlertDialogComponent,
+      {
+        data: { message, navigationString }
+      });
   }
 }

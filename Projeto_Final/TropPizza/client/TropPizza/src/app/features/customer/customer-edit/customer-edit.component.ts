@@ -6,6 +6,8 @@ import { CustomerService } from '../../customer.service';
 import { Customer } from '../customer.model';
 import { formatDate } from '@angular/common';
 import { CustomValidators } from 'src/app/validators/custom.validators';
+import { AlertDialogComponent } from '../../dialog/alert-dialog/alert-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-customer-edit',
@@ -18,7 +20,7 @@ export class CustomerEditComponent implements OnInit {
   public customerToEdit: Customer = {} as Customer;
   public id: number = 0;
 
-  constructor(private service: CustomerService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private service: CustomerService, private router: Router, private route: ActivatedRoute, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -36,10 +38,8 @@ export class CustomerEditComponent implements OnInit {
       .pipe(take(1))
       .subscribe((data: Customer) => {
         this.customerToEdit = data;
-        this.populateForm(); ////////
+        this.populateForm();
       });
-
-    // this.populateForm();
   }
 
   populateForm(): void {
@@ -64,6 +64,10 @@ export class CustomerEditComponent implements OnInit {
     return customer;
   }
 
+  returnToManager() {
+    this.router.navigate(['/customer/manage'])
+  }
+
   submitCustomer(): void {
     if (this.form.invalid) {
       return;
@@ -74,13 +78,15 @@ export class CustomerEditComponent implements OnInit {
     this.service.updateCustomer(customer)
       .pipe(take(1))
       .subscribe(
-        () => {
-          alert('Cliente editado com sucesso!')
-          this.router.navigate(['/customer/manage']);
+        () => {  
+          this.showMessage('Cliente editado com sucesso!', '/customer/manage');
         });
   }
 
-  returnToManager() {
-    this.router.navigate(['/customer/manage'])
+  showMessage(message: string, navigationString: string) {
+    this.dialog.open(AlertDialogComponent,
+      {
+        data: { message, navigationString }
+      });
   }
 }

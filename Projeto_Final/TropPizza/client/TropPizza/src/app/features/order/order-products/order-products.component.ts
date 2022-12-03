@@ -48,12 +48,12 @@ export class OrderProductsComponent implements OnInit {
   validateAddToCart(index: number, quantity: number): boolean {
     let quantityInStock: number = this.inventoryProducts[index].quantity;
     if (quantity > quantityInStock) {
-      this.showMessage("Quantidade indisponível no estoque!\nQuantidade disponível: " + quantityInStock + "x");
+      this.showMessage("Quantidade indisponível no estoque!\nQuantidade disponível: " + quantityInStock + "x", false);
       return false;
     }
 
     if (quantity <= 0) {
-      this.showMessage("A quantidade deve ser maior que zero!");
+      this.showMessage("A quantidade deve ser maior que zero!", false);
       return false;
     }
 
@@ -76,13 +76,13 @@ export class OrderProductsComponent implements OnInit {
     this.cartProducts.push(cartProduct);
     console.log(this.cartProducts);
     this.cartService.saveIds(this.cartProducts);
-    this.showMessage("Produto adicionado com sucesso!");
+    this.showMessage("Produto adicionado com sucesso!", false);
   }
 
-  showMessage(message: string) {
+  showMessage(message: string, reloadPage: boolean) {
     this.dialog.open(AlertDialogComponent,
       {
-        data: message,
+        data: {message, reloadPage}
       });
   }
 }

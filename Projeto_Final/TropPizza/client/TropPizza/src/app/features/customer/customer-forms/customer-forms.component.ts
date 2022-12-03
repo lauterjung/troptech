@@ -1,8 +1,11 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { take } from 'rxjs';
 import { CustomValidators } from 'src/app/validators/custom.validators';
 import { CustomerService } from '../../customer.service';
+import { AlertDialogComponent } from '../../dialog/alert-dialog/alert-dialog.component';
 import { Customer } from '../customer.model';
 
 @Component({
@@ -15,7 +18,7 @@ export class CustomerFormsComponent implements OnInit {
   public form!: FormGroup;
   public existingCustomer: Customer = {} as Customer;
 
-  constructor(private service: CustomerService) { }
+  constructor(private service: CustomerService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -27,29 +30,23 @@ export class CustomerFormsComponent implements OnInit {
   }
 
   submitCustomer(): void {
-    // this.existingCustomer = {} as Customer;
-
     if (this.form.invalid) {
       return;
     }
 
     let customer: Customer = this.formToCustomer();
 
-    // this.setExistingCustomer(customer.cpf);
-    // window.alert("bbbb");
-
     this.service.saveCustomer(customer)
       .pipe(take(1))
       .subscribe(
         {
           next: () => {
-            alert('Cliente salvo com sucesso!')
+            this.showMessage('Cliente salvo com sucesso!', false)
             this.form.reset();
           },
-          error: (erro: Response) => { // erro
-            if (erro.status == 400) { //erro.error.message
-              alert('Cliente já existente!')
-              return;
+          error: (error: HttpErrorResponse) => {
+            if (error.status == 400) {
+              this.showMessage(error.error, false)
             }
           }
         });
@@ -65,19 +62,10 @@ export class CustomerFormsComponent implements OnInit {
     return customer;
   }
 
-  // setExistingCustomer(stringg: string) {
-  //   this.service.getCustomerByCpf(stringg)
-  //   .pipe(take(1))
-  //   .subscribe((data: Customer) => {
-
-  //      `function;'ao s[o o subscrube'`
-  //     this.existingCustomer = data;
-  //     if (this.existingCustomer.cpf)
-  //     {
-  //       console.log(this.existingCustomer.cpf);
-  //       window.alert("aaaaaaaaa");
-  //       return;
-  //     }
-  //   });
-  // }
+  showMessage(message: string, reloadPage: boolean) {
+    this.dialog.open(AlertDialogComponent,
+      {
+        data: { message, reloadPage }
+      });
+  }
 }

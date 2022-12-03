@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
 import { CustomerService } from '../../customer.service';
+import { AlertDialogComponent } from '../../dialog/alert-dialog/alert-dialog.component';
+import { DeleteDialogComponent } from '../../dialog/delete-dialog/delete-dialog.component';
 import { Customer } from '../customer.model';
 
 @Component({
@@ -12,10 +15,8 @@ import { Customer } from '../customer.model';
 export class CustomerManagerComponent implements OnInit {
 
   public customers: Customer[] = [];
-  public deletePopUpShowing: boolean = false;
-  public customerToDeleteIndex: string = "";
 
-  constructor(private service: CustomerService, private router: Router) { }
+  constructor(private service: CustomerService, private router: Router, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.service.getAllCustomers()
@@ -29,25 +30,35 @@ export class CustomerManagerComponent implements OnInit {
     this.router.navigate(['/customer/edit', id]);
   }
 
-  showDeletePopUp(id: number): void {
-    this.deletePopUpShowing = true;
-    this.customerToDeleteIndex = id.toString();
+  showDeleteDialog(id: number, name: string) {
+    let dialogRef = this.dialog.open(DeleteDialogComponent,
+      {
+        data: {
+          id: id,
+          itemType: "o cliente ",
+          identifier: name,
+          confirm: false,
+        }
+      });
+
+    dialogRef.afterClosed().subscribe(
+      result => {
+        if (result.confirm) {
+          this.service.deleteCustomer(result.id)
+            .pipe(take(1))
+            .subscribe(
+              () => {
+              });
+          this.showMessage("Cliente deletado com sucesso!", true);
+        }
+      }
+    )
   }
 
-  closeDeletePopUp(): void {
-    this.deletePopUpShowing = false;
-    this.customerToDeleteIndex = "";
-  }
-
-  confirmDelete(): void {
-    this.service.deleteCustomer(this.customerToDeleteIndex.toString())
-      .pipe(take(1))
-      .subscribe(
-        () => {
-        });
-    this.closeDeletePopUp();
-    window.alert("Cliente deletado com sucesso!");
-    location.reload();
+  showMessage(message: string, reloadPage: boolean) {
+    this.dialog.open(AlertDialogComponent,
+      {
+        data: {message, reloadPage}
+      });
   }
 }
-

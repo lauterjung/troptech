@@ -27,6 +27,10 @@ export class OrderService {
         return this.httpClient.get<number>(`${this.api}/key`);
     }
 
+    public updateOrder(order: Order): Observable<boolean> {
+        return this.httpClient.patch<boolean>(`${this.api}`, order);
+    }
+
     public deleteOrder(id: string): Observable<boolean> {
         return this.httpClient.delete<boolean>(`${this.api}/` + id);
     }

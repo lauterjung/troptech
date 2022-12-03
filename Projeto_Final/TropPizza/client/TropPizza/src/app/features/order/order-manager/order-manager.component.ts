@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
+import { AlertDialogComponent } from '../../dialog/alert-dialog/alert-dialog.component';
+import { DeleteDialogComponent } from '../../dialog/delete-dialog/delete-dialog.component';
 import { OrderService } from '../../order.service';
-import { OrderDialogDeleteComponent } from '../order-dialog-delete/order-dialog-delete.component';
+import { OrderDialogStatusChangeComponent } from '../order-dialog-status-change/order-dialog-status-change.component';
 import { Order } from '../order.model';
 
 @Component({
@@ -13,8 +15,6 @@ import { Order } from '../order.model';
 })
 export class OrderManagerComponent implements OnInit {
   public orders: Order[] = [];
-  public deletePopUpShowing: boolean = false;
-  public orderToDeleteIndex: string = "";
 
   constructor(private service: OrderService, private router: Router, private dialog: MatDialog) { }
 
@@ -43,16 +43,59 @@ export class OrderManagerComponent implements OnInit {
   }
 
   showDeleteDialog(id: number) {
-    this.dialog.open(OrderDialogDeleteComponent,
-    {
-      data: id,
-    });
+    let dialogRef = this.dialog.open(DeleteDialogComponent,
+      {
+        data: {
+          id: id,
+          itemType: "o pedido nº ",
+          identifier: id,
+          confirm: false,
+        }
+      });
+
+    dialogRef.afterClosed().subscribe(
+      result => {
+        if (result.confirm) {
+          this.service.deleteOrder(result.id)
+            .pipe(take(1))
+            .subscribe(
+              () => {
+              });
+          this.showMessage("Pedido deletado com sucesso!", true);
+        }
+      }
+    )
   }
 
-  showUpdateStatusDialog(id: number) {
-    // this.dialog.open(OrderDialogDeleteComponent,
-    // {
-    //   data: id,
-    // });
+  showUpdateStatusDialog(order: Order) {
+    let dialogRef = this.dialog.open(OrderDialogStatusChangeComponent,
+      {
+        data: {
+          order: order,
+          confirm: false,
+        }
+      });
+
+    dialogRef.afterClosed().subscribe(
+      result => {
+        if (result.confirm) {
+          console.log(JSON.stringify(result.order));
+          
+          this.service.updateOrder(result.order)
+            .pipe(take(1))
+            .subscribe(
+              () => {
+              });
+          this.showMessage("Status alterado com sucesso!", true);
+        }
+      }
+    )
+  }
+
+  showMessage(message: string, reloadPage: boolean) {
+    this.dialog.open(AlertDialogComponent,
+      {
+        data: { message, reloadPage }
+      });
   }
 }

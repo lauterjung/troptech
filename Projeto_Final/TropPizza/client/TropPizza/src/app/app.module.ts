@@ -23,10 +23,10 @@ import { CartService } from './features/cart.service';
 import { OrderService } from './features/order.service';
 import { ProductService } from './features/product.service';
 import { CustomerService } from './features/customer.service';
-import { OrderDialogUpdateStatusComponent } from './features/order/order-dialog-update-status/order-dialog-update-status.component';
-import { CustomerDialogDeleteComponent } from './features/customer/customer-dialog-delete/customer-dialog-delete.component';
 import { ProductDialogDeleteComponent } from './features/product/product-dialog-delete/product-dialog-delete.component';
 import { AlertDialogComponent } from './features/dialog/alert-dialog/alert-dialog.component';
+import { DeleteDialogComponent } from './features/dialog/delete-dialog/delete-dialog.component';
+import { OrderDialogStatusChangeComponent } from './features/order/order-dialog-status-change/order-dialog-status-change.component';
 
 @NgModule({
   declarations: [
@@ -44,10 +44,10 @@ import { AlertDialogComponent } from './features/dialog/alert-dialog/alert-dialo
     OrderStatusComponent,
     OrderSuccessComponent,
     OrderTrackerComponent,
-    OrderDialogUpdateStatusComponent,
-    CustomerDialogDeleteComponent,
     ProductDialogDeleteComponent,
     AlertDialogComponent,
+    DeleteDialogComponent,
+    OrderDialogStatusChangeComponent,
   ],
   imports: [
     BrowserModule,

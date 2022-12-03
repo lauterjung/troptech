@@ -80,7 +80,7 @@ namespace TropPizza.Infra.Data.Repositories
 
             if (order.Validate())
             {
-                _orderDAO.UpdateStatus(searchedOrder);
+                _orderDAO.UpdateStatus(order);
             }
         }
 

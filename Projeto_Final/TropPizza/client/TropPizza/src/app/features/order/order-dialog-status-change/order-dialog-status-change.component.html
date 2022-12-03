@@ -1,0 +1,18 @@
+<form [formGroup]="form">
+    <div class="form-group pb-3">
+        <label class="form-label" for="statusId">Selecione o status do pedido:</label>
+        <select class="form-select" id="statusId" name="statusId" formControlName="statusId">
+            <option value=0>Pendente</option>
+            <option value=1>Em preparo</option>
+            <option value=2>Saiu para entrega</option>
+            <option value=3>Entregue</option>
+        </select>
+    </div>
+</form>
+
+<div class="row py-2">
+    <button class="button btn btn-success" (click)="confirmStatusChange()">Salvar</button>
+</div>
+<div class="row py-2">
+    <button class="button btn btn-danger" (click)="closePopUp()">Voltar</button>
+</div>

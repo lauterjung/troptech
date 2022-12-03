@@ -1,11 +1,16 @@
 ﻿thunder testes
-
-fidelity points não pode ser menor que zero
-
-popup
-
 criar outra tabela DB
 refazer diagramas
+fidelity points não pode ser menor que zero
+mudar o trhow exception do alreadyexists
+
+cart
+success
+track
+
+
+popup mostrando scrollbar
+
 
 validação do cpf repetido no front
 	!!! inserir com erro de bd / produtos repetidos, ....
@@ -13,25 +18,16 @@ validação do cpf repetido no front
 	
 mudar status
 
-api existingClient
-
-popup
 carrinho
 	carrinho: zerar carrinho
 	manter a array salva até fechar
 	ida e volta do carrinho
-	
-
 
 pedido enviado redirecionar direto para acompanhar
 
-fazer pedido
-ver carrinho
 homepage
 	footer
-imagepath
-
-
+	
 [x] Documentação
 	[x] Readme
 	[x] Diagramas

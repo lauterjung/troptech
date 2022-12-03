@@ -3,6 +3,9 @@ import { take } from 'rxjs';
 import { ProductService } from '../../product.service';
 import { InventoryProduct } from '../product.model';
 import { Router } from '@angular/router';
+import { DeleteDialogComponent } from '../../dialog/delete-dialog/delete-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { AlertDialogComponent } from '../../dialog/alert-dialog/alert-dialog.component';
 
 @Component({
   selector: 'app-product-manager',
@@ -15,7 +18,7 @@ export class ProductManagerComponent implements OnInit {
   public deletePopUpShowing: boolean = false;
   public productToDeleteIndex: string = "";
 
-  constructor(private service: ProductService, private router: Router) { }
+  constructor(private service: ProductService, private router: Router, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.service.getAllProducts()
@@ -27,23 +30,6 @@ export class ProductManagerComponent implements OnInit {
 
   editProduct(id: number) {
     this.router.navigate(['/product/edit', id]);
-  }
-
-  showDeletePopUp(id: number): void {
-    this.deletePopUpShowing = true;
-    this.productToDeleteIndex = id.toString();
-  }
-
-  closeDeletePopUp(): void {
-    this.deletePopUpShowing = false;
-    this.productToDeleteIndex = "";
-  }
-
-  confirmDelete(): void {
-    this.deleteProduct(this.productToDeleteIndex)
-    this.closeDeletePopUp();
-    window.alert("Produto deletado com sucesso!")
-    location.reload();
   }
 
   changeIsActive(index: number): void {
@@ -75,28 +61,44 @@ export class ProductManagerComponent implements OnInit {
         });
   }
 
-  deleteProduct(id: string): void {
-    this.service.deleteProduct(id)
-      .pipe(take(1))
-      .subscribe(
-        () => {
-        });
+  // deleteProduct(id: string): void {
+  //   this.service.deleteProduct(id)
+  //     .pipe(take(1))
+  //     .subscribe(
+  //       () => {
+  //       });
+  // }
+
+  showDeleteDialog(id: number, name: string) {
+    let dialogRef = this.dialog.open(DeleteDialogComponent,
+      {
+        data: {
+          id: id,
+          itemType: "o produto ",
+          identifier: name,
+          confirm: false,
+        }
+      });
+
+    dialogRef.afterClosed().subscribe(
+      result => {
+        if (result.confirm) {
+          this.service.deleteProduct(result.id)
+            .pipe(take(1))
+            .subscribe(
+              () => {
+              });
+          this.showMessage("Produto deletado com sucesso!", true);
+          location.reload();
+        }
+      }
+    )
+  }
+
+  showMessage(message: string, reloadPage: boolean) {
+    this.dialog.open(AlertDialogComponent,
+      {
+        data: { message, reloadPage }
+      });
   }
 }
-
-  // getProductById(id: string): InventoryProduct {
-  //   let product = {} as InventoryProduct;
-  //   this.service.getProduct(id)
-  //     .pipe(take(1))
-  //     .subscribe((data: InventoryProduct) => {
-  //       this.product1 = data;
-  //     });
-
-  //   return product;
-  // }
-
-  // changeQuantity(id: number): void {
-  //   let product: InventoryProduct = this.products[index];
-  //   product.quantity += 1;
-  //   this.updateProduct(product);
-  // }
