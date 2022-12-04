@@ -119,6 +119,8 @@ CREATE TABLE CartProducts
 (
     order_id BIGINT NOT NULL,
     product_id BIGINT NOT NULL,
+    product_name VARCHAR(200) NOT NULL,
+    unit_price DECIMAL(36,2) NOT NULL,
     quantity INT NOT NULL,
     total_price DECIMAL(36,2) NOT NULL,
     CONSTRAINT FK_CartProducts_Orders FOREIGN KEY (order_id) REFERENCES Orders (order_id),
@@ -127,30 +129,29 @@ CREATE TABLE CartProducts
 
 INSERT INTO CartProducts
 VALUES
-    -- pedido / produto / quantidade / preço
-    (1, 1, 2, 8),
-    (1, 17, 2, 160),
-    (2, 1, 1, 4),
-    (2, 2, 1, 4),
-    (2, 18, 1, 70),
-    (2, 19, 1, 70),
-    (3, 3, 1, 12),
-    (3, 12, 1, 80),
-    (4, 3, 2, 24),
-    (4, 19, 1, 70),
-    (5, 4, 1, 12),
-    (5, 20, 1, 70),
-    (6, 5, 1, 12),
-    (6, 21, 1, 80),
-    (7, 3, 3, 36),
-    (7, 7, 1, 70),
-    (8, 2, 2, 8),
-    (8, 8, 2, 70),
-    (9, 1, 2, 8),
-    (9, 10, 1, 70),
-    (9, 11, 1, 70),
-    (9, 13, 1, 70),
-    (10, 10, 1, 70);
+    (1, 1, 'Água s/ gás 500 ml', 4, 2, 8),
+    (1, 17, 'Pizza - Pepperoni', 80, 2, 160),
+    (2, 1, 'Água s/ gás 500 ml', 4, 1, 4),
+    (2, 2, 'Água c/ gás 500 ml', 4, 1, 4),
+    (2, 18, 'Pizza - Portuguesa', 70, 1, 70),
+    (2, 19, 'Pizza - Quatro queijos', 70, 1, 70),
+    (3, 3, 'Refrigerante Laranjinha 2 L', 12, 1, 12),
+    (3, 12, 'Pizza - Linguiça Blumenau', 80, 1, 80),
+    (4, 3, 'Refrigerante Laranjinha 2 L', 12, 2, 24),
+    (4, 19, 'Pizza - Quatro queijos', 70, 1, 70),
+    (5, 4, 'Refrigerante Guaraná 2 L', 12, 1, 12),
+    (5, 20, 'Pizza - Siciliana', 70, 1, 70),
+    (6, 5, 'Refrigerante Cola 2 L', 12, 1, 12),
+    (6, 21, 'Pizza - Tomate seco', 80, 1, 80),
+    (7, 3, 'Refrigerante Laranjinha 2 L', 12, 3, 36),
+    (7, 7, 'Pizza - Bacon', 70, 1, 70),
+    (8, 2, 'Água c/ gás 500 ml', 4, 2, 8),
+    (8, 8, 'Pizza - Calabresa', 70, 2, 70),
+    (9, 1, 'Água s/ gás 500 ml', 4, 2, 8),
+    (9, 10, 'Pizza - Champignon', 70, 1, 70),
+    (9, 11, 'Pizza - Frango catupiry', 70, 1, 70),
+    (9, 13, 'Pizza - Lombo catupiry', 70, 1, 70),
+    (10, 10, 'Pizza - Champignon', 70, 1, 70);
 -----------------------------------------------------------------------------------------------------
 -- select *
 -- from Customers

@@ -45,4 +45,8 @@ export class OrderTrackerComponent implements OnInit {
     });
     return message.join(", ");
   }
+
+  showClientCpf(order: Order): string {
+    return order.orderCustomer?.cpf ? order.orderCustomer?.cpf : "Sem CPF registrado";
+  }
 }

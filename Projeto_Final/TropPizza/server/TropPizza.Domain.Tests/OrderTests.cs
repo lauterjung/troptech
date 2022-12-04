@@ -134,52 +134,52 @@ namespace TropPizza.Domain.Tests
         }
 
         [Test]
-        public void CanBeDeleted_FinishedOrderStatus_ThrowsException()
+        public void CanBeUpdated_FinishedOrderStatus_ThrowsException()
         {
             // arrange
             _order.StatusEnum = (OrderStatus)3;
 
             // act
-            InvalidDeletion ex = Assert.Throws<InvalidDeletion>(() => _order.CanBeDeleted());
+            InvalidDeletion ex = Assert.Throws<InvalidDeletion>(() => _order.CanBeUpdated());
 
             // assert
             Assert.That(ex.Message, Is.EqualTo("Não é possível deletar pedidos finalizados!"));
         }
 
         [Test]
-        public void CanBeDeleted_PendingOrderStatus_ReturnsTrue()
+        public void CanBeUpdated_PendingOrderStatus_ReturnsTrue()
         {
             // arrange
             _order.StatusEnum = (OrderStatus)0;
 
             // act
-            bool result = _order.CanBeDeleted();
+            bool result = _order.CanBeUpdated();
 
             // assert
             Assert.True(result);
         }
 
         [Test]
-        public void CanBeDeleted_PreparationOrderStatus_ReturnsTrue()
+        public void CanBeUpdated_PreparationOrderStatus_ReturnsTrue()
         {
             // arrange
             _order.StatusEnum = (OrderStatus)1;
 
             // act
-            bool result = _order.CanBeDeleted();
+            bool result = _order.CanBeUpdated();
 
             // assert
             Assert.True(result);
         }
 
         [Test]
-        public void CanBeDeleted_DeliveryOrderStatus_ReturnsTrue()
+        public void CanBeUpdated_DeliveryOrderStatus_ReturnsTrue()
         {
             // arrange
             _order.StatusEnum = (OrderStatus)2;
 
             // act
-            bool result = _order.CanBeDeleted();
+            bool result = _order.CanBeUpdated();
 
             // assert
             Assert.True(result);

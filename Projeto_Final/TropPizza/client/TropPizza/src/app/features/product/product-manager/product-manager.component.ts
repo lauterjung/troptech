@@ -89,7 +89,6 @@ export class ProductManagerComponent implements OnInit {
               () => {
               });
           this.showMessage("Produto deletado com sucesso!", true);
-          location.reload();
         }
       }
     )

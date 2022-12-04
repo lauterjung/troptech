@@ -51,7 +51,7 @@
             <div class="col-4 text-left box">
                 <strong>Nº do pedido:</strong> {{orderToTrack.id}}
                 <br>
-                <strong>Cliente:</strong> {{orderToTrack.orderCustomer ? orderToTrack.orderCustomer : "Sem CPF registrado"}}
+                <strong>CPF do cliente:</strong> {{showClientCpf(orderToTrack)}}
                 <br>
                 <strong>Produtos:</strong> {{showOrderProducts(orderToTrack)}}
                 <br>

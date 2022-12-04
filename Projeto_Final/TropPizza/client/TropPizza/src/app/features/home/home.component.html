@@ -5,13 +5,15 @@
             A melhor pizza de Lages!
             <br>
             <br>
-            No momento estamos: 
+            No momento estamos:
             <br>
             <span *ngIf="isOpen" class="green-text">ABERTOS</span>
             <span *ngIf="!isOpen" class="red-text">FECHADOS</span>
             <br>
             <br>
-            <button class="button btn btn-lg btn-success main-message" (click)="goShopping()">Faça seu pedido</button>
+            <button *ngIf="isOpen" class="button btn btn-lg btn-success main-message" (click)="goShopping()">Faça seu
+                pedido</button>
+            <button *ngIf="!isOpen" disabled class="button btn btn-lg btn-success main-message" (click)="goShopping()">Faça seu pedido</button>
         </div>
         <div class="col-3">
             <img src="../../../assets/favicon.png" alt="Minha Figura">

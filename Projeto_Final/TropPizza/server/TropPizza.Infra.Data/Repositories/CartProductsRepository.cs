@@ -15,7 +15,7 @@ namespace TropPizza.Infra.Data.Repositories
         {
             foreach (CartProduct cartProduct in order.CartProducts)
             {
-                _cartProductsDAO.Create(lastKey, cartProduct.Id, cartProduct.Quantity, cartProduct.TotalPrice);
+                _cartProductsDAO.Create(lastKey, cartProduct.Id, cartProduct.Name, cartProduct.UnitPrice, cartProduct.Quantity, cartProduct.TotalPrice);
             }
         }
 
@@ -25,7 +25,6 @@ namespace TropPizza.Infra.Data.Repositories
             return cartProducts;
         }
 
-        // faz nada além de chamar o DAO
         public void Delete(Int64 id)
         {
             _cartProductsDAO.Delete(id);

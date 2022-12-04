@@ -9,7 +9,7 @@ namespace TropPizza.Infra.Data.DAO
     {
         private const string _connectionString = "server=.\\SQLexpress; initial catalog=TROPPIZZADB; integrated security=true";
 
-        public void Create(Int64 orderId, Int64 productId, Int32 productQuantity, Double productTotalPrice)
+        public void Create(Int64 orderId, Int64 productId, string name, double unitPrice, Int32 productQuantity, double productTotalPrice)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -19,10 +19,12 @@ namespace TropPizza.Infra.Data.DAO
                 {
                     command.Connection = connection;
                     string sql = @"INSERT INTO CartProducts VALUES 
-                                    (@order_id, @product_id, @quantity, @total_price);";
+                                    (@order_id, @product_id, @name, @unit_price, @quantity, @total_price);";
                     command.CommandText = sql;
                     command.Parameters.AddWithValue("@order_id", orderId);
                     command.Parameters.AddWithValue("@product_id", productId);
+                    command.Parameters.AddWithValue("@name", name);
+                    command.Parameters.AddWithValue("@unit_price", unitPrice);
                     command.Parameters.AddWithValue("@quantity", productQuantity);
                     command.Parameters.AddWithValue("@total_price", productTotalPrice);
                     command.ExecuteNonQuery();
@@ -37,15 +39,15 @@ namespace TropPizza.Infra.Data.DAO
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    string sql = @"SELECT p.product_id, p.product_name, p.product_description, p.unit_price, op.quantity, op.total_price
-                    FROM CartProducts op
-                    JOIN Orders o ON(op.order_id = o.order_id)
-                    JOIN InventoryProducts p ON(op.product_id = p.product_id)
-                        WHERE op.order_id = @order_id";
+                    string sql = @"SELECT cp.product_id, cp.product_name, cp.unit_price, cp.quantity, cp.total_price
+                    FROM CartProducts cp
+                    JOIN Orders o ON(cp.order_id = o.order_id)
+                    WHERE cp.order_id = @order_id";
+                    // JOIN InventoryProducts p ON(op.product_id = p.product_id)
+
                     command.CommandText = sql;
                     command.Parameters.AddWithValue("@order_id", id);
 
@@ -82,7 +84,6 @@ namespace TropPizza.Infra.Data.DAO
 
             cartProduct.Id = Convert.ToInt64(reader["product_id"]);;
             cartProduct.Name = reader["product_name"].ToString();
-            cartProduct.Description = reader["product_description"].ToString();
             cartProduct.UnitPrice = Convert.ToDouble(reader["unit_price"]);
             cartProduct.Quantity = Convert.ToInt32(reader["quantity"]);
             

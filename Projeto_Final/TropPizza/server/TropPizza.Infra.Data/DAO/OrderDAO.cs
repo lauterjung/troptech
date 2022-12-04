@@ -195,7 +195,7 @@ namespace TropPizza.Infra.Data.DAO
             command.Parameters.AddWithValue("@order_status_id", order.StatusEnum);
             command.Parameters.AddWithValue("@customer_id", (order.OrderCustomer != null) ? order.OrderCustomer.Id : DBNull.Value);
             command.Parameters.AddWithValue("@order_date_time", order.OrderDateTime);
-            command.Parameters.AddWithValue("@order_total_price", order.TotalPrice);
+            command.Parameters.AddWithValue("@total_price", order.TotalPrice);
         }
     }
 }
