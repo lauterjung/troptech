@@ -58,7 +58,7 @@ VALUES
     ('Água c/ gás 500 ml', 'Água mineral Puris 500 ml com gás', 1, '2023-06-01', 100, 4.00, 1, 'agua.jpg', 0),
     ('Refrigerante Laranjinha 2 L', 'Refrigerante Fanta sabor Laranjinha 2 L', 1, '2023-06-01', 100, 12.00, 1, 'fanta.jpg', 0),
     ('Refrigerante Guaraná 2 L', 'Refrigerante Antarctica sabor Guaraná 2 L', 1, '2023-06-01', 100, 12.00, 1, 'guarana.jpg', 0),
-    ('Refrigerante Cola 2 L', 'Refrigerante Coca-Cola sabor Cola 2 L', 1, '2023-06-01', 100, 12.50, 1, 'coca.jpg', 0),
+    ('Refrigerante Cola 2 L', 'Refrigerante Coca-Cola sabor Cola 2 L', 1, '2023-06-01', 100, 12.00, 1, 'coca.jpg', 0),
     ('Pizza - Azeitona', 'Pizza grande 12 fatias sabor Azeitona', 1, '2025-01-01', 20, 70, 1, 'azeitona.png', 0),
     ('Pizza - Bacon', 'Pizza grande 12 fatias sabor Bacon', 1, '2025-01-01', 20, 70, 1, 'bacon.png', 0),
     ('Pizza - Calabresa', 'Pizza grande 12 fatias sabor Calabresa', 1, '2025-01-01', 20, 70, 1, 'calabresa.png', 0),
@@ -124,7 +124,6 @@ CREATE TABLE CartProducts
     quantity INT NOT NULL,
     total_price DECIMAL(36,2) NOT NULL,
     CONSTRAINT FK_CartProducts_Orders FOREIGN KEY (order_id) REFERENCES Orders (order_id),
-    -- CONSTRAINT FK_CartProducts_Products FOREIGN KEY (product_id) REFERENCES InventoryProducts (product_id)
 )
 
 INSERT INTO CartProducts
@@ -153,42 +152,3 @@ VALUES
     (9, 13, 'Pizza - Lombo catupiry', 70, 1, 70),
     (10, 10, 'Pizza - Champignon', 70, 1, 70);
 -----------------------------------------------------------------------------------------------------
--- select *
--- from Customers
-
--- select *
--- from InventoryProducts
-
--- SELECT *
--- FROM InventoryProducts
--- WHERE product_name = 'Água s/ gás 500 ml' AND product_description = 'Água mineral Puris 500 ml sem gás' AND expiration_date = '2025-01-01'
-
--- SELECT p.product_id, p.product_name, p.unit_price, op.quantity, op.total_price
---                     FROM OrderProducts op
---                     JOIN Orders o ON(op.order_id = o.order_id)
---                     JOIN InventoryProducts p ON(op.product_id = p.product_id)
---                         WHERE op.order_id = 3
-
--- SELECT o.order_status_id, o.customer_id, o.order_date_time, c.cpf
--- FROM Orders o
---     LEFT JOIN Customers c ON (o.customer_id = c.customer_id)
-
--- SELECT o.order_status_id, o.customer_id, o.order_date_time, c.cpf
--- FROM Orders o
---     LEFT JOIN Customers c ON (o.customer_id = c.customer_id)
--- WHERE o.order_status_id <> 3;
-
--- SELECT *
--- FROM Customers
--- WHERE customer_id = 1;
-
-
-
--- UPDATE Orders SET 
--- order_status_id = 2
--- WHERE order_id = 1
-
-SELECT *
-FROM Orders
-SELECT *
-FROM InventoryProducts

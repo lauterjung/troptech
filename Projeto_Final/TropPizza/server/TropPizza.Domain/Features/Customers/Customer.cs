@@ -2,7 +2,6 @@
 using System.Linq;
 using TropPizza.Domain.Exceptions.CustomerExceptions;
 
-
 namespace TropPizza.Domain.Features.Customers
 {
     public class Customer

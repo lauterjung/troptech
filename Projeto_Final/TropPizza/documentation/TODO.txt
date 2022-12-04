@@ -1,8 +1,10 @@
-﻿footer
+﻿	R$ 12.50 coca cola
+	
+remover <br>
+
+footer
 carrinho
 	carrinho: zerar carrinho
-	manter a array salva até fechar
-	ida e volta do carrinho
 	insira seu cpf para acumular pontos!
 		cliente não encontrado, clique aqui para cadastrar
 	valor total
@@ -52,6 +54,7 @@ carrinho
 			[x] Deletar
 
 [ ] Outro
+	[ ] product.Description só para inventory
 	[ ] validador cruzado do hasImage
 	[ ] mock para repository
 	[ ] status code 204
@@ -69,10 +72,14 @@ carrinho
 	
 [ ] Verificações finais
 	[ ] Rever imports não utilizados
+		[ ] front
+		[x] back
 	[ ] Rever código comentado
-	[ ] Rever todas as regras de negócio
-	[ ] Re-rodar testes
-	[ ] Correspondência diagramas
+		[ ] front
+		[x] back
+	[x] Rever todas as regras de negócio
+	[x] Re-rodar testes
+	[x] Correspondência diagramas
 	[ ] console.logs
 	[ ] navegar com debug aberto
 	[ ] ver o que eu quero mostrar na apresentação

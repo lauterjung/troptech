@@ -1,7 +1,6 @@
 using System;
 using TropPizza.Domain.Exceptions.ProductExceptions;
 
-
 namespace TropPizza.Domain.Features.Products
 {
     public class InventoryProduct : Product

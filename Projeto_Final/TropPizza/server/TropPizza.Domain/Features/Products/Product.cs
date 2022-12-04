@@ -1,6 +1,5 @@
 using System;
 
-
 namespace TropPizza.Domain.Features.Products
 {
     public abstract class Product

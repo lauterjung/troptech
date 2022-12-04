@@ -6,14 +6,12 @@ using TropPizza.Domain.Features.Products;
 using TropPizza.Domain.Exceptions.OrderExceptions;
 using TropPizza.Domain.Extensions;
 
-
 namespace TropPizza.Domain.Features.Orders
 {
     public class Order
     {
         public Int64 Id { get; set; }
         public OrderStatus StatusEnum { get; set; }
-
 #nullable enable
         public Customer? OrderCustomer { get; set; }
         public List<CartProduct> CartProducts { get; set; }

@@ -61,7 +61,7 @@ export class OrderProductsComponent implements OnInit {
     return true;
   }
 
-  addToCart(index: number, id: number, quantity: number, unitPrice: number): void {
+  addToCart(index: number, quantity: number, inventoryProduct: InventoryProduct): void {
     if (!this.validateAddToCart(index, quantity)) {
       return;
     }
@@ -69,13 +69,16 @@ export class OrderProductsComponent implements OnInit {
 
 
     // se já existir, só add quantidade em cima
+    // let existingCart
     let cartProduct: CartProduct = {} as CartProduct;
-    cartProduct.id = id;
-    cartProduct.quantity = quantity;
-    cartProduct.totalPrice = quantity * unitPrice;
 
+    cartProduct.name = inventoryProduct.name;
+    cartProduct.unitPrice = inventoryProduct.unitPrice;
+    cartProduct.quantity = quantity;
+    cartProduct.totalPrice = quantity * inventoryProduct.unitPrice;
+    
     this.cartProducts.push(cartProduct);
-    this.cartService.saveIds(this.cartProducts);
+    this.cartService.saveProducts(this.cartProducts);
     this.showMessage("Produto adicionado com sucesso!", false);
   }
 

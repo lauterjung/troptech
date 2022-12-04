@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Form } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Order } from '../order.model';
 
@@ -12,7 +12,7 @@ export class OrderDialogStatusChangeComponent implements OnInit {
 
   public form!: FormGroup;
 
-  constructor(private matDialogRef: MatDialogRef<OrderDialogStatusChangeComponent>, @Inject(MAT_DIALOG_DATA) public data: { order: Order, confirm: boolean }) { } ///
+  constructor(private matDialogRef: MatDialogRef<OrderDialogStatusChangeComponent>, @Inject(MAT_DIALOG_DATA) public data: { order: Order, confirm: boolean }) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({

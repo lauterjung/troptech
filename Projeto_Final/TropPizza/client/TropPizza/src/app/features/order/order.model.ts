@@ -1,5 +1,5 @@
 import { Customer } from "../customer/customer.model";
-import { CartProduct, Product } from "../product/product.model";
+import { CartProduct } from "../product/product.model";
 
 enum OrderStatus {
     Pending = 0,

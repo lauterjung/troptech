@@ -4,16 +4,22 @@ import { CartProduct } from './product/product.model';
 @Injectable({
     providedIn: 'root'
 })
+
 export class CartService {
 
-    productsToCart: CartProduct[] = [];
+    cartProducts: CartProduct[] = [];
     constructor() { }
 
-    saveIds(produIds: any) {
-        this.productsToCart = produIds;
+    saveProducts(productsToCart: CartProduct[]) {
+        if (this.cartProducts.length === 0) {
+            this.cartProducts = productsToCart;     
+        } else {
+            this.cartProducts.push(...productsToCart);
+        }
     }
-    retrieveIDs() {
-        return this.productsToCart;
+
+    retrieveProducts() {
+        return this.cartProducts;
     }
 
 }

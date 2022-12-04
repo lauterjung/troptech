@@ -26,7 +26,7 @@ export class ProductFormsComponent implements OnInit {
       description: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       expirationDate: new FormControl(null, [Validators.required, CustomValidators.futureDate()]),
       unitPrice: new FormControl(null, [Validators.required, Validators.min(0.01)]),
-      hasImage: new FormControl(null), /////////
+      hasImage: new FormControl(null),
       imageName: new FormControl(null),
     });
   }

@@ -61,14 +61,6 @@ export class ProductManagerComponent implements OnInit {
         });
   }
 
-  // deleteProduct(id: string): void {
-  //   this.service.deleteProduct(id)
-  //     .pipe(take(1))
-  //     .subscribe(
-  //       () => {
-  //       });
-  // }
-
   showDeleteDialog(id: number, name: string) {
     let dialogRef = this.dialog.open(DeleteDialogComponent,
       {

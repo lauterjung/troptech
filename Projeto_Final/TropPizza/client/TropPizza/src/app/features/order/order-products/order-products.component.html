@@ -7,7 +7,7 @@
       <div class="" style="height: 100px;">
         <img *ngIf="product.hasImage" class="card-img-top" [src]="'../../../../assets/images/'+product.imageName"
           [alt]="product.imageName" />
-        <img *ngIf="!product.hasImage" class="card-img-top" [src]="'../../../../assets/placeholder.jpg/'"
+        <img *ngIf="!product.hasImage" class="card-img-top" [src]="'../../../../assets/images/placeholder.jpg/'"
           [alt]="product.imageName" />
       </div>
       <div class="card-body">
@@ -22,7 +22,7 @@
         <button class="btn btn-danger btn-sm p-0"><i class="bi bi-dash" (click)="removeQuantity(i)"></i></button>
         <p></p>
         <button class="btn btn-warning btn-sm"
-          (click)="addToCart(i, product.id, quantityToCart[i], product.unitPrice)"><i class="bi bi-cart2"></i> Adicionar
+          (click)="addToCart(i, quantityToCart[i], product)"><i class="bi bi-cart2"></i> Adicionar
           ao carrinho</button>
       </div>
     </div>
