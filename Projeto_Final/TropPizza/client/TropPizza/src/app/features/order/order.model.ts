@@ -15,13 +15,15 @@ export class Order {
     public orderCustomer?: Customer;
     public cartProducts: Product[];
     public orderDateTime: Date;
+    public totalPrice: number;
 
-    constructor(id: number, statusEnum: OrderStatus, status: string, cartProducts: Product[], orderDateTime: Date, orderCustomer?: Customer) {
+    constructor(id: number, statusEnum: OrderStatus, status: string, cartProducts: Product[], orderDateTime: Date, totalPrice: number, orderCustomer?: Customer) {
         this.id = id;
         this.statusEnum = statusEnum;
         this.status = status;
         this.orderCustomer = orderCustomer;
         this.cartProducts = cartProducts;
         this.orderDateTime = orderDateTime;
+        this.totalPrice = totalPrice;
     }
 }

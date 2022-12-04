@@ -18,7 +18,7 @@ namespace TropPizza.Infra.Data.Repositories
             Customer searchedCustomer = _customerDAO.ReadByCpf(customer.Cpf);
             if (searchedCustomer != null)
             {
-                throw new AlreadyExists();
+                throw new CustomerAlreadyExists();
             }
 
             if (customer.Validate())
@@ -32,7 +32,7 @@ namespace TropPizza.Infra.Data.Repositories
             Customer customer = _customerDAO.ReadById(id);
             if (customer is null)
             {
-                throw new NotFound();
+                throw new CustomerNotFound();
             }
 
             return customer;
@@ -43,7 +43,7 @@ namespace TropPizza.Infra.Data.Repositories
             Customer customer = _customerDAO.ReadByCpf(cpf);
             if (customer is null)
             {
-                throw new NotFound();
+                throw new CustomerNotFound();
             }
 
             return customer;
@@ -54,7 +54,7 @@ namespace TropPizza.Infra.Data.Repositories
             List<Customer> customersList = _customerDAO.ReadAll();
             if (customersList.Count == 0)
             {
-                throw new NotFound();
+                throw new CustomerNotFound();
             }
 
             return customersList;
@@ -65,7 +65,7 @@ namespace TropPizza.Infra.Data.Repositories
             Customer searchedCustomer = _customerDAO.ReadById(customer.Id);
             if (searchedCustomer is null)
             {
-                throw new NotFound();
+                throw new CustomerNotFound();
             }
 
             if (customer.Validate())
@@ -79,7 +79,7 @@ namespace TropPizza.Infra.Data.Repositories
             Customer searchedCustomer = _customerDAO.ReadById(id);
             if (searchedCustomer is null)
             {
-                throw new NotFound();
+                throw new CustomerNotFound();
             }
 
             List<Order> unfinishedOrders = _orderDAO.ReadUnfinishedOrders(id);
@@ -100,7 +100,7 @@ namespace TropPizza.Infra.Data.Repositories
             Customer searchedCustomer = _customerDAO.ReadById(id);
             if (searchedCustomer is null)
             {
-                throw new NotFound();
+                throw new CustomerNotFound();
             }
 
             searchedCustomer.ApplyFidelityPoints(totalPrice);

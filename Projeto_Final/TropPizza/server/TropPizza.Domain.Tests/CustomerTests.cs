@@ -41,6 +41,33 @@ namespace TropPizza.Domain.Tests
         }
 
         [Test]
+        public void ApplyFidelityPoints_TotalPriceMinus100_Returns0()
+        {
+            // arrange
+            double totalPrice = -100;
+
+            // act
+            _customer.ApplyFidelityPoints(totalPrice);
+
+            // assert
+            Assert.AreEqual(0, _customer.FidelityPoints);
+        }
+
+        [Test]
+        public void ApplyFidelityPoints_Remove2From3_Returns1()
+        {
+            // arrange
+            _customer.FidelityPoints = 3;
+            double totalPrice = -1;
+
+            // act
+            _customer.ApplyFidelityPoints(totalPrice);
+
+            // assert
+            Assert.AreEqual(1, _customer.FidelityPoints);
+        }
+
+        [Test]
         public void Validate_AllValid_ReturnsTrue()
         {
             // arrange

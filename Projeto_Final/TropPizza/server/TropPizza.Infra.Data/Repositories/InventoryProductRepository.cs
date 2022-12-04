@@ -15,7 +15,7 @@ namespace TropPizza.Infra.Data.Repositories
             InventoryProduct searchedProduct = _inventoryProductDAO.ReadUnique(inventoryProduct.Name, inventoryProduct.Description, inventoryProduct.ExpirationDate);
             if (searchedProduct != null)
             {
-                throw new AlreadyExists();
+                throw new ProductAlreadyExists();
             }
 
             if (inventoryProduct.Validate())
@@ -29,7 +29,7 @@ namespace TropPizza.Infra.Data.Repositories
             InventoryProduct inventoryProduct = _inventoryProductDAO.ReadById(id);
             if (inventoryProduct is null)
             {
-                throw new NotFound();
+                throw new ProductNotFound();
             }
 
             return inventoryProduct;
@@ -40,7 +40,7 @@ namespace TropPizza.Infra.Data.Repositories
             InventoryProduct inventoryProduct = _inventoryProductDAO.ReadUnique(name, description, expirationDate);
             if (inventoryProduct is null)
             {
-                throw new NotFound();
+                throw new ProductNotFound();
             }
 
             return inventoryProduct;
@@ -51,7 +51,7 @@ namespace TropPizza.Infra.Data.Repositories
             List<InventoryProduct> inventoryProductsList = _inventoryProductDAO.ReadVisible();
             if (inventoryProductsList.Count == 0)
             {
-                throw new NotFound();
+                throw new ProductNotFound();
             }
 
             return inventoryProductsList;
@@ -62,7 +62,7 @@ namespace TropPizza.Infra.Data.Repositories
             List<InventoryProduct> inventoryProductsList = _inventoryProductDAO.ReadAll();
             if (inventoryProductsList.Count == 0)
             {
-                throw new NotFound();
+                throw new ProductNotFound();
             }
 
             return inventoryProductsList;
@@ -73,7 +73,7 @@ namespace TropPizza.Infra.Data.Repositories
             InventoryProduct searchedProduct = _inventoryProductDAO.ReadById(inventoryProduct.Id);
             if (searchedProduct is null)
             {
-                throw new NotFound();
+                throw new ProductNotFound();
             }
 
             if (inventoryProduct.Validate())
@@ -87,7 +87,7 @@ namespace TropPizza.Infra.Data.Repositories
             InventoryProduct searchedProduct = _inventoryProductDAO.ReadById(id);
             if (searchedProduct is null)
             {
-                throw new NotFound();
+                throw new ProductNotFound();
             }
 
             _inventoryProductDAO.Delete(id);

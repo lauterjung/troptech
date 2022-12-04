@@ -21,7 +21,7 @@ namespace TropPizza.Infra.Data.DAO
                 {
                     command.Connection = connection;
                     string sql = @"INSERT INTO Orders VALUES 
-                                    (@order_status_id, @customer_id, @order_date_time);";
+                                    (@order_status_id, @customer_id, @order_date_time, @total_price);";
                     ObjectToSql(order, command);
                     command.CommandText = sql;
                     command.ExecuteNonQuery();
@@ -38,7 +38,7 @@ namespace TropPizza.Infra.Data.DAO
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    string sql = @"SELECT o.order_id, o.order_status_id, o.customer_id, o.order_date_time, c.cpf
+                    string sql = @"SELECT o.order_id, o.order_status_id, o.customer_id, o.order_date_time, o.total_price, c.cpf
                     FROM Orders o
                     LEFT JOIN Customers c ON (o.customer_id = c.customer_id)
                     WHERE o.order_id = @order_id;";
@@ -67,7 +67,7 @@ namespace TropPizza.Infra.Data.DAO
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    string sql = @"SELECT o.order_id, o.order_status_id, o.customer_id, o.order_date_time, c.cpf
+                    string sql = @"SELECT o.order_id, o.order_status_id, o.customer_id, o.order_date_time, o.total_price, c.cpf
                     FROM Orders o
                     LEFT JOIN Customers c ON (o.customer_id = c.customer_id)
                     WHERE o.customer_id = @customer_id AND o.order_status_id <> 3;";
@@ -95,7 +95,7 @@ namespace TropPizza.Infra.Data.DAO
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    string sql = @"SELECT o.order_id, o.order_status_id, o.customer_id, o.order_date_time, c.cpf
+                    string sql = @"SELECT o.order_id, o.order_status_id, o.customer_id, o.order_date_time, o.total_price, c.cpf
                     FROM Orders o
                     LEFT JOIN Customers c ON (o.customer_id = c.customer_id);";
                     command.CommandText = sql;
@@ -195,6 +195,7 @@ namespace TropPizza.Infra.Data.DAO
             command.Parameters.AddWithValue("@order_status_id", order.StatusEnum);
             command.Parameters.AddWithValue("@customer_id", (order.OrderCustomer != null) ? order.OrderCustomer.Id : DBNull.Value);
             command.Parameters.AddWithValue("@order_date_time", order.OrderDateTime);
+            command.Parameters.AddWithValue("@order_total_price", order.TotalPrice);
         }
     }
 }

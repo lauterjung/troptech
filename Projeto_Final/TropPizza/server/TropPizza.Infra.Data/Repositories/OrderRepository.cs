@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using TropPizza.Domain.Exceptions;
+using TropPizza.Domain.Exceptions.OrderExceptions;
 using TropPizza.Domain.Features.Orders;
 using TropPizza.Domain.Features.Orders.Enums;
 using TropPizza.Domain.Features.Products;
@@ -42,7 +43,7 @@ namespace TropPizza.Infra.Data.Repositories
             Order order = _orderDAO.ReadById(id);
             if (order is null)
             {
-                throw new NotFound();
+                throw new OrderNotFound();
             }
 
             order.CartProducts = _cartProductsRepository.ReadById(id);
@@ -55,7 +56,7 @@ namespace TropPizza.Infra.Data.Repositories
 
             if (ordersList.Count == 0)
             {
-                throw new NotFound();
+                throw new OrderNotFound();
             }
 
             foreach (Order order in ordersList)
@@ -75,7 +76,12 @@ namespace TropPizza.Infra.Data.Repositories
             Order searchedOrder = _orderDAO.ReadById(order.Id);
             if (searchedOrder is null)
             {
-                throw new NotFound();
+                throw new OrderNotFound();
+            }
+
+            if (searchedOrder.CanBeUpdated() == false)
+            {
+                throw new CantBeUpdated();
             }
 
             if (order.Validate())
@@ -89,31 +95,34 @@ namespace TropPizza.Infra.Data.Repositories
             Order searchedOrder = _orderDAO.ReadById(id);
             if (searchedOrder is null)
             {
-                throw new NotFound();
+                throw new OrderNotFound();
+            }
+
+            if (searchedOrder.CanBeUpdated() == false)
+            {
+                throw new CantBeUpdated();
             }
 
             searchedOrder.CartProducts = _cartProductsRepository.ReadById(id);
 
-            if (searchedOrder.CanBeDeleted())
+            if (searchedOrder.OrderCustomer != null)
             {
-                if (searchedOrder.OrderCustomer != null)
-                {
-                    _customerRepository.ApplyFidelityPoints(searchedOrder.OrderCustomer.Id, -searchedOrder.TotalPrice);
-                }
-
-                if (searchedOrder.StatusEnum == OrderStatus.Pending)
-                {
-                    foreach (CartProduct cartProduct in searchedOrder.CartProducts)
-                    {
-                        InventoryProduct inventoryProduct = _inventoryProductRepository.ReadById(cartProduct.Id);
-                        inventoryProduct.AddToInventory(cartProduct.Quantity);
-                        _inventoryProductRepository.Update(inventoryProduct);
-                    }
-                }
-
-                _cartProductsRepository.Delete(id);
-                _orderDAO.Delete(id);
+                _customerRepository.ApplyFidelityPoints(searchedOrder.OrderCustomer.Id, -searchedOrder.TotalPrice);
             }
+
+            if (searchedOrder.StatusEnum == OrderStatus.Pending)
+            {
+                foreach (CartProduct cartProduct in searchedOrder.CartProducts)
+                {
+                    InventoryProduct inventoryProduct = _inventoryProductRepository.ReadById(cartProduct.Id);
+                    inventoryProduct.AddToInventory(cartProduct.Quantity);
+                    _inventoryProductRepository.Update(inventoryProduct);
+                }
+            }
+
+            _cartProductsRepository.Delete(id);
+            _orderDAO.Delete(id);
+
         }
     }
 }

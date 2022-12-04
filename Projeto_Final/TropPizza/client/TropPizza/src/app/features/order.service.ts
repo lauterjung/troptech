@@ -27,7 +27,7 @@ export class OrderService {
         return this.httpClient.get<number>(`${this.api}/key`);
     }
 
-    public updateOrder(order: Order): Observable<boolean> {
+    public updateOrderStatus(order: Order): Observable<boolean> {
         return this.httpClient.patch<boolean>(`${this.api}`, order);
     }
 

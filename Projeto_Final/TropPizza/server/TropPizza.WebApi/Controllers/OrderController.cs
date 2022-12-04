@@ -78,7 +78,7 @@ namespace TropPizza.WebApi.Controllers
         }
 
         [HttpPatch]
-        public IActionResult Patch([FromBody] Order order)
+        public IActionResult PatchStatus([FromBody] Order order)
         {
             try
             {

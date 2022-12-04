@@ -46,7 +46,7 @@ namespace TropPizza.Domain.Features.Orders
             return totalPrice;
         }
 
-        public bool CanBeDeleted()
+        public bool CanBeUpdated()
         {
             if (StatusEnum == OrderStatus.Finished)
             {

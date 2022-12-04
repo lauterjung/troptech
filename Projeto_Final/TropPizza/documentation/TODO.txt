@@ -1,12 +1,8 @@
-﻿thunder testes
-criar outra tabela DB
+﻿criar outra tabela DB
+thunder testes
 refazer diagramas
-fidelity points não pode ser menor que zero
-mudar o trhow exception do alreadyexists
-pedido tem que ter total price e método que calcula
-Um pedido finalizado não pode ser excluído ou ter seus status alterado (canbedelete canbeiupdated;
 
-pedido valor total
+ordertracker ERROR TypeError: order.cartProducts is undefined
 
 
 footer
@@ -80,12 +76,16 @@ sem imagem
 	[ ] propriedades readonly
 	[ ] fazer Order update (DAO e repo)?
 	[ ] width screen manage products > 100%
-	[ ]popup mostrando scrollbar
+	[ ] popup mostrando scrollbar
 			This turned out to be hidden css applied to the body tag setting the position & overflow css. Once removed this works as expected from angular material.
+	[ ] status code 204
+	
 [ ] Verificações finais
 	[ ] Rever imports não utilizados
 	[ ] Rever código comentado
 	[ ] Rever todas as regras de negócio
 	[ ] Re-rodar testes
 	[ ] Correspondência diagramas
+	[ ] console.logs
+	[ ] navegar com debug aberto
 ● client: Não compactar o projeto com a pasta node_modules; (recriar projeto do front)

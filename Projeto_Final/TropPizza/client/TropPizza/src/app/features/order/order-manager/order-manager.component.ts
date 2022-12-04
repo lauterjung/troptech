@@ -78,10 +78,8 @@ export class OrderManagerComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(
       result => {
-        if (result.confirm) {
-          console.log(JSON.stringify(result.order));
-          
-          this.service.updateOrder(result.order)
+        if (result.confirm) {          
+          this.service.updateOrderStatus(result.order)
             .pipe(take(1))
             .subscribe(
               () => {

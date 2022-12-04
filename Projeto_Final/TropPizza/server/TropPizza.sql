@@ -96,6 +96,7 @@ CREATE TABLE Orders
     order_status_id SMALLINT NOT NULL,
     customer_id BIGINT NULL,
     order_date_time DATETIME2 NOT NULL,
+    total_price DECIMAL(36,2) NOT NULL,
     CONSTRAINT PK_order_id PRIMARY KEY (order_id),
     CONSTRAINT FK_orders_customer FOREIGN KEY (customer_id) REFERENCES Customers (customer_id) ON DELETE SET NULL,
     CONSTRAINT FK_orders_orderstatus FOREIGN KEY (order_status_id) REFERENCES OrderStatus (order_status_id),
@@ -103,16 +104,16 @@ CREATE TABLE Orders
 
 INSERT INTO Orders
 VALUES
-    (3, NULL, '2022-11-21 19:59:00'),
-    (3, NULL, '2023-11-21 20:08:00'),
-    (3, '00000000001', '2023-11-21 21:15:00'),
-    (3, '00000000002', '2023-11-22 20:12:00'),
-    (3, '00000000003', '2023-11-22 21:22:00'),
-    (3, NULL, '2023-11-22 22:37:00'),
-    (2, NULL, '2023-11-23 19:17:00'),
-    (2, '00000000001', '2023-11-23 19:25:00'),
-    (1, '00000000002', '2023-11-23 20:03:00'),
-    (0, '00000000003', '2023-11-23 22:14:00');
+    (3, NULL, '2022-11-21 19:59:00', 168),
+    (3, NULL, '2022-11-21 20:08:00', 148),
+    (3, '00000000001', '2022-11-21 21:15:00', 92),
+    (3, '00000000002', '2022-11-22 20:12:00', 94),
+    (3, '00000000003', '2022-11-22 21:22:00', 82),
+    (3, NULL, '2022-11-22 22:37:00', 92),
+    (2, NULL, '2022-11-23 19:17:00', 106),
+    (2, '00000000001', '2022-11-23 19:25:00', 78),
+    (1, '00000000002', '2022-11-23 20:03:00', 218),
+    (0, '00000000003', '2022-11-23 22:14:00', 70);
 -----------------------------------------------------------------------------------------------------
 CREATE TABLE CartProducts
 (

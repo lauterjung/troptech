@@ -74,7 +74,6 @@ export class OrderProductsComponent implements OnInit {
     cartProduct.totalPrice = quantity * unitPrice;
 
     this.cartProducts.push(cartProduct);
-    console.log(this.cartProducts);
     this.cartService.saveIds(this.cartProducts);
     this.showMessage("Produto adicionado com sucesso!", false);
   }

@@ -22,6 +22,10 @@ namespace TropPizza.Domain.Features.Customers
         public void ApplyFidelityPoints(double totalPrice)
         {
             FidelityPoints += 2 * totalPrice;
+            if (FidelityPoints < 0)
+            {
+                FidelityPoints = 0;
+            }
         }
 
         private bool CheckValidCpf()

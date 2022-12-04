@@ -126,7 +126,7 @@ namespace TropPizza.Domain.Tests
         {
             // arrange
             _order.StatusEnum = (OrderStatus)3;
-            string result = "Finalizado";
+            string result = "Entregue";
 
             // act
             // assert
