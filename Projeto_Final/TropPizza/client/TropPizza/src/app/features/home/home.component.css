@@ -17,3 +17,19 @@
     position: absolute;
     z-index: -1;
 }
+
+.main-message {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.green-text {
+    color: green;
+    font-weight: bolder;
+}
+
+.red-text {
+    color: red;
+    font-weight: bolder;
+}

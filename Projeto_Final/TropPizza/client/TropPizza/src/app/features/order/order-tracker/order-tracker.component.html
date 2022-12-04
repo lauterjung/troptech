@@ -9,31 +9,70 @@
         </div>
     </div>
     <div class="row justify-content-around">
-        <div [ngClass]="orderToTrack.statusEnum === 0 ? 'col-auto circle-colored' : 'col-auto circle'">
-            1
+        <div class="col-auto">
+            <div [ngClass]="orderToTrack.statusEnum === 0 ? 'circle-colored' : 'circle'">
+                1
+            </div>
+            <div
+                [ngClass]="orderToTrack.statusEnum === 0 ? 'bold-text after-circle-text text-center pt-3' : 'text-center pt-3 after-circle-text'">
+                Pendente</div>
         </div>
-        <div [ngClass]="orderToTrack.statusEnum === 1 ? 'col-auto circle-colored' : 'col-auto circle'">
-            2
+        <div class="col-auto">
+            <div [ngClass]="orderToTrack.statusEnum === 1 ? 'circle-colored' : 'circle'">
+                2
+            </div>
+            <div
+                [ngClass]="orderToTrack.statusEnum === 1 ? 'bold-text after-circle-text text-center pt-3' : 'text-center pt-3 after-circle-text'">
+                Em preparo</div>
         </div>
-        <div [ngClass]="orderToTrack.statusEnum === 2 ? 'col-auto circle-colored' : 'col-auto circle'">
-            3
+        <div class="col-auto">
+            <div [ngClass]="orderToTrack.statusEnum === 2 ? 'circle-colored' : 'circle'">
+                3
+            </div>
+            <div
+                [ngClass]="orderToTrack.statusEnum === 2 ? 'bold-text after-circle-text text-center pt-3' : 'text-center pt-3 after-circle-text'">
+                Delivery</div>
         </div>
-        <div [ngClass]="orderToTrack.statusEnum === 3 ? 'col-auto circle-colored' : 'col-auto circle'">
-            4
+        <div class="col-auto">
+            <div [ngClass]="orderToTrack.statusEnum === 3 ? 'circle-colored' : 'circle'">
+                4
+            </div>
+            <div
+                [ngClass]="orderToTrack.statusEnum === 3 ? 'bold-text after-circle-text text-center pt-3' : 'text-center pt-3 after-circle-text'">
+                Entregue</div>
         </div>
     </div>
-    <div class="row justify-content-start timeline-list">
+    <hr>
+    <div class="row justify-content-center">
+        <div class="col-auto pb-3">
+            <h2>Dados do pedido</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-4 text-left box">
+                <strong>Nº do pedido:</strong> {{orderToTrack.id}}
+                <br>
+                <strong>Cliente:</strong> {{orderToTrack.orderCustomer ? orderToTrack.orderCustomer : "Sem CPF registrado"}}
+                <br>
+                <strong>Produtos:</strong> {{showOrderProducts(orderToTrack)}}
+                <br>
+                <strong>Data e hora do pedido:</strong> {{orderToTrack.orderDateTime | date:'dd/MM/yyy - HH:mm' + " 'h'" }}
+                <br>
+                <strong>Valor total:</strong> {{'R$ ' + 'orderToTrack.totalPrice.toFixed(2)'}}
+            </div>
+        </div>
+    </div>
+    <!-- <div class="row justify-content-start timeline-list">
         <div class="col-auto">
             <ol>
                 <ul [ngClass]="orderToTrack.statusEnum === 0 ? 'bold-text' : ''">1 - Pendente</ul>
-                <ul [ngClass]="orderToTrack.statusEnum === 1 ? 'bold-text' : ''">2 - Em preparação</ul>
+                <ul [ngClass]="orderToTrack.statusEnum === 1 ? 'bold-text' : ''">2 - Em preparo</ul>
                 <ul [ngClass]="orderToTrack.statusEnum === 2 ? 'bold-text' : ''">3 - Saiu para entrega</ul>
                 <ul [ngClass]="orderToTrack.statusEnum === 3 ? 'bold-text' : ''">4 - Entregue</ul>
             </ol>
         </div>
-    </div>
-    <div class="col text-center">
+    </div> -->
+    <!-- <div class="col text-cente>
         <button type="button" class="btn btn-lg btn-danger" value="Voltar"
             (click)="returnToManager()">Voltar</button>
-    </div>
+    </div> -->
 </div>

@@ -38,15 +38,20 @@
               <!-- <td>{{ showOrderToString(order) }}</td> -->
               <td>{{ order.orderDateTime | date:'dd/MM/yyy - HH:mm' }}</td>
               <td>{{ order.status }}</td>
-              <td><button type="button" class="btn btn-warning btn-sm" title="Alterar status" (click)="showUpdateStatusDialog(order)">
+              <td *ngIf="order.statusEnum != 3; else other_content1"><button type="button" class="btn btn-warning btn-sm"
+                  title="Alterar status" (click)="showUpdateStatusDialog(order)">
                   <i class="bi bi-clock"></i></button></td>
+              <ng-template #other_content1>
+                <td><button disabled type="button" class="btn btn-warning btn-sm" title="Alterar status"><i
+                      class="bi bi-clock"></i></button></td>
+              </ng-template>
               <td><button type="button" class="btn btn-info btn-sm" title="Acompanhar pedido"
                   (click)="trackOrder(order.id)">
                   <i class="bi bi-pin-map"></i></button></td>
-              <td *ngIf="order.statusEnum != 3; else other_content"><button type="button"
-                  class="btn btn-dark btn-sm" title="Excluir" (click)="showDeleteDialog(order.id)">
+              <td *ngIf="order.statusEnum != 3; else other_content3"><button type="button" class="btn btn-dark btn-sm"
+                  title="Excluir" (click)="showDeleteDialog(order.id)">
                   <i class="bi bi-trash3"></i></button></td>
-              <ng-template #other_content>
+              <ng-template #other_content3>
                 <td><button disabled type="button" class="btn btn-dark btn-sm" title="Excluir"><i
                       class="bi bi-trash3"></i></button></td>
               </ng-template>

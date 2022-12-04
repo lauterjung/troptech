@@ -55,7 +55,8 @@ export class ProductFormsComponent implements OnInit {
 
   formToProduct(): InventoryProduct {
     let inventoryProduct: InventoryProduct = {} as InventoryProduct;
-    inventoryProduct.name = this.form.get("name")?.value;;
+    inventoryProduct.isActive = true;
+    inventoryProduct.name = this.form.get("name")?.value;
     inventoryProduct.description = this.form.get("description")?.value;
     inventoryProduct.expirationDate = this.form.get("expirationDate")?.value;
     inventoryProduct.unitPrice = this.form.get("unitPrice")?.value;

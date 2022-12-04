@@ -2,7 +2,7 @@
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 body {
-    padding-top: 65px;
+    padding-top: 75px;
     height: 100vh;
     /* width: 100vw; */
 }
@@ -14,10 +14,14 @@ body {
     overflow-y: scroll;
   } */
 
-/* html {
-    overflow-y: scroll;
-} */
+html {
+    overflow-x: hidden;
+}
 
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.transparent-caret {
+    caret-color: transparent;
+}

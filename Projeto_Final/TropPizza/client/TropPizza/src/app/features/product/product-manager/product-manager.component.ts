@@ -25,6 +25,7 @@ export class ProductManagerComponent implements OnInit {
       .pipe(take(1))
       .subscribe((data: InventoryProduct[]) => {
         this.products = data;
+        console.log(this.products);
       });
   }
 
@@ -42,6 +43,7 @@ export class ProductManagerComponent implements OnInit {
     let product: InventoryProduct = this.products[index];
     product.quantity += 1;
     this.updateProduct(product);
+    console.log(this.products);
   }
 
   removeQuantity(index: number): void {

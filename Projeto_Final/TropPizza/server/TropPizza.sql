@@ -188,3 +188,5 @@ VALUES
 
 SELECT *
 FROM Orders
+SELECT *
+FROM InventoryProducts

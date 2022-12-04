@@ -1,0 +1,14 @@
+Melhorias
+	Classe para interface no front-end
+	Separar comidas e bebidas
+	Tipos de pizza, escolher coberturas, controle de estoque cf. ingredientes, pro admin montar novas pizzas
+	
+Site
+	Cadastro
+	Login
+	Cardápio
+	Realizar pedido
+		Selecionar tamanho
+		Selecionar sabores
+		Remover ingredientes
+	Acompanhar pedido

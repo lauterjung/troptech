@@ -27,11 +27,16 @@
     font-weight: bold;
 }
 
-.timeline-list {
-    padding: 2% 0% 0% 2%;
-    font-size: larger;
-}
-
 .bold-text {
     font-weight: bold;
+}
+
+.after-circle-text {
+    font-size: 20px;
+}
+
+.box {
+    border-style: solid;
+    padding: 10px 10px 10px 10px;
+    /* border: 2px, solid, black; */
 }

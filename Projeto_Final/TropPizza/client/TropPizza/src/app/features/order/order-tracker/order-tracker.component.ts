@@ -30,7 +30,19 @@ export class OrderTrackerComponent implements OnInit {
       });
   }
 
-  returnToManager() {
-    this.router.navigate(['/order/manage'])
+  // returnToManager() {
+  //   this.router.navigate(['/order/manage'])
+  // }
+
+  showOrderProducts(order: Order): string {
+    let message: string[] = [];
+    if (order.cartProducts.length <= 0) {
+      return "";
+    }
+    order.cartProducts.forEach(product => {
+      let item: string = product.quantity + "x " + product.name;
+      message.push(item);
+    });
+    return message.join(", ");
   }
 }

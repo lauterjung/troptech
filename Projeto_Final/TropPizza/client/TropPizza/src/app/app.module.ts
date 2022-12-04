@@ -15,7 +15,6 @@ import { OrderManagerComponent } from './features/order/order-manager/order-mana
 import { OrderProductsComponent } from './features/order/order-products/order-products.component';
 import { OrderShoppingCartComponent } from './features/order/order-shopping-cart/order-shopping-cart.component';
 import { OrderStatusComponent } from './features/order/order-status/order-status.component';
-import { OrderSuccessComponent } from './features/order/order-success/order-success.component';
 import { OrderTrackerComponent } from './features/order/order-tracker/order-tracker.component';
 import { MatDialogModule } from "@angular/material/dialog";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -42,7 +41,6 @@ import { OrderDialogStatusChangeComponent } from './features/order/order-dialog-
     OrderProductsComponent,
     OrderShoppingCartComponent,
     OrderStatusComponent,
-    OrderSuccessComponent,
     OrderTrackerComponent,
     ProductDialogDeleteComponent,
     AlertDialogComponent,

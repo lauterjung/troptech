@@ -178,7 +178,6 @@ namespace TropPizza.Infra.Data.DAO
             inventoryProduct.ExpirationDate = Convert.ToDateTime(reader["expiration_date"]);
             inventoryProduct.Quantity = Convert.ToInt32(reader["quantity"]);
             inventoryProduct.UnitPrice = Convert.ToDouble(reader["unit_price"]);
-            inventoryProduct.IsActive = Convert.ToBoolean(reader["is_visible"]);
             inventoryProduct.ImageName = reader["image_name"] as string;
 
             return inventoryProduct;

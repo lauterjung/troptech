@@ -3,31 +3,23 @@ criar outra tabela DB
 refazer diagramas
 fidelity points não pode ser menor que zero
 mudar o trhow exception do alreadyexists
+pedido tem que ter total price e método que calcula
+Um pedido finalizado não pode ser excluído ou ter seus status alterado (canbedelete canbeiupdated;
 
-cart
-success
-track
-
-
-popup mostrando scrollbar
+pedido valor total
 
 
-validação do cpf repetido no front
-	!!! inserir com erro de bd / produtos repetidos, ....
-	produto já existente não pode criar
-	
-mudar status
-
+footer
 carrinho
 	carrinho: zerar carrinho
 	manter a array salva até fechar
 	ida e volta do carrinho
-
-pedido enviado redirecionar direto para acompanhar
-
-homepage
-	footer
+	insira seu cpf para acumular pontos!
+		cliente não encontrado, clqieu aqui para cadastrar
+	valor total
 	
+sem imagem
+
 [x] Documentação
 	[x] Readme
 	[x] Diagramas
@@ -51,27 +43,27 @@ homepage
 	[x] NavBar
 	[x] FavIcon
 	[ ] Componentes
-		[ ] Home-page
+		[x] Home-page
 		[x] Clientes
 			[x] Cadastrar
 			[x] Dashboard
 				[x] Editar
-				[-] Deletar
+				[x] Deletar
 		[x] Produtos
 			[x] Cadastrar
 			[x] Dashboard
 				[x] Ativar/Desativar
 				[x] Alterar quantidade
 				[x] Editar
-				[-] Deletar
-		[ ] Pedidos
-			[ ] Novo pedido
+				[x] Deletar
+		[x] Pedidos
+			[x] Novo pedido
+			[ ] Carrinho
 			[x] Dashboard
-			[ ] Alterar status
-			[-] Deletar
+			[x] Alterar status
+			[x] Deletar
 
 [ ] Outro
-	[ ] Melhorar dados iniciais do banco de dados
 	[ ] imagem não encontrada
 	[ ] forms onsubmit, forms com bordinhas verde/vermelha
 	[ ] searchbar nos dashboards id ou nome / nome ou cpf ou id
@@ -79,34 +71,21 @@ homepage
 	[ ] navbar icon
 	[ ] renomear front -> product tá ambíguo
 	[ ] ordenar tabela
-	tela inicial do tracker
-	validador cruzado do hasImage
-	
+	[ ] validador cruzado do hasImage
+	[ ] icon para pop-up
 	zzzz
 	[ ] mock para repository ou melhorar testes do thunder
 	[ ] popup como componente (depois)
 	[ ] navbar com scroll começando embaixo
 	[ ] propriedades readonly
 	[ ] fazer Order update (DAO e repo)?
-
+	[ ] width screen manage products > 100%
+	[ ]popup mostrando scrollbar
+			This turned out to be hidden css applied to the body tag setting the position & overflow css. Once removed this works as expected from angular material.
 [ ] Verificações finais
 	[ ] Rever imports não utilizados
 	[ ] Rever código comentado
 	[ ] Rever todas as regras de negócio
 	[ ] Re-rodar testes
 	[ ] Correspondência diagramas
-
-Melhorias
-	Classe para interface no front-end
-	Separar comidas e bebidas
-	Tipos de pizza, escolher coberturas, controle de estoque cf. ingredientes, pro admin montar novas pizzas
-	
-Site
-	Cadastro
-	Login
-	Cardápio
-	Realizar pedido
-		Selecionar tamanho
-		Selecionar sabores
-		Remover ingredientes
-	Acompanhar pedido
+● client: Não compactar o projeto com a pasta node_modules; (recriar projeto do front)

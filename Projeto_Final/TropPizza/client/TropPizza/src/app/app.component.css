@@ -8,6 +8,7 @@
 
 .navbar-brand {
     color: white ;
+    padding: 0px;
 }
 
 .dropdown-menu {
