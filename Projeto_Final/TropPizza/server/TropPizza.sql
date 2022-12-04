@@ -62,7 +62,7 @@ VALUES
     ('Pizza - Azeitona', 'Pizza grande 12 fatias sabor Azeitona', 1, '2025-01-01', 20, 70, 1, 'azeitona.png', 0),
     ('Pizza - Bacon', 'Pizza grande 12 fatias sabor Bacon', 1, '2025-01-01', 20, 70, 1, 'bacon.png', 0),
     ('Pizza - Calabresa', 'Pizza grande 12 fatias sabor Calabresa', 1, '2025-01-01', 20, 70, 1, 'calabresa.png', 0),
-    ('Pizza - Calabresa c/ cebola', 'Pizza grande 12 fatias sabor Calabresa c/ cebola', 1, '2025-01-01', 20, 70, 1, 'calabresa-acebolada.png', 0),
+    ('Pizza - Calabresa c/ cebola', 'Pizza grande 12 fatias sabor Calabresa c/ cebola', 1, '2025-01-01', 20, 70, 1, NULL, 0), -- 'calabresa-acebolada.png'
     ('Pizza - Champignon', 'Pizza grande 12 fatias sabor Champignon', 1, '2025-01-01', 20, 70, 1, 'champignon.png', 0),
     ('Pizza - Frango catupiry', 'Pizza grande 12 fatias sabor Frango catupiry', 1, '2025-01-01', 20, 70, 1, 'frango-catupiry.png', 0),
     ('Pizza - Linguiça Blumenau', 'Pizza grande 12 fatias sabor Linguiça Blumenau', 1, '2025-01-01', 20, 80, 1, 'linguiça-blumenau.png', 0),

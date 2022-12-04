@@ -13,11 +13,11 @@ export class Order {
     public statusEnum: OrderStatus;
     public status: string;
     public orderCustomer?: Customer;
-    public cartProducts: Product[];
+    public cartProducts: CartProduct[];
     public orderDateTime: Date;
     public totalPrice: number;
 
-    constructor(id: number, statusEnum: OrderStatus, status: string, cartProducts: Product[], orderDateTime: Date, totalPrice: number, orderCustomer?: Customer) {
+    constructor(id: number, statusEnum: OrderStatus, status: string, cartProducts: CartProduct[], orderDateTime: Date, totalPrice: number, orderCustomer?: Customer) {
         this.id = id;
         this.statusEnum = statusEnum;
         this.status = status;

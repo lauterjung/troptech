@@ -1,20 +1,12 @@
-﻿criar outra tabela DB
-thunder testes
-refazer diagramas
-
-ordertracker ERROR TypeError: order.cartProducts is undefined
-
-
-footer
+﻿footer
 carrinho
 	carrinho: zerar carrinho
 	manter a array salva até fechar
 	ida e volta do carrinho
 	insira seu cpf para acumular pontos!
-		cliente não encontrado, clqieu aqui para cadastrar
+		cliente não encontrado, clique aqui para cadastrar
 	valor total
-	
-sem imagem
+
 
 [x] Documentação
 	[x] Readme
@@ -60,25 +52,20 @@ sem imagem
 			[x] Deletar
 
 [ ] Outro
-	[ ] imagem não encontrada
-	[ ] forms onsubmit, forms com bordinhas verde/vermelha
+	[ ] validador cruzado do hasImage
+	[ ] mock para repository
+	[ ] status code 204
+	[ ] icon para pop-up
+	[ ] width screen manage products > 100%
+	[ ] forms com bordinhas verde/vermelha
 	[ ] searchbar nos dashboards id ou nome / nome ou cpf ou id
-	[ ] fonte
-	[ ] navbar icon
+	
+	Não
 	[ ] renomear front -> product tá ambíguo
 	[ ] ordenar tabela
-	[ ] validador cruzado do hasImage
-	[ ] icon para pop-up
-	zzzz
-	[ ] mock para repository ou melhorar testes do thunder
-	[ ] popup como componente (depois)
-	[ ] navbar com scroll começando embaixo
+	[ ] forms onsubmit
 	[ ] propriedades readonly
-	[ ] fazer Order update (DAO e repo)?
-	[ ] width screen manage products > 100%
-	[ ] popup mostrando scrollbar
-			This turned out to be hidden css applied to the body tag setting the position & overflow css. Once removed this works as expected from angular material.
-	[ ] status code 204
+	[ ] editar pedido
 	
 [ ] Verificações finais
 	[ ] Rever imports não utilizados
@@ -88,4 +75,5 @@ sem imagem
 	[ ] Correspondência diagramas
 	[ ] console.logs
 	[ ] navegar com debug aberto
-● client: Não compactar o projeto com a pasta node_modules; (recriar projeto do front)
+	[ ] ver o que eu quero mostrar na apresentação
+	● client: Não compactar o projeto com a pasta node_modules; (recriar projeto do front, os modules podem estar bugados)

@@ -1,6 +1,5 @@
-import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs';
 import { OrderService } from '../../order.service';
 import { Order } from '../order.model';
@@ -15,10 +14,9 @@ export class OrderTrackerComponent implements OnInit {
   public orderToTrack: Order = {} as Order;
   public id: number = 0;
 
-  constructor(private service: OrderService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private service: OrderService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-
     this.route.params.subscribe(params => {
       this.id = params['id'];
     });
@@ -30,15 +28,17 @@ export class OrderTrackerComponent implements OnInit {
       });
   }
 
-  // returnToManager() {
-  //   this.router.navigate(['/order/manage'])
-  // }
-
   showOrderProducts(order: Order): string {
     let message: string[] = [];
-    if (order.cartProducts.length <= 0) {
-      return "";
-    }
+
+    console.log(order.cartProducts);
+    
+    // let cartProducts: CartProduct[] = [];
+    // cartProducts = order.cartProducts;
+
+    // for (let i = 0; i < cartProducts.length; i++) {  
+    // }
+
     order.cartProducts.forEach(product => {
       let item: string = product.quantity + "x " + product.name;
       message.push(item);

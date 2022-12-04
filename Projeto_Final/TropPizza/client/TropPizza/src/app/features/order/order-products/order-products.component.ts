@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { take } from 'rxjs';
 import { CartService } from '../../cart.service';
 import { AlertDialogComponent } from '../../dialog/alert-dialog/alert-dialog.component';
@@ -17,7 +18,7 @@ export class OrderProductsComponent implements OnInit {
   public cartProducts: CartProduct[] = [];
   public quantityToCart: number[] = [];
 
-  constructor(private service: ProductService, private cartService: CartService, private dialog: MatDialog) { }
+  constructor(private router: Router, private service: ProductService, private cartService: CartService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.service.getVisibleProducts()
@@ -83,5 +84,9 @@ export class OrderProductsComponent implements OnInit {
       {
         data: {message, reloadPage}
       });
+  }
+
+  goToCart() {
+    this.router.navigate(["order/cart"]);
   }
 }
