@@ -15,7 +15,7 @@ export class AlertDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.matDialogRef.close(this.data.message);
     if (this.data.navigationString) {
       this.router.navigate([this.data.navigationString])

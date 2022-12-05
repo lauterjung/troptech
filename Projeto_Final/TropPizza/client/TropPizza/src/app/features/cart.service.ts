@@ -10,19 +10,26 @@ export class CartService {
     cartProducts: CartProduct[] = [];
     constructor() { }
 
-    saveProducts(productsToCart: CartProduct[]) {
+    saveProducts(productsToCart: CartProduct[]): void {
         if (this.cartProducts.length === 0) {
-            this.cartProducts = productsToCart;     
+            this.cartProducts = productsToCart;
         } else {
-            this.cartProducts.push(...productsToCart);
+            for (let i = 0; i < productsToCart.length; i++) {
+                let index = this.cartProducts.map(object => object.id).indexOf(productsToCart[i].id);
+                if (index != -1) {
+                    this.cartProducts[index].quantity += productsToCart[i].quantity;
+                } else {
+                    this.cartProducts.push(productsToCart[i]);
+                }
+            }
         }
     }
 
-    emptyCart() {
+    emptyCart(): void {
         this.cartProducts = [];
     }
 
-    retrieveProducts() {
+    retrieveProducts(): CartProduct[] {
         return this.cartProducts;
     }
 }

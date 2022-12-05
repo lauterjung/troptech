@@ -6,10 +6,11 @@ import { Router } from '@angular/router';
 import { take } from 'rxjs';
 import { CartService } from '../../cart.service';
 import { Customer } from '../../customer/customer.model';
-import { AlertDialogComponent } from '../../dialog/alert-dialog/alert-dialog.component';
+import { AlertDialogComponent } from '../../common/dialog/alert-dialog/alert-dialog.component';
 import { OrderService } from '../../order.service';
 import { CartProduct } from '../../product/product.model';
 import { Order } from '../order.model';
+import { DeleteDialogComponent } from '../../common/dialog/delete-dialog/delete-dialog.component';
 
 @Component({
   selector: 'app-order-shopping-cart',
@@ -36,7 +37,7 @@ export class OrderShoppingCartComponent implements OnInit {
     });
   }
 
-  updatePage() {
+  updatePage(): void {
     this.isEmptyCart = this.cartProducts.length === 0 ? true : false;
     this.totalPrice = this.calculateTotalPrice();
   }
@@ -70,15 +71,31 @@ export class OrderShoppingCartComponent implements OnInit {
     this.updatePage();
   }
 
-  goShopping() {
+  goShopping(): void {
     this.router.navigate(["order/new"]);
   }
 
-  confirmEmptyCart() {
+  confirmEmptyCart(): void {
+    let dialogRef = this.dialog.open(DeleteDialogComponent,
+      {
+        data: {
+          itemType: "todos os itens ",
+          identifier: "do carrinho",
+          confirm: false,
+        }
+      });
 
+    dialogRef.afterClosed().subscribe(
+      result => {
+        if (result.confirm) {
+          this.cartService.emptyCart();
+          location.reload();
+        }
+      }
+    )
   }
 
-  submitOrder() {
+  submitOrder(): void {
     let order = {} as Order;
 
     order.cartProducts = this.cartProducts;
@@ -105,25 +122,25 @@ export class OrderShoppingCartComponent implements OnInit {
           }
         });
   }
-  
-  processOrder() {
+
+  processOrder(): void {
     this.service.getLastKey()
-    .pipe(take(1))
-    .subscribe((data: number) => {
-      this.lastKey = data;
-      this.showMessageNavigate('Pedido nº ' + this.lastKey + ' realizado com sucesso!', 'order/track/' + this.lastKey);
-      this.cartService.emptyCart();
-    });
+      .pipe(take(1))
+      .subscribe((data: number) => {
+        this.lastKey = data;
+        this.showMessageAndNavigate('Pedido nº ' + this.lastKey + ' realizado com sucesso!', 'order/track/' + this.lastKey);
+        this.cartService.emptyCart();
+      });
   }
 
-  showMessage(message: string) {
+  showMessage(message: string): void {
     this.dialog.open(AlertDialogComponent,
       {
         data: { message }
       });
   }
 
-  showMessageNavigate(message: string, navigationString: string) {
+  showMessageAndNavigate(message: string, navigationString: string): void {
     this.dialog.open(AlertDialogComponent,
       {
         data: { message, navigationString }

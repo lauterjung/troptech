@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { take } from 'rxjs';
 import { CustomValidators } from 'src/app/validators/custom.validators';
 import { CustomerService } from '../../customer.service';
-import { AlertDialogComponent } from '../../dialog/alert-dialog/alert-dialog.component';
+import { AlertDialogComponent } from '../../common/dialog/alert-dialog/alert-dialog.component';
 import { Customer } from '../customer.model';
 
 @Component({
@@ -62,7 +62,7 @@ export class CustomerFormsComponent implements OnInit {
     return customer;
   }
 
-  showMessage(message: string, reloadPage: boolean) {
+  showMessage(message: string, reloadPage: boolean): void {
     this.dialog.open(AlertDialogComponent,
       {
         data: { message, reloadPage }

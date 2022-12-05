@@ -1,13 +1,11 @@
 ﻿remover <br>
-carrinho: zerar carrinho
-insira seu cpf para acumular pontos!
-testar imagename no products
-	imagename tolower
 campo cpf no pedido, validação
-	
-Produto repetido no cart
-cpf repetido no editar!!!
+footer to bottom
 
+:void
+
+rever docs
+refazer o front
 
 [ ] navegar com debug aberto
 

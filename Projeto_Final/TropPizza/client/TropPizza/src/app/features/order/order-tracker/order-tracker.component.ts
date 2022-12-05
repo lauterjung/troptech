@@ -25,12 +25,15 @@ export class OrderTrackerComponent implements OnInit {
       .pipe(take(1))
       .subscribe((data: Order) => {
         this.orderToTrack = data;
+        // aqui
+        
       });
   }
 
   showOrderProducts(order: Order): string {
     let message: string[] = [];
-
+    console.log(order.cartProducts);
+    
     order.cartProducts.forEach(product => {
       let item: string = product.quantity + "x " + product.name;
       message.push(item);

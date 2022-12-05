@@ -24,7 +24,7 @@ export class OrderDialogStatusChangeComponent implements OnInit {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.matDialogRef.close(this.data);
   }
 

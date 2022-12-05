@@ -13,7 +13,7 @@ export class DeleteDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.matDialogRef.close(this.data);
   }
 

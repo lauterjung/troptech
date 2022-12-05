@@ -3,8 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
 import { CustomerService } from '../../customer.service';
-import { AlertDialogComponent } from '../../dialog/alert-dialog/alert-dialog.component';
-import { DeleteDialogComponent } from '../../dialog/delete-dialog/delete-dialog.component';
+import { AlertDialogComponent } from '../../common/dialog/alert-dialog/alert-dialog.component';
+import { DeleteDialogComponent } from '../../common/dialog/delete-dialog/delete-dialog.component';
 import { Customer } from '../customer.model';
 
 @Component({
@@ -26,11 +26,11 @@ export class CustomerManagerComponent implements OnInit {
       });
   }
 
-  editCustomer(id: number) {
+  editCustomer(id: number): void {
     this.router.navigate(['/customer/edit', id]);
   }
 
-  showDeleteDialog(id: number, name: string) {
+  showDeleteDialog(id: number, name: string): void {
     let dialogRef = this.dialog.open(DeleteDialogComponent,
       {
         data: {
@@ -55,7 +55,7 @@ export class CustomerManagerComponent implements OnInit {
     )
   }
 
-  showMessage(message: string, reloadPage: boolean) {
+  showMessage(message: string, reloadPage: boolean): void {
     this.dialog.open(AlertDialogComponent,
       {
         data: {message, reloadPage}

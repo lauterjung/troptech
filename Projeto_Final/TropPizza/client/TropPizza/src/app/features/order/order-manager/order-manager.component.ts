@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
-import { AlertDialogComponent } from '../../dialog/alert-dialog/alert-dialog.component';
-import { DeleteDialogComponent } from '../../dialog/delete-dialog/delete-dialog.component';
+import { AlertDialogComponent } from '../../common/dialog/alert-dialog/alert-dialog.component';
+import { DeleteDialogComponent } from '../../common/dialog/delete-dialog/delete-dialog.component';
 import { OrderService } from '../../order.service';
 import { OrderDialogStatusChangeComponent } from '../order-dialog-status-change/order-dialog-status-change.component';
 import { Order } from '../order.model';
@@ -26,7 +26,7 @@ export class OrderManagerComponent implements OnInit {
       });
   }
 
-  trackOrder(id: number) {
+  trackOrder(id: number): void {
     this.router.navigate(['/order/track', id]);
   }
 
@@ -42,7 +42,7 @@ export class OrderManagerComponent implements OnInit {
     return message.join(", ");
   }
 
-  showDeleteDialog(id: number) {
+  showDeleteDialog(id: number): void {
     let dialogRef = this.dialog.open(DeleteDialogComponent,
       {
         data: {
@@ -67,7 +67,7 @@ export class OrderManagerComponent implements OnInit {
     )
   }
 
-  showUpdateStatusDialog(order: Order) {
+  showUpdateStatusDialog(order: Order): void {
     let dialogRef = this.dialog.open(OrderDialogStatusChangeComponent,
       {
         data: {
@@ -90,7 +90,7 @@ export class OrderManagerComponent implements OnInit {
     )
   }
 
-  showMessage(message: string, reloadPage: boolean) {
+  showMessage(message: string, reloadPage: boolean): void {
     this.dialog.open(AlertDialogComponent,
       {
         data: { message, reloadPage }

@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
 import { CartService } from '../../cart.service';
-import { AlertDialogComponent } from '../../dialog/alert-dialog/alert-dialog.component';
+import { AlertDialogComponent } from '../../common/dialog/alert-dialog/alert-dialog.component';
 import { ProductService } from '../../product.service';
 import { CartProduct, InventoryProduct } from '../../product/product.model';
 
@@ -49,12 +49,12 @@ export class OrderProductsComponent implements OnInit {
   validateAddToCart(index: number, quantity: number): boolean {
     let quantityInStock: number = this.inventoryProducts[index].quantity;
     if (quantity > quantityInStock) {
-      this.showMessage("Quantidade indisponível no estoque!\nQuantidade disponível: " + quantityInStock + "x", false);
+      this.showMessage("Quantidade indisponível no estoque!\nQuantidade disponível: " + quantityInStock + "x");
       return false;
     }
 
     if (quantity <= 0) {
-      this.showMessage("A quantidade deve ser maior que zero!", false);
+      this.showMessage("A quantidade deve ser maior que zero!");
       return false;
     }
 
@@ -67,32 +67,27 @@ export class OrderProductsComponent implements OnInit {
     }
     this.quantityToCart[index] = 0;
 
-
-    // se já existir, só add quantidade em cima
-    // let existingCart
-    //if in existing cart, add quantity, else create product and push
     let cartProduct: CartProduct = {} as CartProduct;
-
     cartProduct.id = inventoryProduct.id;
     cartProduct.name = inventoryProduct.name;
     cartProduct.unitPrice = inventoryProduct.unitPrice;
     cartProduct.quantity = quantity;
     cartProduct.totalPrice = quantity * inventoryProduct.unitPrice;
-    
+
     this.cartProducts.push(cartProduct);
     this.cartService.saveProducts(this.cartProducts);
     this.cartProducts = [];
-    this.showMessage("Produto adicionado com sucesso!", false);
+    this.showMessage("Produto adicionado com sucesso!");
   }
 
-  showMessage(message: string, reloadPage: boolean) {
+  showMessage(message: string): void {
     this.dialog.open(AlertDialogComponent,
       {
-        data: {message, reloadPage}
+        data: { message }
       });
   }
 
-  goToCart() {
+  goToCart(): void {
     this.router.navigate(["order/cart"]);
   }
 }

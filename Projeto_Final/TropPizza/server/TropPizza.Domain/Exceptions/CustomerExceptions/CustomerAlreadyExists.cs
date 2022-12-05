@@ -4,22 +4,22 @@ using System.Runtime.Serialization;
 namespace TropPizza.Domain.Exceptions
 {
 [Serializable]
-    public class CustomerAlreadyExists : Exception
+    public class CpfAlreadyExists : Exception
     {
-        public CustomerAlreadyExists() : base ("Cliente já existente!")
+        public CpfAlreadyExists() : base ("CPF já existente!")
         {
         }
 
-        public CustomerAlreadyExists(string message) : base(message)
+        public CpfAlreadyExists(string message) : base(message)
         {
 
         }
 
-        public CustomerAlreadyExists(string message, Exception innerException) : base(message, innerException)
+        public CpfAlreadyExists(string message, Exception innerException) : base(message, innerException)
         {
         }
 
-        protected CustomerAlreadyExists(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected CpfAlreadyExists(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }

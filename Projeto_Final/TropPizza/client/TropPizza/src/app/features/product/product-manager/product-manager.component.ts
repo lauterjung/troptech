@@ -3,9 +3,9 @@ import { take } from 'rxjs';
 import { ProductService } from '../../product.service';
 import { InventoryProduct } from '../product.model';
 import { Router } from '@angular/router';
-import { DeleteDialogComponent } from '../../dialog/delete-dialog/delete-dialog.component';
+import { DeleteDialogComponent } from '../../common/dialog/delete-dialog/delete-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { AlertDialogComponent } from '../../dialog/alert-dialog/alert-dialog.component';
+import { AlertDialogComponent } from '../../common/dialog/alert-dialog/alert-dialog.component';
 
 @Component({
   selector: 'app-product-manager',
@@ -28,7 +28,7 @@ export class ProductManagerComponent implements OnInit {
       });
   }
 
-  editProduct(id: number) {
+  editProduct(id: number): void {
     this.router.navigate(['/product/edit', id]);
   }
 
@@ -61,7 +61,7 @@ export class ProductManagerComponent implements OnInit {
         });
   }
 
-  showDeleteDialog(id: number, name: string) {
+  showDeleteDialog(id: number, name: string): void {
     let dialogRef = this.dialog.open(DeleteDialogComponent,
       {
         data: {
@@ -86,7 +86,7 @@ export class ProductManagerComponent implements OnInit {
     )
   }
 
-  showMessage(message: string, reloadPage: boolean) {
+  showMessage(message: string, reloadPage: boolean): void {
     this.dialog.open(AlertDialogComponent,
       {
         data: { message, reloadPage }

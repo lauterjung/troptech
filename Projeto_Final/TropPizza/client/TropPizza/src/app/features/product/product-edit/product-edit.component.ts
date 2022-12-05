@@ -6,7 +6,7 @@ import { InventoryProduct } from '../product.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { formatDate } from '@angular/common';
 import { CustomValidators } from 'src/app/validators/custom.validators';
-import { AlertDialogComponent } from '../../dialog/alert-dialog/alert-dialog.component';
+import { AlertDialogComponent } from '../../common/dialog/alert-dialog/alert-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -86,11 +86,11 @@ export class ProductEditComponent implements OnInit {
         });
   }
 
-  returnToManager() {
+  returnToManager(): void {
     this.router.navigate(['/product/manage'])
   }
   
-  showMessage(message: string, navigationString: string) {
+  showMessage(message: string, navigationString: string): void {
     this.dialog.open(AlertDialogComponent,
       {
         data: { message, navigationString }

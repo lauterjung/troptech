@@ -6,8 +6,9 @@ import { CustomerService } from '../../customer.service';
 import { Customer } from '../customer.model';
 import { formatDate } from '@angular/common';
 import { CustomValidators } from 'src/app/validators/custom.validators';
-import { AlertDialogComponent } from '../../dialog/alert-dialog/alert-dialog.component';
+import { AlertDialogComponent } from '../../common/dialog/alert-dialog/alert-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-customer-edit',
@@ -64,7 +65,7 @@ export class CustomerEditComponent implements OnInit {
     return customer;
   }
 
-  returnToManager() {
+  returnToManager(): void {
     this.router.navigate(['/customer/manage'])
   }
 
@@ -78,15 +79,22 @@ export class CustomerEditComponent implements OnInit {
     this.service.updateCustomer(customer)
       .pipe(take(1))
       .subscribe(
-        () => {  
-          this.showMessage('Cliente editado com sucesso!', '/customer/manage');
+        {
+          next: () => {
+            this.showMessage('Cliente salvo com sucesso!', false, '/customer/manage');
+          },
+          error: (error: HttpErrorResponse) => {
+            if (error.status == 400) {
+              this.showMessage(error.error, false, '');
+            }
+          }
         });
   }
 
-  showMessage(message: string, navigationString: string) {
+  showMessage(message: string, reloadPage: boolean, navigationString: string): void {
     this.dialog.open(AlertDialogComponent,
       {
-        data: { message, navigationString }
+        data: { message, reloadPage, navigationString }
       });
   }
 }
