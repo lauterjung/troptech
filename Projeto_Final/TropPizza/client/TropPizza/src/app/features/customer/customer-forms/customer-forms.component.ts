@@ -41,12 +41,12 @@ export class CustomerFormsComponent implements OnInit {
       .subscribe(
         {
           next: () => {
-            this.showMessage('Cliente salvo com sucesso!', false)
+            this.showMessage('Cliente salvo com sucesso!', false);
             this.form.reset();
           },
           error: (error: HttpErrorResponse) => {
             if (error.status == 400) {
-              this.showMessage(error.error, false)
+              this.showMessage(error.error, false);
             }
           }
         });

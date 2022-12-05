@@ -30,6 +30,7 @@ namespace TropPizza.Domain.Features.Orders
         {
             CartProducts = new List<CartProduct>();
             StatusEnum = OrderStatus.Pending;
+            OrderDateTime = DateTime.Now;
         }
 
         public double CalculateTotalPrice()

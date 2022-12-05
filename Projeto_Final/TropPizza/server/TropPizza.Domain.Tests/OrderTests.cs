@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using NUnit.Framework;
 using TropPizza.Domain.Exceptions.OrderExceptions;
@@ -21,6 +22,7 @@ namespace TropPizza.Domain.Tests
         public void Constructor()
         {
             // arrange
+            DateTime dateNow = DateTime.Now;
 
             // act
             Order order = new Order();
@@ -29,6 +31,9 @@ namespace TropPizza.Domain.Tests
             CollectionAssert.IsEmpty(order.CartProducts);
             Assert.AreEqual("Pendente", order.Status);
             Assert.AreEqual(OrderStatus.Pending, order.StatusEnum);
+            Assert.AreEqual(dateNow.Hour, order.OrderDateTime.Hour);
+            Assert.AreEqual(dateNow.Minute, order.OrderDateTime.Minute);
+            Assert.AreEqual(dateNow.Second, order.OrderDateTime.Second);
         }
 
         [Test]

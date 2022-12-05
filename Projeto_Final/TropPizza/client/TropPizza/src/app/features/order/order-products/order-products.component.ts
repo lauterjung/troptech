@@ -72,6 +72,7 @@ export class OrderProductsComponent implements OnInit {
     // let existingCart
     let cartProduct: CartProduct = {} as CartProduct;
 
+    cartProduct.id = inventoryProduct.id;
     cartProduct.name = inventoryProduct.name;
     cartProduct.unitPrice = inventoryProduct.unitPrice;
     cartProduct.quantity = quantity;

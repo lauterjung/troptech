@@ -18,6 +18,10 @@ export class CartService {
         }
     }
 
+    emptyCart() {
+        this.cartProducts = [];
+    }
+
     retrieveProducts() {
         return this.cartProducts;
     }

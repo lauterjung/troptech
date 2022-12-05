@@ -1,7 +1,10 @@
-<div class="row text-center pb-3">
+<div class="row text-center pb-2">
   <h1>Novo Pedido</h1>
 </div>
 <div class="container text-center">
+  <div class="pb-3">
+    <button class="btn btn-primary btn-lg" (click)="goToCart()"><i class="bi bi-cart2"></i> Ir para o carrinho</button>
+    </div>
   <div class="row row-cols-3">
     <div *ngFor="let product of inventoryProducts, let i = index" class="card col pt-2">
       <div class="" style="height: 100px;">
@@ -27,7 +30,8 @@
       </div>
     </div>
   </div>
-  <div class="py-4">
-  <button class="btn btn-primary btn-lg" (click)="goToCart()"><i class="bi bi-cart2"></i> Ir para o carrinho</button>
-  </div>
+  <div class="pt-4">
+    <button class="btn btn-primary btn-lg" (click)="goToCart()"><i class="bi bi-cart2"></i> Ir para o carrinho</button>
+    </div>
 </div>
+<div class="pb-3"></div>

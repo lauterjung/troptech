@@ -1,8 +1,15 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { take } from 'rxjs';
 import { CartService } from '../../cart.service';
+import { Customer } from '../../customer/customer.model';
+import { AlertDialogComponent } from '../../dialog/alert-dialog/alert-dialog.component';
+import { OrderService } from '../../order.service';
 import { CartProduct } from '../../product/product.model';
+import { Order } from '../order.model';
 
 @Component({
   selector: 'app-order-shopping-cart',
@@ -15,8 +22,9 @@ export class OrderShoppingCartComponent implements OnInit {
   public cartProducts: CartProduct[] = [];
   public isEmptyCart: boolean = true;
   public totalPrice: string = "";
+  public lastKey?: number;
 
-  constructor(private cartService: CartService, private router: Router) { }
+  constructor(private dialog: MatDialog, private service: OrderService, private cartService: CartService, private router: Router) { }
 
   ngOnInit(): void {
     this.cartProducts = this.cartService.retrieveProducts();
@@ -27,9 +35,8 @@ export class OrderShoppingCartComponent implements OnInit {
       cpf: new FormControl(null, [Validators.pattern("[0-9]{11}")]),
     });
   }
-  
-  updatePage()
-  {
+
+  updatePage() {
     this.isEmptyCart = this.cartProducts.length === 0 ? true : false;
     this.totalPrice = this.calculateTotalPrice();
   }
@@ -72,6 +79,54 @@ export class OrderShoppingCartComponent implements OnInit {
   }
 
   submitOrder() {
+    let order = {} as Order;
 
+    order.cartProducts = this.cartProducts;
+    order.orderCustomer = {} as Customer;
+
+    let cpf = this.form.get("cpf")?.value;
+    if (typeof cpf != 'undefined' && cpf) {
+      order.orderCustomer!.cpf = cpf;
+    } else {
+      order.orderCustomer = undefined;
+    }
+
+    this.service.saveOrder(order)
+      .pipe(take(1))
+      .subscribe(
+        {
+          next: () => {
+            this.processOrder();
+          },
+          error: (error: HttpErrorResponse) => {
+            if (error.status == 400) {
+              this.showMessage(error.error)
+            }
+          }
+        });
+  }
+  
+  processOrder() {
+    this.service.getLastKey()
+    .pipe(take(1))
+    .subscribe((data: number) => {
+      this.lastKey = data;
+      this.showMessageNavigate('Pedido nº ' + this.lastKey + ' realizado com sucesso!', 'order/track/' + this.lastKey);
+      this.cartService.emptyCart();
+    });
+  }
+
+  showMessage(message: string) {
+    this.dialog.open(AlertDialogComponent,
+      {
+        data: { message }
+      });
+  }
+
+  showMessageNavigate(message: string, navigationString: string) {
+    this.dialog.open(AlertDialogComponent,
+      {
+        data: { message, navigationString }
+      });
   }
 }

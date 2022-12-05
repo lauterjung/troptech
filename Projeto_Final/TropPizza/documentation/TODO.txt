@@ -1,14 +1,8 @@
-﻿	R$ 12.50 coca cola
-	
-remover <br>
-
-footer
-carrinho
-	carrinho: zerar carrinho
-	insira seu cpf para acumular pontos!
-		cliente não encontrado, clique aqui para cadastrar
-	valor total
-
+﻿remover <br>
+carrinho: zerar carrinho
+insira seu cpf para acumular pontos!
+testar imagename no products
+campo cpf no pedido, validação
 
 [x] Documentação
 	[x] Readme
@@ -71,16 +65,12 @@ carrinho
 	[ ] editar pedido
 	
 [ ] Verificações finais
-	[ ] Rever imports não utilizados
-		[ ] front
-		[x] back
-	[ ] Rever código comentado
-		[ ] front
-		[x] back
+	[x] Rever imports não utilizados
+	[x] Rever código comentado
 	[x] Rever todas as regras de negócio
 	[x] Re-rodar testes
 	[x] Correspondência diagramas
-	[ ] console.logs
+	[x] console.logs
 	[ ] navegar com debug aberto
 	[ ] ver o que eu quero mostrar na apresentação
 	● client: Não compactar o projeto com a pasta node_modules; (recriar projeto do front, os modules podem estar bugados)
