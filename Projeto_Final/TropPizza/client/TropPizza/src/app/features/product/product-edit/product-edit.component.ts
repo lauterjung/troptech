@@ -82,7 +82,7 @@ export class ProductEditComponent implements OnInit {
       .pipe(take(1))
       .subscribe(
         () => {
-          this.showMessage('Produto editado com sucesso!', '/customer/manage');
+          this.showMessage('Produto editado com sucesso!', '/product/manage');
         });
   }
 

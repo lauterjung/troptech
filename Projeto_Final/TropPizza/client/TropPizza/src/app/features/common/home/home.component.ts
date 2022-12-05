@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   public isOpen?: boolean;
+  public message?: string;
 
   constructor(private router: Router) { }
 
@@ -20,10 +21,13 @@ export class HomeComponent implements OnInit {
     let currentHour: number = new Date().getHours();
     let openingTime = 18;
     let closingTime = 24;
+
     if (currentHour >= openingTime && currentHour < closingTime) {
+      this.message = "ABERTOS";
       return true;
     }
     else {
+      this.message = "FECHADOS";
       return false;
     }
   }

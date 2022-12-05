@@ -4,7 +4,7 @@
 /* tirar o after */
 .background-image::after {
     content: "";
-    background: url("../../../assets/background.png");
+    background: url("../../../../assets/background.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

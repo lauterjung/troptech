@@ -2,7 +2,16 @@
 carrinho: zerar carrinho
 insira seu cpf para acumular pontos!
 testar imagename no products
+	imagename tolower
 campo cpf no pedido, validação
+	
+Produto repetido no cart
+cpf repetido no editar!!!
+
+
+[ ] navegar com debug aberto
+
+baixar todos os pdfs e gabaritos
 
 [x] Documentação
 	[x] Readme
@@ -52,12 +61,10 @@ campo cpf no pedido, validação
 	[ ] validador cruzado do hasImage
 	[ ] mock para repository
 	[ ] status code 204
-	[ ] icon para pop-up
-	[ ] width screen manage products > 100%
 	[ ] forms com bordinhas verde/vermelha
-	[ ] searchbar nos dashboards id ou nome / nome ou cpf ou id
 	
 	Não
+	[ ] searchbar nos dashboards id ou nome / nome ou cpf ou id
 	[ ] renomear front -> product tá ambíguo
 	[ ] ordenar tabela
 	[ ] forms onsubmit

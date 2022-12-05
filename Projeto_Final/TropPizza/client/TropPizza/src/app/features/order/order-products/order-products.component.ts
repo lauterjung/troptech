@@ -70,6 +70,7 @@ export class OrderProductsComponent implements OnInit {
 
     // se já existir, só add quantidade em cima
     // let existingCart
+    //if in existing cart, add quantity, else create product and push
     let cartProduct: CartProduct = {} as CartProduct;
 
     cartProduct.id = inventoryProduct.id;
@@ -80,6 +81,7 @@ export class OrderProductsComponent implements OnInit {
     
     this.cartProducts.push(cartProduct);
     this.cartService.saveProducts(this.cartProducts);
+    this.cartProducts = [];
     this.showMessage("Produto adicionado com sucesso!", false);
   }
 

@@ -25,5 +25,4 @@ export class CartService {
     retrieveProducts() {
         return this.cartProducts;
     }
-
 }

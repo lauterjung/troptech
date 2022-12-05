@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { CustomerEditComponent } from './features/customer/customer-edit/customer-edit.component';
 import { CustomerFormsComponent } from './features/customer/customer-forms/customer-forms.component';
 import { CustomerManagerComponent } from './features/customer/customer-manager/customer-manager.component';
-import { HomeComponent } from './features/home/home.component';
+import { HomeComponent } from './features/common/home/home.component';
 import { ProductEditComponent } from './features/product/product-edit/product-edit.component';
 import { ProductFormsComponent } from './features/product/product-forms/product-forms.component';
 import { ProductManagerComponent } from './features/product/product-manager/product-manager.component';
@@ -26,6 +26,7 @@ import { ProductDialogDeleteComponent } from './features/product/product-dialog-
 import { AlertDialogComponent } from './features/dialog/alert-dialog/alert-dialog.component';
 import { DeleteDialogComponent } from './features/dialog/delete-dialog/delete-dialog.component';
 import { OrderDialogStatusChangeComponent } from './features/order/order-dialog-status-change/order-dialog-status-change.component';
+import { NavbarComponent } from './features/common/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { OrderDialogStatusChangeComponent } from './features/order/order-dialog-
     AlertDialogComponent,
     DeleteDialogComponent,
     OrderDialogStatusChangeComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
