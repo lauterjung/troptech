@@ -4,7 +4,7 @@
 
 ## Proposta
 O projeto final se propõe a criar um sistema de um comércio eletrônico de pizzaria.
-Neste sistema, será possível gerenciar clientes, produtos e pedidos.  
+Neste sistema, é possível gerenciar clientes, produtos e pedidos.  
 
 ## Requisitos
 - Um navegador compatível (testado em Firefox v.107.0 64-bits)  
@@ -25,7 +25,7 @@ Neste sistema, será possível gerenciar clientes, produtos e pedidos.
 
 - Gerenciamento de pedidos:  
 \- Realizar novo pedido  
-\- Itens do carrinho  
+\- Carrinho  
 \- Editar pedidos  
 \- Atualizar status do pedido  
 \- Acompanhar pedido  
@@ -40,11 +40,11 @@ Neste sistema, será possível gerenciar clientes, produtos e pedidos.
 - Angular v. 14  
 
 ## Especificações técnicas
-- O back-end da aplicação será construído em C# / .NET 5.0  
-- O código possuirá cobertura de testes unitários  
-- A persistência dos dados será feita por meio de banco de dados relacional (SQL)  
-- A comunicação entre o back-end e o front-end da aplicação será feita por meio de uma API REST  
-- O front-end utilizará os princípios de Single Page Application (SPA) utilizando o serviço de router do Angular  
+- O back-end da aplicação foi construído em C# / .NET 5.0  
+- O código possui cobertura de testes unitários  
+- A persistência dos dados foi feita por meio de banco de dados relacional (SQL)  
+- A comunicação entre o back-end e o front-end da aplicação foi feita por meio de uma API REST  
+- O front-end utilizou os princípios de Single Page Application (SPA) com auxílio do serviço de router do Angular  
 
 ## Entidades
 - Cliente  
@@ -64,7 +64,7 @@ Para maiores detalhes das entidades, verificar os diagramas de classe:
 \- Não pode existir mais de um cliente com o mesmo CPF  
 \- Os pontos de fidelidade iniciam em zero e são adicionados no final do pedido, de acordo com a seguinte equação:  
 Pontos de fidelidade = 2 x Valor total do pedido  
-\- Ao excluir um cliente, os pedidos vinculados a ele também deverão ser excluídos  
+\- Ao excluir um cliente, os pedidos em aberto vinculados a ele também deverão ser excluídos  
 
 - Produto:  
 \- O nome não pode ser nulo  
@@ -73,7 +73,7 @@ Pontos de fidelidade = 2 x Valor total do pedido
 \- A data de validade deve ser superior a data atual  
 \- A quantidade do produto em estoque deve ser maior ou igual a zero  
 \- Deve inicializar como ativo  
-\- Só deve ser mostrado se for ativo e se a quantidade for maior que 0  
+\- Só deve ser disponível para compra se for ativo e se a quantidade for maior que 0  
 
 - Pedido:  
 \- Pode ou não ter um cliente (CPF) associado  
@@ -82,3 +82,4 @@ Pontos de fidelidade = 2 x Valor total do pedido
 \- Os produtos do pedido devem ter a quantidade em estoque  
 \- A data e hora associada é registrada no momento em que o pedido é realizado  
 \- O pedido inicia com o status "pendente"  
+\- Um pedido finalizado não pode ser editado ou excluído  

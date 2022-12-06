@@ -1,13 +1,13 @@
-﻿remover <br>
-campo cpf no pedido, validação
-footer to bottom
-
-rever docs
+﻿footer to bottom
+remover <br>
+styles.css tirar comentários
 refazer o front
-
-[ ] navegar com debug aberto
-
-baixar todos os pdfs e gabaritos
+[ ] validador cruzado do hasImage
+[ ] forms com bordinhas verde/vermelha
+	
+Para maiores detalhes das entidades, verificar os diagramas de classe:  
+- Diagrama de classes  
+- Diagrama relacional  
 
 [x] Documentação
 	[x] Readme
@@ -31,7 +31,7 @@ baixar todos os pdfs e gabaritos
 	[x] Class Model
 	[x] NavBar
 	[x] FavIcon
-	[ ] Componentes
+	[x] Componentes
 		[x] Home-page
 		[x] Clientes
 			[x] Cadastrar
@@ -47,19 +47,19 @@ baixar todos os pdfs e gabaritos
 				[x] Deletar
 		[x] Pedidos
 			[x] Novo pedido
-			[ ] Carrinho
+			[x] Carrinho
 			[x] Dashboard
 			[x] Alterar status
 			[x] Deletar
 
 [ ] Outro
-	[ ] product.Description só para inventory
 	[ ] validador cruzado do hasImage
-	[ ] mock para repository
-	[ ] status code 204
 	[ ] forms com bordinhas verde/vermelha
+	[ ] mock para repository
+	[ ] product.Description só para inventory
 	
 	Não
+	[ ] status code 204
 	[ ] searchbar nos dashboards id ou nome / nome ou cpf ou id
 	[ ] renomear front -> product tá ambíguo
 	[ ] ordenar tabela
@@ -74,6 +74,6 @@ baixar todos os pdfs e gabaritos
 	[x] Re-rodar testes
 	[x] Correspondência diagramas
 	[x] console.logs
-	[ ] navegar com debug aberto
+	[x] navegar com debug aberto
 	[ ] ver o que eu quero mostrar na apresentação
 	● client: Não compactar o projeto com a pasta node_modules; (recriar projeto do front, os modules podem estar bugados)

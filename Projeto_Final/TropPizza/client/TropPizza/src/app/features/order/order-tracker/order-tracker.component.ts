@@ -33,9 +33,7 @@ export class OrderTrackerComponent implements OnInit {
   }
 
   showOrderProducts(order: Order): string {
-    let message: string[] = [];
-    console.log(order.cartProducts);
-    
+    let message: string[] = [];    
     order.cartProducts.forEach(product => {
       let item: string = product.quantity + "x " + product.name;
       message.push(item);

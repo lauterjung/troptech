@@ -22,6 +22,7 @@ namespace TropPizza.Infra.Data.Repositories
             {
                 if (order.OrderCustomer != null)
                 {
+                    order.OrderCustomer = _customerRepository.ReadByCpf(order.OrderCustomer.Cpf);
                     _customerRepository.ApplyFidelityPoints(order.OrderCustomer.Id, order.TotalPrice);
                 }
 
