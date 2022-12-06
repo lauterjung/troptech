@@ -35,17 +35,6 @@ namespace TropPizza.Infra.Data.Repositories
             return inventoryProduct;
         }
 
-        public InventoryProduct ReadUnique(string name, string description, DateTime expirationDate)
-        {
-            InventoryProduct inventoryProduct = _inventoryProductDAO.ReadUnique(name, description, expirationDate);
-            if (inventoryProduct is null)
-            {
-                throw new ProductNotFound();
-            }
-
-            return inventoryProduct;
-        }
-
         public List<InventoryProduct> ReadVisible()
         {
             List<InventoryProduct> inventoryProductsList = _inventoryProductDAO.ReadVisible();

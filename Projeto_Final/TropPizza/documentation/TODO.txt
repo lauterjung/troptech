@@ -1,16 +1,10 @@
-﻿Editar cliente
-Violation of UNIQUE KEY constraint 'UQ__Customer__D836E71FB1F62F04'. Cannot insert duplicate key in object 'dbo.Customers'. The duplicate key value is (00000000001). The statement has been terminated.
-se só removesse o UNIQUE
-
-ir organizando a entrega
+﻿dúvida: subscribe, tem como esperar?
 
 Horário de atendimento: 18:00 h - 00:00 h
 Telefone: (00) 0000-0000
 Endereço: Rua Avenida, nº 01, Bairro Bairro
 Redes sociais:
 
-exportar thunder
-rever thunder
 footer to bottom
 remover <br>
 styles.css tirar comentários

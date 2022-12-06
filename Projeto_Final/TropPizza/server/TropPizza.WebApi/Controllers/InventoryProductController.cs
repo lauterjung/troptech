@@ -35,7 +35,7 @@ namespace TropPizza.WebApi.Controllers
         {
             try
             {
-                return Ok(_repository.ReadAll());
+                return StatusCode(200, _repository.ReadAll());
             }
             catch (Exception e)
             {
@@ -49,7 +49,7 @@ namespace TropPizza.WebApi.Controllers
         {
             try
             {
-                return Ok(_repository.ReadVisible());
+                return StatusCode(200, _repository.ReadVisible());
             }
             catch (Exception e)
             {
@@ -97,7 +97,7 @@ namespace TropPizza.WebApi.Controllers
             try
             {
                 _repository.Delete(id);
-                return Ok();
+                return StatusCode(200);
             }
             catch (Exception e)
             {

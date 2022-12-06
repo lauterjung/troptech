@@ -62,14 +62,23 @@ namespace TropPizza.Infra.Data.Repositories
 
         public void Update(Customer customer)
         {
-            Customer searchedCustomer = _customerDAO.ReadById(customer.Id);
-            if (searchedCustomer is null)
-            {
-                throw new CustomerNotFound();
-            }
-
             if (customer.Validate())
             {
+                Customer searchedCustomer = _customerDAO.ReadById(customer.Id);
+                if (searchedCustomer is null)
+                {
+                    throw new CustomerNotFound();
+                }
+                
+                if (customer.Cpf != searchedCustomer.Cpf)
+                {
+                    Customer existingCpf = _customerDAO.ReadByCpf(customer.Cpf);
+                    if (searchedCustomer is not null)
+                    {
+                        throw new CpfAlreadyExists();
+                    }
+                }
+
                 _customerDAO.Update(customer);
             }
         }

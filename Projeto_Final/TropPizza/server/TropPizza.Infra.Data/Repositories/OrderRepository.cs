@@ -123,7 +123,6 @@ namespace TropPizza.Infra.Data.Repositories
 
             _cartProductsRepository.Delete(id);
             _orderDAO.Delete(id);
-
         }
     }
 }
