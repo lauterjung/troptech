@@ -70,17 +70,6 @@ namespace TropPizza.Infra.Data.Repositories
 
             if (customer.Validate())
             {
-                string oldCpf = searchedCustomer.Cpf;
-                string newCpf = customer.Cpf;
-                if (oldCpf != newCpf)
-                {
-                    Customer existingCustomer = _customerDAO.ReadByCpf(customer.Cpf);
-                    if (existingCustomer != null)
-                    {
-                        throw new CpfAlreadyExists();
-                    }
-                }
-
                 _customerDAO.Update(customer);
             }
         }

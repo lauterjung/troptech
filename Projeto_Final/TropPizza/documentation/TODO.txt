@@ -2,8 +2,6 @@
 campo cpf no pedido, validação
 footer to bottom
 
-:void
-
 rever docs
 refazer o front
 

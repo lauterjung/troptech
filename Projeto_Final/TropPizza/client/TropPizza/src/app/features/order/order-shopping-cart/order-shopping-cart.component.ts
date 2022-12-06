@@ -102,8 +102,8 @@ export class OrderShoppingCartComponent implements OnInit {
     order.orderCustomer = {} as Customer;
 
     let cpf = this.form.get("cpf")?.value;
-    if (typeof cpf != 'undefined' && cpf) {
-      order.orderCustomer!.cpf = cpf;
+    if (typeof cpf != 'undefined' && cpf.toString()) {
+      order.orderCustomer.cpf = cpf;
     } else {
       order.orderCustomer = undefined;
     }

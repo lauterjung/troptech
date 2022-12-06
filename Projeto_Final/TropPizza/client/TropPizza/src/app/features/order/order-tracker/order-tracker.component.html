@@ -53,11 +53,11 @@
                 <br>
                 <strong>CPF do cliente:</strong> {{showClientCpf(orderToTrack)}}
                 <br>
-                <strong>Produtos:</strong> {{showOrderProducts(orderToTrack)}}
+                <strong>Produtos:</strong> {{cartProductsNames}}
                 <br>
                 <strong>Data e hora do pedido:</strong> {{orderToTrack.orderDateTime | date:'dd/MM/yyy - HH:mm' + " 'h'" }}
                 <br>
-                <strong>Valor total:</strong> {{'R$ ' + orderToTrack.totalPrice.toFixed(2)}}
+                <strong>Valor total:</strong> {{'R$ ' + showTotalPrice()}}
             </div>
         </div>
     </div>

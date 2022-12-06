@@ -13,6 +13,8 @@ export class OrderTrackerComponent implements OnInit {
 
   public orderToTrack: Order = {} as Order;
   public id: number = 0;
+  public cartProductsNames: string = "";
+  public totalPrice: number = 0;
 
   constructor(private service: OrderService, private route: ActivatedRoute) { }
 
@@ -25,8 +27,8 @@ export class OrderTrackerComponent implements OnInit {
       .pipe(take(1))
       .subscribe((data: Order) => {
         this.orderToTrack = data;
-        // aqui
-        
+        this.totalPrice = data.totalPrice;
+        this.cartProductsNames = this.showOrderProducts(data);
       });
   }
 
@@ -43,5 +45,9 @@ export class OrderTrackerComponent implements OnInit {
 
   showClientCpf(order: Order): string {
     return order.orderCustomer?.cpf ? order.orderCustomer?.cpf : "Sem CPF registrado";
+  }
+
+  showTotalPrice(): string {
+    return this.totalPrice.toFixed(2);
   }
 }
