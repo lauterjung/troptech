@@ -1,14 +1,9 @@
 ﻿dúvida: subscribe, tem como esperar?
+const e let,
 
-Horário de atendimento: 18:00 h - 00:00 h
-Telefone: (00) 0000-0000
-Endereço: Rua Avenida, nº 01, Bairro Bairro
-Redes sociais:
-
-footer to bottom
 remover <br>
-styles.css tirar comentários
 refazer o front
+
 [ ] validador cruzado do hasImage
 [ ] forms com bordinhas verde/vermelha
 
