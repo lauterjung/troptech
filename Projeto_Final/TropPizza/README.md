@@ -52,8 +52,8 @@ Neste sistema, é possível gerenciar clientes, produtos e pedidos.
 - Pedido  
   
 Para maiores detalhes das entidades, verificar os diagramas de classe:  
-- Diagrama de classes  
-- Diagrama relacional  
+- [Diagrama de classes](https://github.com/lauterjung/troptech/blob/main/Projeto_Final/TropPizza/documentation/diagrams/class_diagram.svg)  
+- [Diagrama relacional](https://github.com/lauterjung/troptech/blob/main/Projeto_Final/TropPizza/documentation/diagrams/sql_diagram.svg)  
 
 ## Regras de negócio
 - Cliente:  

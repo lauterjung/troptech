@@ -139,4 +139,11 @@ Criei esse repositório para postar a minha resolução de todos os exercícios 
 -[Projeto 6](https://lauterjung.github.io/status-delivery/): Sistema de delivery (Angular)  
 
 # Projeto final  
--Projeto Final:    
+-[Projeto Final](https://github.com/lauterjung/troptech/tree/main/Projeto_Final/TropPizza): Comércio eletrônico  
+  
+Ferramentas utilizadas:  
+-C# / .net  
+-MSQL  
+-HTML + CSS + TS  
+-Bootstrap  
+-Angular  
