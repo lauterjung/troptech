@@ -1,0 +1,9 @@
+th, td {
+    padding: 5px 1px 5px 1px !important;
+    vertical-align: middle;
+}
+
+.justify-content-around{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}

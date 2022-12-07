@@ -1,0 +1,83 @@
+<div *ngIf="!isEmptyCart">
+  <div class="row text-center pb-3">
+    <h1>Carrinho de Compras</h1>
+  </div>
+  <div class="row justify-content-around">
+    <div class="col-6">
+      <div class="row">
+        <div class="col">
+          <table class="table table-hover text-center">
+            <colgroup>
+              <col span="1" style="width: 50%">
+              <col span="1" style="width: 20%">
+              <col span="1" style="width: 20%">
+              <col span="1" style="width: 10%">
+              <col span="1" style="width: 1%">
+              <col span="1" style="width: 1%">
+              <col span="1" style="width: 1%">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Preço unitário</th>
+                <th>Preço total</th>
+                <th>Quantidade</th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of cartProducts, let i = index">
+                <td>{{ product.name }}</td>
+                <td>{{ "R$ " + product.unitPrice.toFixed(2) }}</td>
+                <td>{{ "R$ " + product.totalPrice.toFixed(2) }}</td>
+                <td>{{ product.quantity }}</td>
+                <td><button type="button" class="btn btn-success btn-sm" title="Adicionar" (click)="addQuantity(i)"><i
+                      class="bi bi-plus-lg"></i></button></td>
+                <td><button type="button" class="btn btn-danger btn-sm" title="Remover" (click)="removeQuantity(i)"><i
+                      class="bi bi-dash-lg"></i></button></td>
+                <td><button type="button" class="btn btn-dark btn-sm" title="Excluir" (click)="deleteItem(i)"><i
+                      class="bi bi-trash3"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-around">
+    <div class="row total-price col-6">
+      <h4>Preço total do pedido: R$ {{calculateTotalPrice()}}</h4>
+    </div>
+  </div>
+  <div class="row justify-content-around text-center pt-5">
+    <h4>Possui cadastro?</h4>
+    <h4>Digite o seu CPF para acumular pontos!</h4>
+    <div class="col-2 pt-2">
+      <form (ngSubmit)="submitOrder()" [formGroup]="form">
+        <div class="form-group">
+          <input class="form-control" maxlength=11 type="text" id="cpf" name="cpf" formControlName="cpf"
+            autocomplete="off" placeholder="CPF" />
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row justify-content-around text-center pt-5">
+    <div class="col-4">
+      <div class="row justify-content-around text-center">
+        <div class="col-6"><button class="button btn btn-danger btn-lg" (click)="confirmEmptyCart()">Esvaziar carrinho</button></div>
+        <div class="col-6"><button class="button btn btn-success btn-lg" (click)="submitOrder()">Concluir pedido</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isEmptyCart">
+  <div class="big-icon"><i class="bi bi-cart-x"></i></div>
+  <div class="big-text">Oops! Seu carrinho está vazio.</div>
+  <div class="row justify-content-around text-center pt-5">
+    <div class="col-3"><button class="button btn btn-success btn-lg" (click)="goShopping()">Adicionar itens ao
+        carrinho</button></div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="row text-center">
+  <h1>Editar Pedidos</h1>
+</div>
+<div class="row justify-content-around">
+  <div class="col-10">
+    <div class="row">
+      <div class="col">
+        <table class="table table-striped table-hover text-center">
+          <colgroup>
+            <col span="1" style="width: 5%">
+            <col span="1" style="width: 10%">
+            <col span="1" style="width: 50%">
+            <col span="1" style="width: 15%">
+            <col span="1" style="width: 15%">
+            <col span="1" style="width: 1%">
+            <col span="1" style="width: 1%">
+            <col span="1" style="width: 1%">
+          </colgroup>
+          <caption class="caption-top p-0 ps-1 pb-2"><strong>Tabela 1.</strong> Lista de pedidos.
+          </caption>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>CPF cliente</th>
+              <th>Produtos</th>
+              <th>Data - Hora</th>
+              <th>Status</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let order of orders">
+              <td>{{ order.id }}</td>
+              <td>{{ order.orderCustomer ? order.orderCustomer.cpf : "-" }}</td>
+              <td>{{ showOrderProducts(order) }}</td>
+              <td>{{ order.orderDateTime | date:'dd/MM/yyy - HH:mm' }}</td>
+              <td>{{ order.status }}</td>
+              <td><button [disabled]="order.statusEnum == 3" type="button" class="btn btn-warning btn-sm"
+                  title="Alterar status" (click)="showUpdateStatusDialog(order)">
+                  <i class="bi bi-clock"></i></button></td>
+              <td><button type="button" class="btn btn-info btn-sm" title="Acompanhar pedido"
+                  (click)="trackOrder(order.id)">
+                  <i class="bi bi-pin-map"></i></button></td>
+              <td><button [disabled]="order.statusEnum == 3" button class="btn btn-dark btn-sm"
+                  title="Excluir" (click)="showDeleteDialog(order.id)">
+                  <i class="bi bi-trash3"></i></button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

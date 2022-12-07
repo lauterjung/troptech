@@ -1,8 +1,7 @@
-﻿dúvida: subscribe, tem como esperar?
-const e let,
+﻿dúvida: subscribe, tem como esperar? rxjs switchmap forkjoin concat
 
-remover <br>
-refazer o front
+
+
 
 [ ] validador cruzado do hasImage
 [ ] forms com bordinhas verde/vermelha
