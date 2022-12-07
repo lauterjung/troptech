@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { take } from 'rxjs';
 import { AlertDialogComponent } from '../../common/dialog/alert-dialog/alert-dialog.component';
 import { DeleteDialogComponent } from '../../common/dialog/delete-dialog/delete-dialog.component';
-import { OrderService } from '../../order.service';
+import { OrderService } from '../order.service';
 import { OrderDialogStatusChangeComponent } from '../order-dialog-status-change/order-dialog-status-change.component';
 import { Order } from '../order.model';
 

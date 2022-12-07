@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { take } from 'rxjs';
 import { CustomValidators } from 'src/app/validators/custom.validators';
 import { AlertDialogComponent } from '../../common/dialog/alert-dialog/alert-dialog.component';
-import { ProductService } from '../../product.service';
+import { ProductService } from '../product.service';
 import { InventoryProduct } from '../product.model';
 
 @Component({
@@ -36,6 +36,7 @@ export class ProductFormsComponent implements OnInit {
       return;
     }
 
+    this.productHasImage = false;
     const inventoryProduct: InventoryProduct = this.formToProduct();
     this.service.saveProduct(inventoryProduct)
       .pipe(take(1))

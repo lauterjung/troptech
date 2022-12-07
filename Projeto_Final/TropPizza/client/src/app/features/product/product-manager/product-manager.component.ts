@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs';
-import { ProductService } from '../../product.service';
+import { ProductService } from '../product.service';
 import { InventoryProduct } from '../product.model';
 import { Router } from '@angular/router';
 import { DeleteDialogComponent } from '../../common/dialog/delete-dialog/delete-dialog.component';

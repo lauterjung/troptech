@@ -18,10 +18,10 @@ import { OrderStatusComponent } from './features/order/order-status/order-status
 import { OrderTrackerComponent } from './features/order/order-tracker/order-tracker.component';
 import { MatDialogModule } from "@angular/material/dialog";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CartService } from './features/cart.service';
-import { OrderService } from './features/order.service';
-import { ProductService } from './features/product.service';
-import { CustomerService } from './features/customer.service';
+import { CartService } from './features/order/cart.service';
+import { OrderService } from './features/order/order.service';
+import { ProductService } from './features/product/product.service';
+import { CustomerService } from './features/customer/customer.service';
 import { AlertDialogComponent } from './features/common/dialog/alert-dialog/alert-dialog.component';
 import { DeleteDialogComponent } from './features/common/dialog/delete-dialog/delete-dialog.component';
 import { OrderDialogStatusChangeComponent } from './features/order/order-dialog-status-change/order-dialog-status-change.component';

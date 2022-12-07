@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
-import { CustomerService } from '../../customer.service';
+import { CustomerService } from '../customer.service';
 import { AlertDialogComponent } from '../../common/dialog/alert-dialog/alert-dialog.component';
 import { DeleteDialogComponent } from '../../common/dialog/delete-dialog/delete-dialog.component';
 import { Customer } from '../customer.model';

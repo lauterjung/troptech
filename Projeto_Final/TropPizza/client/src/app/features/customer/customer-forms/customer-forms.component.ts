@@ -4,7 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { take } from 'rxjs';
 import { CustomValidators } from 'src/app/validators/custom.validators';
-import { CustomerService } from '../../customer.service';
+import { CustomerService } from '../customer.service';
 import { AlertDialogComponent } from '../../common/dialog/alert-dialog/alert-dialog.component';
 import { Customer } from '../customer.model';
 

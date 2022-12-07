@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { take } from 'rxjs';
-import { ProductService } from '../../product.service';
+import { ProductService } from '../product.service';
 import { InventoryProduct } from '../product.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { formatDate } from '@angular/common';

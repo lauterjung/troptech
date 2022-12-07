@@ -74,7 +74,7 @@ VALUES
     ('Pizza - Portuguesa', 'Pizza grande 12 fatias sabor Portuguesa', 1, '2025-01-01', 20, 70, 1, 'portuguesa.png', 0),
     ('Pizza - Quatro queijos', 'Pizza grande 12 fatias sabor Quatro queijos', 1, '2025-01-01', 20, 70, 1, 'quatro-queijos.png', 0),
     ('Pizza - Siciliana', 'Pizza grande 12 fatias sabor Siciliana', 1, '2025-01-01', 20, 70, 1, 'siciliana.png', 0),
-    ('Pizza - Tomate seco', 'Pizza grande 12 fatias sabor Tomate seco', 1, '2025-01-01', 20, 80, 1, 'tomate-seco.png', 0);
+    ('Pizza - Tomate seco', 'Pizza grande 12 fatias sabor Tomate seco', 1, '2025-01-01', 2, 80, 1, 'tomate-seco.png', 0);
 -----------------------------------------------------------------------------------------------------
 CREATE TABLE OrderStatus
 (

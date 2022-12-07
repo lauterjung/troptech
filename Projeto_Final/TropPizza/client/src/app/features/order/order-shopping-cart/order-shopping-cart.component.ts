@@ -4,10 +4,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
-import { CartService } from '../../cart.service';
+import { CartService } from '../cart.service';
 import { Customer } from '../../customer/customer.model';
 import { AlertDialogComponent } from '../../common/dialog/alert-dialog/alert-dialog.component';
-import { OrderService } from '../../order.service';
+import { OrderService } from '../order.service';
 import { CartProduct } from '../../product/product.model';
 import { Order } from '../order.model';
 import { DeleteDialogComponent } from '../../common/dialog/delete-dialog/delete-dialog.component';
@@ -101,11 +101,10 @@ export class OrderShoppingCartComponent implements OnInit {
     order.cartProducts = this.cartProducts;
     order.orderCustomer = {} as Customer;
 
-    const cpf = this.form.get("cpf")?.value;
-    if (typeof cpf != 'undefined' && cpf.toString()) {
-      order.orderCustomer.cpf = cpf;
-    } else {
+    if (this.form.get("cpf")?.value == null) {
       order.orderCustomer = undefined;
+    } else {
+      order.orderCustomer.cpf = this.form.get("cpf")?.value;
     }
 
     this.service.saveOrder(order)

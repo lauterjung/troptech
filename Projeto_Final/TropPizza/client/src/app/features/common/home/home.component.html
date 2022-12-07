@@ -1,13 +1,13 @@
 <div class="background-image"></div>
-<div class="container">
-    <div class="row pt-2">
+
+    <div class="row p-2 justify-content-center">
         <div class="col-7 main-message">
             <div class="pt-4 mt-4">
                 A melhor pizza de Lages!
             </div>
             <div class="pt-4 mt-4">
                 No momento estamos:
-                <span [ngClass]="isOpen ? 'green-text' : 'red-text'">{{message}}</span>
+                <p [ngClass]="isOpen ? 'green-text' : 'red-text'">{{message}}</p>
             </div>
             <div class="pt-4 mt-4">
                 <button [disabled]="!isOpen" class="button btn btn-lg btn-success main-message"
@@ -16,10 +16,10 @@
                     pedido</button>
             </div>
         </div>
-        <div class="col-3">
-            <img src="../../../../assets/favicon.png" alt="TropPizza">
+        <div class="col-5 pizza-image">
+            <img src="../../../../assets/favicon.png"  alt="TropPizza">
         </div>
     </div>
 
-</div>
+
 <app-footer></app-footer>

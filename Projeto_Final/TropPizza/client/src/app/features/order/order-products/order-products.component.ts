@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
-import { CartService } from '../../cart.service';
+import { CartService } from '../cart.service';
 import { AlertDialogComponent } from '../../common/dialog/alert-dialog/alert-dialog.component';
-import { ProductService } from '../../product.service';
+import { ProductService } from '../../product/product.service';
 import { CartProduct, InventoryProduct } from '../../product/product.model';
 
 @Component({

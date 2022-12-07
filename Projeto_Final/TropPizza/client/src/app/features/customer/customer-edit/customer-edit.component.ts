@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs';
-import { CustomerService } from '../../customer.service';
+import { CustomerService } from '../customer.service';
 import { Customer } from '../customer.model';
 import { formatDate } from '@angular/common';
 import { CustomValidators } from 'src/app/validators/custom.validators';

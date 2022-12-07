@@ -73,7 +73,7 @@ namespace TropPizza.Infra.Data.Repositories
                 if (customer.Cpf != searchedCustomer.Cpf)
                 {
                     Customer existingCpf = _customerDAO.ReadByCpf(customer.Cpf);
-                    if (searchedCustomer is not null)
+                    if (existingCpf is not null)
                     {
                         throw new CpfAlreadyExists();
                     }

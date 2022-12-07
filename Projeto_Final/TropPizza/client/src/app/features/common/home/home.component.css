@@ -29,3 +29,8 @@
     color: red;
     font-weight: bolder;
 }
+
+.pizza-image {
+    height: 39%;
+    width: 39%;
+}
