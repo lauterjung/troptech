@@ -1,8 +1,9 @@
 # Projeto Final - TropPizza
-https://lauterjung.github.io/troppizza/troppizza.mp4
+https://lauterjung.github.io/troppizza/troppizza.mp4  
 (https://lauterjung.github.io/troppizza/troppizza.mp4)
-<video src="https://lauterjung.github.io/troppizza/troppizza.mp4" controls="controls" style="max-width: 730px;">
-</video>
+
+https://user-images.githubusercontent.com/10168931/207152033-7f9f5994-20d5-41fa-a171-138461ddac8e.mp4
+
 
 [![TropPizza](http://img.youtube.com/vi/MmOjE9PJER0/0.jpg)](http://www.youtube.com/watch?v=MmOjE9PJER0 "Trop Pizza")
 # Descrição geral do projeto
