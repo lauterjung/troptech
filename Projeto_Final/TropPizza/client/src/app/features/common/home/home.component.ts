@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
 
   checkIfOpen(): boolean {
     const currentHour: number = new Date().getHours();
-    const openingTime = 18;
+    const openingTime = 10;
     const closingTime = 24;
 
     if (currentHour >= openingTime && currentHour < closingTime) {
