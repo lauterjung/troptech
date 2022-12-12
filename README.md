@@ -139,7 +139,7 @@ Criei esse repositório para postar a minha resolução de todos os exercícios 
 -[Projeto 6](https://lauterjung.github.io/status-delivery/): Sistema de delivery (Angular)  
 
 # Projeto final  
--[Projeto Final](https://lauterjung.github.io/troppizza.mp4): Comércio eletrônico  
+-[Projeto Final](https://lauterjung.github.io/troppizza/troppizza.mp4): Comércio eletrônico  
   
 Ferramentas utilizadas:  
 -C# / .net  
