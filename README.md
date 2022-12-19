@@ -5,12 +5,9 @@ A cada 7 ou 15 dias foi proposto um projeto para a resolução individual valend
 Criei esse repositório para postar a minha resolução de todos os exercícios e projetos.  
   
 # Projeto final  
--[Projeto Final](https://lauterjung.github.io/troppizza/troppizza.mp4): Comércio eletrônico  
-  
-
 https://user-images.githubusercontent.com/10168931/208462652-d3c975e6-9c25-4076-abee-88aa447d971c.mp4
 
-
+-[Projeto Final](https://github.com/lauterjung/troptech/tree/main/Projeto_Final/TropPizza): Comércio eletrônico ([vídeo](https://lauterjung.github.io/troppizza/troppizza.mp4))  
 Ferramentas utilizadas:  
 -C# / .net  
 -MSQL  
