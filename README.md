@@ -13,7 +13,8 @@ Ferramentas utilizadas:
 -HTML + CSS + TS  
 -Bootstrap  
 -Angular  
-[Código](https://github.com/lauterjung/troptech/tree/main/Projeto_Final/TropPizza) / [Vídeo](https://lauterjung.github.io/troppizza/troppizza.mp4))  
+  
+[Código](https://github.com/lauterjung/troptech/tree/main/Projeto_Final/TropPizza) / [Vídeo](https://lauterjung.github.io/troppizza/troppizza.mp4)  
   
 # Módulo 1
 ## Aulas
