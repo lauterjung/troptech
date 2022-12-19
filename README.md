@@ -4,16 +4,16 @@ Cada aula consistiu em um vídeo teórico com 1 h de duração e mais 2 h de res
 A cada 7 ou 15 dias foi proposto um projeto para a resolução individual valendo nota sobre o conteúdo acumulado.  
 Criei esse repositório para postar a minha resolução de todos os exercícios e projetos.  
   
-# Projeto final  
+# Projeto final (Comércio eletrônico)  
 https://user-images.githubusercontent.com/10168931/208462652-d3c975e6-9c25-4076-abee-88aa447d971c.mp4
-
--[Projeto Final](https://github.com/lauterjung/troptech/tree/main/Projeto_Final/TropPizza): Comércio eletrônico ([vídeo](https://lauterjung.github.io/troppizza/troppizza.mp4))  
+  
 Ferramentas utilizadas:  
 -C# / .net  
 -MSQL  
 -HTML + CSS + TS  
 -Bootstrap  
 -Angular  
+[Código](https://github.com/lauterjung/troptech/tree/main/Projeto_Final/TropPizza) / [Vídeo](https://lauterjung.github.io/troppizza/troppizza.mp4))  
   
 # Módulo 1
 ## Aulas
