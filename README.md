@@ -4,6 +4,17 @@ Cada aula consistiu em um vídeo teórico com 1 h de duração e mais 2 h de res
 A cada 7 ou 15 dias foi proposto um projeto para a resolução individual valendo nota sobre o conteúdo acumulado.  
 Criei esse repositório para postar a minha resolução de todos os exercícios e projetos.  
   
+# Projeto final  
+-[Projeto Final](https://lauterjung.github.io/troppizza/troppizza.mp4): Comércio eletrônico  
+https://user-images.githubusercontent.com/10168931/207152033-7f9f5994-20d5-41fa-a171-138461ddac8e.mp4  
+  
+Ferramentas utilizadas:  
+-C# / .net  
+-MSQL  
+-HTML + CSS + TS  
+-Bootstrap  
+-Angular  
+  
 # Módulo 1
 ## Aulas
 -Aula 1 até 9: Conceitos básicos usando Scratch  
@@ -137,13 +148,3 @@ Criei esse repositório para postar a minha resolução de todos os exercícios 
 -[Projeto 4](https://lauterjung.github.io/tic-tac-toe/): Jogo da velha no browser (HTML + CSS + JS)  
 -[Projeto 5](https://lauterjung.github.io/bank-accounts/): Saques e depósitos de contas (HTML + CSS + TS)  
 -[Projeto 6](https://lauterjung.github.io/status-delivery/): Sistema de delivery (Angular)  
-
-# Projeto final  
--[Projeto Final](https://lauterjung.github.io/troppizza/troppizza.mp4): Comércio eletrônico  
-  
-Ferramentas utilizadas:  
--C# / .net  
--MSQL  
--HTML + CSS + TS  
--Bootstrap  
--Angular  
