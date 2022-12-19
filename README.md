@@ -6,8 +6,11 @@ Criei esse repositório para postar a minha resolução de todos os exercícios 
   
 # Projeto final  
 -[Projeto Final](https://lauterjung.github.io/troppizza/troppizza.mp4): Comércio eletrônico  
-https://user-images.githubusercontent.com/10168931/207152033-7f9f5994-20d5-41fa-a171-138461ddac8e.mp4  
   
+
+https://user-images.githubusercontent.com/10168931/208462652-d3c975e6-9c25-4076-abee-88aa447d971c.mp4
+
+
 Ferramentas utilizadas:  
 -C# / .net  
 -MSQL  
