@@ -1,4 +1,34 @@
-﻿npm install --save-dev @iconify/ember
+﻿ng serve --configuration=production
+
+
+tsc --init
+
+{
+"compilerOptions": {
+"outDir": "./dist",
+"target": "ES5",
+"module": "none"
+}
+}
+
+
+array.sort((a,b)=> {return b-a}
+
+element.attribute
+
+    Método document.createElement(element) : Cria um elemento HTML 
+    Método document.removeChild(element) : Remove um elemento HTML 
+    Método document.appendChild(element) : Adiciona um elemento HTML 
+    Método document.replaceChild(new, old) : Substitui um elemento HTML 
+    Médoto document.write(text) : Escreve no fluxo de saída HTML 
+	
+    document.createElement()
+    document.createTextNode()
+    appendChild()
+    insertBefore()
+    removeChild()
+
+npm install --save-dev @iconify/ember
 
 of(this.tickets)
     .pipe(take(1))
