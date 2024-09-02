@@ -7,6 +7,9 @@ Criei esse repositório para postar a minha resolução de todos os exercícios 
 # Projeto final (Comércio eletrônico)  
 https://user-images.githubusercontent.com/10168931/208462652-d3c975e6-9c25-4076-abee-88aa447d971c.mp4
   
+O projeto final foi criar um sistema de comércio eletrônico, com possibilidade de cadastro e edição de clientes e de produtos, assim como realizar pedidos.  
+A execução, elaboração e escolha do projeto ficou sob responsabilidade de cada aluno, desde que os critérios acima fossem atendidos.
+  
 Ferramentas utilizadas:  
 -C# / .net  
 -MSQL  
@@ -148,4 +151,4 @@ Ferramentas utilizadas:
 -[Projeto 3](https://lauterjung.github.io/shopping-list/): Lista de compras (HTML + CSS + JS)   
 -[Projeto 4](https://lauterjung.github.io/tic-tac-toe/): Jogo da velha no browser (HTML + CSS + JS)  
 -[Projeto 5](https://lauterjung.github.io/bank-accounts/): Saques e depósitos de contas (HTML + CSS + TS)  
--[Projeto 6](https://lauterjung.github.io/status-delivery/): Sistema de delivery (Angular)  
+-[Projeto 6](https://lauterjung.github.io/status-delivery/): Sistema de acompanhamento de delivery (Angular)  
